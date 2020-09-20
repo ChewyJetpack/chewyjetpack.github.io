@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <Content :content="$page.strapi.about.content" class="mt-10" />
+    <Content :content="$page.strapi.about.content" />
   </Layout>
 </template>
 

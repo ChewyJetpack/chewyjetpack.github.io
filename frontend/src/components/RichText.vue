@@ -1,6 +1,6 @@
 <template>
-  <div class="py-4">
-    <Markdown :source="data.content" class="mx-auto prose md:prose-lg" />
+  <div>
+    <Markdown :source="data.content" />
   </div>
 </template>
 

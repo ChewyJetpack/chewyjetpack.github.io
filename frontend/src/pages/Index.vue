@@ -1,19 +1,17 @@
 <template>
   <Layout>
     <div class="container">
-      <h1 class="text-4xl font-semibold mt-16">{{ $page.strapi.home.title }}</h1>
-      <h2 class="text-3xl font-semibold mt-16">{{ $page.strapi.home.subheading }}</h2>
-      <div class="mt-2 w-full md:w-9/12">
+      <h1>{{ $page.strapi.home.title }}</h1>
+      <h2>{{ $page.strapi.home.subheading }}</h2>
+      <div>
         <RichText :data="{ content: $page.strapi.home.bio }" />
       </div>
-      <h2
-        class="text-2xl uppercase text-gray-600 mb-6 mt-16 tracking-wide font-semibold"
-      >
-        My latest projects
+      <h2>
+        My Work
       </h2>
     </div>
     <!-- List of project preview cards -->
-    <div class="flex flex-col gap-12">
+    <div>
       <ProjectCard
         v-for="project in $page.strapi.projects"
         :key="project.id"
@@ -83,10 +81,3 @@ export default {
   },
 }
 </script>
-
-<style>
-img {
-  width: 100%;
-  height: auto;
-}
-</style>

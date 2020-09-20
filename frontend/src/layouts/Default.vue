@@ -52,15 +52,28 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  .layout {
+<style lang="scss">
+  // Global styles
+  body {
       font-family: $body-font;
       line-height: 1.6em;
 
       h1, h2, h3 {
         font-family: $heading-font;
-        font-weight: 400;
         line-height: 1.2em;
+      }
+
+      h1 {
+        font-weight: 600;
+      }
+
+      h2, h3 {
+        font-weight: 500;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
       }
   }
 </style>
