@@ -19,6 +19,10 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.seo"
+    },
+    "subheading": {
+      "type": "string",
+      "required": false
     }
   }
 }

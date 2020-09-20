@@ -2,6 +2,7 @@
   <Layout>
     <div class="container">
       <h1 class="text-4xl font-semibold mt-16">{{ $page.strapi.home.title }}</h1>
+      <h2 class="text-3xl font-semibold mt-16">{{ $page.strapi.home.subheading }}</h2>
       <div class="mt-2 w-full md:w-9/12">
         <RichText :data="{ content: $page.strapi.home.bio }" />
       </div>
@@ -28,6 +29,7 @@ query {
     # Get homepage data
     home {
       title
+      subheading
       bio
       # Metadata for SEO
       seo {

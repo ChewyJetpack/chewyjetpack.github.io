@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col justify-between text-black">
+  <div class="layout">
     <!-- Content anchored to top -->
     <div>
       <Navbar />
@@ -51,3 +51,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .layout {
+      font-family: $body-font;
+      line-height: 1.6em;
+
+      h1, h2, h3 {
+        font-family: $heading-font;
+        font-weight: 400;
+        line-height: 1.2em;
+      }
+  }
+</style>

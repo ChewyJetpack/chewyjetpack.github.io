@@ -4,9 +4,21 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const path = require('path')
+
+function addStyleResource (rule) {
+  rule.use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        path.resolve(__dirname, './src/assets/scss/global.scss'),
+      ],
+    })
+}
+
 module.exports = {
-  siteName: 'Strapi Gridsome Portfolio',
-  siteDescription: 'A portfolio site made using Gridsome and Strapi',
+  siteName: 'Emil Smith',
+  siteDescription: 'Creative Technologist working with all aspects of digital design and development to solve real-world problems.',
   plugins: [
     {
       use: '@gridsome/source-graphql',
@@ -15,9 +27,14 @@ module.exports = {
         fieldName: 'strapi',
         typeName: 'strapiTypes'
       }
-    },
-    {
-      use: "gridsome-plugin-tailwindcss",
     }
   ],
+  chainWebpack (config) {
+    // Load variables for all vue-files
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+    types.forEach(type => {
+      addStyleResource(config.module.rule('scss').oneOf(type))
+    })
+  }
 }
