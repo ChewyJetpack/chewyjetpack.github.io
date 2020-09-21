@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "posts",
   "info": {
-    "name": "Category"
+    "name": "Post"
   },
   "options": {
     "increments": true,
@@ -15,15 +15,6 @@
     "description": {
       "type": "text"
     },
-    "projects": {
-      "collection": "project",
-      "via": "categories"
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "meta.seo"
-    },
     "content": {
       "type": "dynamiczone",
       "components": [
@@ -32,9 +23,22 @@
         "sections.rich-text"
       ]
     },
+    "date": {
+      "type": "date"
+    },
+    "coverImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
     "slug": {
-      "type": "uid",
-      "targetField": "title"
+      "type": "uid"
     }
   }
 }

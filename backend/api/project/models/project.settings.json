@@ -19,8 +19,8 @@
       "type": "date"
     },
     "categories": {
-      "collection": "category",
       "via": "projects",
+      "collection": "category",
       "dominant": true
     },
     "content": {

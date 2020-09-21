@@ -1,10 +1,9 @@
 <template>
   <Layout>
     <div class="container">
-      <h1>{{ $page.strapi.home.title }}</h1>
-      <h2>{{ $page.strapi.home.subheading }}</h2>
+      <h1>{{ $page.strapi.category.title }}</h1>
       <div>
-        <Content :content="$page.strapi.home.content" />
+        <Content :data="{ content: $page.strapi.category.content }" />
       </div>
       <h2>
         My Work
@@ -24,43 +23,43 @@
 <page-query>
 query {
   strapi {
-    # Get homepage data
-    home {
-      title
-      subheading
-      content {
-        __typename
-        ... on strapiTypes_ComponentSectionsRichText {
-          id
-          content
-        }
-        ... on strapiTypes_ComponentSectionsLargeMedia {
-          id
-          media {
-            id
-            url
-            mime
-          }
-          description
-        }
-        ... on strapiTypes_ComponentSectionsImagesSlider {
-          id
-          title
-          images {
-            id
-            url
-          }
-        }
-      }
-      # Metadata for SEO
-      seo {
+    # Get category data
+    category(id: 4) {
         title
         description
-        shareImage {
-          id
-          url
+        content {
+          __typename
+          ... on strapiTypes_ComponentSectionsRichText {
+            id
+            content
+          }
+          ... on strapiTypes_ComponentSectionsLargeMedia {
+            id
+            media {
+              id
+              url
+              mime
+            }
+            description
+          }
+          ... on strapiTypes_ComponentSectionsImagesSlider {
+            id
+            title
+            images {
+              id
+              url
+            }
+          }
         }
-      }
+        # Metadata for SEO
+        seo {
+          title
+          description
+          shareImage {
+            id
+            url
+          }
+        }
     }
     # List projects
     projects(sort: "date:desc") {
@@ -95,7 +94,7 @@ export default {
     Content,
   },
   metaInfo() {
-    const { title, description, shareImage } = this.$page.strapi.home.seo
+    const { title, description, shareImage } = this.$page.strapi.categories.professional-projects.seo
     const image = getStrapiMedia(shareImage.url)
     return {
       title,

@@ -12,9 +12,6 @@
     "title": {
       "type": "string"
     },
-    "bio": {
-      "type": "richtext"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
@@ -23,6 +20,14 @@
     "subheading": {
       "type": "string",
       "required": false
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.images-slider",
+        "sections.large-media",
+        "sections.rich-text"
+      ]
     }
   }
 }

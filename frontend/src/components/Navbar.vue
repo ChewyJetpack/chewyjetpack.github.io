@@ -4,7 +4,7 @@
         {{ $static.metadata.siteName }}
       </g-link>
       <nav class="header__nav">
-        <g-link class="header__nav-item" to="/about/">About</g-link>
+        <g-link class="header__nav-item" to="/professional-projects/">Professional Projects</g-link>
       </nav>
   </header>
 </template>
