@@ -1,22 +1,22 @@
 <template>
   <Layout>
-    <div class="container">
-      <h1>{{ $page.strapi.home.title }}</h1>
-      <h2 class="u-bottom-spacer-xl">{{ $page.strapi.home.subheading }}</h2>
+    <div class="grid__centre-left">
+      <h1 class="u-bottom-spacer-s">{{ $page.strapi.home.title }}</h1>
+      <h2 class="subheading u-bottom-spacer-xl">{{ $page.strapi.home.subheading }}</h2>
       <div>
         <Content :content="$page.strapi.home.content" />
       </div>
-      <h2>
-        My Work
-      </h2>
     </div>
     <!-- List of project preview cards -->
-    <div>
-      <ProjectCard
-        v-for="project in $page.strapi.projects"
-        :key="project.id"
-        :project="project"
-      />
+
+    <div class="grid__centre">
+      <div class="story-grid">
+        <ProjectCard
+          v-for="project in $page.strapi.projects"
+          :key="project.id"
+          :project="project"
+        />
+      </div>
     </div>
   </Layout>
 </template>

@@ -1,8 +1,9 @@
 <template>
   <div class="layout">
     <!-- Content anchored to top -->
-    <div>
-      <Navbar />
+    <Navbar />
+
+    <div class="grid">
       <slot />
     </div>
     <!-- Content anchored to bottom -->
@@ -55,11 +56,4 @@ export default {
 <style lang="scss">
   // Global styles
   @import '@/assets/scss/global.scss';
-</style>
-
-<style lang="scss" scoped>
-  .layout {
-    max-width: 1040px;
-    margin: 0 auto;
-  }
 </style>

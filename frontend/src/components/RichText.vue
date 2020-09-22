@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="richtext">
     <Markdown :source="data.content" />
   </div>
 </template>
@@ -14,3 +14,6 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+</style>

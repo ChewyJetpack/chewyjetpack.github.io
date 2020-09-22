@@ -1,46 +1,13 @@
 @import './reset.scss';
 @import './utils/spacers.scss';
+@import './utils/grid.scss';
+@import './atoms/type.scss';
 
 body {
-    font-family: $body-font;
-    font-size: $txt_s;
-    line-height: 1.6em;
-    background: $crest;
-    color: $slate_1;
-    font-weight: 300;
+    background: $c_bg;
+}
 
-    a {
-        color: $coral;
-    }
-
-    h1, h2, h3 {
-      font-family: $heading-font;
-      line-height: 1.2em;
-      color: $carbon;
-    }
-
-    h1 {
-      font-weight: 700;
-      font-size: $txt_xl;
-    }
-
-    h2 {
-      font-weight: 400;
-      font-size: $txt_l;
-      color: $slate_2;
-    }
-
-    h3 {
-        font-weight: 400;
-        font-size: $txt_m;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    p {
-        @extend .u-bottom-spacer-l;
-    }
+img {
+  max-width: 100%;
+  height: auto;
 }
