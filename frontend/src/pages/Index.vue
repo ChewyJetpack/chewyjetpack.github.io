@@ -2,7 +2,7 @@
   <Layout>
     <div class="container">
       <h1>{{ $page.strapi.home.title }}</h1>
-      <h2>{{ $page.strapi.home.subheading }}</h2>
+      <h2 class="u-bottom-spacer-xl">{{ $page.strapi.home.subheading }}</h2>
       <div>
         <Content :content="$page.strapi.home.content" />
       </div>
@@ -69,7 +69,8 @@ query {
       description
       categories {
         id
-        title
+        title,
+        slug
       }
       coverImage {
         id

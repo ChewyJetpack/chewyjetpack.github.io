@@ -1,0 +1,9 @@
+$edges: 'top', 'right', 'bottom', 'left';
+
+@each $size, $val in $measurements {
+    @each $edge in $edges {
+        .u-#{$edge}-spacer-#{$size} {
+            margin-#{$edge}: $val;
+        }
+    }
+}

@@ -3,34 +3,26 @@
     <div class="container">
       <div>
         <h1>
-          {{ $page.strapi.projects[0].title }}
+          {{ $page.strapi.categories[0].title }}
         </h1>
-        <p>{{ $page.strapi.projects[0].description }}</p>
-        <g-image
-          :alt="$page.strapi.projects[0].title"
-          :src="getStrapiMedia($page.strapi.projects[0].coverImage.url)"
-        />
+        <p>{{ $page.strapi.categories[0].description }}</p>
       </div>
     </div>
-    <Content :content="$page.strapi.projects[0].content" />
+    <Content :content="$page.strapi.categories[0].content" />
   </Layout>
 </template>
 
 <page-query>
 query ($slug: String!) {
   strapi {
-    projects(where: { slug: $slug }) {
+    categories(where: { slug: $slug }) {
       id
       title
       slug
       description
-      categories {
+      projects {
         id
         title
-      }
-      coverImage {
-        id
-        url
       }
       content {
         __typename
@@ -56,6 +48,14 @@ query ($slug: String!) {
           }
         }
       }
+      seo {
+        title
+        description
+        shareImage {
+          id
+          url
+        }
+      }
     }
   }
 }
@@ -74,8 +74,8 @@ export default {
     Content,
   },
   metaInfo() {
-    const { title, description, coverImage } = this.$page.strapi.projects[0]
-    const image = getStrapiMedia(coverImage.url)
+    const { title, description, shareImage } = this.$page.strapi.categories[0].seo;
+    const image = getStrapiMedia(shareImage.url)
     return {
       title,
       meta: getMetaTags(title, description, image),

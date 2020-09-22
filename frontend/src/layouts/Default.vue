@@ -56,3 +56,10 @@ export default {
   // Global styles
   @import '@/assets/scss/global.scss';
 </style>
+
+<style lang="scss" scoped>
+  .layout {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+</style>

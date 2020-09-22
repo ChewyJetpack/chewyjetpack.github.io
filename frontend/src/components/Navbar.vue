@@ -4,7 +4,7 @@
         {{ $static.metadata.siteName }}
       </g-link>
       <nav class="header__nav">
-        <g-link class="header__nav-item" to="/professional-projects/">Professional Projects</g-link>
+        <g-link v-for="category in $static.strapi.categories" :key="category.id" class="header__nav-item" :to="`/${category.slug}/`">{{ category.title }}</g-link>
       </nav>
   </header>
 </template>
@@ -13,6 +13,13 @@
 query {
   metadata {
     siteName
+  }
+  strapi {
+    categories {
+      title
+      slug
+      id
+    }
   }
 }
 </static-query>

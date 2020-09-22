@@ -15,10 +15,6 @@
     "description": {
       "type": "text"
     },
-    "projects": {
-      "collection": "project",
-      "via": "categories"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
@@ -35,6 +31,11 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "projects": {
+      "collection": "project",
+      "via": "categories",
+      "dominant": true
     }
   }
 }

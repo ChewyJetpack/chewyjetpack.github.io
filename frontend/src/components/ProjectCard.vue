@@ -1,27 +1,24 @@
 <template>
-  <div class="container flex flex-col md:flex-row md:gap-6">
+  <div>
     <g-link
-      :to="'project/' + project.slug"
-      class="w-full md:w-6/12 flex-shrink-0 relative"
+      :to="`${project.categories[0].slug}/${project.slug}`"
     >
     <g-image
       :alt="project.title"
       :src="getStrapiMedia(project.coverImage.url)"
-      class="w-full h-auto rounded-sm"
     />
     </g-link>
-    <div class="flex flex-col justify-between py-4">
+    <div>
       <div>
-        <g-link :to="'project/' + project.slug">
-          <h3 class="text-3xl font-semibold inline-block hover:underline">
+        <g-link :to="`${project.categories[0].slug}/${project.slug}`">
+          <h3>
             {{ project.title }}
           </h3>
         </g-link>
-        <div class="flex flex-row gap-4 py-2">
+        <div>
           <div
             v-for="category in project.categories"
             :key="category.id"
-            class="bg-secondary-200 text-secondary-900 uppercase tracking-wide px-1 text-sm font-semibold rounded-sm"
           >
             {{ category.title }}
           </div>
@@ -31,9 +28,8 @@
         </p>
       </div>
       <g-link
-        :to="'project/' + project.slug"
+        :to="`${project.categories[0].slug}/${project.slug}`"
         :title="project.title"
-        class="text-blue-700"
       >
         View project 👉
       </g-link>

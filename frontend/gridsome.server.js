@@ -17,6 +17,12 @@ module.exports = function (api) {
       strapi {
         projects {
           slug
+          categories {
+            slug
+          }
+        }
+        categories {
+          slug
         }
       }
     }`)
@@ -24,10 +30,21 @@ module.exports = function (api) {
     // Create a page for each project
     data.strapi.projects.forEach((project) => {
       createPage({
-        path: `/project/${project.slug}`,
+        path: `/${project.categories[0].slug}/${project.slug}`,
         component: './src/templates/Project.vue',
         context: {
           slug: project.slug
+        }
+      })
+    })
+
+    // Create a page for each project
+    data.strapi.categories.forEach((category) => {
+      createPage({
+        path: `/${category.slug}`,
+        component: './src/templates/Category.vue',
+        context: {
+          slug: category.slug
         }
       })
     })
