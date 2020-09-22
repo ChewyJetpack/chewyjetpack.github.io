@@ -1,17 +1,7 @@
-$measurements: (
-    "xs":        4px,
-    "s":         8px,
-    "m":         12px,
-    "l":         16px,
-    "xl":        24px,
-    "xxl":       32px,
-    "xxxl":      48px
-);
-
-@mixin set_vars($size: $unit_#{$size}, $val: $val) {
-    $size: $val;
-}
-
-@each $size, $val in $measurements {
-    @include set_vars($size, $val);
-}
+$unit_xs:        4px;
+$unit_s:         8px;
+$unit_m:         12px;
+$unit_l:         16px;
+$unit_xl:        24px;
+$unit_xxl:       32px;
+$unit_xxxl:      48px;

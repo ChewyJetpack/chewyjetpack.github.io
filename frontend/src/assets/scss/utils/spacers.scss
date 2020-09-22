@@ -1,3 +1,13 @@
+$measurements: (
+    "xs":        $unit_xs,
+    "s":         $unit_s,
+    "m":         $unit_m,
+    "l":         $unit_l,
+    "xl":        $unit_xl,
+    "xxl":       $unit_xxl,
+    "xxxl":      $unit_xxxl
+);
+
 $edges: 'top', 'right', 'bottom', 'left';
 
 @each $size, $val in $measurements {
