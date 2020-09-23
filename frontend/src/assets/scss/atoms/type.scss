@@ -1,36 +1,28 @@
-body {
-    font-family: $body-font;
-    font-size: $txt_m;
-    line-height: 1.6;
-    color: $c_txt;
-    font-weight: 300;
-}
-
 h1 {
     font-family: $heading-font;
     line-height: 1;
     font-weight: 900;
     font-size: $txt_xxl;
-    color: $c_h1;
+    color: var(--c-h1);
 }
 
 h2 {
     font-family: $heading-font;
-    font-size: $txt_l;
-    color: $c_h2;
+    font-size: $txt_m;
+    color: var(--c-h2);
     line-height: 1.2;
 }
 
 h3 {
-    font-size: $txt_m;
+    font-size: $txt_s;
     font-weight: 400;
-    color: $c_h0;
+    color: var(--c-h0);
 }
 
 h4, h5, h6 {
-    font-size: $txt_s;
+    font-size: $txt_xs;
     font-weight: 500;
-    color: $c_h0;
+    color: var(--c-h0);
 }
 
 .subheading {
@@ -38,6 +30,7 @@ h4, h5, h6 {
     font-style: italic;
     font-weight: 400;
     font-weight: 500;
+    color: var(--c-sh);
 }
 
 p:not([class]) {
@@ -45,11 +38,11 @@ p:not([class]) {
 }
 
 a {
-    color: $c_link;
+    color: var(--c-link);
     font-weight: 700;
     text-decoration: none;
 
     &:hover, &:focus {
-        color: $c_linkh;
+        color: var(--c-linkh);
     }
 }

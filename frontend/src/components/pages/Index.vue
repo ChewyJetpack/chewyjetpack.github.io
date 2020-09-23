@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <div class="grid">
     <div class="grid__centre-left">
       <h1 class="u-bottom-spacer-s">{{ $page.strapi.home.title }}</h1>
       <h2 class="subheading u-bottom-spacer-xl">{{ $page.strapi.home.subheading }}</h2>
@@ -18,7 +18,7 @@
         />
       </div>
     </div>
-  </Layout>
+  </div>
 </template>
 
 <page-query>
@@ -82,8 +82,8 @@ query {
 </page-query>
 
 <script>
-import ProjectCard from '~/components/ProjectCard'
-import Content from '~/components/Content'
+import ProjectCard from '~/components/molecules/ProjectCard'
+import Content from '~/components/molecules/Content'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
 

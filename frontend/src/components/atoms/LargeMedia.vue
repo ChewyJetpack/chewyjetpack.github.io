@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4">
+  <div>
     <g-image
       :alt="data.description"
       :src="getStrapiMedia(data.media.url)"

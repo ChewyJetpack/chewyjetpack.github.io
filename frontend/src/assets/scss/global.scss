@@ -1,11 +1,19 @@
+:root {
+    --c-bg:              #{$crest};
+    --c-hbg:             #{$coral};
+    --c-txt:             #{$carbon};
+    --c-h1:              #{$carbon};
+    --c-h2:              #{$carbon};
+    --c-sh:              #{$slate_1};
+    --c-h0:              #{$slate_2};
+    --c-link:            #{$coral};
+    --c-linkh:           #{$horizon};
+}
+
 @import './reset.scss';
 @import './utils/spacers.scss';
 @import './utils/grid.scss';
 @import './atoms/type.scss';
-
-body {
-    background: $c_bg;
-}
 
 img {
   max-width: 100%;

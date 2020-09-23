@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import RichText from '~/components/RichText'
-import LargeMedia from '~/components/LargeMedia'
-import Slider from '~/components/Slider'
+import RichText from '~/components/atoms/RichText'
+import LargeMedia from '~/components/atoms/LargeMedia'
+import Slider from '~/components/organisms/Slider'
 
 export default {
   props: ["content"],

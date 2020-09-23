@@ -27,22 +27,29 @@ module.exports = function (api) {
       }
     }`)
 
+    // Create a home page
+    createPage({
+      path: `/`,
+      component: './src/components/pages/Index.vue'
+    })
+
+
     // Create a page for each project
     data.strapi.projects.forEach((project) => {
       createPage({
         path: `/${project.categories[0].slug}/${project.slug}`,
-        component: './src/templates/Project.vue',
+        component: './src/components/templates/Project.vue',
         context: {
           slug: project.slug
         }
       })
     })
 
-    // Create a page for each project
+    // Create a page for each category
     data.strapi.categories.forEach((category) => {
       createPage({
         path: `/${category.slug}`,
-        component: './src/templates/Category.vue',
+        component: './src/components/templates/Category.vue',
         context: {
           slug: category.slug
         }

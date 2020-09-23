@@ -45,10 +45,10 @@ export default {
   .project-card {
     &__heading {
       a {
-        color: $c_h2;
+        color: var(--c-h2);
 
         &:hover, &:focus {
-          color: $c_link;
+          color: var(--c-link);
         }
       }
     }

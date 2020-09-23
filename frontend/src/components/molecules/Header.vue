@@ -4,12 +4,15 @@
           <div class="grid__centre">
             <div class="header__content">
               <g-link to="/" class="header__title">
-                {{ $static.metadata.siteName }}
+                <span>{{ $static.metadata.siteName }}</span>
               </g-link>
               <nav class="header__nav">
                 <ul class="header__nav-list">
                   <li v-for="category in $static.strapi.categories" :key="category.id" class="header__nav-item">
                     <g-link class="header__nav-link" :to="`/${category.slug}/`">{{ category.title }}</g-link>
+                  </li>
+                  <li class="header__nav-item header__nav-item--mode">
+                    <ModeSwitch :currentMode="currentMode" />
                   </li>
                 </ul>
               </nav>
@@ -18,6 +21,21 @@
       </div>
   </header>
 </template>
+
+<script>
+import ModeSwitch from '@/components/atoms/ModeSwitch'
+
+export default {
+  components: {
+    ModeSwitch
+  },
+  props: {
+    currentMode: {
+      type: String
+    }
+  }
+}
+</script>
 
 <static-query>
 query {
@@ -37,7 +55,6 @@ query {
 <style lang="scss" scoped>
   .header {
     padding: $unit_xl 0 $unit_m;
-    background: $c_hbg;
 
     &__content {
       display: flex;
@@ -50,24 +67,44 @@ query {
       font-family: $heading_font;
       font-weight: 900;
       text-decoration: none;
-      color: $coral;
+      color: $crest;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        width: 120%; 
+        height: 350%; 
+        background: var(--c-hbg);
+        transform: translate(-6%, -35%) skew(-5deg, -11deg) perspective(10px) rotateY(0.4deg) rotateX(1deg);
+        content: "";
+        display: block;
+        z-index: 0;
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
     }
 
     &__nav {
       margin-left: auto;
+      line-height: 1;
 
       &-list {
         display: flex;
       }
 
       &-item {
-        margin-left: $unit_l;
+        margin-left: $unit_m;
+        display: flex;
+        align-items: flex-end;
       }
 
       &-link {
         text-decoration: none;
         font-weight: 700;
-        font-size: $txt_m;
+        font-size: $txt_s;
       }
     }
   }
