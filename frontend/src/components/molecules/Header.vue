@@ -8,11 +8,11 @@
               </g-link>
               <nav class="header__nav">
                 <ul class="header__nav-list">
-                  <li v-for="category in $static.strapi.categories" :key="category.id" class="header__nav-item">
+                  <li v-for="category in $static.strapi.categories" :key="category.id" class="header__nav-item u-right-spacer-l">
                     <g-link class="header__nav-link" :to="`/${category.slug}/`">{{ category.title }}</g-link>
                   </li>
                   <li class="header__nav-item header__nav-item--mode">
-                    <ModeSwitch :currentMode="currentMode" />
+                    <ModeSwitch :currentMode="currentMode" class="u-left-spacer-xs" />
                   </li>
                 </ul>
               </nav>
@@ -96,15 +96,14 @@ query {
       }
 
       &-item {
-        margin-left: $unit_m;
         display: flex;
         align-items: flex-end;
+        font-weight: 700;
+        font-size: $txt_s;
       }
 
       &-link {
         text-decoration: none;
-        font-weight: 700;
-        font-size: $txt_s;
       }
     }
   }

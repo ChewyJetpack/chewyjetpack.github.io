@@ -1,6 +1,7 @@
 <template>
   <div 
     :class="`layout layout--${currentMode}`"
+    ref="layout"
   >
     <!-- Content anchored to top -->
     <Header :currentMode="currentMode" />
@@ -41,10 +42,16 @@ export default {
   },
   data() {
     return {
-      currentMode: 'light'
+      currentMode: 'init'
     }
   },
   mounted() {
+    const layout = this.$refs.layout;
+    if (layout.classList.contains('layout--init')) {
+      const initMode = getComputedStyle(layout).getPropertyValue('--mode');
+      console.log(initMode);
+      this.currentMode = initMode;
+    }
     EventBus.$on('updatemode', (mode) => { this.currentMode = mode });
   },
   metaInfo() {
@@ -66,6 +73,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @mixin dark {
+        --mode:dark;
+        --c-bg:              #{$carbon};
+        --c-hbg:             #{$coral};
+        --c-txt:             #{$midrange};
+        --c-h1:              #{$crest};
+        --c-h2:              #{$crest};
+        --c-sh:              #{$horizon};
+        --c-h0:              #{$slate_2};
+        --c-link:            #{$coral};
+        --c-linkh:           #{$horizon};
+    }
+
+    @mixin light {
+        --mode:light;
+        --c-bg:              #{$crest};
+        --c-hbg:             #{$coral};
+        --c-txt:             #{$carbon};
+        --c-h1:              #{$carbon};
+        --c-h2:              #{$carbon};
+        --c-sh:              #{$slate_1};
+        --c-h0:              #{$slate_2};
+        --c-link:            #{$coral};
+        --c-linkh:           #{$horizon};
+    }
+
   .layout {
     background: var(--c-bg);
     font-family: $body-font;
@@ -75,28 +108,20 @@ export default {
     font-weight: 300;
 
     &--light {
-      --c-bg:              #{$crest};
-      --c-hbg:             #{$coral};
-      --c-txt:             #{$carbon};
-      --c-h1:              #{$carbon};
-      --c-h2:              #{$carbon};
-      --c-sh:              #{$slate_1};
-      --c-h0:              #{$slate_2};
-      --c-link:            #{$coral};
-      --c-linkh:           #{$horizon};
+      @include light;
     }
 
     &--dark {
-      --c-bg:              #{$carbon};
-      --c-hbg:             #{$coral};
-      --c-txt:             #{$midrange};
-      --c-h1:              #{$crest};
-      --c-h2:              #{$crest};
-      --c-sh:              #{$horizon};
-      --c-h0:              #{$slate_2};
-      --c-link:            #{$coral};
-      --c-linkh:           #{$horizon};
+      @include dark;
     }
+
+    &--init {
+      @include light;
+      @media (prefers-color-scheme: dark) {
+        @include dark;
+      }
+    }
+
 
     &__content {
       position: relative;

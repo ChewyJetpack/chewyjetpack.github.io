@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    button {
+    .mode-switch {
         outline: none;
         border: none;
         padding: 0;
@@ -45,6 +45,23 @@ export default {
             content: "";
             width: 1px;
             height: 1px;
+            box-shadow: 0 0 0px 0px $crest;
+            transition: box-shadow 1s;
+        }
+
+        &--dark {
+            &:before {
+                box-shadow: 0 0 20px 7px $crest;
+                animation: 1s ease 0s infinite alternate glow;
+            }
+        }
+    }
+
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 18px 6px $crest;
+        }
+        to {
             box-shadow: 0 0 20px 7px $crest;
         }
     }
