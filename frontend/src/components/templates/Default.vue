@@ -83,7 +83,8 @@ export default {
         --c-sh:              #{$horizon};
         --c-h0:              #{$slate_2};
         --c-link:            #{$coral};
-        --c-linkh:           #{$horizon};
+        --c-linkh:           #{$coral};
+        --c-fine:            #{$slate_2};
     }
 
     @mixin light {
@@ -94,9 +95,10 @@ export default {
         --c-h1:              #{$carbon};
         --c-h2:              #{$carbon};
         --c-sh:              #{$slate_1};
-        --c-h0:              #{$slate_2};
+        --c-h0:              #{$slate_1};
         --c-link:            #{$coral};
-        --c-linkh:           #{$horizon};
+        --c-linkh:           #{$coral};
+        --c-fine:            #{$slate_1};
     }
 
   .layout {
@@ -106,6 +108,7 @@ export default {
     line-height: 1.6;
     color: var(--c-txt);
     font-weight: 300;
+    transition: all 0.5s;
 
     &--light {
       @include light;

@@ -4,12 +4,13 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
-import { faLightbulb as farLightbulb } from '@fortawesome/free-regular-svg-icons'
-import { faLightbulb as fasLightbulb } from '@fortawesome/free-solid-svg-icons'
+//import { } from '@fortawesome/free-regular-svg-icons'
+import { faAdjust, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import VueTruncate from 'vue-truncate-filter'
 
 config.autoAddCss = false;
-library.add(faGithub, faInstagram, faLinkedinIn, farLightbulb, fasLightbulb)
+library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight);
 
 export default function (Vue, { router, head, isClient }) {
 
@@ -26,4 +27,5 @@ export default function (Vue, { router, head, isClient }) {
 
   // Global icon component
   Vue.component('font-awesome', FontAwesomeIcon)
+  Vue.use(VueTruncate)
 }

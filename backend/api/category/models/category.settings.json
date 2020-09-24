@@ -30,12 +30,15 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "heading"
     },
     "projects": {
       "collection": "project",
       "via": "categories",
       "dominant": true
+    },
+    "heading": {
+      "type": "string"
     }
   }
 }

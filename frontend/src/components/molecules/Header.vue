@@ -9,7 +9,7 @@
               <nav class="header__nav">
                 <ul class="header__nav-list">
                   <li v-for="category in $static.strapi.categories" :key="category.id" class="header__nav-item u-right-spacer-l">
-                    <g-link class="header__nav-link" :to="`/${category.slug}/`">{{ category.title }}</g-link>
+                    <g-link class="u-hover-anim" :to="`/${category.slug}/`">{{ category.title }}</g-link>
                   </li>
                   <li class="header__nav-item header__nav-item--mode">
                     <ModeSwitch :currentMode="currentMode" class="u-left-spacer-xs" />
@@ -100,10 +100,6 @@ query {
         align-items: flex-end;
         font-weight: 700;
         font-size: $txt_s;
-      }
-
-      &-link {
-        text-decoration: none;
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
     <button @click="switchMode" :class="`mode-switch mode-switch--${currentMode}`">
-        <font-awesome :icon="currentMode == 'light' ? ['far', 'lightbulb'] : ['fas', 'lightbulb']" />
+        <font-awesome :icon="['fa', 'adjust']" />
     </button>
 </template>
 
@@ -36,22 +36,72 @@ export default {
         cursor: pointer;
         color: var(--c-h1);
         position: relative;
+        transition: transform 0.5s;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        height: var(--c-txt);
 
-        &:before {
+        &:before, &:after {
             display: block;
             position: absolute;
-            top: 40%;
+            top: 50%;
             left: 50%;
             content: "";
+        }
+
+        &:before {
             width: 1px;
             height: 1px;
-            box-shadow: 0 0 0px 0px $crest;
-            transition: box-shadow 1s;
+            box-shadow: 0 0 20px 7px $crest;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        &:after {
+            width: $unit_xxl;
+            height: $unit_xxl;
+            background: $sunrise;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 38%, rgba(0, 0, 0, 1) 38%);
+            mask-position: center;
+        }
+
+        &:not(:active) {
+            &:after {
+                animation: 0.5s ease 0.2s lightburst;
+            }
+        }
+
+        @keyframes lightburst {
+            0% {
+                transform: translate(-50%, -50%) scale(0.2);
+                mask-size: 50% 50%;
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+                mask-size: 190% 190%;
+            }
+        }
+
+        svg {
+            position: relative;
+            z-index: 1;
         }
 
         &--dark {
+            transform: rotate(180deg);
+
             &:before {
-                box-shadow: 0 0 20px 7px $crest;
+                opacity: 0.7;
                 animation: 1s ease 0s infinite alternate glow;
             }
         }
@@ -59,10 +109,10 @@ export default {
 
     @keyframes glow {
         from {
-            box-shadow: 0 0 18px 6px $crest;
+            opacity: 0.7;
         }
         to {
-            box-shadow: 0 0 20px 7px $crest;
+            opacity: 1;
         }
     }
 </style>

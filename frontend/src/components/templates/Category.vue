@@ -2,7 +2,7 @@
     <div class="grid">
       <div class="grid__centre">
         <h1>
-          {{ $page.strapi.categories[0].title }}
+          {{ $page.strapi.categories[0].heading }}
         </h1>
         <p>{{ $page.strapi.categories[0].description }}</p>
       </div>

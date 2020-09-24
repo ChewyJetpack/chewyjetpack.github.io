@@ -1,82 +1,71 @@
 <template>
-  <footer class="mt-24 pt-8 pb-8 bg-gray-200">
-    <p class="container text-xl font-medium">
-      {{ $static.strapi.global.siteName }}
-    </p>
-    <div class="container mt-6 flex flex-col-reverse md:flex-row justify-between gap-6 md:gap-0">
-      <!-- Site name, contact email and copyright -->
-      <div class="flex flex-col gap-2">
-        <p>{{ $static.strapi.global.contactEmail }}</p>
-        <p class="text-gray-600">
-          Copyright {{ new Date().getFullYear() }}
+  <footer class="footer u-top-spacer-xxxl">
+    <div class="grid">
+      <div class="grid__centre-left">
+
+        <h4>
+          {{ $static.strapi.global.siteName }}
+        </h4>
+
+        <p class="footer__copy u-top-spacer-xs">
+          &copy; Copyright {{ new Date().getFullYear() }} - Emil Smith
         </p>
+
       </div>
-      <!-- Site pages -->
-      <ul class="flex flex-col gap-2">
-        <li
-          v-for="page in pages" 
-          :key="page.path"
-        >
-          <g-link
-            :to="page.path"
-            class="py-1"
-          >
-            {{ page.title }}
-          </g-link>
-        </li>
-      </ul>
-      <!-- Social network links -->
-      <ul class="flex flex-col gap-1 md:-mt-1">
-        <li
-          v-for="socialNetwork in $static.strapi.global.socialNetworks" 
-          :key="socialNetwork.id"
-        >
-          <a
-            :href="socialNetwork.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="py-1 flex flex-row items-center gap-2"
-          >
-            <img
-              :src="getStrapiMedia(socialNetwork.icon.url)"
-              :alt="socialNetwork.title"
-              class="w-4"
-            />
-            <span>{{ socialNetwork.title }}</span>
-          </a>
-        </li>
-      </ul>
+      <div class="grid__centre-right">
+
+        <div class="footer__contact">
+
+          <a :href="`mailto${ $static.strapi.global.contactEmail }`">{{ $static.strapi.global.contactEmail }}</a>
+
+          <!-- Social network links -->
+          <ul class="social-links">
+            <li
+              v-for="socialNetwork in $static.strapi.global.socialNetworks" 
+              :key="socialNetwork.id"
+              class="social-links__link u-left-spacer-m"
+            >
+              <a
+                :href="socialNetwork.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-links__link"
+              >
+                <font-awesome :icon="getSocialIcon(socialNetwork.url)" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
 
 <script>
-import { getStrapiMedia } from '~/utils/medias'
 
 export default {
   methods: {
-    getStrapiMedia,
-  },
-  computed: {
-    pages() {
-      // Select random project index
-      const { projects } = this.$static.strapi
-      const randomIndex = Math.floor(Math.random() * projects.length)
-      return [
+    getSocialIcon(url) {
+      const icons = [
         {
-          title: 'Home',
-          path: '/',
+          name: 'insta',
+          icon: 'instagram'
         },
         {
-          title: 'About',
-          path: '/about',
+          name: 'linked',
+          icon: 'linkedin-in'
         },
         {
-          title: 'Random project',
-          path: `/project/${projects[randomIndex].slug}`,
+          name: 'git',
+          icon: 'github'
         }
       ]
-    },
+      for (let i = 0; i < icons.length; i++) {
+        if (url.includes(icons[i].name)) {
+          return [ 'fab', (icons[i].icon) ]
+        }
+      }
+    }
   }
 }
 </script>
@@ -91,16 +80,28 @@ query {
         id
         url
         title
-        icon {
-          id
-          url
-        }
       }
-    }
-    projects {
-      id
-      slug
     }
   }
 }
 </static-query>
+
+<style lang="scss" scoped>
+  .footer {
+    padding-bottom: $unit_m;
+
+    &__copy {
+      font-size: $txt_xs;
+      color: var(--c-fine);
+    }
+
+    &__contact {
+      text-align: right;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>

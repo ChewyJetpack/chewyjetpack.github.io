@@ -41,8 +41,39 @@ a {
     color: var(--c-link);
     font-weight: 700;
     text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+    position: relative;
 
-    &:hover, &:focus {
+    &:not([class]), &.u-hover-anim {
+        &:after {
+            position: absolute;
+            bottom: 0.1em;
+            height: 2px;
+            left: 0;
+            content: "";
+            display: block;
+            background: var(--c-linkh);
+            width: 100%;
+            opacity: 0.7;
+            transform: translateX(-50%) scaleX(0);
+            transition: transform 0.2s;
+        }
+    }
+
+    &.u-hover-anim {
+        line-height: 1;
+
+        &:after {
+            bottom: -#{$unit_xxs};
+        }
+    }
+
+    &:hover, &:focus, &.u-hover-anim.hovered {
         color: var(--c-linkh);
+
+        &:after {
+            transform: translateX(-0%) scaleX(1);
+        }
     }
 }

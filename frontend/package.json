@@ -11,7 +11,8 @@
     "@gridsome/source-graphql": "^0.1.0",
     "babel-runtime": "^6.26.0",
     "gridsome": "^0.7.0",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "vue-truncate-filter": "^1.1.7"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",

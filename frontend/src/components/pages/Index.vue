@@ -75,6 +75,7 @@ query {
       coverImage {
         id
         url
+        formats
       }
     }
   }
