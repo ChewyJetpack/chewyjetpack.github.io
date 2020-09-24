@@ -1,6 +1,6 @@
 <template>
     <div class="grid">
-      <div class="grid__centre">
+      <div class="grid__centre-left">
         <h1>
           {{ $page.strapi.categories[0].heading }}
         </h1>
@@ -18,6 +18,7 @@ query ($slug: String!) {
       title
       slug
       description
+      heading
       projects {
         id
         title

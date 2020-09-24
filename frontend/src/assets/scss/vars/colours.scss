@@ -1,8 +1,37 @@
-$carbon:          #15111d;
+$carbon:          #0e0d11;
 $slate_1:         #3e3e5a;
 $slate_2:         #8b84a7;
 $midrange:        #a5a1a8;
-$coral:           #d33366;
+$coral:           #e63970;
 $horizon:         #458eb8;
 $sunrise:         #daa84b;
 $crest:           #fffefd;
+
+
+@mixin dark {
+    --mode:dark;
+    --c-bg:              #{$carbon};
+    --c-hbg:             #{$coral};
+    --c-txt:             #{$midrange};
+    --c-h1:              #{$crest};
+    --c-h2:              #{$crest};
+    --c-sh:              #{$horizon};
+    --c-h0:              #{$slate_2};
+    --c-link:            #{$coral};
+    --c-linkh:           #{$coral};
+    --c-fine:            #{$slate_2};
+}
+
+@mixin light {
+    --mode:light;
+    --c-bg:              #{$crest};
+    --c-hbg:             #{$coral};
+    --c-txt:             #{$carbon};
+    --c-h1:              #{$carbon};
+    --c-h2:              #{$carbon};
+    --c-sh:              #{$slate_1};
+    --c-h0:              #{$slate_1};
+    --c-link:            #{$coral};
+    --c-linkh:           #{$coral};
+    --c-fine:            #{$slate_1};
+}

@@ -72,7 +72,7 @@ export default {
 
         &:not(:active) {
             &:after {
-                animation: 0.5s ease 0.2s lightburst;
+                animation: 0.4s ease 0.2s lightburst;
             }
         }
 

@@ -1,43 +1,36 @@
 <template>
   <footer class="footer u-top-spacer-xxxl">
     <div class="grid">
-      <div class="grid__centre-left">
+        <div class="grid__full">
+          <div class="footer__content">
+            <p class="footer__copy u-top-spacer-xs">
+              {{ $static.strapi.global.siteName }} &copy; Copyright {{ new Date().getFullYear() }} - Emil Smith
+            </p>
+            <div class="footer__contact">
 
-        <h4>
-          {{ $static.strapi.global.siteName }}
-        </h4>
+              <a :href="`mailto${ $static.strapi.global.contactEmail }`">{{ $static.strapi.global.contactEmail }}</a>
 
-        <p class="footer__copy u-top-spacer-xs">
-          &copy; Copyright {{ new Date().getFullYear() }} - Emil Smith
-        </p>
-
-      </div>
-      <div class="grid__centre-right">
-
-        <div class="footer__contact">
-
-          <a :href="`mailto${ $static.strapi.global.contactEmail }`">{{ $static.strapi.global.contactEmail }}</a>
-
-          <!-- Social network links -->
-          <ul class="social-links">
-            <li
-              v-for="socialNetwork in $static.strapi.global.socialNetworks" 
-              :key="socialNetwork.id"
-              class="social-links__link u-left-spacer-m"
-            >
-              <a
-                :href="socialNetwork.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-links__link"
-              >
-                <font-awesome :icon="getSocialIcon(socialNetwork.url)" />
-              </a>
-            </li>
-          </ul>
+              <!-- Social network links -->
+              <ul class="social-links">
+                <li
+                  v-for="socialNetwork in $static.strapi.global.socialNetworks" 
+                  :key="socialNetwork.id"
+                  class="social-links__link u-left-spacer-m"
+                >
+                  <a
+                    :href="socialNetwork.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-links__link"
+                  >
+                    <font-awesome :icon="getSocialIcon(socialNetwork.url)" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </footer>
 </template>
 
@@ -89,14 +82,22 @@ query {
 <style lang="scss" scoped>
   .footer {
     padding-bottom: $unit_m;
+    margin-top: auto;
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
 
     &__copy {
-      font-size: $txt_xs;
+      font-size: $txt_xxs;
       color: var(--c-fine);
     }
 
     &__contact {
-      text-align: right;
+      justify-content: flex-end;
+      display: flex;
     }
   }
 

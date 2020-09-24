@@ -1,7 +1,7 @@
 <template>
-  <header class="header u-bottom-spacer-xxl">
+  <header ref="header" :class="{ 'header': true, 'header--lowkey': lowKeyHeader }">
       <div class="grid">
-          <div class="grid__centre">
+          <div class="grid__full">
             <div class="header__content">
               <g-link to="/" class="header__title">
                 <span>{{ $static.metadata.siteName }}</span>
@@ -32,6 +32,9 @@ export default {
   props: {
     currentMode: {
       type: String
+    },
+    lowKeyHeader: {
+      type: Boolean
     }
   }
 }
@@ -54,7 +57,14 @@ query {
 
 <style lang="scss" scoped>
   .header {
-    padding: $unit_xl 0 $unit_m;
+    padding: 0 0 $unit_s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:1;
+    @include header-shadow;
+    transition: transform 0.2s;
 
     &__content {
       display: flex;
@@ -68,28 +78,35 @@ query {
       font-weight: 900;
       text-decoration: none;
       color: $crest;
-      position: relative;
+      transform-origin: bottom left;
+      transition: transform 0.2s;
+      padding-top: $unit_xl;
+
+      span {
+        z-index: 1;
+        position: relative;
+      }
 
       &:before {
         position: absolute;
-        width: 120%; 
-        height: 350%; 
+        top: 0%;
+        left: 50%;
+        width: 160%; 
+        height: 230%; 
         background: var(--c-hbg);
-        transform: translate(-6%, -35%) skew(-5deg, -11deg) perspective(10px) rotateY(0.4deg) rotateX(1deg);
+        clip-path: polygon(21% 19%, 100% 0%, 89% 67%, 0 100%);
+        transform: translate(-54%, -9%);
         content: "";
         display: block;
-        z-index: 0;
-      }
-
-      span {
-        position: relative;
-        z-index: 1;
+        z-index: -1;
+        transition: all 0.3s;
       }
     }
 
     &__nav {
       margin-left: auto;
       line-height: 1;
+      transition: all 0.3s;
 
       &-list {
         display: flex;
@@ -100,6 +117,26 @@ query {
         align-items: flex-end;
         font-weight: 700;
         font-size: $txt_s;
+      }
+    }
+
+    &--lowkey {
+      transform: translateY(-#{$unit_xl});
+      z-index: 2;
+      background: var(--c-bg);
+
+      .header{
+        &__title {
+          transform: scale(0.8);
+
+          &:before {
+            transform: translate(-52%, -20%) rotate(15deg) scaleY(0.9);
+          }
+        }
+
+        &__nav {
+          transform: translateY(-#{$unit_xs});
+        }
       }
     }
   }

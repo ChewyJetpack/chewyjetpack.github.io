@@ -15,6 +15,11 @@
 @import './utils/grid.scss';
 @import './atoms/type.scss';
 
+body {
+    display: flex;
+    width: 100%;
+}
+
 img {
   max-width: 100%;
   height: auto;

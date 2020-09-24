@@ -79,7 +79,6 @@ export default {
     }
 
     &__img {
-      background: var(--c-link);
       padding-bottom: 50%;
       overflow: hidden;
       display: block;
@@ -95,7 +94,7 @@ export default {
         width: 100%;
         overflow: hidden;
         display: block;
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1.01);
         transition: transform 0.2s;
       }
 
@@ -107,9 +106,10 @@ export default {
       }
 
       &:hover, &.hovered {
+        background: var(--c-link);
 
         .project-card__img-crop {
-          transform: translate(-50%, -54%);
+          transform: translate(-50%, -54%) scale(1.01);
         }
       }
     }

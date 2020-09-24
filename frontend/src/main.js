@@ -8,6 +8,9 @@ import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-sv
 import { faAdjust, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import VueTruncate from 'vue-truncate-filter'
+import VueLodash from 'vue-lodash'
+import throttle from 'lodash/throttle'
+import lodash from 'lodash'
 
 config.autoAddCss = false;
 library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight);
@@ -27,5 +30,7 @@ export default function (Vue, { router, head, isClient }) {
 
   // Global icon component
   Vue.component('font-awesome', FontAwesomeIcon)
+
+  Vue.use(VueLodash, { lodash: { throttle }})
   Vue.use(VueTruncate)
 }

@@ -28,6 +28,17 @@
         "sections.large-media",
         "sections.rich-text"
       ]
+    },
+    "selfie": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
