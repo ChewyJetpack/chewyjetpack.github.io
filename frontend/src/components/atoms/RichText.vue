@@ -16,4 +16,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.richtext {
+  max-width: 680px;
+  margin: 0 auto;
+}
 </style>

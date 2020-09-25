@@ -9,12 +9,18 @@ $measurements: (
     "xxxl":      $unit_xxxl
 );
 
+:root {
+    @each $size, $val in $measurements {
+        --u-#{$size}: #{$val};
+    }
+}
+
 $edges: 'top', 'right', 'bottom', 'left';
 
 @each $size, $val in $measurements {
     @each $edge in $edges {
         .u-#{$edge}-spacer-#{$size} {
-            margin-#{$edge}: $val;
+            margin-#{$edge}: var(--u-#{$size});
         }
     }
 }

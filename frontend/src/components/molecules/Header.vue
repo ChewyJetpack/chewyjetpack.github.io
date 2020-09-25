@@ -1,40 +1,48 @@
 <template>
-  <header ref="header" :class="{ 'header': true, 'header--lowkey': lowKeyHeader }">
+  <header ref="header" :class="{ 'header': true, 'header--mini': navFormat == 'mini', 'u-bottom-spacer-l': navFormat != 'mini' }">
+    <div class="header__magic-wrap">
       <div class="grid">
           <div class="grid__full">
             <div class="header__content">
               <g-link to="/" class="header__title">
                 <span>{{ $static.metadata.siteName }}</span>
               </g-link>
-              <nav class="header__nav">
-                <ul class="header__nav-list">
-                  <li v-for="category in $static.strapi.categories" :key="category.id" class="header__nav-item u-right-spacer-l">
-                    <g-link class="u-hover-anim" :to="`/${category.slug}/`">{{ category.title }}</g-link>
-                  </li>
-                  <li class="header__nav-item header__nav-item--mode">
-                    <ModeSwitch :currentMode="currentMode" class="u-left-spacer-xs" />
-                  </li>
-                </ul>
-              </nav>
+              <div class="header__nav-area">
+                <NavMenu :navFormat="navFormat" class="header__nav" />
+                <ModeSwitch :currentMode="currentMode" :navFormat="navFormat" class="header__mode" />
+                <IconBtn icon="bars" :callback="openNav" class="header__burger-menu u-left-spacer-l" :navFormat="navFormat" />
+              </div>
           </div>
         </div>
       </div>
+    </div>
   </header>
 </template>
 
 <script>
 import ModeSwitch from '@/components/atoms/ModeSwitch'
+import IconBtn from '@/components/atoms/IconBtn'
+import NavMenu from '@/components/molecules/NavMenu'
+import { EventBus } from '~/App'
 
 export default {
   components: {
-    ModeSwitch
+    ModeSwitch,
+    NavMenu,
+    IconBtn
   },
   props: {
     currentMode: {
       type: String
     },
-    lowKeyHeader: {
-      type: Boolean
+    navFormat: {
+      type: String,
+      default: 'full'
+    }
+  },
+  methods: {
+    openNav() {
+      EventBus.$emit('slidenav', true)
     }
   }
 }
@@ -45,34 +53,32 @@ query {
   metadata {
     siteName
   }
-  strapi {
-    categories {
-      title
-      slug
-      id
-    }
-  }
 }
 </static-query>
 
 <style lang="scss" scoped>
   .header {
-    padding: 0 0 $unit_s;
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     z-index:1;
-    @include header-shadow;
-    transition: transform 0.2s;
+
+    &__magic-wrap {
+      padding: 0 0 $unit_s;
+    }
 
     &__content {
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
+      --c-link: var(--c-h1);
+      justify-content: space-between;
+
+      @include breakpoint_m {
+        align-items: flex-end;
+      }
     }
 
     &__title {
-      font-size: $txt_xl;
+      font-size: $txt_m;
       line-height: 1em;
       font-family: $heading_font;
       font-weight: 900;
@@ -81,6 +87,14 @@ query {
       transform-origin: bottom left;
       transition: transform 0.2s;
       padding-top: $unit_xl;
+
+      @include breakpoint_m {
+          font-size: $txt_l;
+      }
+
+      @include breakpoint_l {
+          font-size: $txt_xl;
+      }
 
       span {
         z-index: 1;
@@ -99,43 +113,64 @@ query {
         content: "";
         display: block;
         z-index: -1;
-        transition: all 0.3s;
       }
     }
 
-    &__nav {
+    &__nav-area {
       margin-left: auto;
-      line-height: 1;
-      transition: all 0.3s;
+      display: flex;
+      padding: $unit_l $unit_s 0 0;
+    }
 
-      &-list {
-        display: flex;
-      }
+    &__burger-menu {
+      display: block;
 
-      &-item {
-        display: flex;
-        align-items: flex-end;
-        font-weight: 700;
-        font-size: $txt_s;
+      @include breakpoint_m {
+        display: none;
       }
     }
 
-    &--lowkey {
-      transform: translateY(-#{$unit_xl});
+    &--mini {
       z-index: 2;
-      background: var(--c-bg);
+      position: sticky;
+      top: 0;
+      left: 0;
+      height: 0;
+      overflow: visible;
 
       .header{
+        &__magic-wrap {
+          display: flex;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          background: var(--c-h1);
+          height: auto;
+          padding: $unit_s 0;
+        }
+
         &__title {
-          transform: scale(0.8);
+          font-size: $txt_m;
+          padding: 0;
+          color: var(--c-bg);
 
           &:before {
-            transform: translate(-52%, -20%) rotate(15deg) scaleY(0.9);
+            display: none;
           }
         }
 
-        &__nav {
-          transform: translateY(-#{$unit_xs});
+        &__nav-area {
+          padding: 0;
+        }
+
+        &__content {
+          align-items: center;
+          --c-link: var(--c-bg);
+
+          @include breakpoint_m {
+            align-items: flex-end;
+          }
         }
       }
     }

@@ -2,42 +2,35 @@
     display: grid;
     max-width: 1040px;
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto;
     margin: 0 auto;
-    grid-gap: $unit_l;
-    padding: 0 $unit_l;
+    grid-gap: $unit_m;
+    padding: 0 $unit_m;
 
-    &__full {
-        grid-column: span 3;
-    }
+    @include breakpoint_l {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: $unit_l;
+        padding: 0 $unit_l;
 
-    &__third {
-        grid-column: span 1;
-    }
-
-    &__two-thirds {
-        grid-column: span 2;
-    }
-}
-
-.grid-offset {
-    &--0 {
-        grid-column-start: 1;
-    }
-    &--1 {
-        grid-column-start: 2;
-    }
-
-    &--3 {
-        grid-column-start: 3;
+        &__full {
+            grid-column: span 3;
+        }
+    
+        &__third {
+            grid-column: span 1;
+        }
+    
+        &__two-thirds {
+            grid-column: span 2;
+        }
     }
 }
 
 .story-grid {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(3, minmax(300px, 390px));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-template-rows: auto;
     margin: 0 auto;
     grid-gap: $unit_m;

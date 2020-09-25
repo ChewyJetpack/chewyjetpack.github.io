@@ -1,10 +1,15 @@
-$unit_xxs:       4px;
-$unit_xs:        8px;
-$unit_s:         16px;
-$unit_m:         24px;
-$unit_l:         36px;
-$unit_xl:        48px;
-$unit_xxl:       72px;
-$unit_xxxl:      96px;
+$unit_xxs:       0.4rem;
+$unit_xs:        0.8rem;
+$unit_s:         1.6rem;
+$unit_m:         2.4rem;
+$unit_l:         3.6rem;
+$unit_xl:        4.8rem;
+$unit_xxl:       7.2rem;
+$unit_xxxl:      9.6rem;
 // "His power level... It's over 9000!"
-$unit_9001:      156px;
+$unit_9001:      15.6rem;
+
+// Breakpoints
+$media_m:       480px;
+$media_l:       720px;
+$media_xl:      1280px;

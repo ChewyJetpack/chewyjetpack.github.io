@@ -8,12 +8,19 @@
     --c-h0:              #{$slate_2};
     --c-link:            #{$coral};
     --c-linkh:           #{$horizon};
+    font-size: 8px;
+
+    @include breakpoint_m {
+      font-size: 10px;
+    }
 }
 
 @import './reset.scss';
 @import './utils/spacers.scss';
 @import './utils/grid.scss';
+@import './utils/transitions.scss';
 @import './atoms/type.scss';
+
 
 body {
     display: flex;

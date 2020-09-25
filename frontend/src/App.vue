@@ -3,14 +3,25 @@
     :class="`layout layout--${currentMode}`"
     ref="layout"
   >
-    <!-- Content anchored to top -->
-    <Header :currentMode="currentMode" :lowKeyHeader="lowKeyHeader" />
-    
-    <main class="layout__content u-bottom-spacer-xxxl">
-        <router-view />
-    </main>
-    <!-- Content anchored to bottom -->
-    <Footer />
+    <SlideNav>
+      <!-- Content anchored to top -->
+      <transition name="slide">
+        <Header :currentMode="currentMode" navFormat="mini" v-if="lowKeyHeader" />
+      </transition>
+      <Header :currentMode="currentMode" />
+      
+      <main class="layout__content u-bottom-spacer-xxxl">
+        <transition name="fade-in-right" mode="out-in">
+          <router-view :key="$route.fullPath" />
+        </transition>
+      </main>
+      <!-- Content anchored to bottom -->
+      <Footer />
+
+      <transition name="fade">
+        <div class="shade" @click="closeNav" v-if="shadeVisible" />
+      </transition>
+    </SlideNav>
   </div>
 </template>
 
@@ -35,7 +46,8 @@ query {
 <script>
 import Vue from 'vue';
 import Header from '~/components/molecules/Header'
-import Footer from '~/components/molecules/Footer'
+import Footer from '~/components/organisms/Footer'
+import SlideNav from '~/components/organisms/SlideNav'
 import { getStrapiMedia } from '~/utils/medias'
 
 export const EventBus = new Vue();
@@ -44,11 +56,13 @@ export default {
   components: {
     Header,
     Footer,
+    SlideNav
   },
   data() {
       return {
           lowKeyHeader: false,
-          currentMode: 'init'
+          currentMode: 'init',
+          shadeVisible: false
       }
   },
   mounted() {
@@ -58,20 +72,28 @@ export default {
 
       if (layout.classList.contains('layout--init')) {
         const initMode = getComputedStyle(layout).getPropertyValue('--mode');
-        console.log(initMode);
         this.currentMode = initMode;
       }
 
       EventBus.$on('updatemode', (mode) => { this.currentMode = mode });
+      EventBus.$on('slidenav', (status) => { this.shadeVisible = status });
 
       // Header scroll handler
-      window.addEventListener('scroll', _.throttle(this.headerResize, 500));
+      window.addEventListener('scroll', _.throttle(this.headerResize, 10));
   },
   methods: {
       headerResize() {
           const position = window.scrollY;
-          position > 0 ? this.lowKeyHeader = true : this.lowKeyHeader = false;
+          position > 800 ? this.lowKeyHeader = true : this.lowKeyHeader = false;
+      },
+      closeNav() {
+        EventBus.$emit('slidenav', false);
       }
+  },
+  watch:{
+    $route (to, from){
+        this.closeNav();
+    }
   },
   metaInfo() {
     const globalConfig = this.$static.strapi.global
@@ -99,19 +121,29 @@ export default {
 <style lang="scss" scoped>
   .layout {
     background: var(--c-bg);
-    font-family: $body-font;
-    font-size: $txt_s;
-    line-height: 1.6;
-    color: var(--c-txt);
-    font-weight: 300;
     transition: all 0.5s;
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: $unit_9001;
+    //padding-top: $unit_9001;
+
+    .shade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($carbon, 0.8);
+      cursor: pointer;
+      z-index: 10;
+    }
 
     &--light {
       @include light;
+
+      .shade {
+        background: rgba($crest, 0.7);
+      }
     }
 
     &--dark {
@@ -129,6 +161,7 @@ export default {
       position: relative;
       z-index: 1;
     }
+
 
 }
 </style>

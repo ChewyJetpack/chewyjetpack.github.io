@@ -2,10 +2,10 @@
   <div class="grid">
     <div class="grid__two-thirds">
       <h1 class="u-bottom-spacer-s">{{ $page.strapi.home.title }}</h1>
-      <h2 class="subheading u-bottom-spacer-xl">{{ $page.strapi.home.subheading }}</h2>
+      <h2 class="subheading u-bottom-spacer-xs">{{ $page.strapi.home.subheading }}</h2>
     </div>
 
-    <div class="grid__third grid-offset--0">
+    <!-- <div class="grid__third">
       <div class="selfie">
         <g-image
             :alt="$page.strapi.home.title"
@@ -13,7 +13,7 @@
             class="selfie__img"
           />
       </div>
-    </div>
+    </div> -->
     
     <div class="grid__two-thirds">
       <Content :content="$page.strapi.home.content" />
@@ -21,6 +21,7 @@
     <!-- List of project preview cards -->
 
     <div class="grid__full">
+      <h1 class="u-bottom-spacer-l"> Check out my latest projects:</h1>
       <div class="story-grid">
         <ProjectCard
           v-for="project in $page.strapi.projects"

@@ -1,0 +1,17 @@
+@mixin breakpoint_m {
+    @media screen and (min-width: $media_m) {
+        @content;
+    }
+}
+
+@mixin breakpoint_l {
+    @media screen and (min-width: $media_l) {
+        @content;
+    }
+}
+
+@mixin breakpoint_xl {
+    @media screen and (min-width: $media_xl) {
+        @content;
+    }
+}

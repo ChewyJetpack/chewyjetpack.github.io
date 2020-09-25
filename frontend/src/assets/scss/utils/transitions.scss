@@ -1,0 +1,50 @@
+
+// Transitions
+
+// Slide
+
+.slide-enter-active, .slide-leave-active {
+    transition: transform .2s;
+  }
+  .slide-enter, .slide-leave-to /* .slide-leave-active below version 2.1.8 */ {
+    transform: translateY(-#{$unit_xxl});
+  }
+
+  // Fade in right
+  
+  @keyframes fadeInRight {
+    from {
+      transform: translate3d(40px, 0, 0);
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1
+    }
+  }
+  
+  .fade-in-right-leave-to {
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  
+  .fade-in-right-enter {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  
+  .fade-in-right-enter-to {
+    opacity: 0;
+    animation-duration: .7s;
+    animation-fill-mode: both;
+    animation-name: fadeInRight;
+  }
+
+  // Fade
+  
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

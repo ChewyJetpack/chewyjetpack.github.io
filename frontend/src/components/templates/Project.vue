@@ -1,5 +1,4 @@
 <template>
-  <Layout>
     <div class="container">
       <div>
         <h1>
@@ -11,9 +10,9 @@
           :src="getStrapiMedia($page.strapi.projects[0].coverImage.url)"
         />
       </div>
-    </div>
     <Content :content="$page.strapi.projects[0].content" />
-  </Layout>
+    </div>
+    
 </template>
 
 <page-query>

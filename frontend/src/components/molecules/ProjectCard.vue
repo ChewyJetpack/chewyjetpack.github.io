@@ -34,7 +34,7 @@
     <g-link
       :to="`${project.categories[0].slug}/${project.slug}`"
       :title="project.title"
-      :class="{ 'project-card__link u-top-spacer-s u-hover-anim': true, 'hovered': hoverToggle }"
+      :class="{ 'project-card__link u-top-spacer-s': true, 'hovered': hoverToggle }"
       ref="cta_link"
       @mouseover.native="hoverAll"
       @mouseleave.native="leaveAll"
@@ -83,8 +83,6 @@ export default {
       overflow: hidden;
       display: block;
       position: relative;
-      transform: scale(1);
-      transition: transform 0.2s;
 
       &-crop {
         position: absolute;
@@ -94,8 +92,19 @@ export default {
         width: 100%;
         overflow: hidden;
         display: block;
-        transform: translate(-50%, -50%) scale(1.01);
-        transition: transform 0.2s;
+        transform: translate(-50%, -50%);
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: $unit_xs;
+          background: var(--c-link);
+          width: 100%;
+          transform: translateY(100%);
+          transition: transform 0.2s;
+        }
       }
 
       &-src {
@@ -106,10 +115,12 @@ export default {
       }
 
       &:hover, &.hovered {
-        background: var(--c-link);
 
         .project-card__img-crop {
-          transform: translate(-50%, -54%) scale(1.01);
+
+          &:after {
+            transform: translateY(0);
+          }
         }
       }
     }

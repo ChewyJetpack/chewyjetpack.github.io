@@ -5,15 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 //import { } from '@fortawesome/free-regular-svg-icons'
-import { faAdjust, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faAdjust, faArrowRight, faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import VueTruncate from 'vue-truncate-filter'
 import VueLodash from 'vue-lodash'
 import throttle from 'lodash/throttle'
 import lodash from 'lodash'
+import VuePageTransition from 'vue-page-transition'
 
 config.autoAddCss = false;
-library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight);
+library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars);
 
 export default function (Vue, { router, head, isClient }) {
 
@@ -33,4 +34,5 @@ export default function (Vue, { router, head, isClient }) {
 
   Vue.use(VueLodash, { lodash: { throttle }})
   Vue.use(VueTruncate)
+  Vue.use(VuePageTransition)
 }

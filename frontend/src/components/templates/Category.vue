@@ -1,12 +1,12 @@
 <template>
     <div class="grid">
-      <div class="grid__centre-left">
-        <h1>
-          {{ $page.strapi.categories[0].heading }}
-        </h1>
-        <p>{{ $page.strapi.categories[0].description }}</p>
-      </div>
-      <Content :content="$page.strapi.categories[0].content" />
+        <div class="grid__two-thirds">
+          <h1>
+            {{ $page.strapi.categories[0].heading }}
+          </h1>
+          <p>{{ $page.strapi.categories[0].description }}</p>
+        </div>
+        <Content :content="$page.strapi.categories[0].content" />
     </div>
 </template>
 

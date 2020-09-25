@@ -33,7 +33,6 @@ module.exports = function (api) {
       component: './src/components/pages/Index.vue'
     })
 
-
     // Create a page for each project
     data.strapi.projects.forEach((project) => {
       createPage({
@@ -49,8 +48,8 @@ module.exports = function (api) {
     data.strapi.categories.forEach((category) => {
       createPage({
         path: `/${category.slug}`,
-        component: './src/components/templates/Category.vue',
-        context: {
+        component: `./src/components/templates/Category.vue`,
+        queryVariables: {
           slug: category.slug
         }
       })

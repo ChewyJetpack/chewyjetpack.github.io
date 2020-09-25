@@ -1,27 +1,51 @@
+.layout {
+    font-family: $body-font;
+    font-size: $txt_xs;
+    line-height: 1.6;
+    color: var(--c-txt);
+    font-weight: 300;
+
+    @include breakpoint_m {
+        font-size: $txt_s;
+    }
+}
+
 h1 {
     font-family: $heading-font;
     line-height: 1;
     font-weight: 900;
-    font-size: $txt_xxl;
+    font-size: $txt_l;
     color: var(--c-h1);
+
+    @include breakpoint_m {
+        font-size: $txt_xl;
+    }
+
+    @include breakpoint_l {
+        font-size: $txt_xxl;
+    }
 }
 
 h2 {
     font-family: $heading-font;
-    font-size: $txt_m;
+    font-size: $txt_s;
     color: var(--c-h2);
     line-height: 1.2;
+
+    @include breakpoint_m {
+        font-size: $txt_m;
+    }
 }
 
 h3 {
     font-size: $txt_s;
-    font-weight: 400;
+    font-weight: 700;
     color: var(--c-h0);
 }
 
 h4, h5, h6 {
     font-size: $txt_xs;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--c-h0);
 }
 
@@ -76,4 +100,32 @@ a {
             transform: translateX(-0%) scaleX(1);
         }
     }
+}
+strong {
+  font-weight: 700;
+}
+
+blockquote {
+  position: relative;
+  margin: $unit_m 0;
+  font-weight: 700;
+  color: var(--c-h1);
+  font-size: 1.4em;
+  padding-left: $unit_m;
+  
+  &:before {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: $unit_xxs;
+    background: var(--c-sh);
+    content: "";
+    display: block;
+  }
+}
+
+code {
+  padding: $unit_xs;
+  border: solid 1px var(--c-h0);
 }
