@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require("path");
-const { categories, projects, about, home, global } = require('../../data/data.json');
+const { categories, projects, home, blog, posts, global } = require('../../data/data.json');
 
 async function isFirstRun() {
   const pluginStore = strapi.store({
@@ -88,6 +88,12 @@ async function importCategories() {
   });
 }
 
+async function importTags() {
+  return tag.map((tag) => {
+    return strapi.services.tag.create(tag);
+  });
+}
+
 async function importProjects() {
   return projects.map(async (project) => {
     const coverImage = getFileData(`${project.slug}.jpg`);
@@ -107,6 +113,28 @@ async function importProjects() {
       }
     });
     await createEntry('project', project, files);
+  });
+}
+
+async function importPosts() {
+  return posts.map(async (post) => {
+    const coverImage = getFileData(`${post.slug}.jpg`);
+    const files = {
+      coverImage,
+    };
+    // Check if dynamic zone has attached files
+    post.content.forEach((section, index) => {
+      if (section.__component === 'sections.large-media') {
+        files[`content.${index}.media`] = getFileData('large-media.jpg');
+      } else if (section.__component === 'sections.images-slider') {
+        // All project cover images
+        const sliderFiles = projects.map((project) => {
+          return getFileData(`${project.slug}.jpg`);
+        });
+        files[`content.${index}.images`] = sliderFiles;
+      }
+    });
+    await createEntry('post', post, files);
   });
 }
 
@@ -130,19 +158,11 @@ async function importHome() {
   const files = {
     "seo.shareImage": shareImage,
   };
-  await createEntry('home', home, files);
-}
-
-async function importAbout() {
-  const aboutImage = getFileData('about.jpg');
-  const files = {
-    "seo.shareImage": aboutImage,
-  };
   
   // Check for files to upload in the dynamic zone
-  about.content.forEach((section, index) => {
+  home.content.forEach((section, index) => {
     if (section.__component === 'sections.large-media') {
-      files[`content.${index}.media`] = aboutImage;
+      files[`content.${index}.media`] = shareImage;
     } else if (section.__component === 'sections.images-slider') {
       // All project cover images
       const sliderFiles = projects.map((project) => {
@@ -151,27 +171,27 @@ async function importAbout() {
       files[`content.${index}.images`] = sliderFiles;
     }
   });
-  
-  // Save in Strapi
-  await createEntry('about', about, files);
+  await createEntry('home', home, files);
 }
 
 async function importSeedData() {
   // Allow read of application content types
   await setPublicPermissions({
-    about: ['find'],
     category: ['find', 'findone'],
     global: ['find'],
     home: ['find'],
     project: ['find', 'findone'],
+    post: ['find', 'findone'],
+    tag: ['find', 'findone']
   });
   
   // Create all entries
   await importCategories();
   await importProjects();
+  await importPosts();
+  await importTags();
   await importGlobal();
   await importHome();
-  await importAbout();
 };
 
 module.exports = async () => {

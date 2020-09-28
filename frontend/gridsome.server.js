@@ -21,6 +21,12 @@ module.exports = function (api) {
             slug
           }
         }
+        posts {
+          slug
+        }
+        tags {
+          slug
+        }
         categories {
           slug
         }
@@ -33,6 +39,12 @@ module.exports = function (api) {
       component: './src/components/pages/Index.vue'
     })
 
+    // Create a blog page
+    createPage({
+      path: `/blog/`,
+      component: './src/components/pages/Blog.vue'
+    })
+
     // Create a page for each project
     data.strapi.projects.forEach((project) => {
       createPage({
@@ -40,6 +52,28 @@ module.exports = function (api) {
         component: './src/components/templates/Project.vue',
         context: {
           slug: project.slug
+        }
+      })
+    })
+
+    // Create a page for each post
+    data.strapi.posts.forEach((post) => {
+      createPage({
+        path: `/blog/${post.slug}`,
+        component: './src/components/templates/Post.vue',
+        context: {
+          slug: post.slug
+        }
+      })
+    })
+
+    // Create a page for each tag
+    data.strapi.tags.forEach((tag) => {
+      createPage({
+        path: `/blog/tags/${tag.slug}`,
+        component: './src/components/templates/TagPage.vue',
+        context: {
+          slug: tag.slug
         }
       })
     })

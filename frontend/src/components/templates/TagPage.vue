@@ -1,0 +1,109 @@
+<template>
+  <div class="grid">
+    <div class="grid__two-thirds">
+      <h1 class="u-bottom-spacer-s">{{ $page.strapi.blog.title }}</h1>
+      <h2 class="subheading u-bottom-spacer-xs">{{ $page.strapi.blog.subheading }}</h2>
+    </div>
+
+    <!-- <div class="grid__third">
+      <div class="selfie">
+        <g-image
+            :alt="$page.strapi.home.title"
+            :src="getStrapiMedia($page.strapi.home.selfie.url)"
+            class="selfie__img"
+          />
+      </div>
+    </div> -->
+    
+    <div class="grid__two-thirds">
+      <Content :content="$page.strapi.blog.content" />
+    </div>
+    <!-- List of project preview cards -->
+
+    <div class="grid__full">
+      <h1 class="u-bottom-spacer-l">Latest Posts</h1>
+      <div class="story-grid">
+        <PostCard
+          v-for="post in $page.strapi.posts"
+          :key="post.id"
+          :post="post"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<page-query>
+query ($slug: String!) {
+  strapi {
+    global {
+      siteName
+    }
+    # Get blog data
+    blog {
+      title
+      subheading
+      description
+      # Metadata for SEO
+      seo {
+        title
+        description
+        shareImage {
+          id
+          url
+        }
+      }
+    }
+    # List posts by tag
+    tags (where: { slug: $slug }) {
+        name
+        slug
+        id
+        posts(sort: "date:desc") {
+            title
+            slug
+            description
+            tags {
+                id
+                name
+                slug
+            }
+            coverImage {
+                id
+                url
+                formats
+            }
+        }
+    }
+  }
+}
+</page-query>
+
+<script>
+import PostCard from '~/components/molecules/PostCard'
+import Content from '~/components/molecules/Content'
+import { getStrapiMedia } from '~/utils/medias'
+import { getMetaTags } from '~/utils/seo'
+
+export default {
+  methods: {
+    getStrapiMedia,
+  },
+  components: {
+    PostCard,
+    Content,
+  },
+  metaInfo() {
+    const { title, description, shareImage } = this.$page.strapi.home.seo
+    const image = getStrapiMedia(shareImage.url)
+    return {
+      title,
+      meta: getMetaTags(title, description, image),
+    }
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+  
+</style>

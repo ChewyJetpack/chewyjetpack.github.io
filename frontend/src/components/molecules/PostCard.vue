@@ -1,7 +1,7 @@
 <template>
-  <div class="project-card">
+  <div class="post-card">
     <g-link
-      :to="`${project.categories[0].slug}/${project.slug}`"
+      :to="`blog/${post.slug}`"
       :class="{ 'project-card__img': true, 'hovered': hoverToggle }"
       ref="img_link"
       @mouseover.native="hoverAll"
@@ -9,8 +9,8 @@
     >
       <span class="project-card__img-crop">
         <g-image
-          :alt="project.title"
-          :src="getStrapiMedia(project.coverImage.formats.small.url)"
+          :alt="post.title"
+          :src="getStrapiMedia(post.coverImage.formats.small.url)"
           class="project-card__img-src"
         />
       </span>
@@ -18,22 +18,22 @@
     <div class="project-card__content u-top-spacer-s">
       <h2 class="project-card__heading u-bottom-spacer-s">
         <g-link 
-          :to="`${project.categories[0].slug}/${project.slug}`" 
+          :to="`/blog/${post.slug}`" 
           ref="h-_ink"
           :class="{ 'hovered': hoverToggle }"
           @mouseover.native="hoverAll"
           @mouseleave.native="leaveAll"
         >
-          {{ project.title }}
+          {{ post.title }}
         </g-link>
       </h2>
       <p class="project-card__description">
-        {{ project.description | truncate(130) }}
+        {{ post.description | truncate(130) }}
       </p>
     </div>
     <g-link
-      :to="`${project.categories[0].slug}/${project.slug}`"
-      :title="project.title"
+      :to="`/blog/${post.slug}`"
+      :title="post.title"
       :class="{ 'project-card__link u-top-spacer-s': true, 'hovered': hoverToggle }"
       ref="cta_link"
       @mouseover.native="hoverAll"
@@ -48,7 +48,7 @@
 import { getStrapiMedia } from '~/utils/medias'
 
 export default {
-  props: ['project'],
+  props: ['post'],
   data() {
     return {
       hoverToggle: false

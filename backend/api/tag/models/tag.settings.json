@@ -9,12 +9,15 @@
     "timestamps": true
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Slug": {
-      "type": "uid",
-      "targetField": "Name"
+    "slug": {
+      "type": "uid"
+    },
+    "posts": {
+      "via": "tags",
+      "collection": "post"
     }
   }
 }

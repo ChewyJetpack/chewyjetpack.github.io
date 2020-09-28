@@ -167,10 +167,6 @@ query {
         &__content {
           align-items: center;
           --c-link: var(--c-bg);
-
-          @include breakpoint_m {
-            align-items: flex-end;
-          }
         }
       }
     }
