@@ -40,8 +40,9 @@
       "targetField": "title"
     },
     "categories": {
+      "collection": "category",
       "via": "projects",
-      "collection": "category"
+      "dominant": true
     }
   }
 }

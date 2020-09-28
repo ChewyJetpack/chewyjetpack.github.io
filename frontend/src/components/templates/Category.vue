@@ -1,17 +1,29 @@
 <template>
     <div class="grid">
-        <div class="grid__two-thirds">
-          <h1>
+      <div class="grid__two-thirds">
+          <h1 v-if="$page.strapi.categories[0].heading">
             {{ $page.strapi.categories[0].heading }}
           </h1>
-          <p>{{ $page.strapi.categories[0].description }}</p>
+          <p v-if="$page.strapi.categories[0].description">{{ $page.strapi.categories[0].description }}</p>
+          <Content v-if="$page.strapi.categories[0].content" :content="$page.strapi.categories[0].content" />
+      </div>
+
+      <div class="grid__full">
+        <div class="story-grid">
+          <PostCard
+            v-for="project in $page.strapi.categories[0].projects"
+            :key="project.id"
+            :content="project"
+            :cat="$page.strapi.categories[0].slug"
+            type="project"
+          />
         </div>
-        <Content :content="$page.strapi.categories[0].content" />
+      </div>
     </div>
 </template>
 
 <page-query>
-query ($slug: String!) {
+query ($slug: String, $catid: String) {
   strapi {
     categories(where: { slug: $slug }) {
       id
@@ -19,9 +31,16 @@ query ($slug: String!) {
       slug
       description
       heading
-      projects {
+      projects(where: {id: $catid}) {
+        slug
         id
         title
+        description
+        coverImage {
+          url
+          id
+          formats
+        }
       }
       content {
         __typename
@@ -64,6 +83,7 @@ query ($slug: String!) {
 import Content from '~/components/molecules/Content'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
+import PostCard from '~/components/molecules/PostCard'
 
 export default {
   methods: {
@@ -71,6 +91,7 @@ export default {
   },
   components: {
     Content,
+    PostCard
   },
   metaInfo() {
     const { title, description, shareImage } = this.$page.strapi.categories[0].seo;

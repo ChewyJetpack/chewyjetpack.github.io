@@ -15,12 +15,6 @@ module.exports = function (api) {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
     const { data } = await graphql(`{
       strapi {
-        projects {
-          slug
-          categories {
-            slug
-          }
-        }
         posts {
           slug
         }
@@ -29,6 +23,9 @@ module.exports = function (api) {
         }
         categories {
           slug
+          projects {
+            slug
+          }
         }
       }
     }`)
@@ -46,15 +43,15 @@ module.exports = function (api) {
     })
 
     // Create a page for each project
-    data.strapi.projects.forEach((project) => {
-      createPage({
-        path: `/${project.categories[0].slug}/${project.slug}`,
-        component: './src/components/templates/Project.vue',
-        context: {
-          slug: project.slug
-        }
-      })
-    })
+    // data.strapi.categories.projects.forEach((project) => {
+    //   createPage({
+    //     path: `/${project.slug}`,
+    //     component: './src/components/templates/Project.vue',
+    //     context: {
+    //       slug: project.slug
+    //     }
+    //   })
+    // })
 
     // Create a page for each post
     data.strapi.posts.forEach((post) => {
@@ -83,9 +80,19 @@ module.exports = function (api) {
       createPage({
         path: `/${category.slug}`,
         component: `./src/components/templates/Category.vue`,
-        queryVariables: {
+        context: {
           slug: category.slug
         }
+      })
+      category.projects.forEach((project) => {
+        createPage({
+          path: `/${category.slug}/${project.slug}`,
+          component: './src/components/templates/Project.vue',
+          context: {
+            slug: project.slug,
+            catid: category.id
+          }
+        })
       })
     })
   })

@@ -1,35 +1,25 @@
 <template>
-  <div class="grid">
-    <div class="grid__two-thirds">
-      <h1 class="u-bottom-spacer-s">{{ $page.strapi.blog.title }}</h1>
-      <h2 class="subheading u-bottom-spacer-xs">{{ $page.strapi.blog.subheading }}</h2>
-    </div>
+    <div class="blog-page">
+        <div class="grid">
+            <div class="grid__two-thirds">
+            <h1 class="u-bottom-spacer-s">{{ $page.strapi.blog.title }}</h1>
+            <h2 class="subheading u-bottom-spacer-xs">{{ $page.strapi.blog.subheading }}</h2>
+            </div>
+            
+            <div class="grid__two-thirds">
+            <Content :content="$page.strapi.blog.description" />
+            </div>
+        </div>
 
-    <!-- <div class="grid__third">
-      <div class="selfie">
-        <g-image
-            :alt="$page.strapi.home.title"
-            :src="getStrapiMedia($page.strapi.home.selfie.url)"
-            class="selfie__img"
-          />
-      </div>
-    </div> -->
-    
-    <div class="grid__two-thirds">
-      <Content :content="$page.strapi.blog.description" />
-    </div>
     <!-- List of project preview cards -->
 
-    <div class="grid__full">
-      <h1 class="u-bottom-spacer-l">Latest Posts</h1>
-      <div class="story-grid">
         <PostCard
-          v-for="post in $page.strapi.posts"
-          :key="post.id"
-          :post="post"
+            v-for="post in $page.strapi.posts"
+            :key="post.id"
+            :content="post"
+            type="post"
+            img="large"
         />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -58,6 +48,7 @@ query {
     posts(sort: "date:desc") {
       title
       slug
+      date
       description
       tags {
         id

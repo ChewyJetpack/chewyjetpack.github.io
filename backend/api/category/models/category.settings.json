@@ -32,13 +32,12 @@
       "type": "uid",
       "targetField": "heading"
     },
-    "projects": {
-      "collection": "project",
-      "via": "categories",
-      "dominant": true
-    },
     "heading": {
       "type": "string"
+    },
+    "projects": {
+      "via": "categories",
+      "collection": "project"
     }
   }
 }

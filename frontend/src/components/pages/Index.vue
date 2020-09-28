@@ -81,28 +81,11 @@ query {
         }
       }
     }
-    # List projects
-    projects(sort: "date:desc") {
-      title
-      slug
-      description
-      categories {
-        id
-        title,
-        slug
-      }
-      coverImage {
-        id
-        url
-        formats
-      }
-    }
   }
 }
 </page-query>
 
 <script>
-import ProjectCard from '~/components/molecules/ProjectCard'
 import Content from '~/components/molecules/Content'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
@@ -112,8 +95,7 @@ export default {
     getStrapiMedia,
   },
   components: {
-    ProjectCard,
-    Content,
+    Content
   },
   metaInfo() {
     const { title, description, shareImage } = this.$page.strapi.home.seo
