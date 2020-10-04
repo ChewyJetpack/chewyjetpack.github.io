@@ -1,25 +1,22 @@
 <template>
-    <div class="blog-page">
+    <div class="page">
         <div class="grid">
-            <div class="grid__two-thirds">
-            <h1 class="u-bottom-spacer-s">{{ $page.strapi.blog.title }}</h1>
-            <h2 class="subheading u-bottom-spacer-xs">{{ $page.strapi.blog.subheading }}</h2>
+            <div class="grid__a-d">
+                <h1>{{ $page.strapi.blog.title }}</h1>
             </div>
-            
-            <div class="grid__two-thirds">
-            <Content :content="$page.strapi.blog.description" />
+
+            <!-- List of project preview cards -->
+            <div class="grid__a-f u-top-spacer-xl">
+                <PostCard
+                    v-for="(post, index) in $page.strapi.posts"
+                    :key="post.id"
+                    :content="post"
+                    :i="index"
+                    type="post"
+                    img="large"
+                />
             </div>
         </div>
-
-    <!-- List of project preview cards -->
-
-        <PostCard
-            v-for="post in $page.strapi.posts"
-            :key="post.id"
-            :content="post"
-            type="post"
-            img="large"
-        />
   </div>
 </template>
 
@@ -59,6 +56,30 @@ query {
         id
         url
         formats
+      }
+      content {
+        __typename
+        ... on strapiTypes_ComponentSectionsRichText {
+          id
+          content
+        }
+        ... on strapiTypes_ComponentSectionsLargeMedia {
+          id
+          media {
+            id
+            url
+            mime
+          }
+          description
+        }
+        ... on strapiTypes_ComponentSectionsImagesSlider {
+          id
+          title
+          images {
+            id
+            url
+          }
+        }
       }
     }
   }

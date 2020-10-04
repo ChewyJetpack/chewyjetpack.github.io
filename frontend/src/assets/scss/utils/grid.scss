@@ -1,28 +1,56 @@
+$grid-areas: a, b, c, d, e, f;
+
+// single column on mobile
 .grid {
     display: grid;
-    max-width: 1040px;
+    max-width: $media_xl;
     width: 100%;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto;
+    grid-template: 'a' auto / minmax(0, 1fr);
     margin: 0 auto;
     grid-gap: $unit_m;
     padding: 0 $unit_m;
 
-    @include breakpoint_l {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    // 3 col on desktop
+    @include breakpoint_xl {
+        grid-template: 'a b c d e f' auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
         grid-gap: $unit_l;
-        padding: 0 $unit_l;
+        padding: 0 $unit_m;
+        position: relative;
+    }
 
-        &__full {
-            grid-column: span 3;
+    &--inner {
+        padding: 0;
+    }
+}
+
+// classes for grid items
+@for $i from 1 through length($grid-areas) {
+    $area: nth($grid-areas, $i);
+
+    .grid__#{$area} {
+        display: flex;
+        flex-direction: column;
+        grid-area: auto/a;
+
+        @include breakpoint_l {
+            grid-area: #{$area};
         }
+    }
+
+    @for $x from $i through length($grid-areas) {
+        
+        @if $x > $i {
+            $area2: nth($grid-areas, $x);
     
-        &__third {
-            grid-column: span 1;
-        }
-    
-        &__two-thirds {
-            grid-column: span 2;
+            .grid__#{$area}-#{$area2} {
+                grid-area: auto/a;
+                display: flex;
+                flex-direction: column;
+
+                @include breakpoint_xl {
+                    grid-area: auto/#{$area}/auto/#{$area2};
+                }
+            }
         }
     }
 }
@@ -34,4 +62,13 @@
     grid-template-rows: auto;
     margin: 0 auto;
     grid-gap: $unit_m;
+}
+
+.section {
+    position: relative;
+    z-index: 1;
+}
+
+.strip {
+    padding: $unit_xxxl 0;
 }

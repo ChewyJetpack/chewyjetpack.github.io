@@ -1,18 +1,17 @@
 :root {
-    --c-bg:              #{$crest};
-    --c-hbg:             #{$coral};
-    --c-txt:             #{$carbon};
-    --c-h1:              #{$carbon};
-    --c-h2:              #{$carbon};
-    --c-sh:              #{$slate_1};
-    --c-h0:              #{$slate_2};
-    --c-link:            #{$coral};
-    --c-linkh:           #{$horizon};
     font-size: 8px;
 
     @include breakpoint_m {
       font-size: 10px;
     }
+}
+
+body {
+  padding:
+    env(safe-area-inset-top, $unit_l)
+    env(safe-area-inset-right, $unit_l)
+    env(safe-area-inset-bottom, $unit_l)
+    env(safe-area-inset-left, $unit_l);
 }
 
 @import './reset.scss';
@@ -31,3 +30,6 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+@import './utils/themes.scss';

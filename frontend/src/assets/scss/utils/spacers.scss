@@ -6,21 +6,24 @@ $measurements: (
     "l":         $unit_l,
     "xl":        $unit_xl,
     "xxl":       $unit_xxl,
-    "xxxl":      $unit_xxxl
+    "xxxl":      $unit_xxxl,
+    "9001":      $unit_9001
 );
-
-:root {
-    @each $size, $val in $measurements {
-        --u-#{$size}: #{$val};
-    }
-}
 
 $edges: 'top', 'right', 'bottom', 'left';
 
 @each $size, $val in $measurements {
     @each $edge in $edges {
         .u-#{$edge}-spacer-#{$size} {
-            margin-#{$edge}: var(--u-#{$size});
+            margin-#{$edge}: #{$val};
         }
     }
+}
+
+.u-flex-right {
+    margin-left: auto;
+}
+
+.u-flex-left {
+    margin-right: auto;
 }

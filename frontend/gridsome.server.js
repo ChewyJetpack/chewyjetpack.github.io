@@ -42,17 +42,6 @@ module.exports = function (api) {
       component: './src/components/pages/Blog.vue'
     })
 
-    // Create a page for each project
-    // data.strapi.categories.projects.forEach((project) => {
-    //   createPage({
-    //     path: `/${project.slug}`,
-    //     component: './src/components/templates/Project.vue',
-    //     context: {
-    //       slug: project.slug
-    //     }
-    //   })
-    // })
-
     // Create a page for each post
     data.strapi.posts.forEach((post) => {
       createPage({

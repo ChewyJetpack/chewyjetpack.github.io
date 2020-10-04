@@ -1,37 +1,57 @@
-$carbon:          #0e0d11;
-$slate_1:         #3e3e5a;
-$slate_2:         #8b84a7;
-$midrange:        #a5a1a8;
-$coral:           #e63970;
-$horizon:         #458eb8;
-$sunrise:         #daa84b;
-$crest:           #fffefd;
+$navy:          #0D1A4B;
+$royal:         #26397B;
+$crest:         #fffefd;
+$chalk:         #fff6d1;
+$sunrise:       #FFD703;
+$coral:         #D23265;
+$tangent:       #14DAB9;
+
+// $navy:          #16111d;
+// $royal:         #2e2146;
+// $crest:         #fdfdff;
+// $chalk:         #e3ffff;
+// $sunrise:       #ffe253;
+// $coral:         #b33e63;
+// $tangent:       #26b89f;
+
+
+$cogent:        #00a0d1;
+$skyline:       #528ebe;
+$skyline2:      #427197;
+$navy-shade:    rgba($navy, 0.7);
+$crest-shade:   rgba($crest, 0.7);
 
 
 @mixin dark {
     --mode:dark;
-    --c-bg:              #{$carbon};
-    --c-hbg:             #{$coral};
-    --c-txt:             #{$midrange};
-    --c-h1:              #{$crest};
-    --c-h2:              #{$crest};
-    --c-sh:              #{$horizon};
-    --c-h0:              #{$slate_2};
-    --c-link:            #{$coral};
-    --c-linkh:           #{$coral};
-    --c-fine:            #{$slate_2};
+    --c-bg:              #{$navy};
+    --c-shade-bg:        #{$navy-shade};
+    --c-bg2:             #{$royal};
+    --c-accent-1:        #{$tangent};
+    --c-accent-2:        #{$sunrise};
+    --c-accent-3:        #{$coral};
+    --c-accent-4:        #{$royal};
+    --c-main:            #{$crest};
+    --c-main-alt:        #{$skyline};
+    --c-sl-bg:           #{$coral};
+    --c-sl-on:           #{$chalk};
+    --c-sl-a:            #{$crest};
+    --c-heading:         #{$chalk};
 }
 
 @mixin light {
     --mode:light;
     --c-bg:              #{$crest};
-    --c-hbg:             #{$coral};
-    --c-txt:             #{$carbon};
-    --c-h1:              #{$carbon};
-    --c-h2:              #{$carbon};
-    --c-sh:              #{$slate_1};
-    --c-h0:              #{$slate_1};
-    --c-link:            #{$coral};
-    --c-linkh:           #{$coral};
-    --c-fine:            #{$slate_1};
+    --c-shade-bg:        #{$crest-shade};
+    --c-bg2:             #{$coral};
+    --c-accent-1:        #{$coral};
+    --c-accent-2:        #{$royal};
+    --c-accent-3:        #{$sunrise};
+    --c-accent-4:        #{$tangent};
+    --c-main:            #{$navy};
+    --c-main-alt:        #{$skyline2};
+    --c-sl-bg:           #{$tangent};
+    --c-sl-on:           #{$royal};
+    --c-sl-a:            #{$navy};
+    --c-heading:         #{$royal};
 }

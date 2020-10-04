@@ -1,23 +1,23 @@
 <template>
   <div class="richtext">
-    <Markdown :source="data.content" />
+    <vue-markdown :source="data" />
   </div>
 </template>
 
 <script>
-import Markdown from 'vue-markdown'
+import VueMarkdown from 'vue-markdown'
 
 export default {
   props: ["data"],
   components: {
-    Markdown,
+    VueMarkdown,
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .richtext {
-  max-width: 680px;
+  //max-width: 680px;
   margin: 0 auto;
 }
 </style>

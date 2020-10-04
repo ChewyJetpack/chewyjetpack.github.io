@@ -4,7 +4,7 @@
             <slot />
         </div>
         <nav class="slide-nav__menu">
-            <IconBtn icon="times" :callback="closeNav" invert />
+            <IconBtn icon="times" :callback="closeNav" c-text="--c-accent-3" />
             <NavMenu navFormat="slide" />
             <FooterMenu navFormat="slide" />
         </nav>
@@ -44,8 +44,10 @@ export default {
         --nav-width: 300px;
 
         &__menu {
+            --c-accent-3: var(--c-sl-a);
+
             position: fixed;
-            background: var(--c-link);
+            background: var(--c-sl-bg);
             top: 0;
             right: 0;
             height: 100%;
@@ -57,6 +59,7 @@ export default {
             justify-content: space-between;
             align-items: flex-end;
             transform: translateX(100%);
+            color: var(--c-main);
         }
 
         &__menu, &__slot {

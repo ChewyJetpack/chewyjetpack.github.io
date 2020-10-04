@@ -1,22 +1,27 @@
 <template>
-  <div :class="{ 'post-card': true, 'post-card--blog grid u-bottom-spacer-l': type == 'post' }">
+  <article :class="[{ 'post': true, 'post--blog grid grid--inner u-top-spacer-xxxl': type == 'post' }, accents]">
+
+    <!-- feed image -->
     <g-link
-      :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-      :class="{ 'post-card__img': true, 'hovered': hoverToggle, 'grid__third': type == 'post' }"
-      ref="img_link"
-      @mouseover.native="hoverAll"
-      @mouseleave.native="leaveAll"
+        v-if="!fullPost"
+        :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
+        :class="{ 'post__img': true, 'hovered': hoverToggle, 'grid__a-b': type == 'post' }"
+        ref="img_link"
+        @mouseover.native="hoverAll"
+        @mouseleave.native="leaveAll"
+        :style="`background: url(${getStrapiMedia(content.coverImage.formats.large.url)}) center center / cover no-repeat`"
+    />
+
+    <!-- post page image -->
+    <div 
+        v-if="fullPost"
+        class="post__full-img grid__a-f"
     >
-      <span class="post-card__img-crop">
-        <g-image
-          :alt="content.title"
-          :src="getStrapiMedia(content.coverImage.formats.large.url)"
-          class="post-card__img-src"
-        />
-      </span>
-    </g-link>
-    <div :class="{'post-card__content': true, 'grid__two-thirds': type == 'post', 'u-top-spacer-s': type != 'post'}">
-      <h2 class="post-card__heading u-bottom-spacer-s">
+        <img :src="getStrapiMedia(content.coverImage.formats.large.url)" :alt="`${content.title} by Emil Smith`">
+    </div>
+
+    <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': type != 'post'}">
+      <h2 class="post__heading">
         <g-link 
           :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
           ref="h-_ink"
@@ -26,106 +31,153 @@
         >
           {{ content.title }}
         </g-link>
-      </h2>
-      <p v-if="type == 'post'" class="post-card__date">
-        {{ content.date }}
-      </p>
-      <p class="post-card__description">
-        {{ content.description | truncate(130) }}
-      </p>
-        <g-link
-        :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-        :title="content.title"
-        :class="{ 'post-card__link u-top-spacer-s': true, 'hovered': hoverToggle }"
-        ref="cta_link"
-        @mouseover.native="hoverAll"
-        @mouseleave.native="leaveAll"
+        </h2>
+        <p v-if="type == 'post'" class="post__date">
+            <font-awesome :icon="['far', 'calendar']" class="u-right-spacer-xxs" />
+            {{ content.date | moment("MMM Do, YYYY") }}
+        </p>
+        <p 
+            v-if="fullPost"
+            class="post__full-description"
         >
-        View project <font-awesome icon="arrow-right" class="u-left-spacer-xxs" />
+            {{ content.description }}
+        </p>
+        <p 
+            v-else
+            class="post__description"
+        >
+            {{ content.description | truncate(150) }}
+        </p>
+
+        <Content :content="content.content" class="u-top-spacer-xxl" />
+        <g-link
+            v-if="!fullPost"
+            :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
+            :title="content.title"
+            :class="{ 'post__link u-top-spacer-s': true, 'hovered': hoverToggle }"
+            ref="cta_link"
+            @mouseover.native="hoverAll"
+            @mouseleave.native="leaveAll"
+        >
+            {{ type == 'post' ? 'Read post' : 'View project' }}
+            <font-awesome icon="arrow-right" class="u-left-spacer-xxs" />
         </g-link>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
 import { getStrapiMedia } from '~/utils/medias'
+import Content from '~/components/molecules/Content'
 
 export default {
-  props: ['content', 'cat', 'type'],
-  data() {
-    return {
-      hoverToggle: false
-    }
-  },
-  methods: {
-    getStrapiMedia,
-    hoverAll() {
-      this.hoverToggle = true
+  props: {
+        content: {
+            type: Object
+        }, 
+        cat: {
+            type: String
+        }, 
+        type: {
+            type: String
+        }, 
+        i: {
+            type: Number
+        },
+        fullPost: {
+            type: Boolean
+        }
     },
-    leaveAll() {
-      this.hoverToggle = false
+    components: {
+        Content
+    },
+    data() {
+        return {
+        hoverToggle: false,
+        accents: ''
+        }
+    },
+    mounted() {
+        if (this.i % 2 == 0) {
+            this.accents = this.chooseThemeElems()   
+        }
+    },
+    methods: {
+        getStrapiMedia,
+        hoverAll() {
+        this.hoverToggle = true
+        },
+        leaveAll() {
+        this.hoverToggle = false
+        },
+        getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+        },
+        chooseThemeElems() {
+            const alignment = ['left', 'right'];
+            const vals = [
+                (this.getRandomInt(4) + 1), // corner accent
+                (this.getRandomInt(2) + 3), // triangle accent
+                alignment[this.getRandomInt(2)] // alignment
+            ]
+            const result = `u-tri-${vals[2]}-accent-${vals[1].toString()} u-tri-${vals[2]}-full u-cnr-${vals[2]}-accent-${vals[0].toString()}`;
+            return result;
+        }
     }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-  .post-card {
-    &__heading {
-      a {
-        color: var(--c-h2);
+  .post {
+      align-items: start;
+      position: relative;
+      z-index: 1;
 
-        &:hover, &:focus, &.hovered {
-          color: var(--c-link);
-        }
+      &:first-child {
+          margin: 0;
       }
+
+    &__heading {
+        font-size: $txt_l;
+    }
+        
+    &__date {
+        font-size: $txt_xs;
+        color: var(--c-main-alt);
+    }
+
+    &__full-description {
+        font-size: $txt_xs;
     }
 
     &__img {
-      padding-bottom: 50%;
+      padding-bottom: 75%;
       overflow: hidden;
       display: block;
       position: relative;
-
-      &-crop {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        display: block;
-        transform: translate(-50%, -50%);
+      border-radius: $unit_xs;
 
         &:after {
-          content: "";
-          position: absolute;
-          bottom: -1px;
-          left: 0;
-          height: $unit_xs;
-          background: var(--c-link);
-          width: 100%;
-          transform: translateY(100%);
-          transition: transform 0.2s;
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            height: $unit_xs;
+            background: var(--c-accent-4);
+            width: 100%;
+            transform: translateY(100%);
+            transition: transform 0.2s;
         }
-      }
 
-      &-src {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+        &:hover, &.hovered {
 
-      &:hover, &.hovered {
+            .post-card__img-crop {
 
-        .post-card__img-crop {
-
-          &:after {
-            transform: translateY(0%);
-          }
+                &:after {
+                    transform: translateY(0%);
+                }
+            }
         }
-      }
     }
 
     &__description, &__link {
@@ -133,6 +185,7 @@ export default {
     }
 
     &__link {
+        color: var(--c-accent-2);
       svg {
         transform: translate(0);
         transition: all 0.2s;

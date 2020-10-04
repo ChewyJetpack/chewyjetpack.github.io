@@ -6,7 +6,7 @@
     >
       <!-- Display the right component based on type name -->
       <div v-if="contentSection.__typename === 'strapiTypes_ComponentSectionsRichText'">
-        <RichText :data="contentSection" />
+        <RichText :data="contentSection.content" />
       </div>
       <div v-if="contentSection.__typename === 'strapiTypes_ComponentSectionsLargeMedia'">
         <LargeMedia :data="contentSection" />

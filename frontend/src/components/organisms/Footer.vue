@@ -1,15 +1,11 @@
 <template>
   <footer class="footer u-top-spacer-xxxl">
     <div class="grid">
-        <div class="grid__full">
-          <div class="footer__content">
-            <p class="footer__copy u-top-spacer-xs">
-              {{ $static.strapi.global.siteName }} &copy; Copyright {{ new Date().getFullYear() }} - Emil Smith
-            </p>
-            <FooterMenu />
-          </div>
-        </div>
-      </div>
+      <p class="footer__copy u-top-spacer-xs">
+        All content &copy; Copyright {{ new Date().getFullYear() }} - Emil Smith
+      </p>
+      <FooterMenu class="footer__menu" />
+    </div>
   </footer>
 </template>
 
@@ -37,16 +33,30 @@ query {
   .footer {
     padding-bottom: $unit_m;
     margin-top: auto;
-
-    &__content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
+    align-items: flex-end;
 
     &__copy {
       font-size: $txt_xxs;
-      color: var(--c-fine);
+      color: var(--c-main);
+      text-align: center;
+      opacity: 1;
+      grid-area: 2/a;
+      align-self: end;
+
+      @include breakpoint_xl {
+        grid-area: 1/a/1/c;
+        justify-self: left; 
+      }
+    }
+
+    &__menu {
+      order: 1;
+      grid-area: 1/a;
+
+      @include breakpoint_xl {
+        grid-area: 1/d/1/f;
+        justify-self: right; 
+      }
     }
   }
 </style>

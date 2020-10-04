@@ -43,7 +43,7 @@ query {
     .nav-list {
         display: none;
 
-        @include breakpoint_m {
+        @include breakpoint_l {
           display: flex;
         }
 
@@ -55,13 +55,9 @@ query {
             line-height: 1;
         }
 
-        &--mini {
-            .nav-list {
-                &__item {
-                    font-size: $txt_s;
-                    line-height: 1;
-                }
-            }
+        &__link {
+            color: var(--c-bg);
+            text-decoration: none;
         }
 
         &--slide {
@@ -76,11 +72,11 @@ query {
                     text-align: right;
                     font-size: $txt_m;
                     line-height: 1;
-                    color: var(--c-bg);
+                    color: var(--c-sl-a);
                 }
 
                 &__active {
-                    color: var(--c-h1);
+                    color: var(--c-sl-on);
                 }
             }
         }

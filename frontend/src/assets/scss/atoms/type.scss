@@ -1,106 +1,56 @@
 .layout {
     font-family: $body-font;
-    font-size: $txt_xs;
-    line-height: 1.6;
-    color: var(--c-txt);
-    font-weight: 300;
+    font-size: $txt_s;
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--c-main);
+}
 
-    @include breakpoint_m {
-        font-size: $txt_s;
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font;
+    line-height: 1.2;
+    font-weight: 700;
+    font-size: $txt_m;
+    color: var(--c-heading);
+
+    & > a {
+        color: var(--c-heading);
     }
 }
 
 h1 {
-    font-family: $heading-font;
-    line-height: 1;
-    font-weight: 900;
-    font-size: $txt_l;
-    color: var(--c-h1);
-
-    @include breakpoint_m {
-        font-size: $txt_xl;
-    }
-
-    @include breakpoint_l {
-        font-size: $txt_xxl;
-    }
+    font-size: $txt_xl;
 }
 
 h2 {
-    font-family: $heading-font;
-    font-size: $txt_s;
-    color: var(--c-h2);
-    line-height: 1.2;
-
-    @include breakpoint_m {
-        font-size: $txt_m;
-    }
+    font-size: $txt_l;
 }
 
 h3 {
-    font-size: $txt_s;
-    font-weight: 700;
-    color: var(--c-h0);
-}
-
-h4, h5, h6 {
-    font-size: $txt_xs;
-    font-weight: 700;
-    color: var(--c-h0);
-}
-
-.subheading {
-    font-family: $subheading-font;
-    font-style: italic;
-    font-weight: 400;
+    font-size: $txt_l;
     font-weight: 500;
-    color: var(--c-sh);
 }
 
-p:not([class]) {
-    @extend .u-bottom-spacer-m;
+.page-desc {
+    font-family: $heading-font;
+    font-size: $txt_m;
+    line-height: 1.5;
+}
+
+p:not([class]):not(:last-of-type) {
+    @extend .u-bottom-spacer-l;
 }
 
 a {
-    color: var(--c-link);
     font-weight: 700;
     text-decoration: none;
-    transition: color 0.2s;
-    display: inline-block;
-    position: relative;
+    color: var(--c-accent-2);
 
-    &:not([class]), &.u-hover-anim {
-        &:after {
-            position: absolute;
-            bottom: 0.1em;
-            height: 2px;
-            left: 0;
-            content: "";
-            display: block;
-            background: var(--c-linkh);
-            width: 100%;
-            opacity: 0.7;
-            transform: translateX(-50%) scaleX(0);
-            transition: transform 0.2s;
-        }
-    }
-
-    &.u-hover-anim {
-        line-height: 1;
-
-        &:after {
-            bottom: -#{$unit_xxs};
-        }
-    }
-
-    &:hover, &:focus, &.u-hover-anim.hovered {
-        color: var(--c-linkh);
-
-        &:after {
-            transform: translateX(-0%) scaleX(1);
-        }
+    &:hover, &:focus {
+        text-decoration: underline;
     }
 }
+
 strong {
   font-weight: 700;
 }
@@ -108,18 +58,23 @@ strong {
 blockquote {
   position: relative;
   margin: $unit_m 0;
-  font-weight: 700;
-  color: var(--c-h1);
+  font-weight: 500;
+  color: var(--c-main);
   font-size: 1.4em;
-  padding-left: $unit_m;
+  line-height: 1.4;
+  padding: $unit_xs $unit_l;
+
+  & > p {
+      margin: 0;
+  }
   
   &:before {
     position: absolute;
     top:0;
     left: 0;
     height: 100%;
-    width: $unit_xxs;
-    background: var(--c-sh);
+    width: $unit_xs;
+    background: var(--c-accent-1);
     content: "";
     display: block;
   }
@@ -127,5 +82,11 @@ blockquote {
 
 code {
   padding: $unit_xs;
-  border: solid 1px var(--c-h0);
+  border: solid 1px var(--c-main);
+}
+
+.content {
+    h1, h2 {
+        margin-bottom: $unit_m;
+    }
 }

@@ -1,5 +1,5 @@
 <template>
-    <button @click="callback" :class="[ classes, { 'icon-btn': true, 'icon-btn--mini': navFormat == 'mini', 'icon-btn--invert': invert } ]">
+    <button @click="callback" :class="[classes, 'icon-btn']" :style="`color: var(${cText})`">
         <font-awesome :icon="icon" />
     </button>
 </template>
@@ -16,11 +16,8 @@ export default {
         icon: {
             type: String
         },
-        navFormat: {
+        cText: {
             type: String
-        },
-        invert: {
-            type: Boolean
         }
     }
 }
@@ -37,35 +34,19 @@ export default {
         display: flex;
         align-items: center;
         position: relative;
-        height: var(--c-txt);
-        font-size: var(--u-l);
-        color: var(--c-h1);
-
-        @include breakpoint_m {
-            font-size: var(--u-m);
-        }
+        font-size: $txt_m;
+        color: var(--c-bg);
 
         &.mode-switch {
             position: relative;
             transition: transform 0.5s;
 
-            &:before, &:after {
+            &:after {
                 display: block;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 content: "";
-            }
-
-            &:before {
-                width: 1px;
-                height: 1px;
-                box-shadow: 0 0 20px 7px $crest;
-                opacity: 0;
-                transition: opacity 1s;
-            }
-
-            &:after {
                 width: $unit_xxl;
                 height: $unit_xxl;
                 background: $sunrise;
@@ -101,17 +82,7 @@ export default {
 
             &--dark {
                 transform: rotate(180deg);
-
-                &:before {
-                    opacity: 0.7;
-                    animation: 1s ease 0s infinite alternate glow;
-                }
             }
-        }
-
-        &--mini {
-            color: var(--c-bg);
-            font-size: var(--u-m);
         }
 
         &--invert {
@@ -129,15 +100,6 @@ export default {
             z-index: 1;
             transition: transform 0.2s;
             pointer-events: none;
-        }
-
-        @keyframes glow {
-            from {
-                opacity: 0.7;
-            }
-            to {
-                opacity: 1;
-            }
         }
     }
 </style>

@@ -1,23 +1,14 @@
 <template>
-    <div class="container">
-      <div>
-        <h1>
-          {{ $page.strapi.posts[0].title }}
-        </h1>
-        <p>{{ $page.strapi.posts[0].description }}</p>
-        <g-image
-          :alt="$page.strapi.posts[0].title"
-          :src="getStrapiMedia($page.strapi.posts[0].coverImage.url)"
-        />
-      </div>
-    <Content :content="$page.strapi.posts[0].content" />
-    <ul>
-        <li v-for="(tag, index) in $page.strapi.posts[0].tags" :key="index">
-            {{ tag.name }}
-        </li>
-    </ul>
+    <div class="grid">
+        <div class="grid__a-f">
+            <PostCard
+                :content="$page.strapi.posts[0]"
+                type="post"
+                img="large"
+                fullPost
+            />
+        </div>
     </div>
-    
 </template>
 
 <page-query>
@@ -27,6 +18,7 @@ query ($slug: String!) {
       id
       title
       slug
+      date
       description
       tags {
         id
@@ -35,6 +27,7 @@ query ($slug: String!) {
       coverImage {
         id
         url
+        formats
       }
       content {
         __typename
@@ -66,7 +59,7 @@ query ($slug: String!) {
 </page-query>
 
 <script>
-import Content from '~/components/molecules/Content'
+import PostCard from '~/components/molecules/PostCard'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
 
@@ -75,10 +68,10 @@ export default {
     getStrapiMedia,
   },
   components: {
-    Content,
+    PostCard,
   },
   metaInfo() {
-    const { title, description, coverImage } = this.$page.strapi.projects[0]
+    const { title, description, coverImage } = this.$page.strapi.posts[0]
     const image = getStrapiMedia(coverImage.url)
     return {
       title,

@@ -1,5 +1,5 @@
 <template>
-    <IconBtn ref="mode" :callback="switchMode" :classes="`mode-switch mode-switch--${currentMode}`" :navFormat="navFormat" icon="adjust" />
+    <IconBtn ref="mode" :callback="switchMode" :classes="`mode-switch mode-switch--${currentMode}`" icon="adjust" />
 </template>
 
 <script>

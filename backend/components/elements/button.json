@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_buttons",
+  "info": {
+    "name": "button",
+    "icon": "arrow-alt-circle-right"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "external": {
+      "type": "boolean"
+    }
+  }
+}

@@ -4,7 +4,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
-//import { } from '@fortawesome/free-regular-svg-icons'
+import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { faAdjust, faArrowRight, faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import VueTruncate from 'vue-truncate-filter'
@@ -14,7 +14,7 @@ import lodash from 'lodash'
 import VuePageTransition from 'vue-page-transition'
 
 config.autoAddCss = false;
-library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars);
+library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars, faCalendar);
 
 export default function (Vue, { router, head, isClient }) {
 
@@ -23,10 +23,10 @@ export default function (Vue, { router, head, isClient }) {
     href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap'
   }, {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Martel:wght@300;400;600;700&display=swap"'
+    href: 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"'
   }, {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap'
+    href: 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap'
   });
 
   // Global icon component
@@ -35,4 +35,5 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueLodash, { lodash: { throttle }})
   Vue.use(VueTruncate)
   Vue.use(VuePageTransition)
+  Vue.use(require('vue-moment'));
 }

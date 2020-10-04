@@ -5,9 +5,6 @@
   >
     <SlideNav>
       <!-- Content anchored to top -->
-      <transition name="slide">
-        <Header :currentMode="currentMode" navFormat="mini" v-if="lowKeyHeader" />
-      </transition>
       <Header :currentMode="currentMode" />
       
       <main class="layout__content u-bottom-spacer-xxxl">
@@ -84,7 +81,7 @@ export default {
   methods: {
       headerResize() {
           const position = window.scrollY;
-          position > 800 ? this.lowKeyHeader = true : this.lowKeyHeader = false;
+          position > 500 ? this.lowKeyHeader = true : this.lowKeyHeader = false;
       },
       closeNav() {
         EventBus.$emit('slidenav', false);
@@ -118,14 +115,16 @@ export default {
     @import '@/assets/scss/global.scss';
 </style>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .layout {
     background: var(--c-bg);
     transition: all 0.5s;
     width: 100%;
     display: flex;
     flex-direction: column;
-    //padding-top: $unit_9001;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: visible;
 
     .shade {
       position: absolute;
@@ -133,21 +132,9 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba($carbon, 0.8);
+      background: var(--c-shade-bg);
       cursor: pointer;
       z-index: 10;
-    }
-
-    &--light {
-      @include light;
-
-      .shade {
-        background: rgba($crest, 0.7);
-      }
-    }
-
-    &--dark {
-      @include dark;
     }
 
     &--init {
@@ -159,9 +146,6 @@ export default {
 
     &__content {
       position: relative;
-      z-index: 1;
     }
-
-
 }
 </style>

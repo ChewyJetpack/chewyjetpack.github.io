@@ -74,21 +74,30 @@ query {
 
 <style lang="scss" scoped>
   .footer-menu {
+
+    flex-direction: column;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+
     &__social {
         display: flex;
-        justify-content: flex-end;
-    }
+        justify-content: center;
+        width: 100%;
 
-    &__contact {
-      justify-content: flex-end;
-      display: flex;
+        @include breakpoint_xl {
+            justify-content: right;
+        }
     }
 
     &--slide {
         .footer-menu {
-            &__social-link {
-                color: var(--c-bg);
-                font-size: $txt_m;
+            &__social {
+                justify-content: right;
+                
+                &-link {
+                    font-size: $txt_m;
+                }
             }
         }
     }
