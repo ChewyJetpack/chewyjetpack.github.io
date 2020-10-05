@@ -2,7 +2,7 @@
     <div class="page">
         <div class="grid">
             <div class="grid__a-d">
-                <h1>{{ $page.strapi.blog.title }}</h1>
+                <h1 class="u-top-spacer-xxl">{{ $page.strapi.blog.title }}</h1>
             </div>
 
             <!-- List of project preview cards -->

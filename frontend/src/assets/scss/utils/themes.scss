@@ -34,27 +34,31 @@ $shape_positions: 'right', 'left';
 
 @each $pos in $shape_positions {
     @each $accent in $flexi-accents {
-        .u-tri-#{$pos}-#{$accent}:before  {
-            position: absolute;
-            #{$pos}: -#{$unit_xxl};
-            top: -#{$unit_xxl};
-            transform: translateY(0);
-            content: "";
-            display: block;
-            border-style: solid;
-            border-color: transparent;
-            border-width: 15vh;
-            border-top-color: var(--c-#{$accent});
-            border-#{$pos}-color: var(--c-#{$accent});
-            z-index: -1;
+        .u-tri-#{$pos}-#{$accent} {
+            position: relative;
 
-            @include breakpoint_xl {
-                border-color: var(--c-#{$accent});
-                border-width: calc(#{$unit_xxxl} * 2);
-                border-bottom-color: transparent;
-                border-#{$pos}-color: transparent;
-                #{$pos}: calc(100% + #{$unit_xxxl});
-                transform: translateY(-#{$unit_xxl});
+            &:before  {
+                position: absolute;
+                #{$pos}: -#{$unit_xxl};
+                top: -#{$unit_xxl};
+                transform: translateY(0);
+                content: "";
+                display: block;
+                border-style: solid;
+                border-color: transparent;
+                border-width: 15vh;
+                border-top-color: var(--c-#{$accent});
+                border-#{$pos}-color: var(--c-#{$accent});
+                z-index: -1;
+
+                @include breakpoint_xl {
+                    border-color: var(--c-#{$accent});
+                    border-width: calc(#{$unit_xxxl} * 2);
+                    border-bottom-color: transparent;
+                    border-#{$pos}-color: transparent;
+                    #{$pos}: calc(100% + #{$unit_xxxl});
+                    transform: translateY(-#{$unit_xxl});
+                }
             }
         }
     }
@@ -71,32 +75,36 @@ $shape_positions: 'right', 'left';
 
 @each $pos in $shape_positions {
     @each $accent in $accents {
-        .u-cnr-#{$pos}-#{$accent}:after {
-            position: absolute;
-            right: -#{$unit_m};
-            bottom: -#{$unit_l};
-            height: $unit_xxxl;
-            width: $unit_xxxl;
-            content: "";
-            display: block;
-            z-index: -1;
-            box-shadow: inset -#{$unit_xs} -#{$unit_xs} 0 var(--c-#{$accent});
+        .u-cnr-#{$pos}-#{$accent} {
+            position: relative;
+        
+            &:after {
+                position: absolute;
+                right: -#{$unit_m};
+                bottom: -#{$unit_l};
+                height: $unit_xxxl;
+                width: $unit_xxxl;
+                content: "";
+                display: block;
+                z-index: -1;
+                box-shadow: inset -#{$unit_xs} -#{$unit_xs} 0 var(--c-#{$accent});
 
-            @include breakpoint_m {
-                right: auto;
-                #{$pos}: -#{$unit_l};
+                @include breakpoint_m {
+                    right: auto;
+                    #{$pos}: -#{$unit_m};
 
-                @if $pos != 'right' {
-                    box-shadow: inset #{$unit_xs} -#{$unit_xs} 0 var(--c-#{$accent});
+                    @if $pos != 'right' {
+                        box-shadow: inset #{$unit_xs} -#{$unit_xs} 0 var(--c-#{$accent});
+                    }
                 }
-            }
 
-            @include breakpoint_xl {
-                border-width: $unit_xs;
-                height: calc(#{$unit_xxl} * 2);
-                width: calc(#{$unit_xxl} * 2);
-                #{$pos}: -#{$unit_xxl};
-                bottom: -#{$unit_xl};
+                @include breakpoint_xl {
+                    border-width: $unit_xs;
+                    height: calc(#{$unit_xxl} * 2);
+                    width: calc(#{$unit_xxl} * 2);
+                    #{$pos}: -#{$unit_xl};
+                    bottom: -#{$unit_xl};
+                }
             }
         }
     }

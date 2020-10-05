@@ -11,7 +11,7 @@ $grid-areas: a, b, c, d, e, f;
     padding: 0 $unit_m;
 
     // 3 col on desktop
-    @include breakpoint_xl {
+    @include breakpoint_l {
         grid-template: 'a b c d e f' auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
         grid-gap: $unit_l;
         padding: 0 $unit_m;
@@ -47,7 +47,7 @@ $grid-areas: a, b, c, d, e, f;
                 display: flex;
                 flex-direction: column;
 
-                @include breakpoint_xl {
+                @include breakpoint_l {
                     grid-area: auto/#{$area}/auto/#{$area2};
                 }
             }

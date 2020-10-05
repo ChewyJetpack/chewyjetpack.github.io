@@ -1,24 +1,26 @@
 <template>
+  <div class="page">
     <div class="grid">
-      <div class="grid__two-thirds">
-          <h1 v-if="$page.strapi.categories[0].heading">
+      <div class="grid__a-d">
+          <h1 class="u-top-spacer-xxl">
             {{ $page.strapi.categories[0].heading }}
           </h1>
           <p v-if="$page.strapi.categories[0].description">{{ $page.strapi.categories[0].description }}</p>
           <Content v-if="$page.strapi.categories[0].content" :content="$page.strapi.categories[0].content" />
       </div>
 
-      <div class="grid__full">
-        <div class="story-grid">
+      <div class="grid__a-f u-top-spacer-xl">
           <PostCard
-            v-for="project in $page.strapi.categories[0].projects"
-            :key="project.id"
-            :content="project"
-            :cat="$page.strapi.categories[0].slug"
-            type="project"
+              v-for="(project, index) in $page.strapi.categories[0].projects"
+              :key="project.id"
+              :content="project"
+              :i="index"
+              :cat="$page.strapi.categories[0].slug"
+              type="project"
+              img="large"
           />
-        </div>
       </div>
+    </div>
     </div>
 </template>
 
