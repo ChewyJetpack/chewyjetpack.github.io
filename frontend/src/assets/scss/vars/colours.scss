@@ -1,7 +1,7 @@
 $navy:          #0D1A4B;
 $royal:         #26397B;
 $crest:         #fffefd;
-$chalk:         #bfedff;
+$chalk:         #fff6d1;
 $sunrise:       #FFD703;
 $coral:         #D23265;
 $tangent:       #14DAB9;
@@ -31,13 +31,12 @@ $crest-shade:   rgba($crest, 0.7);
     --c-accent-2:        #{$sunrise};
     --c-accent-3:        #{$coral};
     --c-accent-4:        #{$royal};
-    --c-main:            #{$chalk};
+    --c-main:            #{$crest};
     --c-main-alt:        #{$skyline};
-    --c-main-alt-2:      #{$chalk};
     --c-sl-bg:           #{$coral};
     --c-sl-on:           #{$chalk};
     --c-sl-a:            #{$crest};
-    --c-heading:         #{$crest};
+    --c-heading:         #{$chalk};
 }
 
 @mixin light {
@@ -51,7 +50,6 @@ $crest-shade:   rgba($crest, 0.7);
     --c-accent-4:        #{$tangent};
     --c-main:            #{$navy};
     --c-main-alt:        #{$skyline2};
-    --c-main-alt-2:      #{$royal};
     --c-sl-bg:           #{$tangent};
     --c-sl-on:           #{$royal};
     --c-sl-a:            #{$navy};

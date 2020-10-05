@@ -1,5 +1,5 @@
 <template>
-  <header ref="header" class="header">
+  <header ref="header" class="header u-bottom-spacer-l">
     <div class="grid">
       <div class="grid__a-f">
         <div class="header__content">

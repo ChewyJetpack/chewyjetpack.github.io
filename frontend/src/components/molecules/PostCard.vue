@@ -1,11 +1,11 @@
 <template>
-  <article :class="['post grid grid--inner u-top-spacer-xxxl', accents, {'post--full': fullPost}]">
+  <article :class="[{ 'post': true, 'post--blog grid grid--inner u-top-spacer-xxxl': type == 'post' }, accents]">
 
     <!-- feed image -->
     <g-link
         v-if="!fullPost"
         :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-        :class="[{ 'hovered': hoverToggle }, 'grid__a-b post__img' ]"
+        :class="{ 'post__img': true, 'hovered': hoverToggle, 'grid__a-b': type == 'post' }"
         ref="img_link"
         @mouseover.native="hoverAll"
         @mouseleave.native="leaveAll"
@@ -20,10 +20,9 @@
         <img :src="getStrapiMedia(content.coverImage.formats.large.url)" :alt="`${content.title} by Emil Smith`">
     </div>
 
-    <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': !fullPost }">
+    <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': type != 'post'}">
       <h2 class="post__heading">
         <g-link 
-          v-if="!fullPost"
           :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
           ref="h-_ink"
           :class="{ 'hovered': hoverToggle }"
@@ -32,39 +31,25 @@
         >
           {{ content.title }}
         </g-link>
-        {{ fullPost ? content.title : null }}
         </h2>
-        <p v-if="type == 'post'" class="post__date u-top-spacer-xxs">
+        <p v-if="type == 'post'" class="post__date">
             <font-awesome :icon="['far', 'calendar']" class="u-right-spacer-xxs" />
             {{ content.date | moment("MMM Do, YYYY") }}
         </p>
         <p 
             v-if="fullPost"
-            class="post__description post__description u-top-spacer-s u-tri-left-accent-3 u-cnr-left-accent-1"
+            class="post__full-description"
         >
             {{ content.description }}
         </p>
         <p 
             v-else
-            class="post__description u-top-spacer-s"
+            class="post__description"
         >
             {{ content.description | truncate(150) }}
         </p>
 
-        <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xxxl" />
-
-        <ul
-            v-if="type == 'post'"
-            class="post__tags"
-        >
-            <li
-                v-for="tag in content.tags"
-                :key="tag.id"
-            >
-                <g-link :to="`/blog/tags/${tag.slug}`">{{ tag.name }}</g-link>
-            </li>
-        </ul>
-
+        <Content :content="content.content" class="u-top-spacer-xxl" />
         <g-link
             v-if="!fullPost"
             :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
@@ -161,6 +146,10 @@ export default {
         color: var(--c-main-alt);
     }
 
+    &__full-description {
+        font-size: $txt_xs;
+    }
+
     &__img {
       padding-bottom: 75%;
       overflow: hidden;
@@ -191,19 +180,8 @@ export default {
         }
     }
 
-    &__link {
+    &__description, &__link {
       font-size: $txt_xs;
-    }
-
-    &__description {
-        font-size: $txt_xs;
-        color: var(--c-main-alt-2);
-    }
-
-    .content {
-        @include breakpoint_xl {
-            padding: 0 $unit_xxl 0 0;
-        }
     }
 
     &__link {
@@ -218,19 +196,6 @@ export default {
           transform: translateX($unit_xxs);
         }
       }
-    }
-
-    &--full {
-        .post {
-            &__date {
-                color: var(--c-heading);
-            }
-
-            &__description {
-                padding: $unit_l;
-                background: var(--c-accent-4);
-            }
-        }
     }
   }
 </style>

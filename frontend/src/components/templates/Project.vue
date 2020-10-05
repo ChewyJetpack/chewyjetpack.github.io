@@ -1,16 +1,18 @@
 <template>
-    <div class="page">
-        <div class="grid">
-            <div class="grid__a-f">
-                <PostCard
-                    :content="$page.strapi.projects[0]"
-                    type="project"
-                    img="large"
-                    fullPost
-                />
-            </div>
-        </div>
+    <div class="container">
+      <div>
+        <h1>
+          {{ $page.strapi.projects[0].title }}
+        </h1>
+        <p>{{ $page.strapi.projects[0].description }}</p>
+        <g-image
+          :alt="$page.strapi.projects[0].title"
+          :src="getStrapiMedia($page.strapi.projects[0].coverImage.url)"
+        />
+      </div>
+    <Content :content="$page.strapi.projects[0].content" />
     </div>
+    
 </template>
 
 <page-query>
@@ -28,7 +30,6 @@ query ($slug: String!) {
       coverImage {
         id
         url
-        formats
       }
       content {
         __typename
@@ -60,7 +61,7 @@ query ($slug: String!) {
 </page-query>
 
 <script>
-import PostCard from '~/components/molecules/PostCard'
+import Content from '~/components/molecules/Content'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
 
@@ -69,7 +70,7 @@ export default {
     getStrapiMedia,
   },
   components: {
-    PostCard,
+    Content,
   },
   metaInfo() {
     const { title, description, coverImage } = this.$page.strapi.projects[0]
