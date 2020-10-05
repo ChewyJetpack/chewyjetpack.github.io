@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
-import { faAdjust, faArrowRight, faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faAdjust, faArrowRight, faArrowLeft, faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import VueTruncate from 'vue-truncate-filter'
 import VueLodash from 'vue-lodash'
@@ -14,7 +14,7 @@ import lodash from 'lodash'
 import VuePageTransition from 'vue-page-transition'
 
 config.autoAddCss = false;
-library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars, faCalendar);
+library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars, faCalendar, faArrowLeft);
 
 export default function (Vue, { router, head, isClient }) {
 

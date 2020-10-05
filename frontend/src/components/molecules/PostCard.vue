@@ -1,15 +1,15 @@
 <template>
-  <article :class="[{ 'post': true, 'post--blog grid grid--inner u-top-spacer-xxxl': type == 'post' }, accents]">
+  <article :class="[ 'post grid grid--inner u-top-spacer-xxxl', accents]">
 
     <!-- feed image -->
     <g-link
         v-if="!fullPost"
         :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-        :class="{ 'post__img': true, 'hovered': hoverToggle, 'grid__a-b': type == 'post' }"
+        :class="[{ 'hovered': hoverToggle }, 'post__img grid__a-b']"
         ref="img_link"
         @mouseover.native="hoverAll"
         @mouseleave.native="leaveAll"
-        :style="`background: url(${getStrapiMedia(content.coverImage.formats.large.url)}) center center / cover no-repeat`"
+        :style="`background: url(${content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)}) center center / cover no-repeat`"
     />
 
     <!-- post page image -->
@@ -17,10 +17,10 @@
         v-if="fullPost"
         class="post__full-img grid__a-f"
     >
-        <img :src="getStrapiMedia(content.coverImage.formats.large.url)" :alt="`${content.title} by Emil Smith`">
+        <img :src="content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)" :alt="`${content.title} by Emil Smith`">
     </div>
 
-    <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': type != 'post'}">
+    <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': fullPost }">
       <h2 class="post__heading">
         <g-link 
           :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
@@ -32,7 +32,7 @@
           {{ content.title }}
         </g-link>
         </h2>
-        <p v-if="type == 'post'" class="post__date">
+        <p v-if="type == 'post'" class="post__date u-top-spacer-xs">
             <font-awesome :icon="['far', 'calendar']" class="u-right-spacer-xxs" />
             {{ content.date | moment("MMM Do, YYYY") }}
         </p>
@@ -44,12 +44,17 @@
         </p>
         <p 
             v-else
-            class="post__description"
+            class="post__description u-top-spacer-s"
         >
             {{ content.description | truncate(150) }}
         </p>
 
-        <Content :content="content.content" class="u-top-spacer-xxl" />
+        <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xxl" />
+
+        <Tags 
+            :tags="content.tags" 
+        />
+
         <g-link
             v-if="!fullPost"
             :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
@@ -69,6 +74,7 @@
 <script>
 import { getStrapiMedia } from '~/utils/medias'
 import Content from '~/components/molecules/Content'
+import Tags from '~/components/atoms/Tags'
 
 export default {
   props: {
@@ -89,7 +95,8 @@ export default {
         }
     },
     components: {
-        Content
+        Content,
+        Tags
     },
     data() {
         return {

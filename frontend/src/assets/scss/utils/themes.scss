@@ -84,7 +84,7 @@ $shape_positions: 'right', 'left';
 
             @include breakpoint_m {
                 right: auto;
-                #{$pos}: -#{$unit_l};
+                #{$pos}: -#{$unit_m};
 
                 @if $pos != 'right' {
                     box-shadow: inset #{$unit_xs} -#{$unit_xs} 0 var(--c-#{$accent});
@@ -95,7 +95,7 @@ $shape_positions: 'right', 'left';
                 border-width: $unit_xs;
                 height: calc(#{$unit_xxl} * 2);
                 width: calc(#{$unit_xxl} * 2);
-                #{$pos}: -#{$unit_xxl};
+                #{$pos}: -#{$unit_xl};
                 bottom: -#{$unit_xl};
             }
         }

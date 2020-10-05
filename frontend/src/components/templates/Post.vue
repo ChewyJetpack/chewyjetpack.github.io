@@ -1,12 +1,14 @@
 <template>
-    <div class="grid">
-        <div class="grid__a-f">
-            <PostCard
-                :content="$page.strapi.posts[0]"
-                type="post"
-                img="large"
-                fullPost
-            />
+    <div class="page">
+        <div class="grid">
+            <div class="grid__a-f">
+                <PostCard
+                    :content="$page.strapi.posts[0]"
+                    type="post"
+                    img="large"
+                    fullPost
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -23,6 +25,7 @@ query ($slug: String!) {
       tags {
         id
         name
+        slug
       }
       coverImage {
         id

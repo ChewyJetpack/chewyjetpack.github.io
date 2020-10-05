@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page u-top-spacer-xl">
         <div class="grid">
             <div class="grid__a-d">
                 <h1>{{ $page.strapi.blog.title }}</h1>
@@ -48,9 +48,9 @@ query {
       date
       description
       tags {
+        slug
         id
         name
-        slug
       }
       coverImage {
         id

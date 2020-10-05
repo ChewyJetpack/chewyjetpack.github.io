@@ -1,35 +1,26 @@
 <template>
+<div class="page u-top-spacer-xl">
   <div class="grid">
-    <div class="grid__two-thirds">
-      <h1 class="u-bottom-spacer-s">{{ $page.strapi.blog.title }}</h1>
-      <h2 class="subheading u-bottom-spacer-xs">{{ $page.strapi.blog.subheading }}</h2>
-    </div>
-
-    <!-- <div class="grid__third">
-      <div class="selfie">
-        <g-image
-            :alt="$page.strapi.home.title"
-            :src="getStrapiMedia($page.strapi.home.selfie.url)"
-            class="selfie__img"
-          />
-      </div>
-    </div> -->
-    
-    <div class="grid__two-thirds">
-      <Content :content="$page.strapi.blog.content" />
+    <div class="grid__a-d">
+      <h1 class="u-bottom-spacer-s">
+          <g-link to="/blog" class="u-c-accent-2">
+            <font-awesome icon="arrow-left" /> Blog
+          </g-link>
+      </h1>
+      <h2 class="subheading u-bottom-spacer-xs">Posts about: {{ $page.strapi.tags[0].name }}</h2>
     </div>
     <!-- List of project preview cards -->
 
-    <div class="grid__full">
-      <h1 class="u-bottom-spacer-l">Latest Posts</h1>
-      <div class="story-grid">
+    <div class="grid__a-f u-top-spacer-xl">
         <PostCard
-          v-for="post in $page.strapi.posts"
+          v-for="(post, index) in $page.strapi.tags[0].posts"
           :key="post.id"
-          :post="post"
+          :i="index"
+          :content="post"
+            type="post"
         />
-      </div>
     </div>
+  </div>
   </div>
 </template>
 
