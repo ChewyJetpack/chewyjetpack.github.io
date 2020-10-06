@@ -6,7 +6,7 @@
     >
         <g-link 
             :to="`/blog/tags/${tag.slug}`" 
-            class="tags__tag u-right-spacer-xs"
+            class="tags__tag u-right-spacer-xxxs"
         >
             {{ tag.name }}
         </g-link>
@@ -28,7 +28,7 @@ export default {
 <style lang="scss" scoped>
     .tags {
         display: flex;
-        padding-top: $unit_m;
+        padding-top: $unit_xs;
 
         &__tag {
             font-size: $txt_xxs;
@@ -36,8 +36,9 @@ export default {
             line-height: 1;
             font-weight: 400;
             background: var(--c-accent-4);
-            border-radius: $unit_xxxs;
+            clip-path: polygon($unit_xxs 0%, 100% 0%, calc(100% - #{$unit_xxs}) 100%, 0% 100%);
             color: var(--c-main);
+            transition: all 0.2s;
 
             &:hover {
                 background: var(--c-accent-3);

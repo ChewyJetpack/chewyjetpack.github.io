@@ -1,74 +1,81 @@
 <template>
-  <article :class="[ 'post grid grid--inner u-top-spacer-xxxl', accents]">
+    <article :class="[ 'post u-top-spacer-xxxl', accents]">
 
-    <!-- feed image -->
-    <g-link
-        v-if="!fullPost"
-        :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-        :class="[{ 'hovered': hoverToggle }, 'post__img grid__a-b']"
-        ref="img_link"
-        @mouseover.native="hoverAll"
-        @mouseleave.native="leaveAll"
-        :style="`background: url(${content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)}) center center / cover no-repeat`"
-    />
-
-    <!-- post page image -->
-    <div 
-        v-if="fullPost"
-        class="post__full-img grid__a-f"
-    >
-        <img :src="content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)" :alt="`${content.title} by Emil Smith`">
-    </div>
-
-    <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': fullPost }">
-      <h2 class="post__heading">
-        <g-link 
-          :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
-          ref="h-_ink"
-          :class="{ 'hovered': hoverToggle }"
-          @mouseover.native="hoverAll"
-          @mouseleave.native="leaveAll"
-        >
-          {{ content.title }}
-        </g-link>
-        </h2>
-        <p v-if="type == 'post'" class="post__date u-top-spacer-xs">
-            <font-awesome :icon="['far', 'calendar']" class="u-right-spacer-xxs" />
-            {{ content.date | moment("MMM Do, YYYY") }}
-        </p>
-        <p 
+        <!-- post page image -->
+        <div 
             v-if="fullPost"
-            class="post__full-description"
-        >
-            {{ content.description }}
-        </p>
-        <p 
-            v-else
-            class="post__description u-top-spacer-s"
-        >
-            {{ content.description | truncate(150) }}
-        </p>
-
-        <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xxl" />
-
-        <Tags 
-            :tags="content.tags" 
+            class="post__full-img u-bottom-spacer-m"
+            :style="`background:url(${getStrapiMedia(content.coverImage.url)}) center center / cover no-repeat;`"
         />
 
-        <g-link
-            v-if="!fullPost"
-            :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-            :title="content.title"
-            :class="{ 'post__link u-top-spacer-s': true, 'hovered': hoverToggle }"
-            ref="cta_link"
-            @mouseover.native="hoverAll"
-            @mouseleave.native="leaveAll"
-        >
-            {{ type == 'post' ? 'Read post' : 'View project' }}
-            <font-awesome icon="arrow-right" class="u-left-spacer-xxs" />
-        </g-link>
-    </div>
-  </article>
+        <div class="grid">
+            <!-- feed image -->
+            <g-link
+                v-if="!fullPost"
+                :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
+                :class="[{ 'hovered': hoverToggle }, 'post__img grid__a-b']"
+                ref="img_link"
+                @mouseover.native="hoverAll"
+                @mouseleave.native="leaveAll"
+                :style="`background: url(${content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)}) center center / cover no-repeat`"
+            />
+
+        <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': fullPost }">
+            <h2 :class="[ 'post__heading', { 'u-bottom-spacer-s': fullPost }]">
+                <g-link 
+                v-if="!fullPost"
+                :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
+                ref="h-_ink"
+                :class="{ 'hovered': hoverToggle }"
+                @mouseover.native="hoverAll"
+                @mouseleave.native="leaveAll"
+                >
+                    {{ content.title }}
+                </g-link>
+                <span v-else>
+                    {{ content.title }}
+                </span>
+            </h2>
+            <p 
+                v-if="!fullPost"
+                class="post__description"
+            >
+                {{ content.description | truncate(150) }}
+            </p>
+            <p v-if="type == 'post' && content.date" :class="[ 'post__date', { 'post__date--full': fullPost }]">
+                <font-awesome :icon="['far', 'calendar']" class="u-right-spacer-xxs" />
+                {{ content.date | moment("MMM Do, YYYY") }}
+            </p>
+            <div 
+                v-if="fullPost"
+                class="u-top-spacer-xxl post__full-description grid__b-e u-cnr-right-accent-1 u-tri-right-accent-3 u-tri-right-full"
+            >
+                {{ content.description }}
+            </div>
+
+            <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xl grid__b-e" />
+
+            <Tags 
+                v-if="type == 'post'"
+                :tags="content.tags" 
+                :class="{ 'u-top-spacer-xxl': fullPost }"
+            />
+
+            <g-link
+                v-if="!fullPost"
+                :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
+                :title="content.title"
+                :class="{ 'post__link u-top-spacer-s': true, 'hovered': hoverToggle }"
+                ref="cta_link"
+                @mouseover.native="hoverAll"
+                @mouseleave.native="leaveAll"
+            >
+                {{ type == 'post' ? 'Read post' : 'View project' }}
+                <font-awesome icon="arrow-right" class="u-left-spacer-xxs" />
+            </g-link>
+            </div>
+        </div>
+    </article>
 </template>
 
 <script>
@@ -112,10 +119,10 @@ export default {
     methods: {
         getStrapiMedia,
         hoverAll() {
-        this.hoverToggle = true
+            this.hoverToggle = true
         },
         leaveAll() {
-        this.hoverToggle = false
+            this.hoverToggle = false
         },
         getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
@@ -146,15 +153,60 @@ export default {
 
     &__heading {
         font-size: $txt_l;
+
+        span {
+            @include breakpoint_xl {
+                font-size: $txt_xl;
+            }
+        }
+
+        a {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: $unit_s;
+
+            &:after {
+                position: absolute;
+                content: "";
+                height: $unit_xxxs;
+                bottom: $unit_xxxs;
+                left: 0;
+                background: var(--c-main);
+                width: 20%;
+                transform: translateX(-100%);
+                transition: transform 0.2s;
+            }
+
+            &:hover, &.hovered {
+                text-decoration: none;
+
+                &:after {
+                    transform: translateX(0);
+                }
+            }
+        }
     }
         
     &__date {
-        font-size: $txt_xs;
+        font-size: $txt_xxs;
         color: var(--c-main-alt);
+
+        &--full {
+            font-size: $txt_xs;
+            color: var(--c-main);
+        }
     }
 
     &__full-description {
         font-size: $txt_xs;
+        background: var(--c-accent-4);
+        padding: $unit_l;
+
+        @include breakpoint_xl {
+            margin-left: -#{$unit_l};
+            margin-right: -#{$unit_l};
+        }
     }
 
     &__img {
@@ -170,20 +222,27 @@ export default {
             bottom: -1px;
             left: 0;
             height: $unit_xs;
-            background: var(--c-accent-4);
+            background: var(--c-accent-3);
             width: 100%;
             transform: translateY(100%);
             transition: transform 0.2s;
+            z-index:2;
         }
 
         &:hover, &.hovered {
-
-            .post-card__img-crop {
-
-                &:after {
-                    transform: translateY(0%);
-                }
+            &:after {
+                transform: translateY(0%);
             }
+        }
+    }
+
+    &__full-img {
+        align-items: center;
+        height: 40vh;
+        max-height: 80vw;
+
+        @include breakpoint_xl {
+            height: 50vh;
         }
     }
 
@@ -193,12 +252,15 @@ export default {
 
     &__link {
         color: var(--c-accent-2);
+        display: inline-block;
+
       svg {
         transform: translate(0);
         transition: all 0.2s;
       }
 
       &:hover, &.hovered {
+          text-decoration: none;
         svg {
           transform: translateX($unit_xxs);
         }

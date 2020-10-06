@@ -8,6 +8,7 @@
         :style="`color: var(${cText}); background: var(${cBg});`"
     >
         {{ label }}
+        <font-awesome class="u-left-spacer-xs" :icon="icon" />
     </component>
 </template>
 
@@ -28,6 +29,10 @@ export default {
         },
         cBg: {
             type: String
+        },
+        icon: {
+            type: String,
+            default: 'arrow-right'
         }
     }
 }
@@ -38,15 +43,23 @@ export default {
         background: var(--c-accent-2);
         color: var(--c-bg);
         display: flex;
-        border-radius: $unit_xs;
         padding: $unit_xs $unit_m;
         font-weight: 400;
         display: inline-flex;
+        align-items: center;
         transition: all 0.3s;
+        clip-path: polygon($unit_xxs 0%, 100% 0%, calc(100% - #{$unit_xxs}) 100%, 0% 100%);
 
-        &:hover {
-            transform: scale(1.07);
+        svg {
+            transition: all 0.2s;
+        }
+
+        &:hover, &:active {
             text-decoration: none;
+            
+            svg {
+                transform: translateX($unit_xxs);
+            }
         }
     }
 </style>

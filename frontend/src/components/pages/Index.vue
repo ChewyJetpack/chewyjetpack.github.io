@@ -4,7 +4,7 @@
       <div class="grid__a-f">
           <div class="home-splash u-top-spacer-xl">
             <h1 class="home-splash__heading">{{ $page.strapi.home.pageSections[0].title }}</h1>
-            <img class="home-splash__octo" src="/img/octopus.svg" alt="" />
+            <Octo class="home-splash__octo" />
           </div>
       </div>
       <div class="grid__a-d u-top-spacer-xxxl">   
@@ -48,9 +48,9 @@
             :label="$page.strapi.home.pageSections[2].cta.label"
             :href="$page.strapi.home.pageSections[2].cta.url"
             :is-external="$page.strapi.home.pageSections[2].cta.external"
-            class="u-c-accent-4 u-bg-accent-2 u-flex-right u-top-spacer-l"
+            class="u-c-accent-4 u-bg-accent-2 u-flex-left u-top-spacer-xxl"
             cBg="--c-accent-3"
-            cText="--c-main"
+            cText="--c-heading"
           />
       </div>
     </div>
@@ -108,6 +108,7 @@ query {
 
 <script>
 import Button from '~/components/atoms/Button'
+import Octo from '~/components/atoms/Octo'
 import RichText from '~/components/atoms/RichText'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
@@ -118,7 +119,8 @@ export default {
   },
   components: {
     RichText,
-    Button
+    Button,
+    Octo
   },
   metaInfo() {
     const { title, description, shareImage } = this.$page.strapi.home.seo
@@ -158,8 +160,6 @@ export default {
       left: 0;
       transform: translate(0, 30%);
       z-index: 2;
-      //text-shadow: 0 0 $unit_xxl var(--c-bg);
-      color: var(--c-main);
 
       @include breakpoint_l {
           font-size: $txt_9001;

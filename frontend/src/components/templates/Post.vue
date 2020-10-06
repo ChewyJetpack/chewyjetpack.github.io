@@ -1,15 +1,11 @@
 <template>
     <div class="page">
-        <div class="grid">
-            <div class="grid__a-f">
-                <PostCard
-                    :content="$page.strapi.posts[0]"
-                    type="post"
-                    img="large"
-                    fullPost
-                />
-            </div>
-        </div>
+        <PostCard
+            :content="$page.strapi.posts[0]"
+            type="post"
+            img="large"
+            fullPost
+        />
     </div>
 </template>
 

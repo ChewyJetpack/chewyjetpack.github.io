@@ -30,6 +30,7 @@ $grid-areas: a, b, c, d, e, f;
     .grid__#{$area} {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         grid-area: auto/a;
 
         @include breakpoint_l {
@@ -45,6 +46,7 @@ $grid-areas: a, b, c, d, e, f;
             .grid__#{$area}-#{$area2} {
                 grid-area: auto/a;
                 display: flex;
+                align-items: flex-start;
                 flex-direction: column;
 
                 @include breakpoint_xl {

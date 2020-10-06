@@ -4,7 +4,7 @@
     <div class="grid__a-d">
       <h1 class="u-bottom-spacer-s">
           <g-link to="/blog" class="u-c-accent-2">
-            <font-awesome icon="arrow-left" /> Blog
+            <font-awesome class="back-icon u-bottom-spacer-xxs" icon="arrow-left" /> Blog
           </g-link>
       </h1>
       <h2 class="subheading u-bottom-spacer-xs">Posts about: {{ $page.strapi.tags[0].name }}</h2>
@@ -53,6 +53,7 @@ query ($slug: String!) {
         posts(sort: "date:desc") {
             title
             slug
+            date
             description
             tags {
                 id
@@ -96,5 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  
+  .back-icon {
+      font-size: $txt_l;
+  }
 </style>
