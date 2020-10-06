@@ -12,6 +12,7 @@
     "babel-runtime": "^6.26.0",
     "gridsome": "^0.7.0",
     "lodash": "^4.17.20",
+    "reading-time": "^1.2.0",
     "vue-lodash": "^2.1.2",
     "vue-markdown": "^2.2.4",
     "vue-moment": "^4.1.0",

@@ -1,9 +1,10 @@
 <template>
+<div>
   <div class="richtext ck-content" v-html="data" />
+  </div>
 </template>
 
 <script>
-
 export default {
   props: ["data"]
 }

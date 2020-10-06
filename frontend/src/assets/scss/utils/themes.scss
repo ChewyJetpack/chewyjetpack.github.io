@@ -65,9 +65,10 @@ $shape_positions: 'right', 'left';
 
     .u-tri-#{$pos}-full:before {
         #{$pos}: -#{$unit_l};
-        top: 0;
+        top: -#{$unit_m};
         @include breakpoint_xl {
             #{$pos}: 80%;
+            top: 0;
             transform: translateY(-#{$unit_xl});
         }
     }

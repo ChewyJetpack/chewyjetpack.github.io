@@ -8,18 +8,16 @@
             <p v-if="$page.strapi.categories[0].description">{{ $page.strapi.categories[0].description }}</p>
             <Content v-if="$page.strapi.categories[0].content" :content="$page.strapi.categories[0].content" />
         </div>
-
-        <div class="grid__a-f u-top-spacer-xl">
-            <PostCard
-              v-for="(project, index) in $page.strapi.categories[0].projects"
-              :key="project.id"
-              :i="index"
-              :content="project"
-              :cat="$page.strapi.categories[0].slug"
-              type="project"
-            />
-        </div>
       </div>
+
+      <PostCard
+        v-for="(project, index) in $page.strapi.categories[0].projects"
+        :key="project.id"
+        :i="index"
+        :content="project"
+        :cat="$page.strapi.categories[0].slug"
+        type="project"
+      />
     </div>
 </template>
 
@@ -36,6 +34,7 @@ query ($slug: String, $catid: String) {
         slug
         id
         title
+        date
         description
         coverImage {
           url

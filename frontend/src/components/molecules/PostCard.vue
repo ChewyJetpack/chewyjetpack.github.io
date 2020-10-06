@@ -1,5 +1,5 @@
 <template>
-    <article :class="[ 'post u-top-spacer-xxxl', accents]">
+    <article :class="[ 'post', { 'u-top-spacer-xxxl': i > 0, 'u-top-spacer-xxl': i == 0 }, accents]">
 
         <!-- post page image -->
         <div 
@@ -36,15 +36,21 @@
                     {{ content.title }}
                 </span>
             </h2>
+            <p v-if="content.date" :class="[ 'post__date', { 'post__date--full': fullPost }]">
+                <font-awesome :icon="type == 'post' ? ['far', 'calendar'] : 'history'" class="u-right-spacer-xxs" />
+                <span v-if="type == 'post'">{{ content.date | moment("MMM Do, YYYY") }}</span>
+                <span v-else>From: {{ content.date | moment("YYYY") }}</span>
+
+                <span class="post_read-time u-left-spacer-m">
+                    <font-awesome icon="hourglass-half" class="u-right-spacer-xxs" />
+                    {{ $readingTime(content.content).text }}
+                </span>
+            </p>
             <p 
                 v-if="!fullPost"
-                class="post__description"
+                class="post__description u-top-spacer-xs u-bottom-spacer-s"
             >
                 {{ content.description | truncate(150) }}
-            </p>
-            <p v-if="type == 'post' && content.date" :class="[ 'post__date', { 'post__date--full': fullPost }]">
-                <font-awesome :icon="['far', 'calendar']" class="u-right-spacer-xxs" />
-                {{ content.date | moment("MMM Do, YYYY") }}
             </p>
             <div 
                 v-if="fullPost"
@@ -53,7 +59,7 @@
                 {{ content.description }}
             </div>
 
-            <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xl grid__b-e" />
+            <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xxl u-bottom-spacer-xxl grid__b-e" />
 
             <Tags 
                 v-if="type == 'post'"
@@ -146,6 +152,7 @@ export default {
       align-items: start;
       position: relative;
       z-index: 1;
+      width: 100%;
 
       &:first-child {
           margin: 0;
@@ -189,11 +196,10 @@ export default {
     }
         
     &__date {
-        font-size: $txt_xxs;
+        font-size: $txt_xs;
         color: var(--c-main-alt);
 
         &--full {
-            font-size: $txt_xs;
             color: var(--c-main);
         }
     }
@@ -210,11 +216,23 @@ export default {
     }
 
     &__img {
-      padding-bottom: 75%;
+      //padding-bottom: 75%;
+      height: 100%;
+      width: 100%;
+      min-height:70vw;
       overflow: hidden;
       display: block;
       position: relative;
       border-radius: $unit_xs;
+
+      @include breakpoint_m {
+        min-height:30vw;
+      }
+
+      @include breakpoint_l {
+        min-height:0;
+        padding-bottom: 75%;
+      }
 
         &:after {
             content: "";

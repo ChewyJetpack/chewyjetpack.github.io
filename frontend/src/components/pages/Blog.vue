@@ -4,20 +4,18 @@
             <div class="grid__a-d">
                 <h1>{{ $page.strapi.blog.title }}</h1>
             </div>
-
-            <!-- List of project preview cards -->
-            <div class="grid__a-f u-top-spacer-xl">
-                <PostCard
-                    v-for="(post, index) in $page.strapi.posts"
-                    :key="post.id"
-                    :content="post"
-                    :i="index"
-                    type="post"
-                    img="large"
-                />
-            </div>
         </div>
-  </div>
+
+    <!-- List of project preview cards -->
+        <PostCard
+            v-for="(post, index) in $page.strapi.posts"
+            :key="post.id"
+            :content="post"
+            :i="index"
+            type="post"
+            img="large"
+        />
+    </div>
 </template>
 
 <page-query>

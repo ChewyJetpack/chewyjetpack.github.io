@@ -3,10 +3,11 @@
     <li 
         v-for="tag in tags" 
         :key="tag.id" 
+        class="u-right-spacer-xxxs u-bottom-spacer-xs"
     >
         <g-link 
             :to="`/blog/tags/${tag.slug}`" 
-            class="tags__tag u-right-spacer-xxxs"
+            class="tags__tag"
         >
             {{ tag.name }}
         </g-link>
@@ -28,11 +29,11 @@ export default {
 <style lang="scss" scoped>
     .tags {
         display: flex;
-        padding-top: $unit_xs;
+        flex-wrap: wrap;
 
         &__tag {
             font-size: $txt_xxs;
-            padding: $unit_xxs $unit_s;
+            padding: $unit_xxxs $unit_s;
             line-height: 1;
             font-weight: 400;
             background: var(--c-accent-4);
