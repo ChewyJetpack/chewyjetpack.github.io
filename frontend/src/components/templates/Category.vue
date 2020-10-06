@@ -35,6 +35,13 @@ query ($slug: String, $catid: String) {
         id
         title
         date
+        content {
+          __typename
+          ... on strapiTypes_ComponentSectionsRichText {
+            id
+            content
+          }
+        }
         description
         coverImage {
           url

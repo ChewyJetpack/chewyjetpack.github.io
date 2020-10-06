@@ -14,6 +14,8 @@ import lodash from 'lodash'
 import VuePageTransition from 'vue-page-transition'
 import ReadingTime from 'reading-time';
 
+
+
 config.autoAddCss = false;
 library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars, faCalendar, faArrowLeft, faHistory, faHourglassHalf);
 

@@ -17,6 +17,7 @@
     "vue-markdown": "^2.2.4",
     "vue-moment": "^4.1.0",
     "vue-page-transition": "^0.2.2",
+    "vue-share-buttons": "^1.1.0",
     "vue-truncate-filter": "^1.1.7"
   },
   "devDependencies": {

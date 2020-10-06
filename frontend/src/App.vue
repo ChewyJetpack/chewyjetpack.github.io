@@ -123,8 +123,7 @@ export default {
     display: flex;
     flex-direction: column;
     max-width: 100vw;
-    overflow-x: hidden;
-    overflow-y: visible;
+    min-height: 100vh;
 
     .shade {
       position: absolute;

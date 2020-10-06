@@ -1,6 +1,7 @@
 <template>
-<ul class="tags">
-    <li 
+<div class="tags">
+    <span v-if="fullPost" class="u-right-spacer-s">Tags:</span> 
+    <span 
         v-for="tag in tags" 
         :key="tag.id" 
         class="u-right-spacer-xxxs u-bottom-spacer-xs"
@@ -11,8 +12,8 @@
         >
             {{ tag.name }}
         </g-link>
-    </li>
-</ul>
+    </span>
+</div>
 </template>
 
 <script>
@@ -20,7 +21,10 @@ export default {
     name: 'tags',
     props: {
         tags: {
-            type: Object
+            type: Array
+        },
+        fullPost: {
+            type: Boolean
         }
     }
 }

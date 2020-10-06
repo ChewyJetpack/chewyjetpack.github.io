@@ -8,7 +8,7 @@
           </div>
       </div>
       <div class="grid__a-d u-top-spacer-xxxl">   
-        <RichText class="page-desc" :data="$page.strapi.home.pageSections[0].content" />
+        <div class="page-desc" v-html="$page.strapi.home.pageSections[0].content" />
         <Button 
           v-if="$page.strapi.home.pageSections[0].cta"
           :label="$page.strapi.home.pageSections[0].cta.label"
@@ -25,14 +25,14 @@
       <div class="grid__c-f">
         <section class="section u-top-spacer-9001 u-cnr-right-accent-1 u-tri-right-accent-3">
           <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h2>
-          <RichText :data="$page.strapi.home.pageSections[1].content" />
+          <div v-html="$page.strapi.home.pageSections[1].content" />
         </section>
           <Button 
             v-if="$page.strapi.home.pageSections[1].cta"
             :label="$page.strapi.home.pageSections[1].cta.label"
             :href="$page.strapi.home.pageSections[1].cta.url"
             :is-external="$page.strapi.home.pageSections[1].cta.external"
-            class="u-c-accent-4 u-bg-accent-2 u-flex-left u-top-spacer-l"
+            class="u-bg-accent-2 u-flex-left u-top-spacer-l"
           />
       </div>
     </div>
@@ -41,7 +41,7 @@
       <div class="grid__a-d">
         <section class="section u-top-spacer-9001 u-cnr-left-accent-2 u-tri-left-accent-4">
           <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h2>
-          <RichText :data="$page.strapi.home.pageSections[2].content" />
+          <div v-html="$page.strapi.home.pageSections[2].content" />
         </section>
           <Button 
             v-if="$page.strapi.home.pageSections[2].cta"
@@ -60,7 +60,7 @@
         <div class="grid__a-d">
           <section class="section u-cnr-right-accent-1">
             <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[3].title }}</h2>
-            <RichText :data="$page.strapi.home.pageSections[3].content" />
+            <div v-html="$page.strapi.home.pageSections[3].content" />
           </section>
             <Button 
               v-if="$page.strapi.home.pageSections[3].cta"

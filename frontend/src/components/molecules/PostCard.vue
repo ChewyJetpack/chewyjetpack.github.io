@@ -1,5 +1,5 @@
 <template>
-    <article :class="[ 'post', { 'u-top-spacer-xxxl': i > 0, 'u-top-spacer-xxl': i == 0 }, accents]">
+    <article :class="[ 'post', { 'u-top-spacer-xxxl': i > 0, 'u-top-spacer-xxl': i == 0 }]">
 
         <!-- post page image -->
         <div 
@@ -9,76 +9,85 @@
         />
 
         <div class="grid">
-            <!-- feed image -->
-            <g-link
-                v-if="!fullPost"
-                :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-                :class="[{ 'hovered': hoverToggle }, 'post__img grid__a-b']"
-                ref="img_link"
-                @mouseover.native="hoverAll"
-                @mouseleave.native="leaveAll"
-                :style="`background: url(${content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)}) center center / cover no-repeat`"
-            />
+            <div class="grid__a-f">
+                <div :class="[ fullPost ? `grid` : `grid ${accents}`, 'grid--inner' ]">
+                    <!-- feed image -->
+                    <g-link
+                        v-if="!fullPost"
+                        :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
+                        :class="[{ 'hovered': hoverToggle }, 'post__img grid__a-b']"
+                        ref="img_link"
+                        @mouseover.native="hoverAll"
+                        @mouseleave.native="leaveAll"
+                        :style="`background: url(${content.coverImage.formats ? getStrapiMedia(content.coverImage.formats.large.url) : getStrapiMedia(content.coverImage.url)}) center center / cover no-repeat`"
+                    />
 
-        <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__b-e': fullPost, 'u-top-spacer-s': fullPost }">
-            <h2 :class="[ 'post__heading', { 'u-bottom-spacer-s': fullPost }]">
-                <g-link 
-                v-if="!fullPost"
-                :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
-                ref="h-_ink"
-                :class="{ 'hovered': hoverToggle }"
-                @mouseover.native="hoverAll"
-                @mouseleave.native="leaveAll"
-                >
-                    {{ content.title }}
-                </g-link>
-                <span v-else>
-                    {{ content.title }}
-                </span>
-            </h2>
-            <p v-if="content.date" :class="[ 'post__date', { 'post__date--full': fullPost }]">
-                <font-awesome :icon="type == 'post' ? ['far', 'calendar'] : 'history'" class="u-right-spacer-xxs" />
-                <span v-if="type == 'post'">{{ content.date | moment("MMM Do, YYYY") }}</span>
-                <span v-else>From: {{ content.date | moment("YYYY") }}</span>
+                <div :class="{'post__content': true, 'grid__c-f': !fullPost, 'grid__a-f': fullPost, 'u-top-spacer-s': fullPost }">
+                    <h2 :class="[ 'post__heading', { 'u-bottom-spacer-s': fullPost }]">
+                        <g-link 
+                        v-if="!fullPost"
+                        :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`" 
+                        ref="h-_ink"
+                        :class="{ 'hovered': hoverToggle }"
+                        @mouseover.native="hoverAll"
+                        @mouseleave.native="leaveAll"
+                        >
+                            {{ content.title }}
+                        </g-link>
+                        <span v-else>
+                            {{ content.title }}
+                        </span>
+                    </h2>
+                    <p v-if="content.date" :class="[ 'post__date', { 'post__date--full': fullPost }]">
+                        <font-awesome :icon="type == 'post' ? ['far', 'calendar'] : 'history'" class="u-right-spacer-xxs" />
+                        <span v-if="type == 'post'">{{ content.date | moment("MMM Do, YYYY") }}</span>
+                        <span v-else>From: {{ content.date | moment("YYYY") }}</span>
 
-                <span class="post_read-time u-left-spacer-m">
-                    <font-awesome icon="hourglass-half" class="u-right-spacer-xxs" />
-                    {{ $readingTime(content.content).text }}
-                </span>
-            </p>
-            <p 
-                v-if="!fullPost"
-                class="post__description u-top-spacer-xs u-bottom-spacer-s"
-            >
-                {{ content.description | truncate(150) }}
-            </p>
-            <div 
-                v-if="fullPost"
-                class="u-top-spacer-xxl post__full-description grid__b-e u-cnr-right-accent-1 u-tri-right-accent-3 u-tri-right-full"
-            >
-                {{ content.description }}
-            </div>
+                        <span class="post_read-time u-left-spacer-m">
+                            <font-awesome icon="hourglass-half" class="u-right-spacer-xxs" />
+                            {{ $readingTime(totalContent()).text }}
+                        </span>
+                    </p>
+                    <Share v-if="fullPost" :title="`${content.title} - Emil Smith`" />
+                    <p 
+                        v-if="!fullPost"
+                        class="post__description u-top-spacer-xs u-bottom-spacer-s"
+                    >
+                        {{ content.description | truncate(150) }}
+                    </p>
+                    <div 
+                        v-if="fullPost"
+                        class="u-top-spacer-xxl u-bottom-spacer-xxl post__full-description u-cnr-right-accent-1 u-tri-right-accent-3 u-tri-right-full"
+                    >
+                        {{ content.description }}
+                    </div>
 
-            <Content v-if="fullPost" :content="content.content" class="u-top-spacer-xxl u-bottom-spacer-xxl grid__b-e" />
+                    <Content v-if="fullPost" :content="content.content" class="post__content-area" />
 
-            <Tags 
-                v-if="type == 'post'"
-                :tags="content.tags" 
-                :class="{ 'u-top-spacer-xxl': fullPost }"
-            />
+                    <Tags 
+                        v-if="type == 'post'"
+                        :tags="content.tags" 
+                        :class="{ 'u-top-spacer-xxl': fullPost }"
+                        :fullPost="fullPost"
+                    />
 
-            <g-link
-                v-if="!fullPost"
-                :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
-                :title="content.title"
-                :class="{ 'post__link u-top-spacer-s': true, 'hovered': hoverToggle }"
-                ref="cta_link"
-                @mouseover.native="hoverAll"
-                @mouseleave.native="leaveAll"
-            >
-                {{ type == 'post' ? 'Read post' : 'View project' }}
-                <font-awesome icon="arrow-right" class="u-left-spacer-xxs" />
-            </g-link>
+
+                    <Share v-if="fullPost" :title="`${content.title} - Emil Smith`" />
+
+                    <g-link
+                        v-if="!fullPost"
+                        :to="type === 'post' ? `blog/${content.slug}` : `${cat}/${content.slug}`"
+                        :title="content.title"
+                        :class="{ 'post__link u-top-spacer-s': true, 'hovered': hoverToggle }"
+                        ref="cta_link"
+                        @mouseover.native="hoverAll"
+                        @mouseleave.native="leaveAll"
+                    >
+                        {{ type == 'post' ? 'Read post' : 'View project' }}
+                        <font-awesome icon="arrow-right" class="u-left-spacer-xxs" />
+                    </g-link>
+                    </div>
+                </div>
             </div>
         </div>
     </article>
@@ -87,7 +96,9 @@
 <script>
 import { getStrapiMedia } from '~/utils/medias'
 import Content from '~/components/molecules/Content'
+import Share from '~/components/molecules/Share'
 import Tags from '~/components/atoms/Tags'
+import { accentElems } from '~/utils/accentElems'
 
 export default {
   props: {
@@ -109,39 +120,37 @@ export default {
     },
     components: {
         Content,
-        Tags
+        Tags,
+        Share
     },
     data() {
         return {
-        hoverToggle: false,
-        accents: ''
+            hoverToggle: false,
+            accents: '',
+            currentUrl: ''
         }
     },
     mounted() {
         if (this.i % 2 == 0) {
-            this.accents = this.chooseThemeElems()   
+            this.accents = this.accentElems(true, true)   
         }
+        this.currentUrl = window.location.pathname;
     },
     methods: {
         getStrapiMedia,
+        accentElems,
         hoverAll() {
             this.hoverToggle = true
         },
         leaveAll() {
             this.hoverToggle = false
         },
-        getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
-        },
-        chooseThemeElems() {
-            const alignment = ['left', 'right'];
-            const vals = [
-                (this.getRandomInt(4) + 1), // corner accent
-                (this.getRandomInt(2) + 3), // triangle accent
-                alignment[this.getRandomInt(2)] // alignment
-            ]
-            const result = `u-tri-${vals[2]}-accent-${vals[1].toString()} u-tri-${vals[2]}-full u-cnr-${vals[2]}-accent-${vals[0].toString()}`;
-            return result;
+        totalContent() {
+            let content = '';
+            this.content.content.forEach(section => {
+                content += section.content;
+            });
+            return content;
         }
     }
 }
@@ -208,11 +217,15 @@ export default {
         font-size: $txt_xs;
         background: var(--c-accent-4);
         padding: $unit_l;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $media_l;
+    }
 
-        @include breakpoint_xl {
-            margin-left: -#{$unit_l};
-            margin-right: -#{$unit_l};
-        }
+    &__content-area {
+        margin: 0 auto;
+        max-width: $media_l;
     }
 
     &__img {

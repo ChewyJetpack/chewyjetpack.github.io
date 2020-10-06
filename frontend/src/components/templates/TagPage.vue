@@ -1,26 +1,24 @@
 <template>
-<div class="page u-top-spacer-xl">
+<div class="page">
   <div class="grid">
     <div class="grid__a-d">
-      <h1 class="u-bottom-spacer-s">
+      <h1 class="u-bottom-spacer-s u-top-spacer-xl">
           <g-link to="/blog" class="u-c-accent-2">
             <font-awesome class="back-icon u-bottom-spacer-xxs" icon="arrow-left" /> Blog
           </g-link>
       </h1>
       <h2 class="subheading u-bottom-spacer-xs">Posts about: {{ $page.strapi.tags[0].name }}</h2>
     </div>
+    </div>
     <!-- List of project preview cards -->
 
-    <div class="grid__a-f u-top-spacer-xl">
-        <PostCard
-          v-for="(post, index) in $page.strapi.tags[0].posts"
-          :key="post.id"
-          :i="index"
-          :content="post"
-            type="post"
-        />
-    </div>
-  </div>
+    <PostCard
+        v-for="(post, index) in $page.strapi.tags[0].posts"
+        :key="post.id"
+        :i="index"
+        :content="post"
+        type="post"
+    />
   </div>
 </template>
 
@@ -60,6 +58,30 @@ query ($slug: String!) {
                 name
                 slug
             }
+            content {
+                __typename
+                ... on strapiTypes_ComponentSectionsRichText {
+                id
+                content
+                }
+                ... on strapiTypes_ComponentSectionsLargeMedia {
+                id
+                media {
+                    id
+                    url
+                    mime
+                }
+                description
+                }
+                ... on strapiTypes_ComponentSectionsImagesSlider {
+                id
+                title
+                images {
+                    id
+                    url
+                }
+                }
+            }
             coverImage {
                 id
                 url
@@ -86,7 +108,7 @@ export default {
     Content,
   },
   metaInfo() {
-    const { title, description, shareImage } = this.$page.strapi.home.seo
+    const { title, description, shareImage } = this.$page.strapi.blog.seo
     const image = getStrapiMedia(shareImage.url)
     return {
       title,

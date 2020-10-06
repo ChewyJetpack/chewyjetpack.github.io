@@ -6,6 +6,11 @@
             img="large"
             fullPost
         />
+        <div class="grid">
+            <div class="grid__b-e">
+                <Button href="/blog" label="Read more posts" class="u-top-spacer-xl" />
+            </div>
+        </div>
     </div>
 </template>
 
@@ -59,6 +64,7 @@ query ($slug: String!) {
 
 <script>
 import PostCard from '~/components/molecules/PostCard'
+import Button from '~/components/atoms/Button'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
 
@@ -68,6 +74,7 @@ export default {
   },
   components: {
     PostCard,
+    Button
   },
   metaInfo() {
     const { title, description, coverImage } = this.$page.strapi.posts[0]

@@ -12,6 +12,9 @@ body {
     env(safe-area-inset-right, $unit_l)
     env(safe-area-inset-bottom, $unit_l)
     env(safe-area-inset-left, $unit_l);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @import './reset.scss';
@@ -21,10 +24,8 @@ body {
 @import './atoms/type.scss';
 @import './atoms/CKEditor.scss';
 
-
-body {
-    display: flex;
-    width: 100%;
+.page {
+  overflow-x: clip;
 }
 
 img {
