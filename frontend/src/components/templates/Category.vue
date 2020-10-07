@@ -90,7 +90,7 @@ query ($slug: String, $catid: String) {
 import Content from '~/components/molecules/Content'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
-import PostCard from '~/components/molecules/PostCard'
+import PostCard from '~/components/organisms/PostCard'
 
 export default {
   methods: {

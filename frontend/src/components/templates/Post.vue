@@ -7,7 +7,7 @@
             fullPost
         />
         <div class="grid">
-            <div class="grid__b-e">
+            <div class="grid__a-f">
                 <Button href="/blog" label="Read more posts" class="u-top-spacer-xl" />
             </div>
         </div>
@@ -63,7 +63,7 @@ query ($slug: String!) {
 </page-query>
 
 <script>
-import PostCard from '~/components/molecules/PostCard'
+import PostCard from '~/components/organisms/PostCard'
 import Button from '~/components/atoms/Button'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'

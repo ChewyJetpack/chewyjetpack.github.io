@@ -50,7 +50,6 @@
             :is-external="$page.strapi.home.pageSections[2].cta.external"
             class="u-c-accent-4 u-bg-accent-2 u-flex-left u-top-spacer-xxl"
             cBg="--c-accent-3"
-            cText="--c-heading"
           />
       </div>
     </div>

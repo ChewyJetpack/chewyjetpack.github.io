@@ -56,7 +56,7 @@ query ($slug: String!) {
 </page-query>
 
 <script>
-import PostCard from '~/components/molecules/PostCard'
+import PostCard from '~/components/organisms/PostCard'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
 

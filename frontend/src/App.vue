@@ -16,7 +16,9 @@
       <Footer />
 
       <transition name="fade">
-        <div class="shade" @click="closeNav" v-if="shadeVisible" />
+        <div class="shade" @click="closeShade" v-if="shadeVisible">
+          <Lightbox :src="lightboxSrc" v-if="lightboxVisible" />
+        </div>
       </transition>
     </SlideNav>
   </div>
@@ -43,6 +45,7 @@ query {
 <script>
 import Vue from 'vue';
 import Header from '~/components/molecules/Header'
+import Lightbox from '~/components/molecules/Lightbox'
 import Footer from '~/components/organisms/Footer'
 import SlideNav from '~/components/organisms/SlideNav'
 import { getStrapiMedia } from '~/utils/medias'
@@ -53,13 +56,15 @@ export default {
   components: {
     Header,
     Footer,
-    SlideNav
+    SlideNav,
+    Lightbox
   },
   data() {
       return {
-          lowKeyHeader: false,
           currentMode: 'init',
-          shadeVisible: false
+          shadeVisible: false,
+          lightboxVisible: false,
+          lightboxSrc: ''
       }
   },
   mounted() {
@@ -73,18 +78,31 @@ export default {
       }
 
       EventBus.$on('updatemode', (mode) => { this.currentMode = mode });
-      EventBus.$on('slidenav', (status) => { this.shadeVisible = status });
 
-      // Header scroll handler
-      window.addEventListener('scroll', _.throttle(this.headerResize, 10));
+      EventBus.$on('slidenav', (status) => { this.shadeVisible = status });
+      
+      EventBus.$on('lightbox:open', (src) => { this.openLightbox(src) });
   },
   methods: {
-      headerResize() {
-          const position = window.scrollY;
-          position > 500 ? this.lowKeyHeader = true : this.lowKeyHeader = false;
-      },
       closeNav() {
         EventBus.$emit('slidenav', false);
+      },
+      closeLightbox() {
+        EventBus.$emit('lightbox:close', false);
+      },
+      closeShade() {
+        this.closeNav();
+        this.closeLightbox();
+      },
+      openLightbox(src) {
+        this.shadeVisible = true;
+        this.lightboxVisible = true;
+        this.lightboxSrc = src;
+      },
+      closeLightbox() {
+        this.shadeVisible = false;
+        this.lightboxVisible = false;
+        this.lightboxSrc = '';
       }
   },
   watch:{
@@ -134,6 +152,10 @@ export default {
       background: var(--c-shade-bg);
       cursor: pointer;
       z-index: 10;
+
+      @include breakpoint_xl {
+        position: fixed;
+      }
     }
 
     &--init {
