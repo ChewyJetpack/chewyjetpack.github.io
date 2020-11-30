@@ -1,11 +1,11 @@
 $navy:          #0D1A4B;
-$royal:         #26397B;
+$royal:         #372586;
 $crest:         #fffefd;
 $chalk:         #d1f0ff;
-$sunrise:       #FFD703;
+$sunrise:       #ffdd47;
 $coral:         #D23265;
 $tangent:       #14DAB9;
-$cogent:        #00a0d1;
+$cogent:        #2eaacf;
 $skyline:       #528ebe;
 $skyline2:      #427197;
 $navy-shade:    rgba($navy, 0.7);
@@ -37,7 +37,7 @@ $crest-shade:   rgba($crest, 0.7);
     --c-main:            #{$chalk};
     --c-main-alt:        #{$skyline};
     --c-sl-bg:           #{$coral};
-    --c-sl-on:           #{$chalk};
+    --c-sl-on:           #{$sunrise};
     --c-sl-a:            #{$crest};
     --c-heading:         #{$crest};
 }

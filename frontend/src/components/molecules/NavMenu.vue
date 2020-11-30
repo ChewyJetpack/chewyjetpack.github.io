@@ -60,6 +60,21 @@ query {
             text-decoration: none;
         }
 
+        &__active {
+            position: relative;
+
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: -#{$unit_xxs};
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--c-sl-on);
+            }
+        }
+
         &--slide {
             display: flex;
             flex-direction: column;
@@ -73,10 +88,6 @@ query {
                     font-size: $txt_m;
                     line-height: 1;
                     color: var(--c-sl-a);
-                }
-
-                &__active {
-                    color: var(--c-sl-on);
                 }
             }
         }

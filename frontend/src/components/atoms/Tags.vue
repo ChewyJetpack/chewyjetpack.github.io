@@ -4,7 +4,7 @@
     <span 
         v-for="tag in tags" 
         :key="tag.id" 
-        class="u-right-spacer-xxxs u-bottom-spacer-xs"
+        class="u-right-spacer-xs u-bottom-spacer-xs"
     >
         <g-link 
             :to="`/blog/tags/${tag.slug}`" 
@@ -37,16 +37,18 @@ export default {
 
         &__tag {
             font-size: $txt_xxs;
-            padding: $unit_xxxs $unit_s;
+            padding: 0 $unit_xs;
             line-height: 1;
             font-weight: 400;
             background: var(--c-accent-4);
-            clip-path: polygon($unit_xxs 0%, 100% 0%, calc(100% - #{$unit_xxs}) 100%, 0% 100%);
+            border-radius: $unit_xxs;
             color: var(--c-main);
             transition: all 0.2s;
 
             &:hover {
-                background: var(--c-accent-3);
+                background: var(--c-accent-1);
+                color: var(--c-bg);
+                text-decoration: none;
             }
         }
     }

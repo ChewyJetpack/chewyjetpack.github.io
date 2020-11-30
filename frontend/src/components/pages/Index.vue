@@ -7,8 +7,8 @@
             <Octo class="home-splash__octo" />
           </div>
       </div>
-      <div class="grid__a-d u-top-spacer-xxxl">   
-        <div class="page-desc" v-html="$page.strapi.home.pageSections[0].content" />
+      <div class="grid__a-d u-top-spacer-l">   
+        <div class="page-desc section u-tri--full u-cnr-left-accent-2 u-tri-left-accent-4" v-html="$page.strapi.home.pageSections[0].content" />
         <Button 
           v-if="$page.strapi.home.pageSections[0].cta"
           :label="$page.strapi.home.pageSections[0].cta.label"
@@ -23,7 +23,7 @@
     
     <div class="grid">
       <div class="grid__c-f">
-        <section class="section u-top-spacer-9001 u-cnr-right-accent-1 u-tri-right-accent-3">
+        <section class="page-desc section u-top-spacer-9001 u-cnr-right-accent-1 u-tri-right-accent-3">
           <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h2>
           <div v-html="$page.strapi.home.pageSections[1].content" />
         </section>
@@ -39,7 +39,7 @@
     
     <div class="grid">
       <div class="grid__a-d">
-        <section class="section u-top-spacer-9001 u-cnr-left-accent-2 u-tri-left-accent-4">
+        <section class="page-desc section u-top-spacer-9001 u-cnr-left-accent-2 u-tri-left-accent-4">
           <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h2>
           <div v-html="$page.strapi.home.pageSections[2].content" />
         </section>
@@ -137,11 +137,13 @@ export default {
   position: relative;
 
   &__octo {
-    transform: translate(25%, 0) scale(-1.4, 1.4);
+    transform: translate(40%, 0) scale(-1.4, 1.4);
     pointer-events: none;
     margin-top: -5%;
     position: relative;
     min-width: 90vw;
+    z-index: 2;
+    //filter: hue-rotate(-80deg) brightness(110%) contrast(105%);
 
     @include breakpoint_xl {
       transform: translate(15%, 0) scale(-1, 1);
@@ -155,14 +157,19 @@ export default {
       font-weight: 900;
       font-size: $txt_xxxl;
       position: absolute;
-      top: 10%;
+      top: 0;
       left: 0;
-      transform: translate(0, 30%);
-      z-index: 2;
+      transform: translate(0, 0);
+      z-index: 3;
 
+      @include breakpoint_m {
+          font-size: $txt_9001;
+          top: 5%;
+      }
+      
       @include breakpoint_l {
           font-size: $txt_9001;
-          top: 20%;
+          top: 25%;
       }
   }
 }

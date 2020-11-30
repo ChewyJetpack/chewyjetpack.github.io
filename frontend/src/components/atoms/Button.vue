@@ -43,15 +43,18 @@ export default {
         background: var(--c-accent-2);
         color: var(--c-bg);
         display: flex;
-        padding: $unit_xs $unit_m;
-        font-weight: 400;
+        padding: $unit_s $unit_m;
+        font-weight: 600;
+        line-height: 1;
         display: inline-flex;
         align-items: center;
         transition: all 0.3s;
-        clip-path: polygon($unit_xxs 0%, 100% 0%, calc(100% - #{$unit_xxs}) 100%, 0% 100%);
+        position: relative;
+        border-radius: $unit_xs 0;
 
         svg {
             transition: all 0.2s;
+            font-size: $txt_xs;
         }
 
         &:hover, &:active {
