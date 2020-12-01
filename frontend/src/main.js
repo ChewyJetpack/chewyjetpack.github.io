@@ -20,18 +20,6 @@ config.autoAddCss = false;
 library.add(faGithub, faInstagram, faLinkedinIn, faAdjust, faArrowRight, faTimes, faBars, faCalendar, faArrowLeft, faHistory, faHourglassHalf);
 
 export default function (Vue, { router, head, isClient }) {
-
-  head.link.push({
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap'
-  }, {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"'
-  }, {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Palanquin:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap'
-  });
-
   // Global icon component
   Vue.component('font-awesome', FontAwesomeIcon)
 

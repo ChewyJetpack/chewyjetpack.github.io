@@ -34,56 +34,8 @@ export default {
         display: flex;
         align-items: center;
         position: relative;
-        font-size: $txt_m;
+        font-size: $txt_s;
         color: var(--c-bg);
-
-        &.mode-switch {
-            position: relative;
-            transition: transform 0.5s;
-
-            &:after {
-                display: block;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                content: "";
-                width: $unit_xxl;
-                height: $unit_xxl;
-                background: $sunrise;
-                border-radius: 50%;
-                opacity: 0;
-                pointer-events: none;
-                transform: translate(-50%, -50%);
-                mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 38%, rgba(0, 0, 0, 1) 38%);
-                mask-position: center;
-            }
-
-            &[u-burst] {
-                &:after {
-                    animation: 0.4s ease 0.2s lightburst;
-                }
-            }
-
-            @keyframes lightburst {
-                0% {
-                    transform: translate(-50%, -50%) scale(0.2);
-                    mask-size: 50% 50%;
-                    opacity: 1;
-                }
-                70% {
-                    opacity: 1;
-                }
-                100% {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(1);
-                    mask-size: 190% 190%;
-                }
-            }
-
-            &--dark {
-                transform: rotate(180deg);
-            }
-        }
 
         &--invert {
             color: var(--c-bg);

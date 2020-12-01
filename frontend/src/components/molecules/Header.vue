@@ -72,12 +72,15 @@ query {
     }
 
     &__title {
+      @include font-display;
+      line-height: 1;
       font-size: $txt_l;
-      line-height: 1em;
-      font-family: $heading_font;
-      font-weight: 700;
       text-decoration: none;
       color: var(--c-bg);
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &__nav-area {

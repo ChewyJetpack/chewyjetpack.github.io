@@ -1,14 +1,49 @@
-$display-font:      'Playfair Display', serif;
-$heading-font:      'PT Sans', sans-serif;
-$body-font:         'Palanquin', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;500;600;700&display=swap');
 
-$txt_xxs:       1.6rem;
-$txt_xs:        2.1rem;
-$txt_s:         2.4rem;
-$txt_m:         3rem;
-$txt_l:         4.2rem;
-$txt_xl:        6.4rem;
+$display-font:      'Source Code Pro', monospace;
+$heading-font:      'Roboto Mono', monospace;
+$body-font:         'Pridi', serif;
+
+@mixin font-body {
+    font-family: $body-font;
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: $txt_s;
+    color: var(--c-main);
+}
+
+@mixin font-heading {
+    font-family: $display-font;
+    line-height: 1.2;
+    font-weight: 700;
+    font-size: $txt_l;
+    letter-spacing: -0.1rem;
+    color: var(--c-heading);
+}
+
+@mixin font-display {
+    font-family: $display-font;
+    line-height: 1;
+    font-size: $txt_xxl;
+    font-weight: 900;
+    color: var(--c-heading);
+    letter-spacing: -0.1rem;
+    text-transform: uppercase;
+
+    a {
+        font-weight: 900;
+    }
+}
+
+$txt_xxs:       1.8rem;
+$txt_xs:        2.2rem;
+$txt_s:         2.8rem;
+$txt_m:         3.4rem;
+$txt_l:         4.4rem;
+$txt_xl:        6.2rem;
 $txt_xxl:       9.6rem;
 $txt_xxxl:      19.2rem;
 // "His power level... It's over 9000!"
-$txt_9001:      28rem;
+$txt_9001:      26rem;

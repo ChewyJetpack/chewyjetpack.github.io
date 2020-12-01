@@ -2,62 +2,51 @@
   <div class="page">
     <div class="grid">
       <div class="grid__a-f">
-          <div class="home-splash u-top-spacer-xl">
-            <h1 class="home-splash__heading">{{ $page.strapi.home.pageSections[0].title }}</h1>
+          <div class="home-splash u-top-spacer-xxl">
+            <h1 class="home-splash__heading">Creative Tech Lead</h1>
             <Octo class="home-splash__octo" />
           </div>
       </div>
-      <div class="grid__a-d u-top-spacer-l">   
-        <div class="page-desc section u-tri--full u-cnr-left-accent-2 u-tri-left-accent-4" v-html="$page.strapi.home.pageSections[0].content" />
-        <Button 
-          v-if="$page.strapi.home.pageSections[0].cta"
-          :label="$page.strapi.home.pageSections[0].cta.label"
-          :href="$page.strapi.home.pageSections[0].cta.url"
-          :is-external="$page.strapi.home.pageSections[0].cta.external"
-          class="u-c-accent-4 u-bg-accent-2 u-flex-right u-top-spacer-l"
-          cBg="--c-accent-3"
-          cText="--c-main"
-        />        
-      </div>
     </div>
     
-    <div class="grid">
-      <div class="grid__c-f">
-        <section class="page-desc section u-top-spacer-9001 u-cnr-right-accent-1 u-tri-right-accent-3">
-          <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h2>
-          <div v-html="$page.strapi.home.pageSections[1].content" />
-        </section>
-          <Button 
-            v-if="$page.strapi.home.pageSections[1].cta"
-            :label="$page.strapi.home.pageSections[1].cta.label"
-            :href="$page.strapi.home.pageSections[1].cta.url"
-            :is-external="$page.strapi.home.pageSections[1].cta.external"
-            class="u-bg-accent-2 u-flex-left u-top-spacer-l"
-          />
+    <section class="section u-top-spacer-9001">
+      <img src="img/tent3.svg" alt="Emil Smith" class="tentacle tentacle--l"/>
+      <div class="grid">
+        <div class="grid__c-f">
+            <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h1>
+            <div v-html="$page.strapi.home.pageSections[1].content" />
+            <Button 
+              v-if="$page.strapi.home.pageSections[1].cta"
+              :label="$page.strapi.home.pageSections[1].cta.label"
+              :href="$page.strapi.home.pageSections[1].cta.url"
+              :is-external="$page.strapi.home.pageSections[1].cta.external"
+              class="u-flex-left u-top-spacer-m"
+            />
+        </div>
       </div>
-    </div>
-    
-    <div class="grid">
-      <div class="grid__a-d">
-        <section class="page-desc section u-top-spacer-9001 u-cnr-left-accent-2 u-tri-left-accent-4">
-          <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h2>
+    </section>
+
+    <section class="section u-top-spacer-9001">
+      <img src="img/tent4.svg" alt="Emil Smith" class="tentacle tentacle--r"/>  
+      <div class="grid">
+        <div class="grid__a-d">
+          <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h1>
           <div v-html="$page.strapi.home.pageSections[2].content" />
-        </section>
           <Button 
             v-if="$page.strapi.home.pageSections[2].cta"
             :label="$page.strapi.home.pageSections[2].cta.label"
             :href="$page.strapi.home.pageSections[2].cta.url"
             :is-external="$page.strapi.home.pageSections[2].cta.external"
-            class="u-c-accent-4 u-bg-accent-2 u-flex-left u-top-spacer-xxl"
-            cBg="--c-accent-3"
+            class="u-flex-left u-top-spacer-m"
           />
+        </div>
       </div>
-    </div>
+    </section>
     
     <div class="strip u-bg-accent-4 u-top-spacer-xxxl">
       <div class="grid">
         <div class="grid__a-d">
-          <section class="section u-cnr-right-accent-1">
+          <section class="section">
             <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[3].title }}</h2>
             <div v-html="$page.strapi.home.pageSections[3].content" />
           </section>
@@ -66,7 +55,7 @@
               :label="$page.strapi.home.pageSections[3].cta.label"
               :href="$page.strapi.home.pageSections[3].cta.url"
               :is-external="$page.strapi.home.pageSections[3].cta.external"
-              class="u-c-accent-4 u-bg-accent-2 u-flex-left u-top-spacer-l "
+              class="u-flex-left u-top-spacer-m"
             />
         </div>
       </div>
@@ -153,24 +142,71 @@ export default {
   }
 
   &__heading {
-      font-family: $display-font;
-      font-weight: 900;
-      font-size: $txt_xxxl;
+      @include font-display;
+      font-size: 19vw;
+      line-height: 0.9;
       position: absolute;
       top: 0;
       left: 0;
       transform: translate(0, 0);
       z-index: 3;
-
+      
       @include breakpoint_m {
-          font-size: $txt_9001;
-          top: 5%;
+          font-size: 19.5vw;
+          line-height: 0.8;
       }
       
-      @include breakpoint_l {
+      @include breakpoint_xl {
           font-size: $txt_9001;
-          top: 25%;
+          line-height: 0.8;
       }
+  }
+}
+
+.tentacle {
+  display: none;
+  position: absolute;
+  z-index: -1;
+
+  @include breakpoint_l {
+    display: block;
+    opacity: 1;
+    width: 40vw;
+    top: 50%;
+  }
+
+  @include breakpoint_xl {
+    opacity: 1;
+    width: 40vw;
+    top: 50%;
+  }
+
+  &--l {
+    left: 50%;
+
+    @include breakpoint_l {
+      left: 0;
+      transform: translate(-10vw, -50%);
+    }
+
+    @include breakpoint_xl {
+      left: 0;
+      transform: translate(-5vw, -50%);
+    }
+  }
+
+  &--r {
+    right: 50%;
+
+    @include breakpoint_l {
+      right: 0;
+      transform: translate(10vw, -50%);
+    }
+
+    @include breakpoint_xl {
+      right: 0;
+      transform: translate(5vw, -50%);
+    }
   }
 }
 </style>

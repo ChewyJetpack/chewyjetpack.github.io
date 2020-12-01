@@ -37,12 +37,11 @@ export default {
 
         &__tag {
             font-size: $txt_xxs;
-            padding: 0 $unit_xs;
+            padding: $unit_xxxs $unit_xs;
             line-height: 1;
             font-weight: 400;
             background: var(--c-accent-4);
-            border-radius: $unit_xxs;
-            color: var(--c-main);
+            color: var(--c-main-alt);
             transition: all 0.2s;
 
             &:hover {

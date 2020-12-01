@@ -1,29 +1,15 @@
-$navy:          #0D1A4B;
-$royal:         #372586;
-$crest:         #fffefd;
+$navy:          #191b2b;
+$royal:         #141122;
+$crest:         #fffdf7;
 $chalk:         #d1f0ff;
-$sunrise:       #ffdd47;
+$sunrise:       #e6c73e;
 $coral:         #D23265;
-$tangent:       #14DAB9;
-$cogent:        #2eaacf;
-$skyline:       #528ebe;
-$skyline2:      #427197;
+$tangent:       #07b69f;
+$cogent:        #14345f;
+$skyline:       rgb(116, 133, 170);
+$skyline2:      #7a7c8d;
 $navy-shade:    rgba($navy, 0.7);
 $crest-shade:   rgba($crest, 0.7);
-
-// $navy:          #191622;
-// $royal:         #402d6e;
-// $crest:         #fffefd;
-// $chalk:         #d1f0ff;
-// $sunrise:       #f5c646;
-// $coral:         #d8376a;
-// $tangent:       #58d3be;
-// $cogent:        #4da9c5;
-// $skyline:       #528ebe;
-// $skyline2:      #427197;
-// $navy-shade:    rgba($navy, 0.7);
-// $crest-shade:   rgba($crest, 0.7);
-
 
 @mixin dark {
     --mode:dark;
@@ -47,9 +33,9 @@ $crest-shade:   rgba($crest, 0.7);
     --c-bg:              #{$crest};
     --c-shade-bg:        #{$crest-shade};
     --c-bg2:             #{$coral};
-    --c-accent-1:        #{$coral};
+    --c-accent-1:        #{$tangent};
     --c-accent-2:        #{$coral};
-    --c-accent-3:        #{$cogent};
+    --c-accent-3:        #{$royal};
     --c-accent-4:        #{$sunrise};
     --c-main:            #{$navy};
     --c-main-alt:        #{$skyline2};

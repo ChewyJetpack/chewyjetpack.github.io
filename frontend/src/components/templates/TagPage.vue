@@ -2,12 +2,14 @@
 <div class="page">
   <div class="grid">
     <div class="grid__a-d">
-      <h1 class="u-bottom-spacer-s u-top-spacer-xl">
-          <g-link to="/blog" class="u-c-accent-2">
-            <font-awesome class="back-icon u-bottom-spacer-xxs" icon="arrow-left" /> Blog
-          </g-link>
-      </h1>
-      <h2 class="subheading u-bottom-spacer-xs">Posts about: {{ $page.strapi.tags[0].name }}</h2>
+      <h1 class="u-top-spacer-xxxl">{{ $page.strapi.tags[0].name }}</h1>
+        <Button 
+          class="back-btn u-top-spacer-m"
+          label="Back to blog"
+          href="/blog"
+          icon="arrow-left"
+          ico-left
+        />        
     </div>
     </div>
     <!-- List of project preview cards -->
@@ -98,6 +100,7 @@ import PostCard from '~/components/organisms/PostCard'
 import Content from '~/components/molecules/Content'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
+import Button from '~/components/atoms/Button'
 
 export default {
   methods: {
@@ -106,6 +109,7 @@ export default {
   components: {
     PostCard,
     Content,
+    Button
   },
   metaInfo() {
     const { title, description, shareImage } = this.$page.strapi.blog.seo
@@ -119,7 +123,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .back-icon {
-      font-size: $txt_l;
+  .back-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
   }
 </style>

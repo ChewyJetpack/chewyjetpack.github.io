@@ -37,7 +37,7 @@ query {
 
     &__copy {
       font-size: $txt_xxs;
-      color: var(--c-main);
+      color: var(--c-main-alt);
       text-align: center;
       opacity: 1;
       grid-area: 2/a;

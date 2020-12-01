@@ -1,14 +1,13 @@
 <template>
     <component
         :is="href ? 'a' : 'button'"
-        class="button"
+        :class="[ 'button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft } ]"
         :href="href"
         :rel="{ 'nofollow': external }"
         :target="{ '_blank': external }"
-        :style="`color: var(${cText}); background: var(${cBg});`"
     >
-        {{ label }}
-        <font-awesome class="u-left-spacer-xs" :icon="icon" />
+        <span class="button__label">{{ label }}</span>
+        <font-awesome class="button__icon" :icon="icon" />
     </component>
 </template>
 
@@ -24,15 +23,13 @@ export default {
         external: {
             type: Boolean
         },
-        cText: {
-            type: String
-        },
-        cBg: {
-            type: String
-        },
         icon: {
             type: String,
             default: 'arrow-right'
+        },
+        icoLeft: {
+            type: Boolean,
+            default: false
         }
     }
 }
@@ -40,11 +37,8 @@ export default {
 
 <style lang="scss" scoped>
     .button {
-        background: var(--c-accent-2);
-        color: var(--c-bg);
+        color: var(--c-accent-2);
         display: flex;
-        padding: $unit_s $unit_m;
-        font-weight: 600;
         line-height: 1;
         display: inline-flex;
         align-items: center;
@@ -57,12 +51,47 @@ export default {
             font-size: $txt_xs;
         }
 
-        &:hover, &:active {
-            text-decoration: none;
-            
-            svg {
-                transform: translateX($unit_xxs);
+        &--ico-l {
+            .button {
+                &__label {
+                    order: 1;
+                }
+
+                &__icon {
+                    order: 0;
+                    margin-right: $unit_s;
+                }
+            }
+
+            &:hover, &:active, &.hovered {
+                text-decoration: none;
+                
+                svg {
+                    transform: translateX(-#{$unit_xxs});
+                }
             }
         }
+
+        &--ico-r {
+            .button {
+                &__label {
+                    order: 0;
+                }
+
+                &__icon {
+                    order: 1;
+                    margin-left: $unit_s;
+                }
+            }
+
+            &:hover, &:active, &.hovered {
+                text-decoration: none;
+                
+                svg {
+                    transform: translateX($unit_xxs);
+                }
+            }
+        }
+
     }
 </style>

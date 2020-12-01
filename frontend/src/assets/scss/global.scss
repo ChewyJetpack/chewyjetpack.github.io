@@ -13,6 +13,7 @@ body {
     env(safe-area-inset-bottom, $unit_l)
     env(safe-area-inset-left, $unit_l);
 
+    text-rendering: geometricprecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

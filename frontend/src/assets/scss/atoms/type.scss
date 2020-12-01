@@ -1,25 +1,16 @@
 .layout {
-    font-family: $body-font;
-    font-size: $txt_s;
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--c-main);
+    @include font-body;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: $heading-font;
-    line-height: 1.2;
-    font-weight: 700;
-    font-size: $txt_m;
-    color: var(--c-heading);
-
+h2, h3, h4, h5, h6 {
+    @include font-heading;
     & > a {
         color: var(--c-heading);
     }
 }
 
 h1 {
-    font-size: $txt_xl;
+    @include font-display;
 }
 
 h2 {
@@ -31,9 +22,7 @@ h3 {
 }
 
 .page-desc {
-    font-family: $heading-font;
     font-size: $txt_m;
-    line-height: 1.5;
 }
 
 p:not([class]):not(:last-of-type) {
@@ -41,12 +30,18 @@ p:not([class]):not(:last-of-type) {
 }
 
 a {
-    font-weight: 700;
     text-decoration: none;
-    color: var(--c-accent-2);
+    color: var(--c-accent-3);
 
     &:hover, &:focus {
         text-decoration: underline;
+    }
+
+    &:not([class]) {
+        text-decoration: underline;
+        text-decoration-skip: edges;
+        text-decoration-skip-ink: all;
+        font-weight: 600;
     }
 }
 

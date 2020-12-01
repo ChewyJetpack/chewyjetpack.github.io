@@ -1,13 +1,13 @@
 <template>
     <ul :class="{'nav-list': true, 'nav-list--mini': navFormat === 'mini', 'nav-list--slide': navFormat === 'slide' }">
         <li :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
-            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__active': currentRouteName == '/'}" to="/">Home</g-link>
+            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == '/'}" to="/">Home</g-link>
         </li>
         <li v-for="category in $static.strapi.categories" :key="category.id" :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
-            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__active': currentRouteName == `/${category.slug}/`}" :to="`/${category.slug}/`">{{ category.title }}</g-link>
+            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == `/${category.slug}/`}" :to="`/${category.slug}/`">{{ category.title }}</g-link>
         </li>
         <li :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
-            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__active': currentRouteName == '/blog/'}" to="/blog/">Blog</g-link>
+            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == '/blog/'}" to="/blog/">Blog</g-link>
         </li>
     </ul>
 </template>
@@ -48,30 +48,41 @@ query {
         }
 
         &__item {
+            @include font-heading;
             display: flex;
             align-items: flex-end;
             font-weight: 700;
-            font-size: $txt_s;
+            font-size: $txt_xs;
             line-height: 1;
         }
 
         &__link {
             color: var(--c-bg);
             text-decoration: none;
-        }
-
-        &__active {
             position: relative;
+
+            &:focus {
+                outline: none;
+            }
 
             &:after {
                 content: "";
                 display: block;
                 position: absolute;
-                bottom: -#{$unit_xxs};
+                bottom: -#{$unit_xxxs};
                 left: 0;
                 width: 100%;
                 height: 2px;
-                background: var(--c-sl-on);
+                background: var(--c-bg);
+                transform: scaleX(0);
+                transition: transform 0.3s;
+            }
+
+            &-active, &:hover, &:focus {
+
+                &:after {
+                    transform: scaleX(1);
+                }
             }
         }
 

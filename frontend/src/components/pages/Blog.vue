@@ -1,5 +1,5 @@
 <template>
-    <div class="page u-top-spacer-xl">
+    <div class="page u-top-spacer-xxxl">
         <div class="grid">
             <div class="grid__a-d">
                 <h1>{{ $page.strapi.blog.title }}</h1>
