@@ -29,6 +29,16 @@ body {
   overflow-x: clip;
 }
 
+.wrap {
+  padding: 0 $unit_l;
+  max-width: $media_xl;
+  margin: 0 auto;
+
+  &--slim {
+    max-width: $media_l;
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;

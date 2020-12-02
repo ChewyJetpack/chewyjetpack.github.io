@@ -21,11 +21,8 @@ module.exports = function (api) {
         tags {
           slug
         }
-        categories {
+        projects {
           slug
-          projects {
-            slug
-          }
         }
       }
     }`)
@@ -40,6 +37,12 @@ module.exports = function (api) {
     createPage({
       path: `/blog/`,
       component: './src/components/pages/Blog.vue'
+    })
+
+    // Create a projects page
+    createPage({
+      path: `/projects/`,
+      component: './src/components/pages/Projects.vue'
     })
 
     // Create a page for each post
@@ -57,31 +60,21 @@ module.exports = function (api) {
     data.strapi.tags.forEach((tag) => {
       createPage({
         path: `/blog/tags/${tag.slug}`,
-        component: './src/components/templates/TagPage.vue',
+        component: './src/components/pages/TagPage.vue',
         context: {
           slug: tag.slug
         }
       })
     })
 
-    // Create a page for each category
-    data.strapi.categories.forEach((category) => {
+    // Create a page for each project
+    data.strapi.projects.forEach((project) => {
       createPage({
-        path: `/${category.slug}`,
-        component: `./src/components/templates/Category.vue`,
+        path: `/${project.slug}`,
+        component: `./src/components/templates/Project.vue`,
         context: {
-          slug: category.slug
+          slug: project.slug
         }
-      })
-      category.projects.forEach((project) => {
-        createPage({
-          path: `/${category.slug}/${project.slug}`,
-          component: './src/components/templates/Project.vue',
-          context: {
-            slug: project.slug,
-            catid: category.id
-          }
-        })
       })
     })
   })

@@ -38,11 +38,6 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
-    },
-    "categories": {
-      "collection": "category",
-      "via": "projects",
-      "dominant": true
     }
   }
 }

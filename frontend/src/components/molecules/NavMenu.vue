@@ -3,8 +3,8 @@
         <li :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
             <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == '/'}" to="/">Home</g-link>
         </li>
-        <li v-for="category in $static.strapi.categories" :key="category.id" :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
-            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == `/${category.slug}/`}" :to="`/${category.slug}/`">{{ category.title }}</g-link>
+        <li :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
+            <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == '/projects/'}" to="/projects/">Projects</g-link>
         </li>
         <li :class="{ 'nav-list__item': true,  'u-right-spacer-m': navFormat == 'mini', 'u-right-spacer-l': navFormat == 'full', 'u-bottom-spacer-m': navFormat == 'slide' }">
             <g-link :class="{ 'u-hover-anim nav-list__link': true, 'nav-list__link-active': currentRouteName == '/blog/'}" to="/blog/">Blog</g-link>
@@ -26,18 +26,6 @@ export default {
     }
 }
 </script>
-
-<static-query>
-query {
-  strapi {
-    categories {
-      title
-      slug
-      id
-    }
-  }
-}
-</static-query>
 
 <style lang="scss" scoped>
     .nav-list {

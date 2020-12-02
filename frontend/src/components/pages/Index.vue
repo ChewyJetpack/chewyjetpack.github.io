@@ -13,13 +13,13 @@
       <img src="img/tent3.svg" alt="Emil Smith" class="tentacle tentacle--l"/>
       <div class="grid">
         <div class="grid__c-f">
-            <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h1>
-            <div v-html="$page.strapi.home.pageSections[1].content" />
+            <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[0].title }}</h1>
+            <div v-html="$page.strapi.home.pageSections[0].content" />
             <Button 
-              v-if="$page.strapi.home.pageSections[1].cta"
-              :label="$page.strapi.home.pageSections[1].cta.label"
-              :href="$page.strapi.home.pageSections[1].cta.url"
-              :is-external="$page.strapi.home.pageSections[1].cta.external"
+              v-if="$page.strapi.home.pageSections[0].cta"
+              :label="$page.strapi.home.pageSections[0].cta.label"
+              :href="$page.strapi.home.pageSections[0].cta.url"
+              :is-external="$page.strapi.home.pageSections[0].cta.external"
               class="u-flex-left u-top-spacer-m"
             />
         </div>
@@ -30,6 +30,23 @@
       <img src="img/tent4.svg" alt="Emil Smith" class="tentacle tentacle--r"/>  
       <div class="grid">
         <div class="grid__a-d">
+          <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h1>
+          <div v-html="$page.strapi.home.pageSections[1].content" />
+          <Button 
+            v-if="$page.strapi.home.pageSections[1].cta"
+            :label="$page.strapi.home.pageSections[1].cta.label"
+            :href="$page.strapi.home.pageSections[1].cta.url"
+            :is-external="$page.strapi.home.pageSections[1].cta.external"
+            class="u-flex-left u-top-spacer-m"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section u-top-spacer-9001">
+      <img src="img/tent2.svg" alt="Emil Smith" class="tentacle tentacle--l"/>  
+      <div class="grid">
+        <div class="grid__c-f">
           <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h1>
           <div v-html="$page.strapi.home.pageSections[2].content" />
           <Button 
@@ -42,24 +59,6 @@
         </div>
       </div>
     </section>
-    
-    <div class="strip u-bg-accent-4 u-top-spacer-xxxl">
-      <div class="grid">
-        <div class="grid__a-d">
-          <section class="section">
-            <h2 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[3].title }}</h2>
-            <div v-html="$page.strapi.home.pageSections[3].content" />
-          </section>
-            <Button 
-              v-if="$page.strapi.home.pageSections[3].cta"
-              :label="$page.strapi.home.pageSections[3].cta.label"
-              :href="$page.strapi.home.pageSections[3].cta.url"
-              :is-external="$page.strapi.home.pageSections[3].cta.external"
-              class="u-flex-left u-top-spacer-m"
-            />
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 

@@ -6,10 +6,8 @@
             img="large"
             fullPost
         />
-        <div class="grid">
-            <div class="grid__a-f">
-                <Button href="/blog" label="Read more posts" class="u-top-spacer-xl" />
-            </div>
+        <div class="wrap">
+          <Button href="/blog" label="Read more posts" class="u-top-spacer-xl" />
         </div>
     </div>
 </template>

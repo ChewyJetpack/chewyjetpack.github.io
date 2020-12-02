@@ -16,11 +16,8 @@ query ($slug: String!) {
       id
       title
       slug
+      date
       description
-      categories {
-        id
-        title
-      }
       coverImage {
         id
         url

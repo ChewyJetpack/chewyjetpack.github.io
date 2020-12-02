@@ -42,6 +42,7 @@ export default {
 <style lang="scss" scoped>
     .slide-nav {
         --nav-width: 300px;
+        width: 100%;
 
         &__menu {
             --c-accent-3: var(--c-sl-a);

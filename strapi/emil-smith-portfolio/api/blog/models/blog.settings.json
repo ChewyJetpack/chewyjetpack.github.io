@@ -12,16 +12,10 @@
     "title": {
       "type": "string"
     },
-    "subheading": {
-      "type": "string"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "meta.seo"
-    },
-    "description": {
-      "type": "richtext"
     }
   }
 }

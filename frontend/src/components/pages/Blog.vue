@@ -1,21 +1,9 @@
 <template>
-    <div class="page u-top-spacer-xxxl">
-        <div class="grid">
-            <div class="grid__a-d">
-                <h1>{{ $page.strapi.blog.title }}</h1>
-            </div>
-        </div>
-
-    <!-- List of project preview cards -->
-        <PostCard
-            v-for="(post, index) in $page.strapi.posts"
-            :key="post.id"
-            :content="post"
-            :i="index"
-            type="post"
-            img="large"
-        />
-    </div>
+    <ListingPage 
+      :title="$page.strapi.blog.title"
+      :items="$page.strapi.posts"
+      type="post"
+    />
 </template>
 
 <page-query>
@@ -27,8 +15,6 @@ query {
     # Get blog data
     blog {
       title
-      subheading
-      description
       # Metadata for SEO
       seo {
         title
@@ -85,8 +71,7 @@ query {
 </page-query>
 
 <script>
-import PostCard from '~/components/organisms/PostCard'
-import Content from '~/components/molecules/Content'
+import ListingPage from '~/components/templates/ListingPage'
 import { getStrapiMedia } from '~/utils/medias'
 import { getMetaTags } from '~/utils/seo'
 
@@ -95,8 +80,7 @@ export default {
     getStrapiMedia,
   },
   components: {
-    PostCard,
-    Content,
+    ListingPage
   },
   metaInfo() {
     const { title, description, shareImage } = this.$page.strapi.blog.seo
