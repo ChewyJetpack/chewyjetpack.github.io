@@ -5,7 +5,7 @@
         :href="href"
         :rel="{ 'nofollow': external }"
         :target="{ '_blank': external }"
-        @click="callback"
+        @click="callback ? callback() : null"
     >
         <span class="button__label">{{ label }}</span>
         <font-awesome class="button__icon" :icon="icon" />

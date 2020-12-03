@@ -9,10 +9,10 @@
         ico-left  
         icon="arrow-left" 
         label="Previous"
-        :callback="switchImg(0)"
+        :callback="prevImg"
       />
       <Button 
-        :callback="switchImg(1)"
+        :callback="nextImg"
         label="Next"
       />
     </div>
@@ -39,12 +39,11 @@ export default {
   },
   methods: {
     getStrapiMedia,
-    switchImg(direction) {
-      if (!direction) {
-        this.rawSelectedIndex -= 1;
-      } else {
-        this.rawSelectedIndex += 1;
-      }
+    prevImg() {
+      this.rawSelectedIndex -= 1;
+    },
+    nextImg() {
+      this.rawSelectedIndex += 1;
     }
   },
 }
