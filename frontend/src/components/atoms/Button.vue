@@ -5,6 +5,7 @@
         :href="href"
         :rel="{ 'nofollow': external }"
         :target="{ '_blank': external }"
+        @click="callback"
     >
         <span class="button__label">{{ label }}</span>
         <font-awesome class="button__icon" :icon="icon" />
@@ -30,6 +31,9 @@ export default {
         icoLeft: {
             type: Boolean,
             default: false
+        },
+        callback: {
+            type: Function
         }
     }
 }
@@ -38,7 +42,6 @@ export default {
 <style lang="scss" scoped>
     .button {
         color: var(--c-accent-2);
-        display: flex;
         line-height: 1;
         display: inline-flex;
         align-items: center;
@@ -46,6 +49,13 @@ export default {
         position: relative;
         border-radius: $unit_xs 0;
         font-weight: 500;
+        outline: none;
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: $txt_s;
+        margin: 0;
+        cursor: pointer;
 
         svg {
             transition: all 0.2s;

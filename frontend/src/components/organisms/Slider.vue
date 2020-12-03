@@ -1,20 +1,32 @@
 <template>
-  <div class="container py-4">
-    <p class="text-center text-xl italic mb-2">{{ data.title }}</p>
+  <div class="slider">
     <g-image
+      class="slider__img"
       :src="getStrapiMedia(data.images[parsedSelectedIndex].url)"
     />
-    <div class="flex flex-row align-baseline justify-between">
-      <button class="py-1" @click="rawSelectedIndex -= 1">Previous</button>
-      <button class="py-1" @click="rawSelectedIndex += 1">Next</button>
+    <div class="slider__controls u-top-spacer-m">
+      <Button 
+        ico-left  
+        icon="arrow-left" 
+        label="Previous"
+        :callback="switchImg(0)"
+      />
+      <Button 
+        :callback="switchImg(1)"
+        label="Next"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { getStrapiMedia } from '~/utils/medias'
+import Button from '~/components/atoms/Button'
 
 export default {
+  components: {
+    Button
+  },
   props: ['data'],
   data: () => ({
     rawSelectedIndex: 0,
@@ -27,6 +39,28 @@ export default {
   },
   methods: {
     getStrapiMedia,
+    switchImg(direction) {
+      if (!direction) {
+        this.rawSelectedIndex -= 1;
+      } else {
+        this.rawSelectedIndex += 1;
+      }
+    }
   },
 }
 </script>
+
+<style lang="scss" scoped>
+  .slider {
+    &__controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__img {
+      max-height: 100vw;
+      margin: 0 auto;
+    }
+  }
+</style>
