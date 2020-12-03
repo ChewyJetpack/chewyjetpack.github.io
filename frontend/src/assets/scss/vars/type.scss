@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;500;600;700&display=swap');
 
 $display-font:      'Source Code Pro', monospace;
-$heading-font:      'Roboto Mono', monospace;
 $body-font:         'Pridi', serif;
 
 @mixin font-body {
@@ -27,11 +25,15 @@ $body-font:         'Pridi', serif;
 @mixin font-display {
     font-family: $display-font;
     line-height: 1;
-    font-size: $txt_xxl;
+    font-size: $txt_l;
     font-weight: 900;
     color: var(--c-heading);
     letter-spacing: -0.1rem;
     text-transform: uppercase;
+
+    @include breakpoint_l {
+        font-size: $txt_xxl;
+    }
 
     a {
         font-weight: 900;

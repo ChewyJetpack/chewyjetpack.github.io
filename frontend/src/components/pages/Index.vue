@@ -1,61 +1,65 @@
 <template>
-  <div class="page">
-    <div class="grid">
-      <div class="grid__a-f">
-          <div class="home-splash u-top-spacer-xxl">
-            <h1 class="home-splash__heading">Creative Tech Lead</h1>
-            <Octo class="home-splash__octo" />
-          </div>
+  <div class="page home">
+    <div class="wrap">
+      <div class="home__splash u-top-spacer-xxl">
+        <h1 class="home__splash-head">Creative Tech Lead</h1>
+        <Octo class="home__splash-octo" />
       </div>
     </div>
     
     <section class="section u-top-spacer-9001">
       <img src="img/tent3.svg" alt="Emil Smith" class="tentacle tentacle--l"/>
-      <div class="grid">
-        <div class="grid__c-f">
-            <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[0].title }}</h1>
-            <div v-html="$page.strapi.home.pageSections[0].content" />
-            <Button 
-              v-if="$page.strapi.home.pageSections[0].cta"
-              :label="$page.strapi.home.pageSections[0].cta.label"
-              :href="$page.strapi.home.pageSections[0].cta.url"
-              :is-external="$page.strapi.home.pageSections[0].cta.external"
-              class="u-flex-left u-top-spacer-m"
-            />
+      <div class="wrap">
+        <div class="home__offset home__offset--alt">
+            <div class="home__offset-content">
+              <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[0].title }}</h1>
+              <div v-html="$page.strapi.home.pageSections[0].content" />
+              <Button 
+                v-if="$page.strapi.home.pageSections[0].cta"
+                :label="$page.strapi.home.pageSections[0].cta.label"
+                :href="$page.strapi.home.pageSections[0].cta.url"
+                :is-external="$page.strapi.home.pageSections[0].cta.external"
+                class="u-flex-left u-top-spacer-m"
+              />
+          </div>
         </div>
       </div>
     </section>
-
+    
     <section class="section u-top-spacer-9001">
-      <img src="img/tent4.svg" alt="Emil Smith" class="tentacle tentacle--r"/>  
-      <div class="grid">
-        <div class="grid__a-d">
-          <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h1>
-          <div v-html="$page.strapi.home.pageSections[1].content" />
-          <Button 
-            v-if="$page.strapi.home.pageSections[1].cta"
-            :label="$page.strapi.home.pageSections[1].cta.label"
-            :href="$page.strapi.home.pageSections[1].cta.url"
-            :is-external="$page.strapi.home.pageSections[1].cta.external"
-            class="u-flex-left u-top-spacer-m"
-          />
+      <img src="img/tent4.svg" alt="Emil Smith" class="tentacle tentacle--r"/>
+      <div class="wrap">
+        <div class="home__offset">
+            <div class="home__offset-content">
+              <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[1].title }}</h1>
+              <div v-html="$page.strapi.home.pageSections[1].content" />
+              <Button 
+                v-if="$page.strapi.home.pageSections[1].cta"
+                :label="$page.strapi.home.pageSections[1].cta.label"
+                :href="$page.strapi.home.pageSections[1].cta.url"
+                :is-external="$page.strapi.home.pageSections[1].cta.external"
+                class="u-flex-left u-top-spacer-m"
+              />
+          </div>
         </div>
       </div>
     </section>
-
+    
     <section class="section u-top-spacer-9001">
-      <img src="img/tent2.svg" alt="Emil Smith" class="tentacle tentacle--l"/>  
-      <div class="grid">
-        <div class="grid__c-f">
-          <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h1>
-          <div v-html="$page.strapi.home.pageSections[2].content" />
-          <Button 
-            v-if="$page.strapi.home.pageSections[2].cta"
-            :label="$page.strapi.home.pageSections[2].cta.label"
-            :href="$page.strapi.home.pageSections[2].cta.url"
-            :is-external="$page.strapi.home.pageSections[2].cta.external"
-            class="u-flex-left u-top-spacer-m"
-          />
+      <img src="img/tent2.svg" alt="Emil Smith" class="tentacle tentacle--l"/>
+      <div class="wrap">
+        <div class="home__offset home__offset--alt">
+            <div class="home__offset-content">
+              <h1 class="u-bottom-spacer-m">{{ $page.strapi.home.pageSections[2].title }}</h1>
+              <div v-html="$page.strapi.home.pageSections[2].content" />
+              <Button 
+                v-if="$page.strapi.home.pageSections[2].cta"
+                :label="$page.strapi.home.pageSections[2].cta.label"
+                :href="$page.strapi.home.pageSections[2].cta.url"
+                :is-external="$page.strapi.home.pageSections[2].cta.external"
+                class="u-flex-left u-top-spacer-m"
+              />
+          </div>
         </div>
       </div>
     </section>
@@ -121,11 +125,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-splash {
-  position: relative;
+.home {
+  &__splash {
+    position: relative;
 
-  &__octo {
-    transform: translate(40%, 0) scale(-1.4, 1.4);
+  &-octo {
+    transform: translate(30%, 0) scale(-1.4, 1.4);
     pointer-events: none;
     margin-top: -5%;
     position: relative;
@@ -140,9 +145,9 @@ export default {
     }
   }
 
-  &__heading {
+  &-head {
       @include font-display;
-      font-size: 19vw;
+      font-size: 18vw;
       line-height: 0.9;
       position: absolute;
       top: 0;
@@ -151,7 +156,7 @@ export default {
       z-index: 3;
       
       @include breakpoint_m {
-          font-size: 19.5vw;
+          font-size: 19vw;
           line-height: 0.8;
       }
       
@@ -159,16 +164,31 @@ export default {
           font-size: $txt_9001;
           line-height: 0.8;
       }
+    }
+  }
+
+  &__offset {
+    @include breakpoint_l {
+      display: grid;
+      grid-template: 'content .' auto / 2fr 1fr;
+
+      &--alt {
+        grid-template: '. content' auto / 1fr 2fr;
+      }
+    }
+
+    &-content {
+      grid-area: content;
+    }
   }
 }
 
 .tentacle {
-  display: none;
   position: absolute;
   z-index: -1;
+  opacity: 0;
 
   @include breakpoint_l {
-    display: block;
     opacity: 1;
     width: 40vw;
     top: 50%;
@@ -182,28 +202,34 @@ export default {
 
   &--l {
     left: 50%;
+    transform: translate(-50%,0);
+
+    @include breakpoint_m {
+      left: 0;
+    }
 
     @include breakpoint_l {
-      left: 0;
       transform: translate(-10vw, -50%);
     }
 
     @include breakpoint_xl {
-      left: 0;
       transform: translate(-5vw, -50%);
     }
   }
 
   &--r {
     right: 50%;
+    transform: translate(50%,0);
+
+    @include breakpoint_m {
+      right: 0;
+    }
 
     @include breakpoint_l {
-      right: 0;
       transform: translate(10vw, -50%);
     }
 
     @include breakpoint_xl {
-      right: 0;
       transform: translate(5vw, -50%);
     }
   }

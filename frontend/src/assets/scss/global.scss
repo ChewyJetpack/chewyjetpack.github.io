@@ -19,7 +19,6 @@ body {
 }
 
 @import './reset.scss';
-@import './utils/grid.scss';
 @import './utils/spacers.scss';
 @import './utils/transitions.scss';
 @import './atoms/type.scss';
@@ -37,6 +36,11 @@ body {
   &--slim {
     max-width: $media_l;
   }
+}
+
+section {
+  position: relative;
+  z-index: 1;
 }
 
 img {

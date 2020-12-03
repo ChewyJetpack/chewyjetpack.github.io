@@ -70,7 +70,7 @@ module.exports = function (api) {
     // Create a page for each project
     data.strapi.projects.forEach((project) => {
       createPage({
-        path: `/${project.slug}`,
+        path: `/projects/${project.slug}`,
         component: `./src/components/templates/Project.vue`,
         context: {
           slug: project.slug

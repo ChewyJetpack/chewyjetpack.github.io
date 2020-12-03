@@ -1,11 +1,10 @@
 <template>
 <div>
-  <div ref="richtext" :class="[ 'richtext ck-content u-bottom-spacer-xxxl u-top-spacer-s', accentElems(false, true) ]" v-html="data" />
+  <div ref="richtext" class="richtext ck-content u-bottom-spacer-xxxl u-top-spacer-s" v-html="data" />
   </div>
 </template>
 
 <script>
-import { accentElems } from '~/utils/accentElems'
 import { EventBus } from '~/App';
 
 export default {
@@ -18,9 +17,6 @@ export default {
         EventBus.$emit('lightbox:open', element.attributes.src.value);
       });
     });
-  },
-  methods: {
-    accentElems,
   }
 }
 </script>

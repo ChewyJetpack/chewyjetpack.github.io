@@ -45,6 +45,7 @@ export default {
         transition: all 0.3s;
         position: relative;
         border-radius: $unit_xs 0;
+        font-weight: 500;
 
         svg {
             transition: all 0.2s;

@@ -91,6 +91,11 @@ query {
     }
 
     &--slide {
+
+        a {
+            color: var(--c-sl-a);
+        }
+
         .footer-menu {
             &__social {
                 justify-content: right;

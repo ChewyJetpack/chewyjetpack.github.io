@@ -41,13 +41,13 @@ export default {
             align-items: flex-end;
             font-weight: 700;
             font-size: $txt_xs;
-            line-height: 1;
         }
 
         &__link {
             color: var(--c-bg);
             text-decoration: none;
             position: relative;
+            padding-bottom: $unit_xxxs;
 
             &:focus {
                 outline: none;
@@ -57,11 +57,11 @@ export default {
                 content: "";
                 display: block;
                 position: absolute;
-                bottom: -#{$unit_xxxs};
+                bottom: 0;
                 left: 0;
                 width: 100%;
                 height: 2px;
-                background: var(--c-bg);
+                background: var(--c-accent-4);
                 transform: scaleX(0);
                 transition: transform 0.3s;
             }

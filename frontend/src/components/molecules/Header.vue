@@ -1,17 +1,13 @@
 <template>
   <header ref="header" class="header">
-    <div class="grid">
-      <div class="grid__a-f">
-        <div class="header__content">
-          <g-link to="/" class="header__title">
-            <span>{{ $static.metadata.siteName }}</span>
-          </g-link>
-          <div class="header__nav-area">
-            <NavMenu :navFormat="navFormat" class="header__nav" />
-            <ModeSwitch :currentMode="currentMode" :navFormat="navFormat" class="header__mode" />
-            <IconBtn icon="bars" :callback="openNav" class="header__burger-menu u-left-spacer-m" :navFormat="navFormat" />
-          </div>
-        </div>
+    <div class="wrap header__content">
+      <g-link to="/" class="header__title">
+        <span>{{ $static.metadata.siteName }}</span>
+      </g-link>
+      <div class="header__nav-area">
+        <NavMenu :navFormat="navFormat" class="header__nav" />
+        <ModeSwitch :currentMode="currentMode" :navFormat="navFormat" class="header__mode" />
+        <IconBtn icon="bars" :callback="openNav" class="header__burger-menu u-left-spacer-m" :navFormat="navFormat" />
       </div>
     </div>
   </header>
@@ -72,11 +68,18 @@ query {
     }
 
     &__title {
-      @include font-display;
+      font-family: $display-font;
       line-height: 1;
-      font-size: $txt_l;
+      font-size: $txt_m;
+      font-weight: 900;
+      letter-spacing: -0.1rem;
       text-decoration: none;
       color: var(--c-bg);
+      text-transform: uppercase;
+
+      @include breakpoint_m {
+        font-size: $txt_l;
+      }
 
       &:focus {
         outline: none;

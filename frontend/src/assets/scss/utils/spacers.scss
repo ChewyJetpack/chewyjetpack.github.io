@@ -13,11 +13,36 @@ $measurements: (
 
 $edges: 'top', 'right', 'bottom', 'left';
 
-@each $size, $val in $measurements {
+@for $i from 1 through length($measurements) {
+    $item: nth($measurements, $i);
+    $size: nth($item, 1);
+    $val: nth($item, 2);
+    $l: length($measurements);
+
     @each $edge in $edges {
-        .u-#{$edge}-spacer-#{$size} {
-            margin-#{$edge}: #{$val};
+        @if $i > $l * 0.6 {
+            .u-#{$edge}-spacer-#{$size} {
+                margin-#{$edge}: calc(#{$val} / 2);
+            }
+            @include breakpoint_m {
+                .u-#{$edge}-spacer-#{$size} {
+                    margin-#{$edge}: calc(#{$val} * 0.7);
+                }
+            }
+    
+            @include breakpoint_l {
+                .u-#{$edge}-spacer-#{$size} {
+                    margin-#{$edge}: #{$val};
+                }
+            }
+        } @else {
+            .u-#{$edge}-spacer-#{$size} {
+                margin-#{$edge}: #{$val};
+            }
         }
+
+        
+
     }
 }
 
