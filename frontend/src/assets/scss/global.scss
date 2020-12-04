@@ -30,9 +30,13 @@ body {
 }
 
 .wrap {
-  padding: 0 $unit_l;
+  padding: 0 $unit_m;
   max-width: $media_xl;
   margin: 0 auto;
+
+  @include breakpoint_m {
+    padding: 0 $unit_l;
+  }
 
   &--slim {
     max-width: $media_l;
