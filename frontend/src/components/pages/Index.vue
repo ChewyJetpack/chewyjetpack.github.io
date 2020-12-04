@@ -193,6 +193,7 @@ export default {
     opacity: 1;
     width: 40vw;
     top: 50%;
+    display: block;
   }
 
   @include breakpoint_xl {
