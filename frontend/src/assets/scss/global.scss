@@ -33,6 +33,7 @@ body {
   padding: 0 $unit_m;
   max-width: $media_xl;
   margin: 0 auto;
+  width: 100%;
 
   @include breakpoint_m {
     padding: 0 $unit_l;
