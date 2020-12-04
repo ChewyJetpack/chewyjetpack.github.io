@@ -98,7 +98,7 @@ query {
 
         .footer-menu {
             &__social {
-                justify-content: right;
+                justify-content: flex-end;
                 
                 &-link {
                     font-size: $txt_m;
