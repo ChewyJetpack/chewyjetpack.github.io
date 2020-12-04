@@ -64,6 +64,9 @@ query {
             url
           }
         }
+        ... on strapiTypes_ComponentSectionsVideoEmbed {
+          url
+        }
       }
     }
   }

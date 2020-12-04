@@ -54,6 +54,9 @@ query ($slug: String!) {
             url
           }
         }
+        ... on strapiTypes_ComponentSectionsVideoEmbed {
+          url
+        }
       }
     }
   }

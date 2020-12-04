@@ -23,7 +23,8 @@
       "components": [
         "sections.rich-text",
         "sections.large-media",
-        "sections.images-slider"
+        "sections.images-slider",
+        "sections.video-embed"
       ]
     },
     "coverImage": {

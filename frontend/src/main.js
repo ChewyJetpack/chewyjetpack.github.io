@@ -12,8 +12,7 @@ import VueLodash from 'vue-lodash'
 import throttle from 'lodash/throttle'
 import lodash from 'lodash'
 import VuePageTransition from 'vue-page-transition'
-import ReadingTime from 'reading-time';
-
+import ReadingTime from 'reading-time'
 
 
 config.autoAddCss = false;

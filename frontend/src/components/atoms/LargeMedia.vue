@@ -1,9 +1,11 @@
 <template>
-  <div ref="image">
+  <div>
     <g-image
+    class="u-bottom-spacer-xxl"
       :alt="data.description"
       :src="getStrapiMedia(data.media.url)"
       v-if="data.media.mime.startsWith('image')"
+      @click="lightBox"
     />
     <p class="text-center text-lg italic mt-2">{{ data.description }}</p>
   </div>
@@ -15,13 +17,11 @@ import { EventBus } from '~/App'
 
 export default {
   props: ['data'],
-  mounted() {  
-    this.$refs.image.addEventListener('click', () => {
-      EventBus.$emit('lightbox:open', getStrapiMedia(this.data.media.url));
-    });
-  },
   methods: {
     getStrapiMedia,
+    lightBox() {
+      EventBus.$emit('lightbox:open', getStrapiMedia(this.data.media.url));
+    }
   }
 }
 </script>

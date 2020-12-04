@@ -14,6 +14,9 @@
       <div v-if="contentSection.__typename === 'strapiTypes_ComponentSectionsImagesSlider'">
         <Slider :data="contentSection" />
       </div>
+      <div v-if="contentSection.__typename === 'strapiTypes_ComponentSectionsVideoEmbed'">
+        <VideoEmbed :url="contentSection.url" />
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +24,7 @@
 <script>
 import RichText from '~/components/atoms/RichText'
 import LargeMedia from '~/components/atoms/LargeMedia'
+import VideoEmbed from '~/components/atoms/VideoEmbed'
 import Slider from '~/components/organisms/Slider'
 
 export default {
@@ -29,6 +33,7 @@ export default {
     RichText,
     LargeMedia,
     Slider,
+    VideoEmbed
   }
 }
 </script>

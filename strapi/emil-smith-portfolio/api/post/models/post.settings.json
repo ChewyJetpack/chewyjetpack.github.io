@@ -20,7 +20,8 @@
       "components": [
         "sections.images-slider",
         "sections.large-media",
-        "sections.rich-text"
+        "sections.rich-text",
+        "sections.video-embed"
       ]
     },
     "date": {
