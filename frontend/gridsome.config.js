@@ -19,7 +19,7 @@ function addStyleResource (rule) {
 module.exports = {
   siteName: 'Emil Smith',
   siteDescription: 'Creative Technologist working with all aspects of digital design and development to solve real-world problems.',
-  siteUrl: 'https://emilsmith.pro',
+  siteUrl: 'emilsmith.pro',
   plugins: [
     {
       use: '@gridsome/source-graphql',

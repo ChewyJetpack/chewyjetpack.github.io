@@ -24,8 +24,9 @@ body {
 @import './atoms/type.scss';
 @import './atoms/CKEditor.scss';
 
-.page {
-  overflow-x: clip;
+.page, section {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .wrap {
@@ -41,6 +42,7 @@ body {
 section {
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
 }
 
 img {

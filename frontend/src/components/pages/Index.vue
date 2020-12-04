@@ -128,6 +128,7 @@ export default {
 .home {
   &__splash {
     position: relative;
+    overflow-x: clip;
 
   &-octo {
     transform: translate(30%, 0) scale(-1.4, 1.4);
@@ -186,7 +187,7 @@ export default {
 .tentacle {
   position: absolute;
   z-index: -1;
-  opacity: 0;
+  display: none;
 
   @include breakpoint_l {
     opacity: 1;
