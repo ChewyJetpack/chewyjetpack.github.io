@@ -1,15 +1,15 @@
 <template>
-    <div class="page">
-        <PostCard
-            :content="$page.strapi.posts[0]"
-            type="post"
-            img="large"
-            fullPost
-        />
-        <div class="wrap">
-          <Button href="/blog" label="Read more posts" class="u-top-spacer-xl" />
-        </div>
+  <div class="page">
+    <PostCard
+      :content="$page.strapi.posts[0]"
+      type="post"
+      img="large"
+      fullPost
+    />
+    <div class="wrap">
+      <Button href="/blog" label="Read more posts" class="u-top-spacer-xl" />
     </div>
+  </div>
 </template>
 
 <page-query>
@@ -64,26 +64,22 @@ query ($slug: String!) {
 </page-query>
 
 <script>
-import PostCard from '~/components/organisms/PostCard'
-import Button from '~/components/atoms/Button'
-import { getStrapiMedia } from '~/utils/medias'
-import { getMetaTags } from '~/utils/seo'
+import PostCard from "~/components/organisms/PostCard";
+import Button from "~/components/atoms/Button";
+import { getMetaTags } from "~/utils/seo";
 
 export default {
-  methods: {
-    getStrapiMedia,
-  },
   components: {
     PostCard,
     Button
   },
   metaInfo() {
-    const { title, description, coverImage } = this.$page.strapi.posts[0]
-    const image = getStrapiMedia(coverImage.url)
+    const { title, description, coverImage } = this.$page.strapi.posts[0];
+    const image = coverImage.url;
     return {
       title,
-      meta: getMetaTags(title, description, image),
-    }
-  },
-}
+      meta: getMetaTags(title, description, image)
+    };
+  }
+};
 </script>

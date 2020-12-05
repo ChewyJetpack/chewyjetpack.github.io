@@ -1,9 +1,9 @@
 <template>
-    <ListingPage 
-      :title="$page.strapi.portfolio.title"
-      :items="$page.strapi.projects"
-      type="project"
-    />
+  <ListingPage
+    :title="$page.strapi.portfolio.title"
+    :items="$page.strapi.projects"
+    type="project"
+  />
 </template>
 
 <page-query>
@@ -66,28 +66,22 @@ query {
 </page-query>
 
 <script>
-import ListingPage from '~/components/templates/ListingPage'
-import { getStrapiMedia } from '~/utils/medias'
-import { getMetaTags } from '~/utils/seo'
+import ListingPage from "~/components/templates/ListingPage";
+import { getMetaTags } from "~/utils/seo";
 
 export default {
-  methods: {
-    getStrapiMedia,
-  },
   components: {
     ListingPage
   },
   metaInfo() {
-    const { title, description, shareImage } = this.$page.strapi.portfolio.seo
-    const image = getStrapiMedia(shareImage.url)
+    const { title, description, shareImage } = this.$page.strapi.portfolio.seo;
+    const image = shareImage.url;
     return {
       title,
-      meta: getMetaTags(title, description, image),
-    }
-  },
-}
+      meta: getMetaTags(title, description, image)
+    };
+  }
+};
 </script>
 
-<style lang="scss" scoped>
-  
-</style>
+<style lang="scss" scoped></style>

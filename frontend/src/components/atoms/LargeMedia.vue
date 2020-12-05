@@ -1,9 +1,9 @@
 <template>
   <div>
     <g-image
-    class="u-bottom-spacer-xxl"
+      class="u-bottom-spacer-xxl"
       :alt="data.description"
-      :src="getStrapiMedia(data.media.url)"
+      :src="data.media.url"
       v-if="data.media.mime.startsWith('image')"
       @click="lightBox"
     />
@@ -12,16 +12,14 @@
 </template>
 
 <script>
-import { getStrapiMedia } from '~/utils/medias'
-import { EventBus } from '~/App'
+import { EventBus } from "~/App";
 
 export default {
-  props: ['data'],
+  props: ["data"],
   methods: {
-    getStrapiMedia,
     lightBox() {
-      EventBus.$emit('lightbox:open', getStrapiMedia(this.data.media.url));
+      EventBus.$emit("lightbox:open", this.data.media.url);
     }
   }
-}
+};
 </script>

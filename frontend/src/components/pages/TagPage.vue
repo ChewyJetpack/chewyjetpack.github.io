@@ -1,11 +1,11 @@
 <template>
-    <ListingPage 
-      :title="$page.strapi.tags[0].name"
-      :items="$page.strapi.tags[0].posts"
-      type="post"
-      back-to="/blog"
-      :back-label="`All posts`"
-    />
+  <ListingPage
+    :title="$page.strapi.tags[0].name"
+    :items="$page.strapi.tags[0].posts"
+    type="post"
+    back-to="/blog"
+    :back-label="`All posts`"
+  />
 </template>
 
 <page-query>
@@ -78,34 +78,30 @@ query ($slug: String!) {
 </page-query>
 
 <script>
-import ListingPage from '~/components/templates/ListingPage'
-import { getStrapiMedia } from '~/utils/medias'
-import { getMetaTags } from '~/utils/seo'
+import ListingPage from "~/components/templates/ListingPage";
+import { getMetaTags } from "~/utils/seo";
 
 export default {
-  methods: {
-    getStrapiMedia,
-  },
   components: {
-    ListingPage,
+    ListingPage
   },
   metaInfo() {
-    const { title, description, shareImage } = this.$page.strapi.blog.seo
-    const image = getStrapiMedia(shareImage.url)
+    const { title, description, shareImage } = this.$page.strapi.blog.seo;
+    const image = shareImage.url;
     return {
       title,
-      meta: getMetaTags(title, description, image),
-    }
-  },
-}
+      meta: getMetaTags(title, description, image)
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .back-btn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
+.back-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
 </style>
