@@ -18,7 +18,7 @@ export default {
   props: ["data"],
   methods: {
     lightBox() {
-      EventBus.$emit("lightbox:open", this.data.media.url);
+      EventBus.$emit("lightbox:open", { src: this.data.media.url });
     }
   }
 };

@@ -18,7 +18,7 @@ export default {
 
     images.forEach(element => {
       element.addEventListener("click", () => {
-        EventBus.$emit("lightbox:open", element.attributes.src.value);
+        EventBus.$emit("lightbox:open", { src: element.attributes.src.value });
       });
     });
   }
