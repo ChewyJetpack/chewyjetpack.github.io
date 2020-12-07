@@ -92,7 +92,7 @@ export default {
 
   img {
     max-width: 100%;
-    max-height: 80%;
+    max-height: 80vh;
     pointer-events: all;
   }
 }

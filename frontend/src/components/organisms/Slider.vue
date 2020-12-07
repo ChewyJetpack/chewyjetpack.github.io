@@ -60,8 +60,6 @@ export default {
     }
 
     &:hover {
-      transform: scale(1.05);
-
       &:after {
         transform: translateY(0);
       }
