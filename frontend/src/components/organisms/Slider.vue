@@ -29,6 +29,8 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
+  overflow: visible;
+
   &__gallery {
     display: grid;
     grid-gap: $unit_m;
