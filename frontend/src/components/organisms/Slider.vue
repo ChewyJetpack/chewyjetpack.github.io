@@ -1,36 +1,27 @@
 <template>
   <div class="slider">
-    <g-image class="slider__img" :src="data.images[parsedSelectedIndex].url" />
-    <div class="slider__controls u-top-spacer-m">
-      <Button ico-left icon="arrow-left" label="Previous" :callback="prevImg" />
-      <Button :callback="nextImg" label="Next" />
+    <div class="slider__gallery">
+      <div
+        v-for="image in data.images"
+        :key="image.id"
+        class="slider__img"
+        :style="`background: url(${image.url}) center center / cover no-repeat`"
+        @click="lightBox"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Button from "~/components/atoms/Button";
+import { EventBus } from "~/App";
 
 export default {
-  components: {
-    Button
-  },
   props: ["data"],
-  data: () => ({
-    rawSelectedIndex: 0
-  }),
-  computed: {
-    parsedSelectedIndex() {
-      // Ensure we don't go beyond the amount of images
-      return this.rawSelectedIndex % this.data.images.length;
-    }
-  },
   methods: {
-    prevImg() {
-      this.rawSelectedIndex -= 1;
-    },
-    nextImg() {
-      this.rawSelectedIndex += 1;
+    lightBox() {
+      EventBus.$emit("lightbox:open", {
+        gallery: this.data.images
+      });
     }
   }
 };
@@ -38,15 +29,23 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
-  &__controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  &__gallery {
+    display: grid;
+    grid-gap: $unit_m;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-rows: auto;
   }
 
   &__img {
-    max-height: 100vw;
-    margin: 0 auto;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 </style>

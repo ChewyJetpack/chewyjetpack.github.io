@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
@@ -26,6 +27,7 @@ import throttle from "lodash/throttle";
 import lodash from "lodash";
 import VuePageTransition from "vue-page-transition";
 import ReadingTime from "reading-time";
+import VueSilentbox from "vue-silentbox";
 
 config.autoAddCss = false;
 library.add(
@@ -50,5 +52,6 @@ export default function(Vue, { router, head, isClient }) {
   Vue.use(VueTruncate);
   Vue.use(VuePageTransition);
   Vue.use(require("vue-moment"));
+  Vue.use(VueSilentbox);
   Object.defineProperty(Vue.prototype, "$readingTime", { value: ReadingTime });
 }

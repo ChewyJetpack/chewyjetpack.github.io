@@ -70,6 +70,10 @@ export default {
     transition: transform 0.6s;
   }
 
+  &__slot {
+    transform: translateX(0);
+  }
+
   &--open {
     .slide-nav {
       &__menu {

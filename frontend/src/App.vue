@@ -13,11 +13,10 @@
       <Footer />
 
       <transition name="fade">
-        <div class="shade" @click="closeShade" v-if="shadeVisible">
-          <Lightbox :src="lightboxSrc" v-if="lightboxVisible" />
-        </div>
+        <div class="shade" @click="closeShade" v-if="shadeVisible" />
       </transition>
     </SlideNav>
+    <Lightbox :args="lightboxArgs" v-if="lightboxVisible" />
   </div>
 </template>
 
@@ -60,7 +59,7 @@ export default {
       currentMode: "init",
       shadeVisible: false,
       lightboxVisible: false,
-      lightboxSrc: ""
+      lightboxArgs: {}
     };
   },
   mounted() {
@@ -80,8 +79,8 @@ export default {
       this.shadeVisible = status;
     });
 
-    EventBus.$on("lightbox:open", src => {
-      this.openLightbox(src);
+    EventBus.$on("lightbox:open", args => {
+      this.openLightbox(args);
     });
   },
   methods: {
@@ -92,16 +91,16 @@ export default {
       EventBus.$emit("lightbox:close", false);
       this.shadeVisible = false;
       this.lightboxVisible = false;
-      this.lightboxSrc = "";
+      this.lightboxArgs = {};
     },
     closeShade() {
       this.closeNav();
       this.closeLightbox();
     },
-    openLightbox(src) {
+    openLightbox(args) {
       this.shadeVisible = true;
       this.lightboxVisible = true;
-      this.lightboxSrc = src;
+      this.lightboxArgs = args;
     }
   },
   watch: {
@@ -151,6 +150,7 @@ export default {
     background: var(--c-shade-bg);
     cursor: pointer;
     z-index: 10;
+    transform: translate(0, 0);
 
     @include breakpoint_xl {
       position: fixed;

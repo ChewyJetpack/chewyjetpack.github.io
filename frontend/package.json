@@ -14,7 +14,8 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && npm run cname",
+    "cname": "echo 'emilsmith.pro' > dist/CNAME",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "vue-moment": "^4.1.0",
     "vue-page-transition": "^0.2.2",
     "vue-share-buttons": "^1.1.0",
+    "vue-silentbox": "^2.2.2",
     "vue-truncate-filter": "^1.1.7"
   },
   "devDependencies": {
