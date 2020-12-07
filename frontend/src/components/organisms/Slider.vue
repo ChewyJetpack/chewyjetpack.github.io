@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
-  overflow: visible;
+  overflow: ;
 
   &__gallery {
     display: grid;
@@ -42,11 +42,29 @@ export default {
     width: 100%;
     height: 0;
     padding-bottom: 100%;
-    transition: transform 0.3s;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background: var(--c-accent-2);
+      transition: transform 0.3s;
+      height: $unit_xs;
+      width: 100%;
+      display: block;
+      transform: translateY(100%);
+    }
 
     &:hover {
       transform: scale(1.05);
+
+      &:after {
+        transform: translateY(0);
+      }
     }
   }
 }
