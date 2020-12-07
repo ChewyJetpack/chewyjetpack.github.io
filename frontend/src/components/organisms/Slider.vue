@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
-  overflow: ;
+  overflow: hidden;
 
   &__gallery {
     display: grid;
