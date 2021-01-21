@@ -1,5 +1,11 @@
 <template>
-  <article :class="['post', 'u-top-spacer-xxxl', { 'post--full': fullPost }]">
+  <article
+    :class="[
+      'post',
+      'u-top-spacer-xxxl',
+      { 'post--full': fullPost, 'post--project': type == 'project' }
+    ]"
+  >
     <!-- post page image -->
     <div
       v-if="fullPost"
@@ -16,7 +22,10 @@
         :is="fullPost ? 'h1' : 'h2'"
         :class="[
           'post__heading',
-          { 'u-bottom-spacer-s': fullPost, 'u-bottom-spacer-s': !fullPost }
+          {
+            'u-bottom-spacer-s': fullPost,
+            'u-bottom-spacer-s': !fullPost && type != 'project'
+          }
         ]"
       >
         <g-link
@@ -38,7 +47,7 @@
         </span>
       </component>
 
-      <p v-if="!fullPost" class="post__description">
+      <p v-if="!fullPost && type != 'project'" class="post__description">
         {{ content.description | truncate(150) }}
       </p>
 
@@ -168,6 +177,14 @@ export default {
 
   @include breakpoint_l {
     grid-template: "info info image" auto / 1fr 1fr 1fr;
+
+    &--project {
+      grid-template: "info image" auto / 1fr 1fr;
+
+      &:nth-of-type(2n + 1) {
+        grid-template: "image info" auto / 1fr 1fr;
+      }
+    }
   }
 
   &:first-child {
