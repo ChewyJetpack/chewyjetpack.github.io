@@ -39,6 +39,11 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "order": {
+      "type": "integer",
+      "unique": true,
+      "required": true
     }
   }
 }

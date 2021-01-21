@@ -26,7 +26,7 @@ query {
       }
     }
     # List projects
-    projects(sort: "date:desc") {
+    projects(sort: "order:asc") {
       title
       slug
       date

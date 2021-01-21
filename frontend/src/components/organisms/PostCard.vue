@@ -24,7 +24,7 @@
           'post__heading',
           {
             'u-bottom-spacer-s': fullPost,
-            'u-bottom-spacer-s': !fullPost && type != 'project'
+            'u-bottom-spacer-s': !fullPost
           }
         ]"
       >
@@ -47,7 +47,7 @@
         </span>
       </component>
 
-      <p v-if="!fullPost && type != 'project'" class="post__description">
+      <p v-if="!fullPost" class="post__description">
         {{ content.description | truncate(150) }}
       </p>
 
