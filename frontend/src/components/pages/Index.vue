@@ -16,6 +16,10 @@
               {{ $page.strapi.home.pageSections[0].title }}
             </h1>
             <div v-html="$page.strapi.home.pageSections[0].content" />
+            <p class="u-top-spacer-s">
+              I've worked for some amazing brands, including Google, Sony, eBay,
+              Virgin, Nokia, Three, Tinder, Expedia, and many more.
+            </p>
             <Button
               v-if="$page.strapi.home.pageSections[0].cta"
               :label="$page.strapi.home.pageSections[0].cta.label"

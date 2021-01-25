@@ -54,7 +54,6 @@ export default {
   border: none;
   padding: 0;
   font-size: $txt_s;
-  margin: 0;
   cursor: pointer;
 
   svg {
