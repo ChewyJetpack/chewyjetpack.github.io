@@ -68,9 +68,7 @@
         :class="['post__link u-top-spacer-xs', { hovered: hoverToggle }]"
         :label="type == 'post' ? 'Read post' : 'View project'"
         ref="cta_link"
-        :href="
-          type === 'post' ? `blog/${content.slug}` : `projects/${content.slug}`
-        "
+        :href="content.slug"
         icon="arrow-right"
         @mouseover.native="hoverAll"
         @mouseleave.native="leaveAll"
