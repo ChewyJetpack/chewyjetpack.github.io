@@ -50,6 +50,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.seo"
+    },
+    "showCover": {
+      "type": "boolean",
+      "default": true,
+      "private": false
     }
   }
 }

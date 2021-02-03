@@ -8,7 +8,7 @@
   >
     <!-- post page image -->
     <div
-      v-if="fullPost"
+      v-if="fullPost && content.showCover"
       class="post__full-img u-bottom-spacer-m"
       :style="
         `background:url(${
@@ -24,7 +24,8 @@
           'post__heading',
           {
             'u-bottom-spacer-s': fullPost,
-            'u-bottom-spacer-s': !fullPost
+            'u-bottom-spacer-s': !fullPost,
+            'u-top-spacer-xxl': fullPost && !content.showCover
           }
         ]"
       >

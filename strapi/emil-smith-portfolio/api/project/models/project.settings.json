@@ -44,6 +44,10 @@
       "type": "integer",
       "unique": true,
       "required": true
+    },
+    "showCover": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

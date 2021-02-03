@@ -41,6 +41,7 @@ query {
         url
         formats
       }
+      showCover
       content {
         __typename
         ... on strapiTypes_ComponentSectionsRichText {

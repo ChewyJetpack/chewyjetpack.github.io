@@ -1,5 +1,5 @@
 <template>
-  <div class="slider u-bottom-spacer-l">
+  <div class="slider u-bottom-spacer-xl">
     <div class="slider__gallery">
       <div
         v-for="image in data.images"
