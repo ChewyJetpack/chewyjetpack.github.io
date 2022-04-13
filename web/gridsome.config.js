@@ -4,6 +4,13 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV || "development"}`
+});
+
+const clientConfig = require("./client-config");
+
+const isProd = process.env.NODE_ENV === "production";
 
 const path = require("path");
 
@@ -21,15 +28,19 @@ module.exports = {
   siteDescription:
     "Creative Technologist working with all aspects of digital design and development to solve real-world problems.",
   siteUrl: "emilsmith.pro",
+  templates: {
+    SanityPost: "/:slug__current"
+  },
+
   plugins: [
     {
-      use: "@gridsome/source-graphql",
+      use: "gridsome-source-sanity",
       options: {
-        url:
-          (process.env.GRIDSOME_STRAPI_URL || "http://localhost:1337") +
-          "/graphql",
-        fieldName: "strapi",
-        typeName: "strapiTypes"
+        ...clientConfig.sanity,
+        typeName: "Sanity",
+        token: process.env.SANITY_TOKEN,
+        overlayDrafts: !isProd,
+        watchMode: !isProd
       }
     }
   ],
