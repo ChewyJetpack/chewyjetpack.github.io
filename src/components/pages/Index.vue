@@ -76,37 +76,6 @@
   </div>
 </template>
 
-<page-query>
-query {
-  strapi {
-    global {
-      siteName
-    }
-    # Get homepage data
-    home {
-      pageSections {
-        title
-        content
-        cta {
-          label
-          url
-          external
-        }
-      }
-      # Metadata for SEO
-      seo {
-        title
-        description
-        shareImage {
-          id
-          url
-        }
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
 import Button from "~/components/atoms/Button";
 import Octo from "~/components/atoms/Octo";

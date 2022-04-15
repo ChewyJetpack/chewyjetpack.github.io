@@ -22,16 +22,6 @@ export default {
 };
 </script>
 
-<static-query>
-query {
-  strapi {
-    global {
-      siteName
-    }
-  }
-}
-</static-query>
-
 <style lang="scss" scoped>
 .footer {
   padding-bottom: $unit_m;

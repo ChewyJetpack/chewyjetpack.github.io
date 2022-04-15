@@ -12,57 +12,6 @@
   </div>
 </template>
 
-<page-query>
-query ($slug: String!) {
-  strapi {
-    posts(where: { slug: $slug }) {
-      id
-      title
-      slug
-      date
-      description
-      tags {
-        id
-        name
-        slug
-      }
-      coverImage {
-        id
-        url
-        formats
-      }
-      content {
-        __typename
-        ... on strapiTypes_ComponentSectionsRichText {
-          id
-          content
-        }
-        ... on strapiTypes_ComponentSectionsLargeMedia {
-          id
-          media {
-            id
-            url
-            mime
-          }
-          description
-        }
-        ... on strapiTypes_ComponentSectionsImagesSlider {
-          id
-          title
-          images {
-            id
-            url
-          }
-        }
-        ... on strapiTypes_ComponentSectionsVideoEmbed {
-          url
-        }
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
 import PostCard from "~/components/organisms/PostCard";
 import Button from "~/components/atoms/Button";

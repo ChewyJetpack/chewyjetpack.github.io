@@ -51,14 +51,6 @@ export default {
 };
 </script>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <style lang="scss" scoped>
 .header {
   width: 100%;

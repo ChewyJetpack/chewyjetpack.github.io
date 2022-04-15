@@ -20,24 +20,6 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-    siteDescription
-  }
-  strapi {
-    global {
-      siteName
-      siteLanguage
-      favicon {
-        url
-      }
-    }
-  }
-}
-</static-query>
-
 <script>
 import Vue from "vue";
 import Header from "~/components/molecules/Header";

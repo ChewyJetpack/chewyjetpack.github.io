@@ -10,21 +10,21 @@ module.exports = function(api) {
   // Fetch all Strapi projects
   api.createPages(async ({ createPage, graphql }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
-    const { data } = await graphql(`
-      {
-        strapi {
-          posts {
-            slug
-          }
-          tags {
-            slug
-          }
-          projects {
-            slug
-          }
-        }
-      }
-    `);
+    // const { data } = await graphql(`
+    //   {
+    //     strapi {
+    //       posts {
+    //         slug
+    //       }
+    //       tags {
+    //         slug
+    //       }
+    //       projects {
+    //         slug
+    //       }
+    //     }
+    //   }
+    // `);
 
     // Create a home page
     createPage({
@@ -45,36 +45,36 @@ module.exports = function(api) {
     });
 
     // Create a page for each post
-    data.strapi.posts.forEach(post => {
-      createPage({
-        path: `/blog/${post.slug}`,
-        component: "./src/components/templates/Post.vue",
-        context: {
-          slug: post.slug
-        }
-      });
-    });
+    // data.strapi.posts.forEach(post => {
+    //   createPage({
+    //     path: `/blog/${post.slug}`,
+    //     component: "./src/components/templates/Post.vue",
+    //     context: {
+    //       slug: post.slug
+    //     }
+    //   });
+    // });
 
     // Create a page for each tag
-    data.strapi.tags.forEach(tag => {
-      createPage({
-        path: `/blog/tags/${tag.slug}`,
-        component: "./src/components/pages/TagPage.vue",
-        context: {
-          slug: tag.slug
-        }
-      });
-    });
+    // data.strapi.tags.forEach(tag => {
+    //   createPage({
+    //     path: `/blog/tags/${tag.slug}`,
+    //     component: "./src/components/pages/TagPage.vue",
+    //     context: {
+    //       slug: tag.slug
+    //     }
+    //   });
+    // });
 
     // Create a page for each project
-    data.strapi.projects.forEach(project => {
-      createPage({
-        path: `/projects/${project.slug}`,
-        component: `./src/components/templates/Project.vue`,
-        context: {
-          slug: project.slug
-        }
-      });
-    });
+    // data.strapi.projects.forEach(project => {
+    //   createPage({
+    //     path: `/projects/${project.slug}`,
+    //     component: `./src/components/templates/Project.vue`,
+    //     context: {
+    //       slug: project.slug
+    //     }
+    //   });
+    // });
   });
 };

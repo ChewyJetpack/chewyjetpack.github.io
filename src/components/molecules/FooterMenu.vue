@@ -26,22 +26,6 @@
   </div>
 </template>
 
-<static-query>
-query {
-  strapi {
-    global {
-      siteName
-      contactEmail
-      socialNetworks {
-        id
-        url
-        title
-      }
-    }
-  }
-}
-</static-query>
-
 <script>
 export default {
   props: {
