@@ -28,6 +28,7 @@ collections:
           displayFields: [tag, description],
           searchFields: [tag, description],
           valueField: 'tag',
+          create: true
         }
   - name: 'projects'
     label: 'Project'
@@ -51,6 +52,7 @@ collections:
           displayFields: [tag, description],
           searchFields: [tag, description],
           valueField: 'tag',
+          create: true
         }
   - name: 'tags'
     label: 'Tags'
