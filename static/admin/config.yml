@@ -86,7 +86,7 @@ collections:
         file: 'home.md'
         fields:
           - { label: 'Title', name: 'title', widget: 'hidden', default: 'Welcome' }
-          - { label: 'Layout', name: 'title', widget: 'hidden', default: 'home' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
           - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'CV'
