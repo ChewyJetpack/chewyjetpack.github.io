@@ -25,8 +25,8 @@ collections:
           name: 'tags',
           widget: 'relation',
           collection: 'tags',
-          displayFields: [tag, description],
-          searchFields: [tag, description],
+          displayFields: [tag],
+          searchFields: [tag],
           valueField: 'tag',
           create: true
         }
@@ -49,8 +49,8 @@ collections:
           name: 'tags',
           widget: 'relation',
           collection: 'tags',
-          displayFields: [tag, description],
-          searchFields: [tag, description],
+          displayFields: [tag],
+          searchFields: [tag],
           valueField: 'tag',
           create: true
         }
@@ -64,7 +64,6 @@ collections:
       preview: false
     fields:
       - { label: 'Tag', name: 'tag', widget: 'string'}
-      - { label: 'Description', name: 'description', widget: 'string'}
   - name: 'jobs'
     label: 'Jobs'
     folder: 'content/_jobs/'
