@@ -42,19 +42,19 @@ export default {
     // Options
   },
 
-  generate: {
-    routes: function() {
-      const fs = require('fs');
-      const path = require('path');
-      //const collections = ['posts', 'projects', '_tags'];
-      return fs.readdirSync('./content/posts').map(file => {
-        return {
-          route: `/posts/${path.parse(file).name}`, // Return the slug
-          payload: require(`./content/posts/${file}`),
-        };
-      });
-    },
-  },
+  // generate: {
+  //   routes: function() {
+  //     const fs = require('fs');
+  //     const path = require('path');
+  //     //const collections = ['posts', 'projects', '_tags'];
+  //     return fs.readdirSync('./content/posts').map(file => {
+  //       return {
+  //         route: `/posts/${path.parse(file).name}`, // Return the slug
+  //         payload: require(`./content/posts/${file}`),
+  //       };
+  //     });
+  //   },
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
