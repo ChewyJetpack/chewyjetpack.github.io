@@ -6,9 +6,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'posts'
+    label: 'Post'
+    folder: 'content/posts'
     format: 'frontmatter'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
@@ -16,6 +16,93 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Hero', name: 'hero', allow_multiple: 'fasle', widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags',
+          name: 'tags',
+          widget: 'relation',
+          collection: 'tags',
+          displayFields: [tag, description],
+          searchFields: [tag, description],
+          valueField: 'tag',
+        }
+  - name: 'projects'
+    label: 'Project'
+    folder: 'content/projects'
+    format: 'frontmatter'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Hero', name: 'hero', allow_multiple: 'fasle', widget: 'image' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags',
+          name: 'tags',
+          widget: 'relation',
+          collection: 'tags',
+          displayFields: [tag, description],
+          searchFields: [tag, description],
+          valueField: 'tag',
+        }
+  - name: 'tags'
+    label: 'Tags'
+    folder: 'content/_tags/'
+    identifier_field: tag
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: 'Tag', name: 'tag', widget: 'string'}
+      - { label: 'Description', name: 'description', widget: 'string'}
+  - name: 'jobs'
+    label: 'Jobs'
+    folder: 'content/_jobs/'
+    identifier_field: job
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string'}
+      - { label: 'Company', name: 'company', widget: 'string'}
+      - { label: 'Start Year', name: 'start-year', widget: 'date', format: 'YYYY'}
+      - { label: 'End Year', name: 'end-year', widget: 'date', format: 'YYYY'}
+      - { label: 'Description', name: 'description', widget: 'string'}
+  - name: 'pages'
+    label: 'Pages'
+    editor:
+      preview: false
+    files:
+      - label: 'Homepage'
+        name: 'home'
+        file: 'home.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'hidden', default: 'Welcome' }
+          - { label: 'Layout', name: 'title', widget: 'hidden', default: 'home' }
+          - { label: 'Avatar', name: 'avatar', allow_multiple: 'fasle', widget: 'image' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'CV'
+        name: 'cv'
+        file: 'cv.md'
+        fields:
+          - { label: 'Name', name: 'name', widget: 'hidden', default: 'Emil Smith' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'cv' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }      
+          - { label: 'Outro', name: 'outro', widget: 'markdown' }       
+          - { label: 'Phone', name: 'phone', widget: 'number' }         
+          - { label: 'Email', name: 'email', widget: 'string' }      
+          - { label: 'Jobs',
+              name: 'jobs',
+              widget: 'relation',
+              collection: 'jobs',
+              displayFields: [title, company, start-year, end-year, description],
+              searchFields: [title, company, start-year, end-year, description],
+              valueField: 'tag',
+            }
