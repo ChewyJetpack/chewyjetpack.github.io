@@ -16,7 +16,7 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Hero', name: 'hero', allow_multiple: 'fasle', widget: 'image' }
+      - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
@@ -39,7 +39,7 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Hero', name: 'hero', allow_multiple: 'fasle', widget: 'image' }
+      - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
@@ -87,7 +87,7 @@ collections:
         fields:
           - { label: 'Title', name: 'title', widget: 'hidden', default: 'Welcome' }
           - { label: 'Layout', name: 'title', widget: 'hidden', default: 'home' }
-          - { label: 'Avatar', name: 'avatar', allow_multiple: 'fasle', widget: 'image' }
+          - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'CV'
         name: 'cv'
