@@ -57,6 +57,7 @@ collections:
     folder: 'content/_tags/'
     identifier_field: tag
     create: true
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:

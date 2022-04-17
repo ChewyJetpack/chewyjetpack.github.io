@@ -36,7 +36,25 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxt/content'
   ],
+  content: {
+    // Options
+  },
+
+  generate: {
+    routes: function() {
+      const fs = require('fs');
+      const path = require('path');
+      //const collections = ['posts', 'projects', '_tags'];
+      return fs.readdirSync('./content/posts').map(file => {
+        return {
+          route: `/posts/${path.parse(file).name}`, // Return the slug
+          payload: require(`./content/posts/${file}`),
+        };
+      });
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
