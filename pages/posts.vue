@@ -4,7 +4,10 @@
     <h1>Blog</h1>
     <ul>
       <li v-for="post of posts" :key="post.slug">
-        <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
+        <NuxtLink :to="post.slug">
+          {{ post.title }}
+          <img :src="post.hero" :alt="post.title">
+        </NuxtLink>
       </li>
     </ul>
   </div>
@@ -14,17 +17,16 @@
 import Nav from '~/components/Nav';
 
 export default {
-  async asyncData({ $content, params }) {
-    const posts = await $content('posts', params.slug)
-      .only(['title', 'description', 'hero', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .fetch()
+  name: 'BlogPage',
+  async asyncData({ $content }) {
+    const posts = await $content('posts').fetch()
 
     return {
       posts
-    }
+    };
   },
   components: {
     Nav
-  },
-};
+  }
+}
+</script>

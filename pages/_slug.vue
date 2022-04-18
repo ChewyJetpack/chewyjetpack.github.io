@@ -1,7 +1,8 @@
 <template>
   <div>
     <Nav />
-    <h2>{{ post.title }}</h2>
+    <img :src="post.hero" :alt="post.title">
+    <h1>{{ post.title }}</h1>
     <nuxt-content :document="post" />
   </div>
 </template>
@@ -10,6 +11,7 @@
 import Nav from '~/components/Nav';
 
 export default {
+  name: 'PostPage',
   async asyncData({ $content, params, error }) {
     let post;
     try {
