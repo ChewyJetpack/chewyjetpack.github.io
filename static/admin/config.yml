@@ -108,7 +108,7 @@ collections:
           - { label: 'Email', name: 'email', widget: 'string' }      
           - { label: 'Jobs',
               name: 'jobs',
-              label_singular: 'Job'
+              label_singular: 'Job',
               widget: 'relation',
               collection: 'jobs',
               displayFields: [title, company, start-year, end-year, description],
