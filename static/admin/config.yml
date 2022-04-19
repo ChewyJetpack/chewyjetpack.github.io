@@ -27,6 +27,8 @@ collections:
           name: 'tags',
           widget: 'array',
           collection: 'tags',
+          slug: '{{slug}}',
+          folder: 'content/_tags/',
           displayFields: [tag],
           searchFields: [tag],
           valueField: 'tag',
@@ -70,7 +72,7 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Tag', name: 'tag', widget: 'list'}
+      - { label: 'Tag', name: 'tag', widget: 'array'}
   - name: 'jobs'
     label: 'Jobs'
     label_singular: 'Job'
