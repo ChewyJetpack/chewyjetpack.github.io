@@ -9,7 +9,7 @@
           <img :src="post.hero" :alt="post.title">
         </NuxtLink>
         <ul>
-          <li v-for="tag of post.tags" :key="tag.slug">{{ tag.name }}</li>
+          <li v-for="tag of post.tags" :key="tag.slug">{{ tag }}</li>
         </ul>
       </li>
     </ul>
