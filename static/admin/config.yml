@@ -8,8 +8,10 @@ public_folder: /img
 collections:
   - name: 'posts'
     label: 'Posts'
+    label_singular: 'Post'
     folder: 'content/posts'
     format: 'frontmatter'
+    sort: "date:desc"
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
@@ -32,6 +34,7 @@ collections:
         }
   - name: 'projects'
     label: 'Projects'
+    label_singular: 'Project'
     folder: 'content/projects'
     format: 'frontmatter'
     create: true
@@ -56,6 +59,7 @@ collections:
         }
   - name: 'tags'
     label: 'Tags'
+    label_singular: 'Tag'
     folder: 'content/_tags/'
     identifier_field: tag
     create: true
@@ -63,9 +67,10 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Tag', name: 'tag', widget: 'string'}
+      - { label: 'Tag', name: 'tag', widget: 'list'}
   - name: 'jobs'
     label: 'Jobs'
+    label_singular: 'Job'
     folder: 'content/_jobs/'
     identifier_field: job
     create: true
@@ -79,6 +84,7 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string'}
   - name: 'pages'
     label: 'Pages'
+    label_singular: 'Page'
     editor:
       preview: false
     files:
@@ -102,6 +108,7 @@ collections:
           - { label: 'Email', name: 'email', widget: 'string' }      
           - { label: 'Jobs',
               name: 'jobs',
+              label_singular: 'Job'
               widget: 'relation',
               collection: 'jobs',
               displayFields: [title, company, start-year, end-year, description],
