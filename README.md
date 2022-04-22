@@ -1,4 +1,10 @@
-# emilsmith
+# Emil Smith's Super Awesome Web 4.2.0 Experience
+
+# For my future self, wanting to swap out the CMS or the front end:
+
+Refer to `static/admin/config.yml` which essentially serves as the schema.
+
+# Nuxt Readme
 
 ## Build Setup
 
