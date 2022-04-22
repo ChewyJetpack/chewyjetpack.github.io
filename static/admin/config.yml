@@ -27,15 +27,13 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags',
           name: 'tags',
-          widget: 'array',
+          widget: 'relation',
           collection: 'tags',
-          slug: '{{slug}}',
           folder: 'content/_tags/',
-          displayFields: [tag],
-          searchFields: [tag],
-          valueField: 'tag',
-          allow_multiple: true,
-          create: true
+          display_fields: [title],
+          search_fields: [title],
+          value_field: 'title',
+          multiple: true
         }
   - name: 'projects'
     label: 'Projects'
@@ -57,24 +55,34 @@ collections:
           name: 'tags',
           widget: 'relation',
           collection: 'tags',
-          displayFields: [tag],
-          searchFields: [tag],
-          valueField: 'tag',
-          allow_multiple: true,
-          create: true
+          folder: 'content/_tags/',
+          display_fields: [title],
+          search_fields: [title],
+          value_field: 'title',
+          multiple: true
         }
   - name: 'tags'
     label: 'Tags'
     label_singular: 'Tag'
-    folder: 'content/_tags/'
-    identifier_field: tag
-    allow_multiple: true
+    folder: 'content/tags/'
+    format: 'frontmatter'
     create: true
     slug: '{{slug}}'
     editor:
       preview: false
     fields:
-      - { label: 'Tag', name: 'tag', widget: 'array'}
+      - { 
+          label: 'Title', 
+          name: 'title', 
+          widget: 'string',
+          required: true,
+        }
+      - {
+          name: 'tagslug',
+          label: 'Tag slug',
+          widget: 'hidden',
+          required: true,
+        }
   - name: 'jobs'
     label: 'Jobs'
     label_singular: 'Job'
@@ -118,7 +126,7 @@ collections:
               label_singular: 'Job',
               widget: 'relation',
               collection: 'jobs',
-              displayFields: [title, company, start-year, end-year, description],
-              searchFields: [title, company, start-year, end-year, description],
-              valueField: 'tag',
+              display_fields: [title, company, start-year, end-year, description],
+              search_fields: [title, company, start-year, end-year, description],
+              value_field: 'tag',
             }
