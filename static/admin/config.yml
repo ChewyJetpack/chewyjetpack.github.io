@@ -7,13 +7,20 @@ local_backend: true
 media_folder: static/img
 public_folder: /img
 
+media_library: {
+  name: uploadcare,
+  config: {
+    publicKey: 7bbbca05c21a8452097d
+  }
+}
+
 collections:
-  - name: 'posts'
-    label: 'Posts'
-    label_singular: 'Post'
-    folder: 'content/posts'
+  - name: 'articles'
+    label: 'Articles'
+    label_singular: 'Article'
+    folder: 'content/articles'
     format: 'frontmatter'
-    sort: "date:desc"
+    sort: 'date:desc'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
@@ -24,7 +31,28 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { 
+          label: 'Gallery One', 
+          name: 'gallery', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
+        }
+      - { label: 'Body One', name: 'body', widget: 'markdown' }
+      - { 
+          label: 'Gallery Two', 
+          name: 'gallery-2', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
+        }
+      - { label: 'Body Two', name: 'body-2', widget: 'markdown' }
       - { label: 'Tags',
           name: 'tags',
           widget: 'relation',
@@ -35,32 +63,78 @@ collections:
           value_field: 'title',
           multiple: true
         }
-  - name: 'projects'
-    label: 'Projects'
-    label_singular: 'Project'
-    folder: 'content/projects'
+  - name: 'case-studies'
+    label: 'Case Studies'
+    label_singular: 'Case Study'
+    folder: 'content/case-studies'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Label', name: 'label', widget: 'string'}
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', format: 'YYYY' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags',
-          name: 'tags',
-          widget: 'relation',
-          collection: 'tags',
-          folder: 'content/_tags/',
-          display_fields: [title],
-          search_fields: [title],
-          value_field: 'title',
-          multiple: true
+      - { label: 'Summary', name: 'summary', widget: 'markdown', optional: true }
+      - { 
+          label: 'Gallery', 
+          name: 'gallery', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
         }
+      - { label: 'Background', name: 'background', widget: 'markdown', optional: true }
+      - { 
+          label: 'Gallery', 
+          name: 'gallery-2', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
+        }
+      - { label: 'Goals', name: 'goals', widget: 'markdown', optional: true }
+      - { 
+          label: 'Gallery', 
+          name: 'gallery-3', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
+        }
+      - { label: 'Method', name: 'method', widget: 'markdown', optional: true }
+      - { 
+          label: 'Gallery', 
+          name: 'gallery-4', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
+        }
+      - { label: 'Results', name: 'results', widget: 'markdown', optional: true }
+      - { 
+          label: 'Gallery', 
+          name: 'gallery-5', 
+          allow_multiple: true, 
+          optional: true,
+          widget: 'image', 
+          media_library: {
+            config: {multiple: true}
+          }
+        }
+      - { label: 'Wrap Up', name: 'wrap-up', widget: 'markdown', optional: true }
   - name: 'tags'
     label: 'Tags'
     label_singular: 'Tag'
@@ -75,12 +149,6 @@ collections:
           label: 'Title', 
           name: 'title', 
           widget: 'string',
-          required: true,
-        }
-      - {
-          name: 'tagslug',
-          label: 'Tag slug',
-          widget: 'hidden',
           required: true,
         }
   - name: 'jobs'
@@ -128,5 +196,5 @@ collections:
               collection: 'jobs',
               display_fields: [title, company, start-year, end-year, description],
               search_fields: [title, company, start-year, end-year, description],
-              value_field: 'tag',
+              value_field: 'title',
             }

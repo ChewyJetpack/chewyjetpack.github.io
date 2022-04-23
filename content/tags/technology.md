@@ -1,4 +1,3 @@
 ---
 title: Technology
-tagslug: technology
 ---

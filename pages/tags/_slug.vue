@@ -3,13 +3,13 @@
     <Nav/>  
     <h1>{{tag.title}}</h1>
     <ul>
-      <li v-for="post of filteredPosts" :key="post.slug">
-        <NuxtLink :to="`posts/${post.slug}`">
-          {{ post.title }}
-          <img :src="post.hero" :alt="post.title">
+      <li v-for="article of filteredArticles" :key="article.slug">
+        <NuxtLink :to="`articles/${article.slug}`">
+          {{ article.title }}
+          <img :src="article.hero" :alt="article.title">
         </NuxtLink>
         <ul>
-          <li v-for="(tag, index) of post.tags" :key="index">
+          <li v-for="(tag, index) of article.tags" :key="index">
             <!-- handleise tag title to match slug - this is the exact same way it's done in the admin file, which is independent of Vue -->
             <!-- TODO: abstract this regex -->
             <NuxtLink :to="`${tag.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')}`">
@@ -36,16 +36,16 @@ export default {
       error({ message: 'Tag not found' });
     }
 
-    // get all posts
-    const posts = await $content('posts').fetch()
+    // get all articles
+    const articles = await $content('articles').fetch()
 
-    // filter posts by current tag
-    const filteredPosts = posts.filter(function(post) {
-      return post.tags.includes(tag.title)
+    // filter articles by current tag
+    const filteredArticles = articles.filter(function(article) {
+      return article.tags.includes(tag.title)
     })
 
     return {
-      filteredPosts, tag
+      filteredArticles, tag
     };
   },
   components: {

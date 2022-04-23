@@ -6,6 +6,5 @@ description: not music prod
 meta_description: not music prod
 tags:
   - 3D Printing
-tagslug: not-music-prod
 ---
 not music prod

@@ -4,10 +4,10 @@
       <NuxtLink to="/">/</NuxtLink>
     </li>
     <li>
-      <NuxtLink to="/blog">Blog</NuxtLink>
+      <NuxtLink to="/articles">Articles</NuxtLink>
     </li>
     <li>
-      <NuxtLink to="/projects">Professional Projects</NuxtLink>
+      <NuxtLink to="/case-studies">Case Studies</NuxtLink>
     </li>
   </ul>
 </template>

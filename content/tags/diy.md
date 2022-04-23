@@ -1,4 +1,3 @@
 ---
 title: DIY
-tagslug: diy
 ---

@@ -1,9 +1,9 @@
 <template>
   <div>
     <Nav />
-    <img :src="project.hero" :alt="project.title">
-    <h1>{{ project.title }}</h1>
-    <nuxt-content :document="project" />
+    <img :src="caseStudy.hero" :alt="caseStudy.title">
+    <h1>{{ caseStudy.title }}</h1>
+    <nuxt-content :document="caseStudy" />
   </div>
 </template>
 
@@ -11,18 +11,18 @@
 import Nav from '~/components/Nav';
 
 export default {
-  name: 'ProjectPage',
+  name: 'CaseStudyPage',
   async asyncData({ $content, params, error }) {
-    let project;
+    let caseStudy;
     try {
-      project = await $content("projects", params.slug).fetch();
+      caseStudy = await $content("case-studies", params.slug).fetch();
       // OR const article = await $content(`articles/${params.slug}`).fetch()
     } catch (e) {
-      error({ message: "Blog Post not found" });
+      error({ message: "Case Study not found" });
     }
 
     return {
-      project,
+      caseStudy,
     };
   },
   components: {
