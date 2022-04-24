@@ -31,30 +31,28 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
-      - { 
-          label: 'Gallery One', 
-          name: 'gallery', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
-      - { label: 'Body One', name: 'body', widget: 'markdown' }
-      - { 
-          label: 'Gallery Two', 
-          name: 'gallery-2', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
-      - { label: 'Body Two', name: 'body-2', widget: 'markdown' }
-      - { label: 'Tags',
-          name: 'tags',
+      - {
+        label: "Content Block",
+        name: "content-block",
+        widget: "list",
+        min: 1,
+        fields: [
+          { 
+            label: 'Images', 
+            name: 'images', 
+            allow_multiple: true, 
+            required: false,
+            widget: 'image', 
+            media_library: {
+              config: {multiple: true}
+            }
+          },
+          { label: 'Content', name: 'content', widget: 'markdown', required: false, },
+          { name: 'youtube', label: 'YouTube', widget: youtube, extraInfo: false, required: false }
+        ]
+      }
+      - { label: 'Article Tags',
+          name: 'article-tags',
           widget: 'relation',
           collection: 'tags',
           folder: 'content/_tags/',
@@ -75,7 +73,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
-      - { label: 'Label', name: 'label', widget: 'string'}
+      - { label: 'Category', name: 'category', widget: 'string'}
       - { label: 'Publish Date', name: 'date', widget: 'datetime', format: 'YYYY' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
@@ -151,20 +149,6 @@ collections:
           widget: 'string',
           required: true,
         }
-  - name: 'jobs'
-    label: 'Jobs'
-    label_singular: 'Job'
-    folder: 'content/_jobs/'
-    identifier_field: job
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string'}
-      - { label: 'Company', name: 'company', widget: 'string'}
-      - { label: 'Start Year', name: 'start-year', widget: 'date', format: 'YYYY'}
-      - { label: 'End Year', name: 'end-year', widget: 'date', format: 'YYYY'}
-      - { label: 'Description', name: 'description', widget: 'string'}
   - name: 'pages'
     label: 'Pages'
     label_singular: 'Page'
@@ -173,6 +157,7 @@ collections:
     files:
       - label: 'Homepage'
         name: 'home'
+        slug: '{{slug}}'
         file: 'content/home.md'
         fields:
           - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
@@ -181,20 +166,24 @@ collections:
           - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'CV'
         name: 'cv'
+        slug: '{{slug}}'
         file: 'content/cv.md'
         fields:
           - { label: 'Name', name: 'name', widget: 'hidden', default: 'Emil Smith' }
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'cv' }
-          - { label: 'Intro', name: 'intro', widget: 'markdown' }      
-          - { label: 'Outro', name: 'outro', widget: 'markdown' }       
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }             
           - { label: 'Phone', name: 'phone', widget: 'number' }         
           - { label: 'Email', name: 'email', widget: 'string' }      
           - { label: 'Jobs',
               name: 'jobs',
               label_singular: 'Job',
-              widget: 'relation',
-              collection: 'jobs',
-              display_fields: [title, company, start-year, end-year, description],
-              search_fields: [title, company, start-year, end-year, description],
-              value_field: 'title',
+              widget: 'list',
+              fields: [
+                { label: 'Title', name: 'title', widget: 'string'},
+                { label: 'Company', name: 'company', widget: 'string'},
+                { label: 'Start Year', name: 'start-year', widget: 'number', min: 2009, default: 2020},
+                { label: 'End Year', name: 'end-year', widget: 'number', min: 2009, default: 2020},
+                { label: 'Description', name: 'description', widget: 'markdown'}
+              ]
             }
+          - { label: 'Outro', name: 'outro', widget: 'markdown' }

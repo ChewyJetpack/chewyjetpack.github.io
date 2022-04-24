@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav/>
-    {{ home.title }}
+    {{ cv.title }}
   </div>
 </template>
 
@@ -9,17 +9,17 @@
 import Nav from '~/components/Nav';
 
 export default {
-  name: 'IndexPage',
+  name: 'cvPage',
   head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
   },
   async asyncData({ $content }) {
-    const home = await $content('home').fetch();
+    const cv = await $content('cv').fetch();
 
     return {
-      home,
+      cv,
     };
   },
   components: {
