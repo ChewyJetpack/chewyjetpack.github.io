@@ -1,34 +1,47 @@
 <template> 
-    <ul>
-      <li v-for="article of articles" :key="article.slug">
-        <article class="article">
-            <NuxtLink :to="`articles/${article.slug}`">
+    <ul class="article-list">
+      <li class="article-list__item u-bottom-spacer-l" v-for="article of articles" :key="article.slug">
+        <article class="article-list__article">
+            <NuxtLink class="article-list__img" :to="`articles/${article.slug}`">
                 <img :src="article.hero" :alt="article.title">
             </NuxtLink>
-            <NuxtLink :to="`articles/${article.slug}`">
-                <h2 class="article__title">{{ article.title }}</h2>
-            </NuxtLink>
-            <p class="article__description">{{ article.description }}</p>
-            <ul>
-                <li v-for="(tag, index) of article.tags" :key="index">
-                    <!-- handleise tag title to match slug - this is the exact same way it's done in the admin file, which is independent of Vue -->
-                    <NuxtLink :to="`articles/tags/${tag.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')}`">
-                    {{ tag }}
+            <div class="article-list__content">
+                <h2 class="article__title u-bottom-spacer-m">
+                    <NuxtLink :to="`articles/${article.slug}`">
+                        {{ article.title }}
                     </NuxtLink>
-                </li>
-            </ul>
+                </h2>
+                <TagList :tags="article.tags" />
+            </div>
         </article>
       </li>
     </ul>
 </template>
 
 <script>
+import TagList from '~/components/molecules/TagList'
+
 export default {
     name: 'ArticleList',
     props: {
         articles: {
             type: Array
         }
+    },
+    components: {
+        TagList
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.article-list {
+    list-style: none;
+
+    &__article {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: $unit_m;
+    }
+}
+</style>

@@ -4,7 +4,7 @@
       <slot />
     </div>
     <nav class="slide-nav__menu">
-      <IconBtn icon="times" :callback="closeNav" c-text="--c-accent-4" />
+      <IconBtn icon="times" :callback="closeNav" c-text="--c-accent-2" />
       <NavMenu navFormat="slide" />
       <FooterMenu navFormat="slide" slide />
     </nav>
@@ -47,7 +47,7 @@ export default {
   width: 100%;
 
   &__menu {
-    --c-accent-4: var(--c-sl-a);
+    --c-accent-2: var(--c-sl-a);
 
     position: fixed;
     background: var(--c-sl-bg);

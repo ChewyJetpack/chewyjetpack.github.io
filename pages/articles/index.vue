@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrap">
     <h1>Articles</h1>
     <ArticleList 
       :articles="articles"

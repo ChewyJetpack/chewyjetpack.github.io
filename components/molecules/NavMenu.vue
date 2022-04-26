@@ -13,7 +13,7 @@
         'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <NuxtLink to="/">/</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/">/</NuxtLink>
     </li>
     <li
       :class="{
@@ -22,7 +22,7 @@
         'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <NuxtLink to="/case-studies">Case Studies</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/case-studies">Case Studies</NuxtLink>
     </li>
     <li
       :class="{
@@ -31,7 +31,7 @@
         'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <NuxtLink to="/articles">Articles</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/articles">Articles</NuxtLink>
     </li>
     <li
       :class="{
@@ -40,7 +40,7 @@
         'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <NuxtLink to="/cv">CV</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/cv">CV</NuxtLink>
     </li>
     <li
       :class="{
@@ -49,7 +49,7 @@
         'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <a href="https://github.com/ChewyJetpack/chewyjetpack.github.io" target="_blank">Github</a>
+      <a class="nav-list__link" href="https://github.com/ChewyJetpack/chewyjetpack.github.io" target="_blank">Github</a>
     </li>
   </ul>
 </template>
@@ -80,7 +80,7 @@ export default {
   }
 
   &__link {
-    color: var(--c-bg);
+    color: var(--c-main);
     text-decoration: none;
     position: relative;
     padding-bottom: $unit_xxxs;
@@ -97,7 +97,7 @@ export default {
       left: 0;
       width: 100%;
       height: 2px;
-      background: var(--c-accent-4);
+      background: var(--c-accent-2);
       transform: scaleX(0);
       transition: transform 0.3s;
     }

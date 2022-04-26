@@ -36,7 +36,7 @@ p:not([class]):not(:last-of-type) {
 
 a {
     text-decoration: none;
-    color: var(--c-accent-3);
+    color: var(--c-accent-1);
 
     &:hover, &:focus {
         text-decoration: underline;

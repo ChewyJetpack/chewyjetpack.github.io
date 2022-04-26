@@ -39,7 +39,7 @@ export default {
   align-items: center;
   position: relative;
   font-size: $txt_s;
-  color: var(--c-bg);
+  color: var(--c-main);
 
   &--invert {
     color: var(--c-bg);

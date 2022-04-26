@@ -56,7 +56,7 @@ export default {
   position: sticky;
   top: 0;
   left: 0;
-  background: var(--c-accent-1);
+  background: var(--c-header-bg);
   padding: $unit_s 0;
   z-index: 5;
 
@@ -74,8 +74,7 @@ export default {
     font-weight: 900;
     letter-spacing: -0.1rem;
     text-decoration: none;
-    color: var(--c-bg);
-    text-transform: uppercase;
+    color: var(--c-logo);
 
     @include breakpoint_m {
       font-size: $txt_l;
