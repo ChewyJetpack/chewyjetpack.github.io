@@ -1,15 +1,18 @@
 <template>
   <div>
-    <Nav/>
-    {{ home.title }}
+    <h1>{{home.title}}</h1>
+    <ArticleList 
+      :articles="articles"
+    />
   </div>
 </template>
 
 <script>
-import Nav from '~/components/Nav';
+import ArticleList from '~/components/organisms/ArticleList'
 
 export default {
   name: 'IndexPage',
+  layout: 'DefaultLayout',
   head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
@@ -17,13 +20,14 @@ export default {
   },
   async asyncData({ $content }) {
     const home = await $content('home').fetch();
+    const articles = await $content('articles').fetch();
 
     return {
-      home,
+      home, articles
     };
   },
   components: {
-    Nav
+    ArticleList
   }
 }
 </script>

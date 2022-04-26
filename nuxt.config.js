@@ -25,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/icons.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -36,8 +37,24 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/markdownit',
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    scss: [
+      '~/scss/vars.scss',
+      '~/scss/global.scss',
+    ]
+  },
+
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true
+  },
+
   content: {
     // Options
   },

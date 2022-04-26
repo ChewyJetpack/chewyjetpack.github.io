@@ -1,32 +1,36 @@
 <template>
-  <div>
-    <Nav />
-    <img :src="post.hero" :alt="post.title">
-    <h1>{{ post.title }}</h1>
-    <nuxt-content :document="post" />
-  </div>
+  <article>
+    <img :src="article.hero" :alt="article.title">
+    <h1>{{ article.title }}</h1>
+
+    <div v-for="(block, index) in article.contentBlocks" :key="index">
+      <div v-if="block.content" v-html="$md.render(block.content)"/>
+      <div v-if="block.youtube" v-html="block.youtube"/>
+      <ArticleImages v-if="block.images" :images="block.images" />
+    </div>
+  </article>
 </template>
 
 <script>
-import Nav from '~/components/Nav';
+import ArticleImages from '~/components/organisms/ArticleImages';
 
 export default {
-  name: 'PostPage',
+  name: 'ArticlePage',
+  layout: 'DefaultLayout',
   async asyncData({ $content, params, error }) {
-    let post;
+    let article;
     try {
-      post = await $content("posts", params.slug).fetch();
-      // OR const article = await $content(`articles/${params.slug}`).fetch()
+      article = await $content("articles", params.slug).fetch();
     } catch (e) {
-      error({ message: "Blog Post not found" });
+      error({ message: "Article not found" });
     }
 
     return {
-      post,
+      article,
     };
   },
   components: {
-    Nav
+    ArticleImages
   }
 };
 </script>

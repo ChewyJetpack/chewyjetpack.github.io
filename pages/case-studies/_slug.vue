@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <Nav />
-    <img :src="caseStudy.hero" :alt="caseStudy.title">
-    <h1>{{ caseStudy.title }}</h1>
-    <nuxt-content :document="caseStudy" />
-  </div>
+  
+    <article>
+      <img :src="caseStudy.hero" :alt="caseStudy.title">
+      <h1>{{ caseStudy.title }}</h1>
+      <nuxt-content :document="caseStudy.summary" />
+    </article>
+  
 </template>
 
 <script>
-import Nav from '~/components/Nav';
+
 
 export default {
   name: 'CaseStudyPage',
+  layout: 'DefaultLayout',
   async asyncData({ $content, params, error }) {
     let caseStudy;
     try {
@@ -25,8 +27,5 @@ export default {
       caseStudy,
     };
   },
-  components: {
-    Nav
-  }
 };
 </script>

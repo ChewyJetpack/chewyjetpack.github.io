@@ -7,13 +7,6 @@ local_backend: true
 media_folder: static/img
 public_folder: /img
 
-media_library: {
-  name: uploadcare,
-  config: {
-    publicKey: 7bbbca05c21a8452097d
-  }
-}
-
 collections:
   - name: 'articles'
     label: 'Articles'
@@ -32,27 +25,35 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
       - {
-        label: "Content Block",
-        name: "content-block",
-        widget: "list",
+        label: 'Content Blocks',
+        label_singular: 'Content Block',
+        name: 'contentBlocks',
+        widget: 'list',
         min: 1,
         fields: [
-          { 
+          {
             label: 'Images', 
+            label_singular: 'Image', 
             name: 'images', 
             allow_multiple: true, 
             required: false,
-            widget: 'image', 
-            media_library: {
-              config: {multiple: true}
-            }
+            widget: 'list', 
+            fields: [
+              { 
+                label: 'Image', 
+                name: 'src', 
+                required: true,
+                widget: 'image'
+              },
+              { label: 'Caption', name: 'caption', type: 'String', required: true}
+            ]
           },
           { label: 'Content', name: 'content', widget: 'markdown', required: false, },
-          { name: 'youtube', label: 'YouTube', widget: youtube, extraInfo: false, required: false }
+          { name: 'youtube', label: 'YouTube Embed Code', widget: 'text', required: false }
         ]
       }
-      - { label: 'Article Tags',
-          name: 'article-tags',
+      - { label: 'Tags',
+          name: 'tags',
           widget: 'relation',
           collection: 'tags',
           folder: 'content/_tags/',
@@ -61,7 +62,7 @@ collections:
           value_field: 'title',
           multiple: true
         }
-  - name: 'case-studies'
+  - name: 'caseStudies'
     label: 'Case Studies'
     label_singular: 'Case Study'
     folder: 'content/case-studies'
@@ -78,60 +79,95 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
       - { label: 'Summary', name: 'summary', widget: 'markdown', optional: true }
-      - { 
-          label: 'Gallery', 
-          name: 'gallery', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'summaryImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
       - { label: 'Background', name: 'background', widget: 'markdown', optional: true }
-      - { 
-          label: 'Gallery', 
-          name: 'gallery-2', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'backgroundImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
       - { label: 'Goals', name: 'goals', widget: 'markdown', optional: true }
-      - { 
-          label: 'Gallery', 
-          name: 'gallery-3', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'goalsImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
       - { label: 'Method', name: 'method', widget: 'markdown', optional: true }
-      - { 
-          label: 'Gallery', 
-          name: 'gallery-4', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'methodImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
       - { label: 'Results', name: 'results', widget: 'markdown', optional: true }
-      - { 
-          label: 'Gallery', 
-          name: 'gallery-5', 
-          allow_multiple: true, 
-          optional: true,
-          widget: 'image', 
-          media_library: {
-            config: {multiple: true}
-          }
-        }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'resultsImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
       - { label: 'Wrap Up', name: 'wrap-up', widget: 'markdown', optional: true }
   - name: 'tags'
     label: 'Tags'
@@ -167,6 +203,7 @@ collections:
       - label: 'CV'
         name: 'cv'
         slug: '{{slug}}'
+        identifier_field: 'name'
         file: 'content/cv.md'
         fields:
           - { label: 'Name', name: 'name', widget: 'hidden', default: 'Emil Smith' }
@@ -181,9 +218,34 @@ collections:
               fields: [
                 { label: 'Title', name: 'title', widget: 'string'},
                 { label: 'Company', name: 'company', widget: 'string'},
-                { label: 'Start Year', name: 'start-year', widget: 'number', min: 2009, default: 2020},
-                { label: 'End Year', name: 'end-year', widget: 'number', min: 2009, default: 2020},
+                { label: 'Start Year', name: 'startYear', widget: 'number', min: 2009, default: 2020},
+                { label: 'End Year', name: 'endYear', widget: 'number', min: 2009, default: 2020},
                 { label: 'Description', name: 'description', widget: 'markdown'}
               ]
             }
           - { label: 'Outro', name: 'outro', widget: 'markdown' }
+  - name: 'details'
+    label: 'Details'
+    editor:
+      preview: false
+    files: [
+      {
+        name: 'contact',
+        label: 'Contact',
+        file: 'content/contact.md',
+        fields: [
+          {label: 'Title', name: 'title', default: 'Contact Details', widget: 'string'},
+          {label: 'Email', name: 'email', widget: 'string'},
+          {label: 'Phone', name: 'phone', widget: 'number', default: 07503111160},
+          {
+            label: 'Social Links', 
+            label_singular: 'Social Link',
+            name: 'socialLinks', 
+            widget: 'list',
+            fields: [
+              {label: 'url', name: 'url', widget: 'string'}
+            ]
+          }
+        ]
+      }
+    ]

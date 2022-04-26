@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <Nav/>
-    {{ cv.title }}
-  </div>
+  <h1>{{ cv.title }}</h1>
 </template>
 
 <script>
-import Nav from '~/components/Nav';
 
 export default {
   name: 'cvPage',
@@ -21,9 +17,6 @@ export default {
     return {
       cv,
     };
-  },
-  components: {
-    Nav
   }
 }
 </script>

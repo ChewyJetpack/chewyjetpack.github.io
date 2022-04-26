@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",
+    "@nuxtjs/markdownit": "^2.0.0",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
@@ -17,5 +18,14 @@
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "sass": "^1.51.0",
+    "sass-loader": "10"
+  }
 }

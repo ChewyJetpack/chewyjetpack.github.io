@@ -1,46 +1,49 @@
 <template>
   <div>
-    <Nav/>  
-    <h1>{{slug}}</h1>
-    <ul>
-      <li v-for="post of posts" :key="post.slug">
-        <NuxtLink :to="`posts/${post.slug}`">
-          {{ post.title }}
-          <img :src="post.hero" :alt="post.title">
-        </NuxtLink>
-        <ul>
-          <li v-for="(tag, index) of post.tags" :key="index">
-            <!-- handleise tag title to match slug - this is the exact same way it's done in the admin file, which is independent of Vue -->
-            <NuxtLink :to="`tags/${tag.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')}`">
-              {{ tag }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <h1>tag.title</h1>
+    <ArticleList 
+      :articles="filteredArticles(articles, tag.title)"
+    />
   </div>
 </template>
 
 <script>
-import Nav from '~/components/Nav';
+
+import ArticleList from '~/components/organisms/ArticleList'
 
 export default {
-  name: 'BlogPage',
+  name: 'TagPage',
+  layout: 'DefaultLayout',
   async asyncData({ $content, params, error }) {
-    let posts;
+    // get current tag by page slug
+    let tag;
     try {
-      posts = await $content("posts", params.tags.slug).fetch();
-      // OR const article = await $content(`articles/${params.slug}`).fetch()
+      tag = await $content('tags', params.slug).fetch();
     } catch (e) {
-      error({ message: "Blog Post not found" });
+      error({ message: 'Tag not found' });
     }
+    // get all articles
+    const articles = await $content('articles').fetch()
 
     return {
-      posts
+      articles, tag
     };
   },
+  methods: {
+    filteredArticles: function(articles, tag) {
+      let arr = [];
+      for (let i = 0; i < articles.length; i++) {
+        for (let x = 0; x < articles[i].tags.length; x++) {
+          if (articles[i].tags[x] == tag) {
+            arr.push(articles[i]);
+          }
+        }
+      }
+      return arr;
+    }
+  },
   components: {
-    Nav
+    ArticleList
   }
 }
 </script>
