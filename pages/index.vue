@@ -1,6 +1,11 @@
 <template>
   <div class="wrap">
     <h1>{{home.title}}</h1>
+    <section class="homepage u-bottom-spacer-xxl">
+      <img class="homepage__avatar" :src="home.avatar" alt="home.title"/>
+      <nuxt-content :document="home" />
+    </section>
+    <h1>Latest Articles</h1>
     <ArticleList 
       :articles="articles"
     />
@@ -31,3 +36,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.homepage {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: $unit_m;
+}
+</style>

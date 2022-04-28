@@ -3,7 +3,7 @@
         <SlideNav>
             <!-- Content anchored to top -->
             <Header :currentMode="currentMode" />
-            <main class="layout__content u-bottom-spacer-xxxl">
+            <main class="layout__content u-bottom-spacer-xxl">
                 <Nuxt />
             </main>
 

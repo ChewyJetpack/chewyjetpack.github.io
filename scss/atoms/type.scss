@@ -11,6 +11,7 @@ h2, h3, h4, h5, h6 {
 
 h1 {
     @include font-display;
+    margin-bottom: $unit_xl;
 }
 
 h2 {
@@ -30,8 +31,16 @@ h4 {
     font-size: $txt_m;
 }
 
+.nuxt-content, .text-block {
+    max-width: $max_txt_x;
+
+    &--indent {
+        padding-left: $unit_l;
+    }
+}
+
 p:not([class]):not(:last-of-type) {
-    @extend .u-bottom-spacer-l;
+    @extend .u-bottom-spacer-m;
 }
 
 a {

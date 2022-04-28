@@ -25,7 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/icons.js'
+    '~/plugins/icons.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +39,7 @@ export default {
   modules: [
     '@nuxt/content',
     '@nuxtjs/markdownit',
+    'nuxt-clipboard2',
     '@nuxtjs/style-resources'
   ],
 

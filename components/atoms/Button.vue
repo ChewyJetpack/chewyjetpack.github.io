@@ -41,24 +41,36 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-  color: var(--c-accent-2);
+  color: var(--c-main);
   line-height: 1;
   display: inline-flex;
   align-items: center;
   transition: all 0.3s;
   position: relative;
-  border-radius: $unit_xs 0;
-  font-weight: 500;
+  border-radius: $unit_xs;
+  font-weight: 600;
   outline: none;
   background: none;
-  border: none;
-  padding: 0;
+  border: solid 1px var(--c-main-alt-2);
+  padding: $unit_xs $unit_s;
   font-size: $txt_s;
   cursor: pointer;
+
+
+  &:hover {
+    background: var(--c-accent-1);
+    color: $darkest;
+    border: solid 1px var(--c-accent-1);
+
+    svg {
+      color: $darkest;
+    }
+  }
 
   svg {
     transition: all 0.2s;
     font-size: $txt_xs;
+    color: var(--c-accent-1)
   }
 
   &--ico-l {
@@ -77,10 +89,6 @@ export default {
     &:active,
     &.hovered {
       text-decoration: none;
-
-      svg {
-        transform: translateX(-#{$unit_xxs});
-      }
     }
   }
 

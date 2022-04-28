@@ -1,18 +1,9 @@
 <template>
-  <article>
-    <img :src="article.hero" :alt="article.title">
-    <h1>{{ article.title }}</h1>
-
-    <div v-for="(block, index) in article.contentBlocks" :key="index">
-      <div v-if="block.content" v-html="$md.render(block.content)"/>
-      <div v-if="block.youtube" v-html="block.youtube"/>
-      <ArticleImages v-if="block.images" :images="block.images" />
-    </div>
-  </article>
+  <Article :content="article" />
 </template>
 
 <script>
-import ArticleImages from '~/components/organisms/ArticleImages';
+import Article from '~/components/organisms/Article';
 
 export default {
   name: 'ArticlePage',
@@ -30,7 +21,7 @@ export default {
     };
   },
   components: {
-    ArticleImages
+    Article
   }
 };
 </script>

@@ -76,7 +76,7 @@ export default {
     display: flex;
     align-items: flex-end;
     font-weight: 700;
-    font-size: $txt_xs;
+    font-size: $txt_s;
   }
 
   &__link {
@@ -97,7 +97,7 @@ export default {
       left: 0;
       width: 100%;
       height: 2px;
-      background: var(--c-accent-2);
+      background: var(--c-accent-1);
       transform: scaleX(0);
       transition: transform 0.3s;
     }

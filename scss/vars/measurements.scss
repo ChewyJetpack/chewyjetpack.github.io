@@ -1,6 +1,6 @@
-$unit_xxxs:       0.4rem;
-$unit_xxs:        0.8rem;
-$unit_xs:        1.2rem;
+$unit_xxxs:       0.2rem;
+$unit_xxs:        0.4rem;
+$unit_xs:        0.8rem;
 $unit_s:         1.6rem;
 $unit_m:         2.4rem;
 $unit_l:         3.6rem;
@@ -13,4 +13,7 @@ $unit_9001:      28.2rem;
 // Breakpoints
 $media_m:       480px;
 $media_l:       960px;
-$media_xl:      1280px;
+$media_xl:      1170px;
+
+// Content
+$max_txt_x:     800px;

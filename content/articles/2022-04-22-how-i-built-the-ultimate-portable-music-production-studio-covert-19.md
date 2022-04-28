@@ -1,5 +1,5 @@
 ---
-date: 2022-04-22T19:01:01.448Z
+date: 20th November 2020
 meta_description: This project was a 9-month exploration into the world of
   electronics and general makery, as I attempted to build a custom studio in a
   box
@@ -28,12 +28,7 @@ contentBlocks:
 
 
       Check out the video for a full run down!
-    images:
-      - src: https://ucarecdn.com/67227f91-c84b-48a1-8eef-33945119ae97/CyberPunks.jpg
-        caption: Cyberpunk things and stuff it's artwork lol seriously what
-      - src: https://ucarecdn.com/67227f91-c84b-48a1-8eef-33945119ae97/CyberPunks.jpg
-        caption: Cyberpunk things and stuff it's artwork lol seriously what Cyberpunk
-          things and stuff it's artwork lol seriously what
+    images: []
   - youtube: <iframe width="560" height="315"
       src="https://www.youtube-nocookie.com/embed/zag9Cu1Z6A8" title="YouTube
       video player" frameborder="0" allow="accelerometer; autoplay;
@@ -54,7 +49,9 @@ contentBlocks:
 tags:
   - DIY
   - Music Technology
-  - Technology
+  - 3D Modelling
+  - Design
+  - Music Production
 ---
 This project was a 9-month exploration into the world of electronics and general makery, as I attempted to build a custom studio in a box, which works in a very specific way, tailored to my needs. It consists of an Elektron Octatrack, Access Virus TI Snow, and an Intel NUC mini PC, all in one box, with a touch screen, running Bitwig and a custom controller script I wrote to augment the functionality of the Octatrack via Bitwig's modulators. It runs on battery power from a custom lithium-ion battery pack, using 12 cells to run everything for about 3h at a time.
 

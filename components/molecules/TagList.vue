@@ -27,13 +27,16 @@ export default {
     display: flex;
 
     &__item {
-        background: var(--c-bg2);
+        background: var(--c-bg-2);
         padding: $unit_xxxs $unit_xs;
         border-radius: $unit_xxxs;
         font-size: $unit_s;
+        font-weight: 900;
+        line-height: 120%;
 
         span {
-            color: var(--c-main)
+            color: var(--c-main);
+            font-weight: 400;
         }
 
     }

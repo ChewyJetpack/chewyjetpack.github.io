@@ -1,6 +1,6 @@
 <template> 
     <ul class="article-list">
-      <li class="article-list__item u-bottom-spacer-l" v-for="article of articles" :key="article.slug">
+      <li class="article-list__item u-bottom-spacer-xl" v-for="article of articles" :key="article.slug">
         <article class="article-list__article">
             <NuxtLink class="article-list__img" :to="`articles/${article.slug}`">
                 <img :src="article.hero" :alt="article.title">
@@ -11,6 +11,9 @@
                         {{ article.title }}
                     </NuxtLink>
                 </h2>
+                <p class="article-list__excerpt u-bottom-spacer-m">
+                    {{ article.description }}
+                </p>
                 <TagList :tags="article.tags" />
             </div>
         </article>
