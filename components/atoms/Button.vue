@@ -47,7 +47,7 @@ export default {
   align-items: center;
   transition: all 0.3s;
   position: relative;
-  border-radius: $unit_xs;
+  border-radius: $unit_xxs;
   font-weight: 600;
   outline: none;
   background: none;
@@ -60,7 +60,7 @@ export default {
   &:hover {
     background: var(--c-accent-1);
     color: $darkest;
-    border: solid 1px var(--c-accent-1);
+    border-color: var(--c-accent-1);
 
     svg {
       color: $darkest;

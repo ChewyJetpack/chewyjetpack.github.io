@@ -39,22 +39,22 @@ jobs:
     title: Senior Designer & Developer
     company: BPL Marketing
     description: |-
-      Led the formation of the company's first in-house web\
-      department, designing and developing web and marketing\
-      projects, including front end builds, using technologies\
-      such as Webpack, Gulp, Node, Angular, Vue and SCSS.\
-      Defined and informed devOps, designOps, and project\
-      management processes.\
+      Led the formation of the company's first in-house web
+      department, designing and developing web and marketing
+      projects, including front end builds, using technologies
+      such as Webpack, Gulp, Node, Angular, Vue and SCSS.
+      Defined and informed devOps, designOps, and project
+      management processes.
       Managed and mentored junior designers on web projects.
   - startYear: 2013
     endYear: 2015
     title: Designer & Developer
     company: Twotwentyseven
     description: |-
-      Worked in a small, fast-paced team, on web design, front\
-      end dev, and bespoke Shopify eCommerce sites, using tech\
-      such as Liquid, SCSS, LESS, jQuery and vanilla JS.\
-      Contributed to company coding standards and best\
+      Worked in a small, fast-paced team, on web design, front
+      end dev, and bespoke Shopify eCommerce sites, using tech
+      such as Liquid, SCSS, LESS, jQuery and vanilla JS.
+      Contributed to company coding standards and best
       practices.
   - startYear: 2012
     endYear: 2013
@@ -68,16 +68,16 @@ jobs:
       by using scripts to automate tasks that previously took\
       hundreds of work hours to complete
 outro: |-
-  Outside of work, I enjoy art,\
-  music, and spending time\
-  with my family. I’m also a\
-  passionate electronic\
-  musician, and I have recently\
-  developed an interest in\
-  digital signal processing and\
-  embedded audio systems,\
-  with the goal of designing\
-  and building DIY electronic\
+  Outside of work, I enjoy art,
+  music, and spending time
+  with my family. I’m also a
+  passionate electronic
+  musician, and I have recently
+  developed an interest in
+  digital signal processing and
+  embedded audio systems,
+  with the goal of designing
+  and building DIY electronic
   instruments
 ---
 For over a decade I've been a professional designer and front end developer. Nowadays I mostly manage design teams, working on large-scale digital products, developing and scaling design systems, conducting user research, and defininng road maps. In the past, I've worked on everything from creative agency work for global brands (Google, Sony, eBay, Nokia, Virgin, and Tinder, to name a few) to ground-up, front-end refactoring projects, and large-scale web-app builds. I have a passion for human-centred design, clean and scalable code, and the implementation of both to solve complex problems in a holistic way.

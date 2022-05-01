@@ -24,19 +24,25 @@
         </section>
         <section class="article__main wrap">
             <aside class="article__meta">
+                <h3 class="u-bottom-spacer-s">Share</h3>
                 <Button
                     :callback="copyUrl"
                     icon="link"
-                    label="Share link"
+                    label="Copy link"
                     :icoLeft="true"
                     class="u-bottom-spacer-s"
                 />
                 <Button
                     :href="`mailto:${windowUrl}`"
                     icon="envelope"
-                    label="Share via email"
+                    label="Send email"
                     :icoLeft="true"
                     class="u-bottom-spacer-s"
+                />
+                <h3 class="u-top-spacer-m u-bottom-spacer-s">Tags</h3>
+                <TagList 
+                :tags="content.tags" 
+                :large="true"
                 />
             </aside>
             <div class="article__content">
@@ -63,6 +69,7 @@
 
 <script>
 import Button from '~/components/atoms/Button';
+import TagList from '~/components/molecules/TagList';
 import ArticleImages from '~/components/molecules/ArticleImages'
 
 export default {
@@ -74,7 +81,8 @@ export default {
     },
     components: {
         ArticleImages,
-        Button
+        Button,
+        TagList
     },
     data() {
         return {
@@ -149,6 +157,8 @@ export default {
         grid-row: 1;
         position: sticky;
         top: $unit_xxxl;
+        border-left: solid 2px var(--c-bg-2);
+        padding-left: $unit_l;
     }
 
     &__meta-list {

@@ -2,8 +2,10 @@
   <div class="wrap">
     <h1>{{home.title}}</h1>
     <section class="homepage u-bottom-spacer-xxl">
-      <img class="homepage__avatar" :src="home.avatar" alt="home.title"/>
       <nuxt-content :document="home" />
+      <span class="u-img-accent--right--1">
+        <nuxt-img preset="avatar" class="homepage__avatar" :src="home.avatar" :alt="home.title"/>
+      </span>
     </section>
     <h1>Latest Articles</h1>
     <ArticleList 
@@ -40,7 +42,8 @@ export default {
 <style lang="scss" scoped>
 .homepage {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: $unit_m;
+  align-items: start;
 }
 </style>

@@ -40,8 +40,28 @@ export default {
     '@nuxt/content',
     '@nuxtjs/markdownit',
     'nuxt-clipboard2',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxt/image'
   ],
+
+  image: {
+    presets: {
+      thumb: {
+        modifiers: {
+          format: 'jpg',
+          width: 360,
+          height: 270
+        }
+      },
+      avatar: {
+        modifiers: {
+          format: 'jpg',
+          width: 360,
+          height: 360
+        }
+      }
+    }
+  },
 
   styleResources: {
     scss: [

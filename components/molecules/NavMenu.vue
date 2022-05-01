@@ -13,7 +13,7 @@
         'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <NuxtLink class="nav-list__link" to="/">/</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/">About</NuxtLink>
     </li>
     <li
       :class="{
@@ -101,13 +101,17 @@ export default {
       transform: scaleX(0);
       transition: transform 0.3s;
     }
-
-    &-active,
     &:hover,
     &:focus {
+      text-decoration: none;
+
       &:after {
         transform: scaleX(1);
       }
+    }
+
+    &.nuxt-link-exact-active {
+      color: var(--c-accent-1);
     }
   }
 

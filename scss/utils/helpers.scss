@@ -1,0 +1,67 @@
+$axis: (left, right);
+$accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
+
+.u-img-accent {
+    
+    @for $x from 1 through 2 {
+        &--#{nth($axis, $x)} {
+            @for $i from 1 through 3 {
+                &--#{$i} {
+                    border-color: nth($accent, $i);
+                    display: inline-block;
+                    position: relative;
+                
+                    * {
+                        position: relative;
+                        z-index: 1;
+                    }
+                
+                    &:before {
+                        position: absolute;
+                        content:"";
+                        display: block;
+                        height: 0;
+                        width: 90%;
+                        padding-bottom: 90%;
+                        z-index: 0;
+                        bottom: -20%;
+                        border-radius: 100%;
+
+                        @if (nth($axis, $x) == right) { 
+                            background: repeating-linear-gradient(-45deg,
+                            nth($accent, $i),
+                            nth($accent, $i) $unit_xxxs,
+                            transparent $unit_xxxs,
+                            transparent $unit_s);
+                        }
+
+                        @else {
+                            background: repeating-linear-gradient(45deg,
+                            nth($accent, $i),
+                            nth($accent, $i) $unit_xxxs,
+                            transparent $unit_xxxs,
+                            transparent $unit_s);
+                        }
+                    }
+
+                    @if (nth($axis, $x) == right) { 
+                        box-shadow: $unit_xxxs $unit_xxxs nth($accent, $i);
+
+                        &:before {
+                            left: 25%;
+                        }
+                    }
+
+                    @else {
+                        box-shadow: -#{$unit_xxxs} $unit_xxxs nth($accent, $i);
+
+                        &:before {
+                            right: 25%;
+                        }
+                    }
+                }
+    
+            }
+        }
+    }
+}
