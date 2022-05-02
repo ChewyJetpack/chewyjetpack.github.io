@@ -1,8 +1,8 @@
 <template>
-  <div class="cv">
-    <h1>{{ cv.title }}</h1>
-    <div v-html="$md.render(cv.intro)" />
-    <div v-for="(job, index) in cv.jobs" :key="index">
+  <div class="wrap u-top-spacer-xxl">
+    <h1 class="u-bottom-spacer-xxl">Curriculum Vitae</h1>
+    <div class="u-bottom-spacer-l" v-html="$md.render(cv.intro)" />
+    <div class="u-bottom-spacer-l" v-for="(job, index) in cv.jobs" :key="index">
       <h3>{{ job.title }}: {{ job.company }}</h3>
       <div>
         {{ job.startYear }} - {{ job.endYear }}

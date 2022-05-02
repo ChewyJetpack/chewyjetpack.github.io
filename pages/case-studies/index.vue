@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Case Studies</h1>
+  <div class="wrap u-top-spacer-xxl">
+    <h1 class="u-bottom-spacer-xxl">Case Studies</h1>
     <ul>
       <li v-for="caseStudy of caseStudies" :key="caseStudy.slug">
         <NuxtLink :to="`${caseStudy.slug}`">
