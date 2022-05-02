@@ -2,24 +2,27 @@
     <article class="article">
         <section class="article__top-section u-bottom-spacer-xl">
             <div class="article__hero">
-                <img 
+                <nuxt-img
+                    preset="hero" 
                     :src="content.hero" 
                     :alt="content.title"
-                >
+                />
             </div>
-            <div class="article__headline-wrap wrap wrap--padded">
+            <div class="article__headline-wrap wrap wrap--padded u-bottom-spacer-m">
                 <div class="article__headline">
                     <h1 class="u-bottom-spacer-l">{{ content.title }}</h1>
-                    <ul class="article__meta-list">
-                        <li>
-                            <font-awesome
-                                :icon="['far', 'calendar']"
-                                class="u-right-spacer-xxs"
-                            />
-                            {{ content.date }}
-                        </li>
-                    </ul>
                 </div>
+            </div>
+            <div class="wrap">
+                <ul class="article__meta-list">
+                    <li>
+                        <font-awesome
+                            :icon="['far', 'calendar']"
+                            class="u-right-spacer-xxs"
+                        />
+                        {{ content.date }}
+                    </li>
+                </ul>
             </div>
         </section>
         <section class="article__main wrap">
@@ -41,8 +44,9 @@
                 />
                 <h3 class="u-top-spacer-m u-bottom-spacer-s">Tags</h3>
                 <TagList 
-                :tags="content.tags" 
+                :tags="filteredTags(content.tags, tags)" 
                 :large="true"
+                onArticlePage="true"
                 />
             </aside>
             <div class="article__content">
@@ -77,6 +81,9 @@ export default {
     props: {
         content: {
             type: Object
+        },
+        tags: {
+            type: Array
         }
     },
     components: {
@@ -96,13 +103,24 @@ export default {
     },
     methods: {
         copyUrl: function () {
-        this.$copyText(this.windowUrl).then(function (e) {
-            alert('Copied')
-            console.log(e)
-        }, function (e) {
-            alert('Can not copy')
-            console.log(e)
-        })
+            this.$copyText(this.windowUrl).then(function (e) {
+                alert('Copied')
+                console.log(e)
+            }, function (e) {
+                alert('Can not copy')
+                console.log(e)
+            })
+        },
+        filteredTags: function(articleTags, tags) {
+            let arr = [];
+            for (let i = 0; i < tags.length; i++) {
+                for (let x = 0; x < articleTags.length; x++) {
+                if (tags[i].title == articleTags[x]) {
+                    arr.push(tags[i]);
+                }
+                }
+            }
+            return arr;
         }
     }
 }
@@ -118,6 +136,7 @@ export default {
     &__top-section {
         background: var(--c-bg-2);
         width: 100%;
+        padding-bottom: $unit_m;
     }
 
     &__hero {
@@ -131,19 +150,20 @@ export default {
     &__headline-wrap {
         @extend .e-grid-3-1;
         margin-top: -#{$unit_xxxl};
-        margin-bottom: $unit_l;
     }
 
     &__headline {
         padding: $unit_m $unit_l;
         max-width: $media_l;
-        background: var(--c-accent-2);
+        background: var(--c-art-heading);
         margin: 0;
-        color: $darkest;
+        color: var(--c-bg);
         grid-column: 1;
 
         h1 {
-            color: $darkest;
+            color: var(--c-bg);
+            text-decoration: none;
+            margin: 0;
         }
     }
 
@@ -162,11 +182,8 @@ export default {
     }
 
     &__meta-list {
-        color: $dark;
         font-size: $txt_s;
-        background: var(--c-accent-2);
         display: flex;
-        padding-left: $unit_l;
     }
 
     &__content {

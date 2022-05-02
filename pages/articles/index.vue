@@ -1,8 +1,9 @@
 <template>
-  <div class="wrap">
+  <div class="wrap u-top-spacer-xxl">
     <h1>Articles</h1>
     <ArticleList 
       :articles="articles"
+      :tags="tags"
     />
   </div>
 </template>
@@ -16,9 +17,10 @@ export default {
   layout: 'DefaultLayout',
   async asyncData({ $content }) {
     const articles = await $content('articles').fetch()
+    const tags = await $content('tags').fetch()
 
     return {
-      articles
+      articles, tags
     };
   },
   components: {

@@ -80,7 +80,10 @@ export default {
       font-size: $txt_l;
     }
 
-    &:focus {
+    &:focus,
+    &:hover,
+    &:active {
+      text-decoration: none;
       outline: none;
     }
   }

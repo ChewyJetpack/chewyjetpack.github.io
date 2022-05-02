@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>tag.title</h1>
+    <h1>{{tag.title}}</h1>
     <ArticleList 
       :articles="filteredArticles(articles, tag.title)"
+      :tags="tags"
     />
   </div>
 </template>
@@ -24,9 +25,11 @@ export default {
     }
     // get all articles
     const articles = await $content('articles').fetch()
+    // get all tags
+    const tags = await $content('tags').fetch()
 
     return {
-      articles, tag
+      articles, tag, tags
     };
   },
   methods: {

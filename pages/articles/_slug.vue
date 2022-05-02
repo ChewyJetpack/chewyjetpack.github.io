@@ -1,5 +1,5 @@
 <template>
-  <Article :content="article" />
+  <Article :content="article" :tags="tags" />
 </template>
 
 <script>
@@ -15,9 +15,11 @@ export default {
     } catch (e) {
       error({ message: "Article not found" });
     }
+    // get all tags
+    const tags = await $content('tags').fetch()
 
     return {
-      article,
+      article, tags
     };
   },
   components: {

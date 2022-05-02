@@ -8,7 +8,7 @@ article-tags:
   - Music Technology
   - Technology
 title: "How I Built The Ultimate Portable Music Production Studio; COVERT-19 "
-hero: /img/large_sh_gvs_fc_d9f593070b.jpg
+hero: /img/0yy18ny.jpg
 description: This project was a 9-month exploration into the world of
   electronics and general makery, as I attempted to build a custom studio in a
   box
@@ -47,10 +47,10 @@ contentBlocks:
 
       Follow me on Instagram: [https://instagram.com/traintracsldn](https://www.youtube.com/redirect?q=https%3A%2F%2Finstagram.com%2Ftraintracsldn&v=qp-IZxvErRg&redir_token=QUFFLUhqbndYU3VnaWdpTFJfamFqNDRCX2dzOWp6MmhUQXxBQ3Jtc0tuSFNZcTMwdnNjZW81OEtvTjBBNk00bWtCYnkzelRCa19yMDluZHFuV1ZZc1NCR01QRnlJODFTQ245V2x1NFZTcFpfS2FhMVhkSmtDQW9IWW1tc3ZHc25nME11cDVGR0dhRkJobUYyQU5BWEYyWGRPVQ%3D%3D&event=video_description)
 tags:
-  - DIY
-  - Music Technology
-  - 3D Modelling
   - Design
+  - DIY
+  - 3D Modelling
+  - Music Technology
   - Music Production
 ---
 This project was a 9-month exploration into the world of electronics and general makery, as I attempted to build a custom studio in a box, which works in a very specific way, tailored to my needs. It consists of an Elektron Octatrack, Access Virus TI Snow, and an Intel NUC mini PC, all in one box, with a touch screen, running Bitwig and a custom controller script I wrote to augment the functionality of the Octatrack via Bitwig's modulators. It runs on battery power from a custom lithium-ion battery pack, using 12 cells to run everything for about 3h at a time.

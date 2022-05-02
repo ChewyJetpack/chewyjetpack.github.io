@@ -59,6 +59,13 @@ export default {
           width: 360,
           height: 360
         }
+      },
+      hero: {
+        modifiers: {
+          format: 'jpg',
+          width: 1600,
+          height: 600
+        }
       }
     }
   },

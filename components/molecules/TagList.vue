@@ -2,8 +2,8 @@
     <ul class="tag-list">
         <li class="tag-list__item u-right-spacer-s u-bottom-spacer-s" v-for="(tag, index) of tags" :key="index">
             <!-- handleise tag title to match slug - this is the exact same way it's done in the admin file, which is independent of Vue -->
-            <NuxtLink class="tag-list__link" :to="`articles/tags/${tag.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')}`">
-            # <span>{{ tag }}</span>
+            <NuxtLink class="tag-list__link" :to="tag.path">
+            # <span>{{ tag.title }}</span>
             </NuxtLink>
         </li>
     </ul>
@@ -38,9 +38,8 @@ export default {
     }
     
     &__link {
-        background: var(--c-bg-2);
-        padding: 0 $unit_xs;
-        border-radius: $unit_xxs;
+        border-bottom: solid $unit_xxxs var(--c-main-alt-2);
+        padding: 0;
         color: var(--c-accent-3);
 
         span {
@@ -49,12 +48,12 @@ export default {
             font-size: $txt_xs;
         }
 
-        &:hover {
-            background: var(--c-accent-3);
-            color: $darkest;
+        &:hover, &:focus, &:active {
+            border-color: var(--c-accent-3);
+            text-decoration: none;
 
             span {
-                color: $darkest;
+            color: var(--c-accent-3);
             }
         }
     }

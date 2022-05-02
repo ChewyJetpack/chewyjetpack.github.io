@@ -59,11 +59,11 @@ export default {
 
   &:hover {
     background: var(--c-accent-1);
-    color: $darkest;
+    color: var(--c-bg);
     border-color: var(--c-accent-1);
 
     svg {
-      color: $darkest;
+      color: var(--c-bg-3);
     }
   }
 
