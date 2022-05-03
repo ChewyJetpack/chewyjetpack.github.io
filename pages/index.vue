@@ -1,6 +1,6 @@
 <template>
   <div class="wrap u-top-spacer-xxl">
-    <h1 class="u-bottom-spacer-xxl">{{home.title}}</h1>
+    <h1>{{home.title}}</h1>
     <section class="homepage u-bottom-spacer-xxl">
       <nuxt-content :document="home" />
       <span class="u-img-accent--right--1 u-top-spacer-l">
@@ -62,6 +62,7 @@ export default {
     left: 0;
     width: 60%;
     height: 60%;
+    z-index: -1;
   }
 
   &:after {

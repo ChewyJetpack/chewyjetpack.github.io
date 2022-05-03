@@ -45,11 +45,8 @@
     <li
       :class="{
         'nav-list__item': true,
-        'u-right-spacer-m': navFormat == 'mini',
-        'u-right-spacer-l': navFormat == 'full',
         'u-bottom-spacer-m': navFormat == 'slide'
       }">
-      <a class="nav-list__link" href="https://github.com/ChewyJetpack/chewyjetpack.github.io" target="_blank">Github</a>
     </li>
   </ul>
 </template>
@@ -83,7 +80,7 @@ export default {
     color: var(--c-main);
     text-decoration: none;
     position: relative;
-    padding-bottom: $unit_xxxs;
+    padding-bottom: $unit_xs;
 
     &:focus {
       outline: none;
@@ -96,7 +93,7 @@ export default {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 2px;
+      height: $unit_xxs;
       background: var(--c-accent-1);
       transform: scaleX(0);
       transition: transform 0.3s;

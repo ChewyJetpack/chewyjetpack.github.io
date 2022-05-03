@@ -68,6 +68,7 @@ export default {
 
     &__title {
         position: relative;
+        text-decoration: none;
 
         a {
             display: block;

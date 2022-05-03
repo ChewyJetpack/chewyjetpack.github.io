@@ -184,6 +184,7 @@ export default {
     &__meta-list {
         font-size: $txt_s;
         display: flex;
+        color: var(--c-main-alt)
     }
 
     &__content {

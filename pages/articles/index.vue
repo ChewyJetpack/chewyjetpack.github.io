@@ -1,6 +1,6 @@
 <template>
   <div class="wrap u-top-spacer-xxl">
-    <h1 class="u-bottom-spacer-xxl">Articles</h1>
+    <h1>Articles</h1>
     <ArticleList 
       :articles="articles"
       :tags="tags"

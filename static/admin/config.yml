@@ -210,7 +210,10 @@ collections:
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'cv' }
           - { label: 'Intro', name: 'intro', widget: 'markdown' }             
           - { label: 'Phone', name: 'phone', widget: 'number' }         
-          - { label: 'Email', name: 'email', widget: 'string' }      
+          - { label: 'Email', name: 'email', widget: 'string' }  
+          - { label: 'Skills', name: 'skills', widget: 'list', allow_multiple: true, 
+              field: { label: 'Skill', name: skill, widget: 'string'} 
+            }    
           - { label: 'Jobs',
               name: 'jobs',
               label_singular: 'Job',

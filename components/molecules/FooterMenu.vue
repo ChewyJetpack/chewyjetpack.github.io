@@ -73,13 +73,24 @@ export default {
   justify-content: flex-start;
   align-items: center;
 
+  a {
+    color: var(--c-header-bg);
+  }
+
+  @include breakpoint_xl {
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+
   &__social {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 
     @include breakpoint_xl {
-      justify-content: right;
+      justify-content: flex-end;
+      flex-direction: row;
     }
   }
 
@@ -96,6 +107,10 @@ export default {
           font-size: $txt_m;
         }
       }
+    }
+
+    @include breakpoint_m {
+      display: none;
     }
   }
 }
