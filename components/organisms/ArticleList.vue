@@ -1,6 +1,6 @@
 <template> 
     <ul class="article-list">
-      <li class="article-list__item u-bottom-spacer-xl" v-for="article of articles" :key="article.slug">
+      <li class="article-list__item u-bottom-spacer-xxl" v-for="article of articles" :key="article.slug">
         <article class="article-list__article">
             <NuxtLink class="article-list__img" :to="article.path">
                 <span class="u-img-accent--left--2">

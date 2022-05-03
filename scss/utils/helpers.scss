@@ -65,3 +65,23 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
         }
     }
 }
+
+@mixin accentContent($accent, $axis) {
+    position: relative;
+  
+    &:before {
+        @if ($axis == right) {
+            box-shadow: #{$unit_xs} $unit_xs $accent;
+        } @else {
+            box-shadow: -#{$unit_xs} $unit_xs $accent;
+        }
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        #{$axis}: 0;
+        width: 60%;
+        height: 60%;
+        z-index: -1;
+    } 
+}

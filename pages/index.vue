@@ -51,19 +51,7 @@ export default {
 
 .nuxt-content-container {
   padding: $unit_l;
-  position: relative;
-
-  &:before {
-    box-shadow: -#{$unit_xs} $unit_xs var(--c-accent-3);
-    display: block;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60%;
-    height: 60%;
-    z-index: -1;
-  }
+  @include accentContent(var(--c-accent-3), left);
 
   &:after {
     display: block;

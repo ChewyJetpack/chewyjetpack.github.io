@@ -28,19 +28,19 @@
         </div>
         <div class="cv__outro u-top-spacer-xl">
           <h2>Interests</h2>
-          <div v-html="$md.render(cv.outro)" />
+          <div class="u-accent-content" v-html="$md.render(cv.outro)" />
         </div>
     </aside>
     <div class="cv__main">
       <section class="cv__intro">
         <div class="cv__intro-body">
-          <div class="cv__intro-content u-bottom-spacer-l" v-html="$md.render(cv.intro)" />
+          <div class="cv__intro-content u-accent-content u-bottom-spacer-xxl" v-html="$md.render(cv.intro)" />
         </div>
       </section>
       <section class="cv__jobs">
         <h2 class="u-bottom-spacer-l">Career history</h2>
-        <div class="cv__jobs-list u-bottom-spacer-l" v-for="(job, index) in cv.jobs" :key="index">
-          <div class="cv__job">
+        <div class="cv__jobs-list u-bottom-spacer-l">
+          <div class="cv__job u-bottom-spacer-l" v-for="(job, index) in cv.jobs" :key="index">
             <div class="cv__job-info u-left-spacer-s">
               <h3 class="cv__job-title u-bottom-spacer-xxs">{{ job.title }}</h3>
               <div class="cv__job-meta">
@@ -48,7 +48,7 @@
                 <span class="cv__job-date">{{ job.startYear }} - {{ job.endYear ? job.endYear : 'Present' }}</span>
               </div>
             </div>
-            <div class="cv__job-description">{{ job.description }}</div>
+            <div class="cv__job-description u-accent-content" v-html="$md.render(job.description)" />
           </div>
         </div>
       </section>
@@ -86,7 +86,7 @@ export default {
       grid-gap: $unit_l;
 
       aside {
-        color: var(--c-main-alt);
+        color: var(--c-main);
         grid-area: aside;
       }
     }
@@ -94,6 +94,7 @@ export default {
     &__contact {
       grid-area: contact;
       align-self: start;
+      font-size: $txt_m;
     }
 
     &__main {
@@ -104,7 +105,9 @@ export default {
       &-content {
         position: relative;
         padding: $unit_l;
-        background: var(--c-bg-2);
+        background: var(--c-bg-3);
+
+        @include accentContent(var(--c-accent-3), right);
       }
     }
 
@@ -127,6 +130,17 @@ export default {
     }
 
     &__job {
+      &:nth-child(2n+1) {
+        .cv__job-description {
+          @include accentContent(var(--c-accent-1), left);
+        }
+      }
+      &:nth-child(2n) {
+        .cv__job-description {
+          @include accentContent(var(--c-accent-3), right);
+        }
+      }
+
       &-info {
         background: var(--c-art-heading);
         padding: $unit_s $unit_m;
@@ -141,11 +155,11 @@ export default {
 
       &-co {
         font-weight: 700;
-        color: var(--c-bg-3);
+        color: var(--c-bg-2);
       }
 
       &-date {
-        color: var(--c-bg-3);
+        color: var(--c-bg-2);
         font-weight: 600;
       }
 
