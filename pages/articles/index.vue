@@ -9,7 +9,6 @@
 </template>
 
 <script>
-
 import ArticleList from '~/components/organisms/ArticleList'
 
 export default {

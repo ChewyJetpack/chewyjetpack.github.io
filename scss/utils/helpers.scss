@@ -21,10 +21,10 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
                         content:"";
                         display: block;
                         height: 0;
-                        width: 85%;
-                        padding-bottom: 85%;
-                        z-index: 0;
-                        bottom: -20%;
+                        width: 304px;
+                        padding-bottom: 304px;
+                        z-index: -1;
+                        bottom: -60px;
                         border-radius: 100%;
 
                         @if (nth($axis, $x) == right) { 
@@ -48,7 +48,7 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
                         box-shadow: $unit_xs $unit_xs nth($accent, $i);
 
                         &:before {
-                            left: 30%;
+                            right: -60px;
                         }
                     }
 
@@ -56,7 +56,7 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
                         box-shadow: -#{$unit_xs} $unit_xs nth($accent, $i);
 
                         &:before {
-                            right: 30%;
+                            left: -60px;
                         }
                     }
                 }
@@ -71,17 +71,17 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
   
     &:before {
         @if ($axis == right) {
-            box-shadow: #{$unit_xs} $unit_xs $accent;
+            box-shadow: #{$unit_xxs} $unit_xxs $accent;
         } @else {
-            box-shadow: -#{$unit_xs} $unit_xs $accent;
+            box-shadow: -#{$unit_xxs} $unit_xxs $accent;
         }
         display: block;
         content: "";
         position: absolute;
         bottom: 0;
         #{$axis}: 0;
-        width: 60%;
-        height: 60%;
+        width: 40%;
+        height: 40%;
         z-index: -1;
     } 
 }

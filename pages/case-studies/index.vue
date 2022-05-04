@@ -1,19 +1,15 @@
 <template>
   <div class="wrap u-top-spacer-xxl">
     <h1>Case Studies</h1>
-    <ul>
-      <li v-for="caseStudy of caseStudies" :key="caseStudy.slug">
-        <NuxtLink :to="`${caseStudy.slug}`">
-          {{ caseStudy.title }}
-          <img :src="caseStudy.hero" :alt="caseStudy.title">
-        </NuxtLink>
-      </li>
-    </ul>
+    <ArticleList 
+      :articles="caseStudies"
+      :caseStudies="true"
+    />
   </div>
 </template>
 
 <script>
-
+import ArticleList from '~/components/organisms/ArticleList'
 
 export default {
   name: 'caseStudiesPage',
@@ -25,5 +21,8 @@ export default {
       caseStudies
     };
   },
+  components: {
+    ArticleList
+  }
 }
 </script>

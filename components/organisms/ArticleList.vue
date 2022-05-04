@@ -1,23 +1,25 @@
 <template> 
-    <ul class="article-list">
-      <li class="article-list__item u-bottom-spacer-xxl" v-for="article of articles" :key="article.slug">
+    <ul :class="['article-list', caseStudies ? 'article-list--case-studies' : '']">
+      <li :class="['article-list__item', caseStudies ? 'u-bottom-spacer-xs' : 'u-bottom-spacer-xxl']" v-for="article of articles" :key="article.slug">
         <article class="article-list__article">
             <NuxtLink class="article-list__img" :to="article.path">
-                <span class="u-img-accent--left--2">
-                    <nuxt-img preset="thumb" :src="article.hero" :alt="article.title" />
+                <span class="article-list__cs-cat" v-if="caseStudies">{{ article.category }}</span>
+                <span :class="caseStudies ? 'u-img-accent--right--3' : 'u-img-accent--left--2'">
+                    <nuxt-img v-if="caseStudies" preset="csthumb" :src="article.hero" :alt="article.title" />
+                    <nuxt-img v-else preset="thumb" :src="article.hero" :alt="article.title" />
                 </span>
             </NuxtLink>
             <div class="article-list__content">
-                <h2 class="article-list__title u-bottom-spacer-m">
+                <h2 class="article-list__art-title u-bottom-spacer-m">
                     <NuxtLink :to="article.path">
                         <span>{{ article.title }}</span>
                         <span aria-hidden="true" data-nosnippet>{{ article.title }}</span>
                     </NuxtLink>
                 </h2>
-                <p class="article-list__excerpt u-bottom-spacer-s">
+                <p v-if="!caseStudies" class="article-list__excerpt u-bottom-spacer-s">
                     {{ article.description }}
                 </p>
-                <TagList :tags="filteredTags(article.tags, tags)" />
+                <TagList v-if="!caseStudies" :tags="filteredTags(article.tags, tags)" />
             </div>
         </article>
       </li>
@@ -35,6 +37,10 @@ export default {
         },
         tags: {
             type: Array
+        },
+        caseStudies: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -60,13 +66,58 @@ export default {
 .article-list {
     list-style: none;
 
+    &--case-studies {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        grid-gap: $unit_l;
+
+        .article-list {
+            &__article {
+                display: flex;
+                flex-direction: column;
+                grid-gap: 0;
+            }
+
+            &__cs-cat {
+                display: block;
+                background: var(--c-accent-1);
+                padding: $unit_xxs $unit_s;
+                position: absolute;
+                top: -#{$unit_s};
+                left: $unit_s;
+                z-index: 3;
+                color: var(--c-bg);
+                font-weight: 700;
+            }
+
+            &__art-title {
+                top: -#{$unit-s};
+                max-width: 90%;
+                z-index: 3;
+
+                a {
+                    left: $unit_s;
+
+                    > span {
+                        padding: $unit_s $unit_m;
+
+                        &:not(:first-child) {
+                            background: var(--c-bg-3)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     &__article {
         display: grid;
         grid-template-columns: 1fr 2fr;
         grid-gap: $unit_m;
     }
 
-    &__title {
+    &__art-title {
         position: relative;
         text-decoration: none;
 

@@ -53,6 +53,13 @@ export default {
           height: 270
         }
       },
+      csthumb: {
+        modifiers: {
+          format: 'jpg',
+          width: 540,
+          height: 360
+        }
+      },
       avatar: {
         modifiers: {
           format: 'jpg',

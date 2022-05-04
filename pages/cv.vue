@@ -107,7 +107,7 @@ export default {
         padding: $unit_l;
         background: var(--c-bg-3);
 
-        @include accentContent(var(--c-accent-3), right);
+        @extend .u-img-accent--right--1;
       }
     }
 
@@ -130,16 +130,20 @@ export default {
     }
 
     &__job {
-      &:nth-child(2n+1) {
-        .cv__job-description {
-          @include accentContent(var(--c-accent-1), left);
-        }
+      &-description {
+        @include accentContent(var(--c-accent-3), left);
       }
-      &:nth-child(2n) {
-        .cv__job-description {
-          @include accentContent(var(--c-accent-3), right);
-        }
-      }
+      // TODO remove this? Maybe not? IDK.
+      // &:nth-child(2n+1) {
+      //   .cv__job-description {
+      //     @include accentContent(var(--c-accent-1), left);
+      //   }
+      // }
+      // &:nth-child(2n) {
+      //   .cv__job-description {
+      //     @include accentContent(var(--c-accent-3), right);
+      //   }
+      // }
 
       &-info {
         background: var(--c-art-heading);

@@ -75,10 +75,10 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
       - { label: 'Category', name: 'category', widget: 'string'}
-      - { label: 'Publish Date', name: 'date', widget: 'datetime', format: 'YYYY' }
+      - { label: 'Year', name: 'year', widget: 'number', default: '2022' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
-      - { label: 'Summary', name: 'summary', widget: 'markdown', optional: true }
+      - { label: 'Summary', name: 'summary', widget: 'markdown' }
       - {
         label: 'Images', 
         label_singular: 'Image', 
@@ -96,7 +96,7 @@ collections:
           { label: 'Caption', name: 'caption', type: 'String', required: true}
         ]
       }
-      - { label: 'Background', name: 'background', widget: 'markdown', optional: true }
+      - { label: 'Background', name: 'background', widget: 'markdown', required: false }
       - {
         label: 'Images', 
         label_singular: 'Image', 
@@ -114,7 +114,7 @@ collections:
           { label: 'Caption', name: 'caption', type: 'String', required: true}
         ]
       }
-      - { label: 'Goals', name: 'goals', widget: 'markdown', optional: true }
+      - { label: 'Goals', name: 'goals', widget: 'markdown', required: false }
       - {
         label: 'Images', 
         label_singular: 'Image', 
@@ -132,7 +132,7 @@ collections:
           { label: 'Caption', name: 'caption', type: 'String', required: true}
         ]
       }
-      - { label: 'Method', name: 'method', widget: 'markdown', optional: true }
+      - { label: 'Method', name: 'method', widget: 'markdown', required: false }
       - {
         label: 'Images', 
         label_singular: 'Image', 
@@ -150,7 +150,7 @@ collections:
           { label: 'Caption', name: 'caption', type: 'String', required: true}
         ]
       }
-      - { label: 'Results', name: 'results', widget: 'markdown', optional: true }
+      - { label: 'Results', name: 'results', widget: 'markdown', required: false }
       - {
         label: 'Images', 
         label_singular: 'Image', 
@@ -168,7 +168,7 @@ collections:
           { label: 'Caption', name: 'caption', type: 'String', required: true}
         ]
       }
-      - { label: 'Wrap Up', name: 'wrap-up', widget: 'markdown', optional: true }
+      - { label: 'Wrap Up', name: 'wrap-up', widget: 'markdown', required: false }
   - name: 'tags'
     label: 'Tags'
     label_singular: 'Tag'
