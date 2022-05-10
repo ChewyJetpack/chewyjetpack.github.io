@@ -1,5 +1,5 @@
 :root {
-    font-size: 8px;
+    font-size: 9px;
 
     @include breakpoint_m {
       font-size: 10px;
@@ -8,11 +8,11 @@
 
 body {
     background-color: var(--c-bg);
-  padding:
-    env(safe-area-inset-top, $unit_l)
-    env(safe-area-inset-right, $unit_l)
-    env(safe-area-inset-bottom, $unit_l)
-    env(safe-area-inset-left, $unit_l);
+    padding:
+        env(safe-area-inset-top, $unit_l)
+        env(safe-area-inset-right, $unit_l)
+        env(safe-area-inset-bottom, $unit_l)
+        env(safe-area-inset-left, $unit_l);
 
     text-rendering: geometricprecision;
     -webkit-font-smoothing: antialiased;
@@ -23,37 +23,37 @@ body {
 .page {
     overflow-x: hidden;
     max-width: 100%;
-  }
+}
   
-  .wrap {
-    padding: 0 $unit_m;
+.wrap {
+    padding: 0 $unit_s;
     max-width: $media_xl;
     margin: 0 auto;
     width: 100%;
-  
+
     &--padded {
-      max-width: calc(#{$media_xl} + (#{$unit_l} * 2));
+        max-width: calc(#{$media_xl} + (#{$unit_l} * 2));
     }
-  
+
     @include breakpoint_m {
-      padding: 0 $unit_l;
+        padding: 0 $unit_l;
     }
-  
+
     &--slim {
-      max-width: $media_l;
-  
-      &--padded {
+        max-width: $media_l;
+
+        &--padded {
         max-width: calc(#{$media_l} + (#{$unit_l} * 2));
-      }
+        }
     }
-  }
+}
   
-  section {
+section {
     position: relative;
     z-index: 1;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     height: auto;
-  }
+}

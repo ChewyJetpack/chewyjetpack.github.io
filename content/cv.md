@@ -28,57 +28,77 @@ jobs:
     endYear: ""
     title: Head of Product Design
     company: Newsquest
-    description: Managed the design team, systemising existing designs by building
-      and scaling a from-scratch design system capable of servicing over 200
-      individual local news titles, and transitioning to an iterative product
-      design process. Led user research initiatives, tooling, and operations, to
-      make data-driven design decisions. Led design work on various satellite
-      products and other projects, as well as spearheading the design efforts
-      and systemisation for the X1 Jobs platform. Contributed to development
-      principles and practices, working closely with the development team and
-      product stakeholders to ensure a holistic relationship between product
-      strategy, design, and technical implementation.
+    description: >-
+      * Managed the design team, systemising existing designs by building and
+      scaling a from-scratch design system capable of servicing over 200
+      individual local news brands
+
+      * Transitioned team to an iterative product design process
+
+      * Led user research initiatives, tooling, and operations, to make data-driven design decisions
+
+      * Led design work on various satellite products, including the X1/S1 Jobs platform
+
+      * Contributed to development principles and practices
+
+      * Worked with stakeholders for a holistic relationship between product strategy, design, and technical implementation
+
+      * Managed internal comms between the product team and regional MDs and Editorial teams, to provide design updates
   - startYear: 2019
     endYear: 2021
     title: Creative Tech Lead
     company: NewsNow
-    description: Led the product’s largest redesign in its 24-year history,
-      reporting directly to CEO, COO. Created and scaled a brand new design
-      system and managed the design team, driving a full product redesign and
-      laying the groundwork for iterative design processes. Developed branding
-      and marketing materials including printed merchandise, and a corporate
-      video. Personally rewrote and/or refactored the entire static front end of
-      the product and worked with the dev team on a ground-up rebuild in Vue.js,
-      with server-side rendering and state management in VueX.
+    description: >-
+      * Led the product’s largest redesign in its 24-year history, reporting
+      directly to CEO, COO
+
+      * Created and scaled a brand new design system and managed the design team, driving a full product redesign and laying the groundwork for iterative design processes
+
+      * Developed branding and marketing materials including printed merchandise and a corporate video
+
+      * Personally rewrote and refactored the entire static front end of the product
+
+      * Worked with the dev team on a subsequent ground-up rebuild in Vue.js, utilising the newly modularised front end, with server-side rendering and state management in VueX
   - startYear: 2015
     endYear: 2019
     title: Senior Designer & Developer
     company: BPL Marketing
-    description: Initiated and led the formation of the company's first in-house web
-      department, designing and developing web and marketing projects for
-      clients such as Three, Tinder, and The Royal British Legion, using
-      technologies such as Webpack, Gulp, Node, Angular, Vue, and SCSS. Defined
-      and informed devOps, designOps, and project management processes,
-      alongside senior management and project managers. Managed and mentored
-      junior designers on web projects.
+    description: >-
+      * Initiated and led the formation of the company's first in-house web
+      department
+
+      * Designed and developed web projects for clients such as Three, Tinder, and The Royal British Legion
+
+      * Used tech such as Webpack, Gulp, Node, Angular, Vue, and SCSS
+
+      * Defined and informed devOps, designOps, and project management processes, alongside senior management and project managers
+
+      * Managed and mentored junior designers on web projects.
   - startYear: 2013
     endYear: 2015
     title: Designer & Developer
     company: Twotwentyseven
-    description: Worked in a small, fast-paced team, on web design, front-end dev,
-      and bespoke Shopify eCommerce sites as an official Shopify Partner, using
-      tech such as Liquid, SCSS, LESS, jQuery, and vanilla JS. Contributed to
-      company coding standards and best practices. Clients included Brothers
-      Cider, Ella's Kitchen, and a variety of London restaurants.
+    description: >-
+      * Worked in a small, fast-paced team, on web design, front-end dev, and
+      bespoke Shopify eCommerce sites as an official Shopify Partner
+
+      * Used tech such as Liquid, SCSS, LESS, jQuery, and vanilla JS
+
+      * Contributed to company coding standards and best practices
+
+      * Clients included Brothers Cider, Ella's Kitchen, and a variety of London restaurants
   - startYear: 2012
     endYear: 2013
     title: Digital Designer
     company: Amobee
-    description: Designed mobile display ads and rich media for global campaigns,
+    description: >-
+      * Designed mobile display ads and rich media for global campaigns,
       responsive designs, custom mobile websites, landing pages, and HTML5
-      animated banners Renovated existing processes with more efficient methods
-      by using scripts to automate tasks that previously took hundreds of work
-      hours to complete. Clients included Sony, Nokia, eBay, Expedia, and more.
+      animated banners 
+
+      * Renovated existing processes with more efficient methods by using scripts to automate tasks that previously took hundreds of work hours to complete
+
+      * Clients included Sony, Nokia, eBay, Expedia, and more
 outro: Outside of work, I enjoy art, music, and spending time with my family. In
   my free time, I'm usually designing and building physical devices such as
   music equipment, reading or writing about technology, or producing my own

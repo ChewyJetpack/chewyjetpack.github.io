@@ -1,15 +1,9 @@
 <template>
-  
-    <article>
-      <img :src="caseStudy.hero" :alt="caseStudy.title">
-      <h1>{{ caseStudy.title }}</h1>
-      <nuxt-content :document="caseStudy.summary" />
-    </article>
-  
+  <Article :content="caseStudy" :caseStudy="true" />
 </template>
 
 <script>
-
+import Article from '~/components/organisms/Article';
 
 export default {
   name: 'CaseStudyPage',
@@ -27,5 +21,8 @@ export default {
       caseStudy,
     };
   },
+  components: {
+    Article
+  }
 };
 </script>

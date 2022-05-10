@@ -1,24 +1,29 @@
 <template>
     <article class="article">
-        <section class="article__top-section u-bottom-spacer-xl">
+        <section class="article__top-section">
             <div class="article__hero">
                 <nuxt-img
-                    preset="hero" 
                     :src="content.hero" 
                     :alt="content.title"
+                    sizes="sm:100vw md:100vw lg:1600px"
                 />
             </div>
-            <div class="article__headline-wrap wrap wrap--padded u-bottom-spacer-m">
+            <div class="article__headline-wrap wrap wrap--padded">
                 <div class="article__headline">
-                    <h1 class="u-bottom-spacer-l">{{ content.title }}</h1>
+                    <h1>{{ content.title }}</h1>
                 </div>
             </div>
             <div class="wrap">
                 <ul class="article__meta-list">
-                    <li>
+                    <li v-if="caseStudy">
+                        <font-awesome
+                            :icon="['fas', 'history']"
+                        />
+                        From {{ content.year }}
+                    </li>
+                    <li v-else>
                         <font-awesome
                             :icon="['far', 'calendar']"
-                            class="u-right-spacer-xxs"
                         />
                         {{ content.date }}
                     </li>
@@ -27,46 +32,61 @@
         </section>
         <section class="article__main wrap">
             <aside class="article__meta">
-                <h3 class="u-bottom-spacer-s">Share</h3>
+                <h3>Share</h3>
                 <Button
                     :callback="copyUrl"
                     icon="link"
                     label="Copy link"
                     :icoLeft="true"
-                    class="u-bottom-spacer-s"
+                    class="u-bm-s"
                 />
                 <Button
                     :href="`mailto:${windowUrl}`"
                     icon="envelope"
                     label="Send email"
                     :icoLeft="true"
-                    class="u-bottom-spacer-s"
+                    class="u-bm-s"
                 />
-                <h3 class="u-top-spacer-m u-bottom-spacer-s">Tags</h3>
-                <TagList 
-                :tags="filteredTags(content.tags, tags)" 
-                :large="true"
-                onArticlePage="true"
-                />
-            </aside>
-            <div class="article__content">
-                <div 
-                    v-for="(block, index) in content.contentBlocks" 
-                    :key="index"
-                >
-                    <div
-                        v-if="block.content" 
-                        v-html="$md.render(block.content)"
+                <div v-if="!caseStudy" class="article__tags">
+                    <h3>Tags</h3>
+                    <TagList 
+                    :tags="filteredTags(content.tags, tags)" 
+                    :large="true"
+                    onArticlePage="true"
                     />
-                <div 
-                    v-if="block.youtube" 
-                    v-html="block.youtube"
-                />
-                <ArticleImages 
-                    v-if="block.images" 
-                    :images="block.images" />
                 </div>
+            </aside>
+            <div v-if="caseStudy"  class="article__content">
+                <CaseStudyContentBlock 
+                    :content="content.summary" 
+                    heading="Summary"
+                    :images="content.summaryImages" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.background" 
+                    heading="Background"
+                    :images="content.backgroundImages" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.goals" 
+                    heading="Goals"
+                    :images="content.goalsImages" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.method" 
+                    heading="Method"
+                    :images="content.methodImages" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.results" 
+                    heading="Results"
+                    :images="content.resultsImages" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.wrapUp" 
+                />
             </div>
+            <ArticleContentBlock class="article__content" v-else :content="content" />
         </section>
     </article> 
 </template>
@@ -74,7 +94,8 @@
 <script>
 import Button from '~/components/atoms/Button';
 import TagList from '~/components/molecules/TagList';
-import ArticleImages from '~/components/molecules/ArticleImages'
+import CaseStudyContentBlock from '~/components/molecules/CaseStudyContentBlock';
+import ArticleContentBlock from '~/components/molecules/ArticleContentBlock';
 
 export default {
     name: 'Article',
@@ -84,12 +105,17 @@ export default {
         },
         tags: {
             type: Array
+        },
+        caseStudy: {
+            type: Boolean,
+            default: false
         }
     },
     components: {
-        ArticleImages,
         Button,
-        TagList
+        TagList,
+        CaseStudyContentBlock,
+        ArticleContentBlock
     },
     data() {
         return {
@@ -102,13 +128,14 @@ export default {
         }
     },
     methods: {
-        copyUrl: function () {
+        copyUrl: function (ref) {
             this.$copyText(this.windowUrl).then(function (e) {
-                alert('Copied')
-                console.log(e)
+                ref.classList.add('pop-anim');
+                setTimeout(() => {
+                    ref.classList.remove('pop-anim');
+                }, 1600);
             }, function (e) {
-                alert('Can not copy')
-                console.log(e)
+                alert('Sorry, something went wrong when trying to copy that link.');
             })
         },
         filteredTags: function(articleTags, tags) {
@@ -137,6 +164,7 @@ export default {
         background: var(--c-bg-2);
         width: 100%;
         padding-bottom: $unit_m;
+        @extend .u-bm-xl
     }
 
     &__hero {
@@ -149,21 +177,27 @@ export default {
 
     &__headline-wrap {
         @extend .e-grid-3-1;
+        @extend .u-bm-m;
         margin-top: -#{$unit_xxxl};
     }
 
     &__headline {
-        padding: $unit_m $unit_l;
-        max-width: $media_l;
+        padding: $unit_s;
         background: var(--c-art-heading);
         margin: 0;
         color: var(--c-bg);
-        grid-column: 1;
+
+        @include breakpoint_m {
+            padding: $unit_m $unit_l;
+            max-width: $media_l;
+            grid-column: 1;
+        }
 
         h1 {
             color: var(--c-bg);
             text-decoration: none;
             margin: 0;
+            @extend .u-bm-l;
         }
     }
 
@@ -173,23 +207,44 @@ export default {
     }
 
     &__meta {
-        grid-column: 2;
-        grid-row: 1;
-        position: sticky;
-        top: $unit_xxxl;
-        border-left: solid 2px var(--c-bg-2);
-        padding-left: $unit_l;
+        order: 1;
+
+        @include breakpoint_m {
+            grid-column: 2;
+            grid-row: 1;
+            position: sticky;
+            top: $unit_xxxl;
+            border-left: solid 2px var(--c-bg-2);
+            padding-left: $unit_l;
+        }
     }
 
     &__meta-list {
-        font-size: $txt_s;
+        font-size: $txt_xs;
         display: flex;
-        color: var(--c-main-alt)
+        color: var(--c-main-alt);
+
+        @include breakpoint_m {
+            font-size: $txt_s;
+        }
+
+        svg {
+            @extend .u-rm-xxs;
+        }
+    }
+
+    &__tags {
+        @extend .u-tm-m;
     }
 
     &__content {
-        font-size: $txt_m;
-        grid-row: 1;
+        font-size: $txt_xs;
+        order: 0;
+
+        @include breakpoint_m {
+            grid-row: 1;
+            font-size: $txt_m;
+        }
     }
 }
 </style>

@@ -20,23 +20,24 @@ $edges: 'top', 'right', 'bottom', 'left';
     $l: length($measurements);
 
     @each $edge in $edges {
+        $class: str-slice($edge, 1, 1);
         @if $i > $l * 0.6 {
-            .u-#{$edge}-spacer-#{$size} {
+            .u-#{$class}m-#{$size} {
                 margin-#{$edge}: calc(#{$val} / 2);
             }
             @include breakpoint_m {
-                .u-#{$edge}-spacer-#{$size} {
+                .u-#{$class}m-#{$size} {
                     margin-#{$edge}: calc(#{$val} * 0.7);
                 }
             }
     
             @include breakpoint_l {
-                .u-#{$edge}-spacer-#{$size} {
+                .u-#{$class}m-#{$size} {
                     margin-#{$edge}: #{$val};
                 }
             }
         } @else {
-            .u-#{$edge}-spacer-#{$size} {
+            .u-#{$class}m-#{$size} {
                 margin-#{$edge}: #{$val};
             }
         }

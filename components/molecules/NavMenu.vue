@@ -9,43 +9,43 @@
     <li
       :class="{
         'nav-list__item': true,
-        'u-right-spacer-m': navFormat == 'mini',
-        'u-right-spacer-l': navFormat == 'full',
-        'u-bottom-spacer-m': navFormat == 'slide'
+        'u-rm-m': navFormat == 'mini',
+        'u-rm-l': navFormat == 'full',
+        'u-bm-m': navFormat == 'slide'
       }">
       <NuxtLink class="nav-list__link" to="/">About</NuxtLink>
     </li>
     <li
       :class="{
         'nav-list__item': true,
-        'u-right-spacer-m': navFormat == 'mini',
-        'u-right-spacer-l': navFormat == 'full',
-        'u-bottom-spacer-m': navFormat == 'slide'
+        'u-rm-m': navFormat == 'mini',
+        'u-rm-l': navFormat == 'full',
+        'u-bm-m': navFormat == 'slide'
       }">
       <NuxtLink class="nav-list__link" to="/case-studies">Case Studies</NuxtLink>
     </li>
     <li
       :class="{
         'nav-list__item': true,
-        'u-right-spacer-m': navFormat == 'mini',
-        'u-right-spacer-l': navFormat == 'full',
-        'u-bottom-spacer-m': navFormat == 'slide'
+        'u-rm-m': navFormat == 'mini',
+        'u-rm-l': navFormat == 'full',
+        'u-bm-m': navFormat == 'slide'
       }">
       <NuxtLink class="nav-list__link" to="/articles">Articles</NuxtLink>
     </li>
     <li
       :class="{
         'nav-list__item': true,
-        'u-right-spacer-m': navFormat == 'mini',
-        'u-right-spacer-l': navFormat == 'full',
-        'u-bottom-spacer-m': navFormat == 'slide'
+        'u-rm-m': navFormat == 'mini',
+        'u-rm-l': navFormat == 'full',
+        'u-bm-m': navFormat == 'slide'
       }">
       <NuxtLink class="nav-list__link" to="/cv">CV</NuxtLink>
     </li>
     <li
       :class="{
         'nav-list__item': true,
-        'u-bottom-spacer-m': navFormat == 'slide'
+        'u-bm-m': navFormat == 'slide'
       }">
     </li>
   </ul>
@@ -80,7 +80,6 @@ export default {
     color: var(--c-main);
     text-decoration: none;
     position: relative;
-    padding-bottom: $unit_xs;
 
     &:focus {
       outline: none;
@@ -90,7 +89,7 @@ export default {
       content: "";
       display: block;
       position: absolute;
-      bottom: 0;
+      bottom: -#{$unit_xs};
       left: 0;
       width: 100%;
       height: $unit_xxs;

@@ -2,7 +2,6 @@ $axis: (left, right);
 $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
 
 .u-img-accent {
-    
     @for $x from 1 through 2 {
         &--#{nth($axis, $x)} {
             @for $i from 1 through 3 {
@@ -21,11 +20,17 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
                         content:"";
                         display: block;
                         height: 0;
-                        width: 304px;
-                        padding-bottom: 304px;
                         z-index: -1;
-                        bottom: -60px;
                         border-radius: 100%;
+                        width: 70%;
+                        padding-bottom: 70%;
+                        bottom: -20%;
+
+                        @include breakpoint_m {
+                            width: 304px;
+                            padding-bottom: 304px;
+                            bottom: -60px;
+                        }
 
                         @if (nth($axis, $x) == right) { 
                             background: repeating-linear-gradient(-45deg,
@@ -48,7 +53,11 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
                         box-shadow: $unit_xs $unit_xs nth($accent, $i);
 
                         &:before {
-                            right: -60px;
+                            right: -20%;
+
+                            @include breakpoint_m {
+                                right: -60px;
+                            }
                         }
                     }
 
@@ -56,7 +65,31 @@ $accent: (var(--c-accent-1), var(--c-accent-2), var(--c-accent-3));
                         box-shadow: -#{$unit_xs} $unit_xs nth($accent, $i);
 
                         &:before {
-                            left: -60px;
+                            left: -20%;
+
+                            @include breakpoint_m {
+                                left: -60px;
+                            }
+                        }
+
+
+                        // mobile right
+                        &--m-r {
+                            box-shadow: $unit_xs $unit_xs nth($accent, $i);
+    
+                            &:before {
+                                left: auto;
+                                right: -20%;
+                            }
+    
+                            @include breakpoint_m {
+                                box-shadow: -#{$unit_xs} $unit_xs nth($accent, $i);
+        
+                                &:before {
+                                    right: auto;
+                                    left: -60px;
+                                }
+                            }
                         }
                     }
                 }

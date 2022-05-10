@@ -14,7 +14,7 @@
         <IconBtn
           icon="bars"
           :callback="openNav"
-          class="header__burger-menu u-left-spacer-m"
+          class="header__burger-menu"
           :navFormat="navFormat"
         />
       </div>
@@ -77,7 +77,7 @@ export default {
     color: var(--c-logo);
 
     @include breakpoint_m {
-      font-size: $txt_l;
+      font-size: $txt_xl;
     }
 
     &:focus,
@@ -96,6 +96,7 @@ export default {
 
   &__burger-menu {
     display: block;
+    @extend .u-lm-m;
 
     @include breakpoint_l {
       display: none;

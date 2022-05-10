@@ -3,7 +3,7 @@
         <SlideNav>
             <!-- Content anchored to top -->
             <Header :currentMode="currentMode" />
-            <main class="layout__content u-bottom-spacer-xxl">
+            <main class="layout__content u-bm-xxl">
                 <Nuxt />
             </main>
 
@@ -69,6 +69,7 @@ export default {
   flex-direction: column;
   max-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 
   .shade {
     position: absolute;

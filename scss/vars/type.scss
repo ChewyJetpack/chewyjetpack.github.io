@@ -16,7 +16,7 @@ $body-font:         'Source Serif Pro', serif;
     font-family: $display-font;
     line-height: 1.2;
     font-weight: 700;
-    font-size: $txt_l;
+    font-size: $txt_xl;
     letter-spacing: -0.1rem;
     color: var(--c-heading);
     text-transform: initial;
@@ -24,14 +24,14 @@ $body-font:         'Source Serif Pro', serif;
 
 @mixin font-display {
     font-family: $display-font;
-    line-height: 1;
+    line-height: 1.2;
     font-size: $txt_l;
     font-weight: 900;
     color: var(--c-heading);
     letter-spacing: -0.1rem;
 
     @include breakpoint_l {
-        font-size: $txt_xl;
+        font-size: $txt_xxl;
     }
 
     a {
@@ -43,5 +43,6 @@ $txt_xxs:       1.4rem;
 $txt_xs:        1.8rem;
 $txt_s:         2.2rem;
 $txt_m:         2.6rem;
-$txt_l:         4.4rem;
-$txt_xl:        6.2rem;
+$txt_l:         3.2rem;
+$txt_xl:        4.4rem;
+$txt_xxl:       6.2rem;

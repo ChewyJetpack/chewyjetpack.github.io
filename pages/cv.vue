@@ -1,5 +1,5 @@
 <template>
-  <div class="cv wrap u-top-spacer-xxl">
+  <div class="cv wrap">
     <h1>Curriculum Vitae</h1>
     <div class="cv__grid">
         <div class="cv__contact">
@@ -14,35 +14,41 @@
           </ul>
         </div>
       <aside>
-        <h2 class="u-top-spacer-m">Skills</h2>
-        <ul class="cv__skills">
-          <li class="cv__skill" v-for="(skill, index) in cv.skills" :key="index">
-            {{ skill }}
-          </li>
-        </ul>
-        <h2 class="u-top-spacer-xl">Education</h2>
-        <h3 class="u-bottom-spacer-xxs">BA(Hons) Digital Media Design</h3>
-        <div class="cv__uni">
-          <span class="cv__uni-name">UAL London College of Communication:</span>
-          <span class="cv__uni-date">2009 - 2012</span>
+        <div class="cv__skills-wrap">
+          <h2>Skills</h2>
+          <ul class="cv__skills">
+            <li class="cv__skill" v-for="(skill, index) in cv.skills" :key="index">
+              {{ skill }}
+            </li>
+          </ul>
         </div>
-        <div class="cv__outro u-top-spacer-xl">
-          <h2>Interests</h2>
-          <div class="u-accent-content" v-html="$md.render(cv.outro)" />
+        <div class="cv__skills-wrap">
+          <h2>Education</h2>
+          <h3>BA(Hons) Digital Media Design</h3>
+          <div class="cv__uni">
+            <span class="cv__uni-name">UAL London College of Communication:</span>
+            <span class="cv__uni-date">2009 - 2012</span>
+          </div>
+        </div>
+        <div class="cv__skills-wrap">
+          <div class="cv__outro">
+            <h2>Interests</h2>
+            <div class="u-accent-content" v-html="$md.render(cv.outro)" />
+          </div>
         </div>
     </aside>
     <div class="cv__main">
       <section class="cv__intro">
         <div class="cv__intro-body">
-          <div class="cv__intro-content u-accent-content u-bottom-spacer-xxl" v-html="$md.render(cv.intro)" />
+          <div class="cv__intro-content u-accent-content" v-html="$md.render(cv.intro)" />
         </div>
       </section>
       <section class="cv__jobs">
-        <h2 class="u-bottom-spacer-l">Career history</h2>
-        <div class="cv__jobs-list u-bottom-spacer-l">
-          <div class="cv__job u-bottom-spacer-l" v-for="(job, index) in cv.jobs" :key="index">
-            <div class="cv__job-info u-left-spacer-s">
-              <h3 class="cv__job-title u-bottom-spacer-xxs">{{ job.title }}</h3>
+        <h2 class="cv__jobs-heading">Career history</h2>
+        <div class="cv__jobs-list">
+          <div class="cv__job" v-for="(job, index) in cv.jobs" :key="index">
+            <div class="cv__job-info">
+              <h3 class="cv__job-title">{{ job.title }}</h3>
               <div class="cv__job-meta">
                 <span class="cv__job-co">{{ job.company }}:</span>
                 <span class="cv__job-date">{{ job.startYear }} - {{ job.endYear ? job.endYear : 'Present' }}</span>
@@ -79,6 +85,8 @@ export default {
 
 <style lang="scss" scoped>
   .cv {
+    @extend .u-tm-xxl;
+
     &__grid {
       display: grid;
       grid-template: 'contact main' auto
@@ -88,6 +96,7 @@ export default {
       aside {
         color: var(--c-main);
         grid-area: aside;
+        padding-top: $unit_xxl;
       }
     }
 
@@ -106,9 +115,13 @@ export default {
         position: relative;
         padding: $unit_l;
         background: var(--c-bg-3);
-
+        @extend .u-bm-xxl;
         @extend .u-img-accent--right--1;
       }
+    }
+
+    &__skills-wrap {
+      @extend .u-bm-xl;
     }
 
     &__skill {
@@ -121,7 +134,7 @@ export default {
         display: block;
         position: absolute;
         left: 0;
-        top: $unit_s;
+        top: calc(1em / 1.8);
         background: var(--c-accent-2);
         height: $unit_xs;
         width: $unit_xs;
@@ -129,7 +142,17 @@ export default {
       }
     }
 
+    &__jobs-heading {
+      @extend .u-bm-l;
+    }
+
+    &__jobs-list {
+      @extend .u-bm-l;
+    }
+
     &__job {
+      @extend .u-bm-l;
+
       &-description {
         @include accentContent(var(--c-accent-3), left);
       }
@@ -151,10 +174,12 @@ export default {
         position: relative;
         z-index: 3;
         display: inline-block;
+        @extend .u-lm-s;
       }
 
       &-title {
         color: var(--c-bg);
+        @extend .u-bm-xxs;
       }
 
       &-co {
@@ -169,9 +194,17 @@ export default {
 
       &-description {
         position: relative;
-        padding: $unit_xxl $unit_l $unit_l;
+        padding: $unit_xl $unit_l $unit_l;
         background: var(--c-bg-2);
         top: -#{$unit_l};
+
+        > *:first-child {
+          margin-top: 0;
+        }
+
+        > *:last-child {
+          margin-bottom: 0;
+        }
       }
     }
 

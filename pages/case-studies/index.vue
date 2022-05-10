@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap u-top-spacer-xxl">
+  <div class="wrap u-tm-xxl">
     <h1>Case Studies</h1>
     <ArticleList 
       :articles="caseStudies"

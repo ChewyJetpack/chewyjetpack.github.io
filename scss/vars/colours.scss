@@ -10,9 +10,9 @@ $sunrise:       #ecbe3f;
 $coral:         #f5678a;
 $cogent:        #58bde8;
 $tangent:       #24d8ba;
+$lambo:         #b11963;
 $legume:        #251f69;
 $wave:          #008e8e;
-$lambo:         #b11963;
 $darkest-shade:    rgba($darkest, 0.7);
 $lightest-shade:   rgba($lightest, 0.7);
 
@@ -55,7 +55,7 @@ $lightest-shade:   rgba($lightest, 0.7);
     --c-sl-on:           #{$dark};
     --c-sl-a:            #{$darkest};
     --c-heading:         #{$darkest};
-    --c-art-heading:     #{$lambo};
+    --c-art-heading:     #{$legume};
     --c-header-bg:       #{$tangent};
     --c-logo:            #{$legume};
 }

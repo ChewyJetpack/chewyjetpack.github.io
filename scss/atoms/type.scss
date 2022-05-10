@@ -11,20 +11,31 @@ h2, h3, h4, h5, h6 {
 
 h1 {
     @include font-display;
-    margin-bottom: $unit_xxl;
-    text-decoration: underline $unit_xs var(--c-main-alt-2);
-    text-underline-offset: 1rem;
+    margin-bottom: $unit_m;
+    text-decoration: underline $unit_xxs var(--c-main-alt-2);
+    text-underline-offset: 0.8rem;
+
+    @include breakpoint_m {
+        margin-bottom: $unit_xxl;
+        text-decoration: underline $unit_xs var(--c-main-alt-2);
+        text-underline-offset: 1rem;
+    }
 }
 
 h2 {
-    font-size: $txt_l;
+    font-size: $txt_m;
     margin-bottom: $unit_m;
     text-decoration: underline $unit_xxs var(--c-main-alt-2);
     text-underline-offset: $unit_xs;
+
+    @include breakpoint_m {
+        font-size: $txt_xl;
+    }
 }
 
 h3 {
     font-size: $txt_m;
+    margin-bottom: $unit_s;
 }
 
 h4 {
@@ -45,7 +56,7 @@ h4 {
 }
 
 p:not([class]):not(:last-of-type) {
-    @extend .u-bottom-spacer-m;
+    @extend .u-bm-m;
 }
 
 a {
@@ -101,5 +112,12 @@ code {
 .content {
     h1, h2 {
         margin-bottom: $unit_m;
+    }
+}
+
+ul:not([class]) {
+    padding-left: $unit_l;
+    li {
+        margin-bottom: $unit_s;
     }
 }

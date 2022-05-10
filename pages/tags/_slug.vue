@@ -1,6 +1,7 @@
 <template>
-  <div class="wrap u-top-spacer-xxl">
-    <h1 class="u-bottom-spacer-xxl">Articles related to {{tag.title}}</h1>
+  <div class="wrap u-tm-xxl">
+    <h3>Articles related to:</h3>
+    <h1 class="u-bm-xxl">{{tag.title}}</h1>
     <ArticleList 
       :articles="filteredArticles(articles, tag.title)"
       :tags="tags"

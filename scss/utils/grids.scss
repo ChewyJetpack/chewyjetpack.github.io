@@ -1,22 +1,26 @@
 // e = extend this class; don't use in templates
-
-.e-grid-3-1 {
-    display: grid;
+.e-grid-3-1, .e-grid-2-1, .e-grid-1-2 {
+    display: flex;
     grid-gap: $unit_l;
-    grid-template-columns: 3fr 1fr;
-    grid-auto-rows: auto;
+    flex-direction: column;
 }
 
-.e-grid-2-1 {
-    display: grid;
-    grid-gap: $unit_l;
-    grid-template-columns: 2fr 1fr;
-    grid-auto-rows: auto;
-}
+@include breakpoint_m {
+    .e-grid-3-1, .e-grid-2-1, .e-grid-1-2 {
+        display: grid;
+        grid-gap: $unit_l;
+        grid-auto-rows: auto;
+    }
+    
+    .e-grid-3-1 {
+        grid-template-columns: 3fr 1fr;
+    }
 
-.e-grid-1-2 {
-    display: grid;
-    grid-gap: $unit_l;
-    grid-template-columns: 1fr 2fr;
-    grid-auto-rows: auto;
+    .e-grid-2-1 {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .e-grid-1-2 {
+        grid-template-columns: 1fr 2fr;
+    }
 }

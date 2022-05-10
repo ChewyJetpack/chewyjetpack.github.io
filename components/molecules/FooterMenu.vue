@@ -9,7 +9,7 @@
       <li
         v-for="(link, index) in contact.socialLinks"
         :key="index"
-        class="footer-menu__social-item u-left-spacer-m"
+        class="footer-menu__social-item"
       >
         <a
           :href="link.url"
@@ -87,6 +87,10 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
+
+    &-item {
+      @extend .u-lm-m;
+    }
 
     @include breakpoint_xl {
       justify-content: flex-end;

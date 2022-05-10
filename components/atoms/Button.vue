@@ -3,9 +3,10 @@
     :is="href ? 'a' : 'button'"
     :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }]"
     :href="href"
+    ref="btn"
     :rel="{ nofollow: external }"
     :target="{ _blank: external }"
-    @click="callback ? callback() : null"
+    @click="callback ? callback($refs.btn) : null"
   >
     <span class="button__label">{{ label }}</span>
     <font-awesome class="button__icon" :icon="icon" />
@@ -40,6 +41,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  15% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - #{$unit_s}));
+  }
+  75% {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - #{$unit_s}));
+  }
+  90% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+}
+
+%hover-state {
+    background: var(--c-accent-1);
+    color: var(--c-bg);
+    border-color: var(--c-accent-1);
+
+    svg {
+      color: var(--c-bg-3);
+    }
+  }
+
 .button {
   color: var(--c-main);
   line-height: 1;
@@ -55,16 +93,32 @@ export default {
   padding: $unit_xs $unit_s;
   font-size: $txt_s;
   cursor: pointer;
+  transition: color, background 0.3s;
+
+  &.pop-anim {
+    @extend %hover-state;
+
+    &:after {
+      position: absolute;
+      display: block;
+      content: 'Link copied!';
+      top: 0;
+      left: 50%;
+      opacity: 0;
+      transform: translate(-50%, 0);
+      min-width: calc(100% - (#{$unit_xs} * 2));
+      background: var(--c-accent-3);
+      border-radius: $unit_xxs;
+      color: var(--c-bg);
+      animation: pop ease-in-out forwards 1.6s;
+      font-size: $txt_xs;
+      padding: $unit_xxs;
+    }
+  }
 
 
   &:hover {
-    background: var(--c-accent-1);
-    color: var(--c-bg);
-    border-color: var(--c-accent-1);
-
-    svg {
-      color: var(--c-bg-3);
-    }
+    @extend %hover-state;
   }
 
   svg {
