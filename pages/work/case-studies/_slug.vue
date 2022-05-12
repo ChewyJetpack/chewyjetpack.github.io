@@ -11,7 +11,7 @@ export default {
   async asyncData({ $content, params, error }) {
     let caseStudy;
     try {
-      caseStudy = await $content("case-studies", params.slug).fetch();
+      caseStudy = await $content("work/case-studies", params.slug).fetch();
       // OR const article = await $content(`articles/${params.slug}`).fetch()
     } catch (e) {
       error({ message: "Case Study not found" });

@@ -65,7 +65,7 @@ collections:
   - name: 'caseStudies'
     label: 'Case Studies'
     label_singular: 'Case Study'
-    folder: 'content/case-studies'
+    folder: 'content/work/case-studies'
     format: 'frontmatter'
     create: true
     slug: '{{slug}}'
@@ -200,11 +200,19 @@ collections:
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
           - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Work'
+        name: 'work'
+        slug: '{{slug}}'
+        file: 'content/work/work.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'CV'
         name: 'cv'
         slug: '{{slug}}'
         identifier_field: 'name'
-        file: 'content/cv.md'
+        file: 'content/work/cv.md'
         fields:
           - { label: 'Name', name: 'name', widget: 'hidden', default: 'Emil Smith' }
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'cv' }

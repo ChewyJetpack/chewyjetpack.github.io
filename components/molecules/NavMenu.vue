@@ -22,7 +22,7 @@
         'u-rm-l': navFormat == 'full',
         'u-bm-m': navFormat == 'slide'
       }">
-      <NuxtLink class="nav-list__link" to="/case-studies">Case Studies</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/work">Work</NuxtLink>
     </li>
     <li
       :class="{
@@ -32,15 +32,6 @@
         'u-bm-m': navFormat == 'slide'
       }">
       <NuxtLink class="nav-list__link" to="/articles">Articles</NuxtLink>
-    </li>
-    <li
-      :class="{
-        'nav-list__item': true,
-        'u-rm-m': navFormat == 'mini',
-        'u-rm-l': navFormat == 'full',
-        'u-bm-m': navFormat == 'slide'
-      }">
-      <NuxtLink class="nav-list__link" to="/cv">CV</NuxtLink>
     </li>
     <li
       :class="{

@@ -74,7 +74,7 @@ export default {
     };
   },
   async asyncData({ $content }) {
-    const cv = await $content('cv').fetch();
+    const cv = await $content('work/cv').fetch();
 
     return {
       cv,
