@@ -1,20 +1,20 @@
-$darkest:       #0d0e11;
-$darker:        #171825;
-$dark:          #231e3d;
-$medium-1:      #4e4262;
-$medium-2:      #a49cb6;
-$light:         #d0ddf6;
-$lighter:       #eae5fa;
-$lightest:      #faf6fe;
-$sunrise:       #ecbe3f;
-$coral:         #f5678a;
-$cogent:        #58bde8;
-$tangent:       #24d8ba;
-$lambo:         #b11963;
-$legume:        #251f69;
-$wave:          #008e8e;
+$darkest:       #0A0B0F;
+$darker:        #0F1224;
+$dark:          #201D41;
+$medium-1:      #605A69;
+$medium-2:      #767281;
+$light:         #D0CFE8;
+$lighter:       #EFF1F6;
+$sunrise:       #F5AB76;
+$coral:         #FA6C8E;
+$cogent:        #6DC8EF;
+$tangent:       #5AD4C0;
+$lambo:         #5F06A5;
+$nissan:        #0C1EC7;
+$ford:          #BD0D57;
+$supra:         #DE7513;
 $darkest-shade:    rgba($darkest, 0.7);
-$lightest-shade:   rgba($lightest, 0.7);
+$lightest-shade:   rgba($lighter, 0.7);
 
 @mixin dark {
     --mode:dark;
@@ -32,20 +32,20 @@ $lightest-shade:   rgba($lightest, 0.7);
     --c-sl-bg:           #{$dark};
     --c-sl-on:           #{$sunrise};
     --c-sl-a:            #{$coral};
-    --c-heading:         #{$lightest};
+    --c-heading:         #{$lighter};
     --c-art-heading:     #{$tangent};
-    --c-header-bg:       #{$legume};
+    --c-header-bg:       #{$lambo};
     --c-logo:            #{$coral};
 }
 
 @mixin light {
     --mode:light;
-    --c-bg:              #{$lightest};
+    --c-bg:              #{$lighter};
     --c-shade-bg:        #{$lightest-shade};
     --c-bg-2:            #{$lighter};
     --c-bg-3:            #{$light};
-    --c-accent-1:        #{$legume};
-    --c-accent-2:        #{$wave};
+    --c-accent-1:        #{$lambo};
+    --c-accent-2:        #{$nissan};
     --c-accent-3:        #{$lambo};
     --c-accent-4:        #{$sunrise};
     --c-main:            #{$darker};
@@ -55,7 +55,12 @@ $lightest-shade:   rgba($lightest, 0.7);
     --c-sl-on:           #{$dark};
     --c-sl-a:            #{$darkest};
     --c-heading:         #{$darkest};
-    --c-art-heading:     #{$legume};
+    --c-art-heading:     #{$lambo};
     --c-header-bg:       #{$tangent};
-    --c-logo:            #{$legume};
+    --c-logo:            #{$lambo};
+}
+
+:export {
+    main: var(--c-main-alt-2);
+    accent: var(--c-accent-2);
 }

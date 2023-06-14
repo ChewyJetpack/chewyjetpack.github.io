@@ -1,25 +1,22 @@
 <template>
     <div :class="`layout layout--${currentMode}`" ref="layout">
-        <SlideNav>
-            <!-- Content anchored to top -->
-            <Header :currentMode="currentMode" />
-            <main class="layout__content u-bm-xxl">
-                <Nuxt />
-            </main>
+        <!-- Content anchored to top -->
+        <Header :currentMode="currentMode" />
+        <main class="layout__content u-bm-xxl">
+            <Nuxt />
+        </main>
 
-            <!-- <transition name="fade">
-                <div class="shade" @click="closeShade" v-if="shadeVisible" />
-            </transition> -->
-        
-            <Footer />
-        </SlideNav>
+        <!-- <transition name="fade">
+            <div class="shade" @click="closeShade" v-if="shadeVisible" />
+        </transition> -->
+    
+        <Footer />
     </div>
 </template>
 
 <script>
 import Header from '~/components/molecules/Header'
 import Footer from '~/components/molecules/Footer'
-import SlideNav from '~/components/organisms/SlideNav';
 
 export default {
     name: 'DefaultLayout',
@@ -44,18 +41,13 @@ export default {
             this.currentMode = mode;
         });
 
-        this.$nuxt.$on("slidenav", status => {
-            this.shadeVisible = status;
-        });
-
         this.$nuxt.$on("lightbox:open", args => {
             this.openLightbox(args);
         });
     },
     components: {
         Header,
-        Footer,
-        SlideNav
+        Footer
     },
 }
 </script>

@@ -1,43 +1,19 @@
 <template>
-  <ul
-    :class="{
-      'nav-list': true,
-      'nav-list--mini': navFormat === 'mini',
-      'nav-list--slide': navFormat === 'slide'
-    }"
-  >
+  <ul class="nav-list">
     <li
-      :class="{
-        'nav-list__item': true,
-        'u-rm-m': navFormat == 'mini',
-        'u-rm-l': navFormat == 'full',
-        'u-bm-m': navFormat == 'slide'
-      }">
+      class="nav-list__item">
       <NuxtLink class="nav-list__link" to="/">About</NuxtLink>
     </li>
     <li
-      :class="{
-        'nav-list__item': true,
-        'u-rm-m': navFormat == 'mini',
-        'u-rm-l': navFormat == 'full',
-        'u-bm-m': navFormat == 'slide'
-      }">
+      class="nav-list__item">
       <NuxtLink class="nav-list__link" to="/work">Work</NuxtLink>
     </li>
     <li
-      :class="{
-        'nav-list__item': true,
-        'u-rm-m': navFormat == 'mini',
-        'u-rm-l': navFormat == 'full',
-        'u-bm-m': navFormat == 'slide'
-      }">
+      class="nav-list__item">
       <NuxtLink class="nav-list__link" to="/articles">Articles</NuxtLink>
     </li>
     <li
-      :class="{
-        'nav-list__item': true,
-        'u-bm-m': navFormat == 'slide'
-      }">
+      class="nav-list__item">
     </li>
   </ul>
 </template>
@@ -53,16 +29,12 @@ export default {
 
 <style lang="scss" scoped>
 .nav-list {
-  display: none;
-
-  @include breakpoint_l {
-    display: flex;
-  }
+  width: 100%;
 
   &__item {
     @include font-heading;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     font-weight: 700;
     font-size: $txt_s;
   }
@@ -99,22 +71,6 @@ export default {
 
     &.nuxt-link-exact-active {
       color: var(--c-accent-1);
-    }
-  }
-
-  &--slide {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-end;
-
-    .nav-list {
-      &__link {
-        text-align: right;
-        font-size: $txt_m;
-        line-height: 1;
-        color: var(--c-sl-a);
-      }
     }
   }
 }

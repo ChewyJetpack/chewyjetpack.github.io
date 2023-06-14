@@ -8,12 +8,12 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'posts'
-    label: 'Posts'
-    label_singular: 'Post'
-    folder: 'content/posts'
+  - name: 'articles'
+    label: 'Articles'
+    label_singular: 'Article'
+    folder: 'content/articles'
     format: 'frontmatter'
-    sort: "date:desc"
+    sort: 'date:desc'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
@@ -21,10 +21,37 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Publish Date', name: 'date', widget: 'date', format: 'Do MMMM YYYY' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+        label: 'Content Blocks',
+        label_singular: 'Content Block',
+        name: 'contentBlocks',
+        widget: 'list',
+        min: 1,
+        fields: [
+          {
+            label: 'Images', 
+            label_singular: 'Image', 
+            name: 'images', 
+            allow_multiple: true, 
+            required: false,
+            widget: 'list', 
+            fields: [
+              { 
+                label: 'Image', 
+                name: 'src', 
+                required: true,
+                widget: 'image'
+              },
+              { label: 'Caption', name: 'caption', type: 'String', required: true}
+            ]
+          },
+          { label: 'Content', name: 'content', widget: 'markdown', required: false, },
+          { name: 'youtube', label: 'YouTube Embed Code', widget: 'text', required: false }
+        ]
+      }
       - { label: 'Tags',
           name: 'tags',
           widget: 'relation',
@@ -35,32 +62,113 @@ collections:
           value_field: 'title',
           multiple: true
         }
-  - name: 'projects'
-    label: 'Projects'
-    label_singular: 'Project'
-    folder: 'content/projects'
+  - name: 'caseStudies'
+    label: 'Case Studies'
+    label_singular: 'Case Study'
+    folder: 'content/work/case-studies'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Category', name: 'category', widget: 'string'}
+      - { label: 'Year', name: 'year', widget: 'number', default: '2022' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags',
-          name: 'tags',
-          widget: 'relation',
-          collection: 'tags',
-          folder: 'content/_tags/',
-          display_fields: [title],
-          search_fields: [title],
-          value_field: 'title',
-          multiple: true
-        }
+      - { label: 'Summary', name: 'summary', widget: 'markdown' }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'summaryImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Background', name: 'background', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'backgroundImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Goals', name: 'goals', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'goalsImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Method', name: 'method', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'methodImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Results', name: 'results', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'resultsImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Wrap Up', name: 'wrap-up', widget: 'markdown', required: false }
   - name: 'tags'
     label: 'Tags'
     label_singular: 'Tag'
@@ -77,26 +185,6 @@ collections:
           widget: 'string',
           required: true,
         }
-      - {
-          name: 'tagslug',
-          label: 'Tag slug',
-          widget: 'hidden',
-          required: true,
-        }
-  - name: 'jobs'
-    label: 'Jobs'
-    label_singular: 'Job'
-    folder: 'content/_jobs/'
-    identifier_field: job
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string'}
-      - { label: 'Company', name: 'company', widget: 'string'}
-      - { label: 'Start Year', name: 'start-year', widget: 'date', format: 'YYYY'}
-      - { label: 'End Year', name: 'end-year', widget: 'date', format: 'YYYY'}
-      - { label: 'Description', name: 'description', widget: 'string'}
   - name: 'pages'
     label: 'Pages'
     label_singular: 'Page'
@@ -105,28 +193,70 @@ collections:
     files:
       - label: 'Homepage'
         name: 'home'
+        slug: '{{slug}}'
         file: 'content/home.md'
         fields:
           - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
           - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Work'
+        name: 'work'
+        slug: '{{slug}}'
+        file: 'content/work/work.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'CV'
         name: 'cv'
-        file: 'content/cv.md'
+        slug: '{{slug}}'
+        identifier_field: 'name'
+        file: 'content/work/cv.md'
         fields:
           - { label: 'Name', name: 'name', widget: 'hidden', default: 'Emil Smith' }
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'cv' }
-          - { label: 'Intro', name: 'intro', widget: 'markdown' }      
-          - { label: 'Outro', name: 'outro', widget: 'markdown' }       
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }             
           - { label: 'Phone', name: 'phone', widget: 'number' }         
-          - { label: 'Email', name: 'email', widget: 'string' }      
+          - { label: 'Email', name: 'email', widget: 'string' }  
+          - { label: 'Skills', name: 'skills', widget: 'list', allow_multiple: true, 
+              field: { label: 'Skill', name: skill, widget: 'string'} 
+            }    
           - { label: 'Jobs',
               name: 'jobs',
               label_singular: 'Job',
-              widget: 'relation',
-              collection: 'jobs',
-              display_fields: [title, company, start-year, end-year, description],
-              search_fields: [title, company, start-year, end-year, description],
-              value_field: 'tag',
+              widget: 'list',
+              fields: [
+                { label: 'Title', name: 'title', widget: 'string'},
+                { label: 'Company', name: 'company', widget: 'string'},
+                { label: 'Start Year', name: 'startYear', widget: 'number', min: 2009, default: 2020},
+                { label: 'End Year', name: 'endYear', widget: 'number', required: false, min: 2009, default: 2020},
+                { label: 'Description', name: 'description', widget: 'markdown'}
+              ]
             }
+          - { label: 'Outro', name: 'outro', widget: 'markdown' }
+  - name: 'details'
+    label: 'Details'
+    editor:
+      preview: false
+    files: [
+      {
+        name: 'contact',
+        label: 'Contact',
+        file: 'content/contact.md',
+        fields: [
+          {label: 'Title', name: 'title', default: 'Contact Details', widget: 'string'},
+          {label: 'Email', name: 'email', widget: 'string'},
+          {label: 'Phone', name: 'phone', widget: 'number', default: 07503111160},
+          {
+            label: 'Social Links', 
+            label_singular: 'Social Link',
+            name: 'socialLinks', 
+            widget: 'list',
+            fields: [
+              {label: 'url', name: 'url', widget: 'string'}
+            ]
+          }
+        ]
+      }
+    ]

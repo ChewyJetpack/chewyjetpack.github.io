@@ -12,21 +12,15 @@ h2, h3, h4, h5, h6 {
 h1 {
     @include font-display;
     margin-bottom: $unit_m;
-    text-decoration: underline $unit_xxs var(--c-main-alt-2);
-    text-underline-offset: 0.8rem;
 
     @include breakpoint_m {
         margin-bottom: $unit_xxl;
-        text-decoration: underline $unit_xs var(--c-main-alt-2);
-        text-underline-offset: 1rem;
     }
 }
 
 h2 {
     font-size: $txt_m;
     margin-bottom: $unit_m;
-    text-decoration: underline $unit_xxs var(--c-main-alt-2);
-    text-underline-offset: $unit_xs;
 
     @include breakpoint_m {
         font-size: $txt_xl;

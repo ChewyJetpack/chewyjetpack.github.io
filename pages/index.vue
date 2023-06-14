@@ -1,24 +1,27 @@
 <template>
-  <div class="wrap u-tm-xxl">
+  <div>
     <section class="homepage">
-      <h1 class="homepage__heading">{{home.title}}</h1>
-      <div class="homepage__content">
+      <HeadingStrip :heading="home.title" shape="hexagon"/>
+      <div class="wrap homepage__content">
         <nuxt-content :document="home" />
       </div>
-      <span class="homepage__avatar u-img-accent--right--1">
+      <span class="homepage__avatar">
         <nuxt-img preset="avatar" :src="home.avatar" :alt="home.title"/>
       </span>
     </section>
-    <h1>Latest Articles</h1>
-    <ArticleList 
-      :articles="articles"
-      :tags="tags"
-    />
+    <section class="wrap">
+      <h1>Latest Articles</h1>
+      <ArticleList 
+        :articles="articles"
+        :tags="tags"
+      />
+    </section>
   </div>
 </template>
 
 <script>
 import ArticleList from '~/components/organisms/ArticleList'
+import HeadingStrip from '~/components/molecules/HeadingStrip'
 
 export default {
   name: 'IndexPage',
@@ -38,14 +41,14 @@ export default {
     };
   },
   components: {
-    ArticleList
+    ArticleList,
+    HeadingStrip
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .homepage {
-  @extend .e-grid-2-1;
   @extend .u-bm-xxl;
   align-items: start;
 
@@ -81,26 +84,10 @@ export default {
 }
 
 .nuxt-content-container {
-  padding: $unit_s;
-  @include accentContent(var(--c-accent-3), left);
-  background: var(--c-bg-2);
   font-size: $txt_xs;
 
   @include breakpoint_m {
     font-size: $txt_s;
-    padding: $unit_l;
-    background: transparent;
-    &:after {
-      display: block;
-      content: "";
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: calc(100% + (#{$unit_xxl}));
-      background: var(--c-bg-2);
-    }
   }
 
 }
