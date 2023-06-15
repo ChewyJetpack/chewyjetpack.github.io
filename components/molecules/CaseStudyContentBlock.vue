@@ -4,7 +4,7 @@
         <div v-if="content" class="cs-block__content" v-html="$md.render(content)" />
         <div v-if="images" class="cs-block__images">
             <div v-for="(image, index) in images" :key="index">
-                <nuxt-img class="cs-block__image" :src="image.src" :alt="image.caption" />
+                <img class="cs-block__image" :src="image.src" :alt="image.caption" />
             </div>
         </div>
       </section>

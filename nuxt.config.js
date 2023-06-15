@@ -37,6 +37,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@aceforth/nuxt-optimized-images',
     '@nuxt/content',
     '@nuxtjs/markdownit',
     'nuxt-clipboard2',
@@ -44,37 +45,29 @@ export default {
     '@nuxt/image'
   ],
 
-  image: {
-    presets: {
-      thumb: {
-        modifiers: {
-          format: 'jpg',
-          width: 360,
-          height: 270
-        }
-      },
-      csthumb: {
-        modifiers: {
-          format: 'jpg',
-          width: 540,
-          height: 360
-        }
-      },
-      avatar: {
-        modifiers: {
-          format: 'jpg',
-          width: 360,
-          height: 360
-        }
-      },
-      hero: {
-        modifiers: {
-          format: 'jpg',
-          width: 1600,
-          height: 600
-        }
-      }
-    }
+  optimizedImages: {
+    handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+    optimizeImages: true,
+    optimizeImagesInDev: false,
+    defaultImageLoader: 'img-loader',
+    mozjpeg: {
+      quality: 80,
+    },
+    optipng: {
+      optimizationLevel: 3,
+    },
+    pngquant: false,
+    gifsicle: {
+      interlaced: true,
+      optimizationLevel: 3,
+    },
+    svgo: {
+      // enable/disable svgo plugins here
+    },
+    webp: {
+      preset: 'default',
+      quality: 75,
+    },
   },
 
   styleResources: {
@@ -110,5 +103,5 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 }

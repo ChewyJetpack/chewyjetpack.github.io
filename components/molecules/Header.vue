@@ -8,7 +8,6 @@
         <NavMenu class="header__nav" />
         <ModeSwitch
           :currentMode="currentMode"
-          :navFormat="navFormat"
           class="header__mode"
         />
       </div>

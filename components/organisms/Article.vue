@@ -2,7 +2,7 @@
     <article class="article">
         <section class="article__top-section">
             <div class="article__hero">
-                <nuxt-img
+                <img
                     :src="content.hero" 
                     :alt="content.title"
                     sizes="sm:100vw md:100vw lg:1600px"

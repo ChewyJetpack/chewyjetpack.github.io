@@ -6,8 +6,8 @@
                     <NuxtLink class="article-list__img" :to="article.path">
                         <span class="article-list__cs-cat" v-if="caseStudies">{{ article.category }}</span>
                         <span>
-                            <nuxt-img v-if="caseStudies" preset="csthumb" :src="article.hero" :alt="article.title" />
-                            <nuxt-img v-else preset="thumb" :src="article.hero" :alt="article.title" />
+                            <img v-if="caseStudies" preset="csthumb" :src="article.hero" :alt="article.title" />
+                            <img v-else preset="thumb" :src="article.hero" :alt="article.title" />
                         </span>
                     </NuxtLink>
                     <div class="article-list__content">
