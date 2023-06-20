@@ -1,9 +1,7 @@
 ---
-title: Hi. I'm Emil, and I make things.
-avatar: /img/1639157059791.jpg
+title: Hi, I'm a Creative Technologist
+avatar: /img/portrait.png
 ---
-I'm a designer, programmer, musician, and hardware-tinkerer from London. 
+I think “Creative Technologist” is more descriptive than a list of frameworks and buzzwords ([check out my CV](/work/cv) if that’s what you’re into). In a nutshell, I’m into tech and art. At the intersection of the two is design, so that’s where I've spent most of my career. 
 
-Professionally, I've spent over a decade in both design and front-end development, and have worked for global brands such as Google, Sony, eBay, Nokia, Virgin, and Tinder.
-
-Outside of my professional life, I'm usually designing and building physical devices such as music equipment, reading or writing about technology, or producing electronic music.
+Outside of work, I'm an artist. I've been writing and producing original music since childhood, and I run a youth studio in Hackney once a week at [The Crib](https://thecrib.org.uk/); an amazing charity for young people, run by some amazing people. 

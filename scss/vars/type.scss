@@ -5,18 +5,22 @@ $body-font:         'DM Sans', sans-serif;
 
 @mixin font-body {
     font-family: $body-font;
-    line-height: 1.6;
+    line-height: 1.4;
     font-weight: 400;
     font-size: $txt_s;
     color: var(--c-main);
+
+    @include breakpoint_l {
+        font-size: $txt_m;
+    }
 }
 
 @mixin font-heading {
     font-family: $display-font;
     line-height: 1.2;
-    font-weight: 700;
-    font-size: $txt_xl;
-    letter-spacing: -0.1rem;
+    font-weight: 500;
+    font-size: $txt_l;
+    letter-spacing: -0.04em;
     color: var(--c-heading);
     text-transform: initial;
 }
@@ -24,24 +28,19 @@ $body-font:         'DM Sans', sans-serif;
 @mixin font-display {
     font-family: $display-font;
     line-height: 1.2;
-    font-size: $txt_l;
-    font-weight: 900;
+    font-size: $txt_xl;
+    font-weight: 500;
     color: var(--c-heading);
-    letter-spacing: -0.1rem;
-
-    @include breakpoint_l {
-        font-size: $txt_xxl;
-    }
+    letter-spacing: -0.04em;
 
     a {
-        font-weight: 900;
+        font-weight: 500;
     }
 }
 
-$txt_xxs:       1.4rem;
-$txt_xs:        1.8rem;
-$txt_s:         2.2rem;
-$txt_m:         2.6rem;
-$txt_l:         3.2rem;
-$txt_xl:        4.4rem;
-$txt_xxl:       6.2rem;
+$txt_xs:            1.3rem;
+$txt_s:             1.6rem;
+$txt_m:             2rem;
+$txt_l:             2.5rem;
+$txt_xl:            3.1rem;
+$txt_xxl:           5.4rem;

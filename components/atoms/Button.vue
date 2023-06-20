@@ -69,9 +69,9 @@ export default {
 }
 
 %hover-state {
-    background: var(--c-accent-1);
+    background: var(--c-accent-2);
     color: var(--c-bg);
-    border-color: var(--c-accent-1);
+    border-color: var(--c-accent-2);
 
     svg {
       color: var(--c-bg-3);
@@ -85,11 +85,12 @@ export default {
   align-items: center;
   transition: all 0.3s;
   position: relative;
-  border-radius: $unit_xxs;
   font-weight: 600;
   outline: none;
   background: none;
-  border: solid 1px var(--c-main-alt-2);
+  border: solid 2px var(--c-accent-2);
+  border-right: 0;
+  border-top: 0;
   padding: $unit_xs $unit_s;
   font-size: $txt_s;
   cursor: pointer;
@@ -111,7 +112,6 @@ export default {
       border-radius: $unit_xxs;
       color: var(--c-bg);
       animation: pop ease-in-out forwards 1.6s;
-      font-size: $txt_xs;
       padding: $unit_xxs;
     }
   }
@@ -123,8 +123,7 @@ export default {
 
   svg {
     transition: all 0.2s;
-    font-size: $txt_xs;
-    color: var(--c-accent-1)
+    color: var(--c-accent-2)
   }
 
   &--ico-l {

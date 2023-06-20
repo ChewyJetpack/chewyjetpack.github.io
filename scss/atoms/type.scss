@@ -3,6 +3,8 @@
 }
 
 h2, h3, h4, h5, h6 {
+    font-weight: 500;
+
     @include font-heading;
     & > a {
         color: var(--c-heading);
@@ -14,16 +16,16 @@ h1 {
     margin-bottom: $unit_m;
 
     @include breakpoint_m {
-        margin-bottom: $unit_xxl;
+        margin-bottom: $unit_l;
     }
 }
 
 h2 {
-    font-size: $txt_m;
+    font-size: $txt_l;
     margin-bottom: $unit_m;
 
     @include breakpoint_m {
-        font-size: $txt_xl;
+        font-size: $txt_l;
     }
 }
 
@@ -33,20 +35,23 @@ h3 {
 }
 
 h4 {
-    font-size: $txt_s;
-    font-weight: 600;
-}
-
-.page-desc {
     font-size: $txt_m;
 }
 
+.page-desc {
+    font-size: $txt_l;
+}
+
 .nuxt-content, .text-block {
-    max-width: $max_txt_x;
+    max-width: $max_txt;
 
     &--indent {
         padding-left: $unit_l;
     }
+}
+
+.text-block-l {
+    max-width: $max_txt_l;
 }
 
 p:not([class]):not(:last-of-type) {
@@ -54,18 +59,13 @@ p:not([class]):not(:last-of-type) {
 }
 
 a {
-    text-decoration: none;
-    color: var(--c-accent-1);
+    color: var(--c-accent-2);
+    text-decoration: underline;
+    text-decoration-skip: edges;
+    text-decoration-skip-ink: all;
 
     &:hover, &:focus {
-        text-decoration: underline;
-    }
-
-    &:not([class]) {
-        text-decoration: underline;
-        text-decoration-skip: edges;
-        text-decoration-skip-ink: all;
-        font-weight: 600;
+        color: var(--c-main-2);
     }
 }
 

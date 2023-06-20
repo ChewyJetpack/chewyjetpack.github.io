@@ -1,8 +1,8 @@
 ---
-title: Work
+title: Modus of Madness
 ---
-I've spent over a decade in both design and front-end development, and have worked for global brands such as Google, Sony, eBay, Nokia, Virgin, and Tinder. 
+I’ve spent the last fifteen years working interdisciplinarily in design, engineering, and specialist leadership, delivering projects for brands such as Google, eBay, Sony, Nokia, Virgin, and Tinder, as well as a long stint in the publishing industry.
 
-Nowadays I manage design teams and digital products, with a focus on building and scaling design systems, human-centred design principles, and deep collaboration with engineering teams.
+My approach is holistic; I focus on goals, systems, and processes to solve problems in ways that are efficient, sustainable, and scalable. To this end, I do my best work when I have the freedom to traverse a range of disciplines.
 
-If you want to know, please check out my [CV](/work/cv) and take a look at my case studies below.
+Further to my professional skill-set, I care deeply about data privacy and ethics in AI. This is an area which has been commanding my attention (and anxiety) for a number of years, and recent developments in this space are making this a crucial aspect of operations for almost any industry. I love new tools, but I care deeply about understanding how tools work, and how to use them responsibly.

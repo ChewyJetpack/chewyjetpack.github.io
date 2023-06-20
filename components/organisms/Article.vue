@@ -1,36 +1,28 @@
 <template>
     <article class="article">
-        <section class="article__top-section">
-            <div class="article__hero">
-                <img
-                    :src="content.hero" 
-                    :alt="content.title"
-                    sizes="sm:100vw md:100vw lg:1600px"
-                />
-            </div>
-            <div class="article__headline-wrap wrap wrap--padded">
+        <div class="article__hero">
+            <img
+                :src="content.hero" 
+                :alt="content.title"
+                sizes="sm:100vw md:100vw lg:1600px"
+            />
+        </div>
+        <div class="article__header wrap text-block-l">
+            <div>
                 <div class="article__headline">
                     <h1>{{ content.title }}</h1>
                 </div>
-            </div>
-            <div class="wrap">
                 <ul class="article__meta-list">
                     <li v-if="caseStudy">
-                        <font-awesome
-                            :icon="['fas', 'history']"
-                        />
                         From {{ content.year }}
                     </li>
                     <li v-else>
-                        <font-awesome
-                            :icon="['far', 'calendar']"
-                        />
                         {{ content.date }}
                     </li>
                 </ul>
             </div>
-        </section>
-        <section class="article__main wrap">
+        </div>
+        <section class="article__main wrap text-block-l">
             <aside class="article__meta">
                 <h3>Share</h3>
                 <Button
@@ -160,13 +152,6 @@ export default {
     align-items: center;
     justify-content: flex-start;
 
-    &__top-section {
-        background: var(--c-bg-2);
-        width: 100%;
-        padding-bottom: $unit_m;
-        @extend .u-bm-xl
-    }
-
     &__hero {
         display: flex;
         align-items: center;
@@ -175,26 +160,30 @@ export default {
         overflow: hidden;
     }
 
-    &__headline-wrap {
+    &__header, &__main {
+        background: var(--c-bg);
+        padding: $unit_s;
+
+        @include breakpoint_l {
+            padding: $unit_m $unit_l;
+        }
+    }
+
+    &__header {
         @extend .e-grid-3-1;
-        @extend .u-bm-m;
-        margin-top: -#{$unit_xxxl};
+        margin-top: -#{$unit_xxl};
     }
 
     &__headline {
-        padding: $unit_s;
-        background: var(--c-art-heading);
-        margin: 0;
-        color: var(--c-bg);
+        @extend .u-bm-s;
+        color: var(--c-main);
 
         @include breakpoint_m {
-            padding: $unit_m $unit_l;
             max-width: $media_l;
             grid-column: 1;
         }
 
         h1 {
-            color: var(--c-bg);
             text-decoration: none;
             margin: 0;
             @extend .u-bm-l;
@@ -214,13 +203,13 @@ export default {
             grid-row: 1;
             position: sticky;
             top: $unit_xxxl;
-            border-left: solid 2px var(--c-bg-2);
+            border-left: solid 2px var(--c-main-alt-2);
             padding-left: $unit_l;
         }
     }
 
     &__meta-list {
-        font-size: $txt_xs;
+        font-size: $txt_s;
         display: flex;
         color: var(--c-main-alt);
 
@@ -238,7 +227,7 @@ export default {
     }
 
     &__content {
-        font-size: $txt_xs;
+        font-size: $txt_s;
         order: 0;
 
         @include breakpoint_m {

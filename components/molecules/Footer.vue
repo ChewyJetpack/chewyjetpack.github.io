@@ -24,13 +24,28 @@ export default {
 
 <style lang="scss" scoped>
     footer {
-        background: var(--c-accent-1);
-        padding: $unit_s 0;
-        color: var(--c-bg);
+        border-top: solid 2px var(--c-main-alt-2);
+        font-size: $txt_s;
+        padding: $unit_m 0;
+        color: var(--c-main-alt);
+        text-align: center;
+
+        p {
+            margin-bottom: $unit_xs;
+        }
+
+        @include breakpoint_m {
+            font-size: $txt_s;
+            p {
+                margin-bottom: 0;
+            }
+        }
     }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
+    @include breakpoint_m {
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 </style>

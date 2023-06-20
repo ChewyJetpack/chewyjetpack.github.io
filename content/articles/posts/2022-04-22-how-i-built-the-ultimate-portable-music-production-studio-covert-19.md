@@ -30,7 +30,7 @@ contentBlocks:
       Check out the video for a full run down!
     images: []
   - youtube: <iframe width="560" height="315"
-      src="https://www.youtube-nocookie.com/embed/zag9Cu1Z6A8" title="YouTube
+      src="https://www.youtube-nocookie.com/embed/qp-IZxvErRg" title="YouTube
       video player" frameborder="0" allow="accelerometer; autoplay;
       clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>

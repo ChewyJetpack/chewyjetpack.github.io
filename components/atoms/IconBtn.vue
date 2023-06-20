@@ -38,7 +38,6 @@ export default {
   display: flex;
   align-items: center;
   position: relative;
-  font-size: $txt_s;
   color: var(--c-main);
 
   &--invert {

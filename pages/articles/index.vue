@@ -1,29 +1,48 @@
 <template>
-  <div class="wrap u-tm-xxl">
-    <h1>Articles</h1>
-    <ArticleList 
-      :articles="articles"
-      :tags="tags"
-    />
+  <div class="articles">
+    <HeadingStrip :heading="articlesPage.title" shape="hexagon"/>
+    <div class="wrap articles__content">
+        <nuxt-content :document="articlesPage" />
+    </div>
+    <div class="wrap u-tm-xxl">
+      <ArticleList 
+        :articles="articles"
+        :tags="tags"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import ArticleList from '~/components/organisms/ArticleList'
+import HeadingStrip from '~/components/molecules/HeadingStrip'
 
 export default {
   name: 'ArticlesPage',
   layout: 'DefaultLayout',
   async asyncData({ $content }) {
-    const articles = await $content('articles').fetch()
+    const articlesPage = await $content('articles/articles').fetch()
+    const articles = await $content('articles/posts').fetch()
     const tags = await $content('tags').fetch()
 
     return {
-      articles, tags
+      articles, tags, articlesPage
     };
   },
   components: {
-    ArticleList
+    ArticleList,
+    HeadingStrip
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .articles {
+    @extend .u-bm-xxl;
+
+    &__content {
+      @extend .u-tm-xxl;
+      @extend .u-bm-xxl;
+    }
+  }
+</style>

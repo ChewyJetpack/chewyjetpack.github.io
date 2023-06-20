@@ -72,14 +72,15 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  text-align: center;
 
-  a {
-    color: var(--c-header-bg);
-  }
-
-  @include breakpoint_xl {
+  @include breakpoint_m {
     justify-content: flex-end;
     flex-direction: row;
+
+    & > a {
+      margin-right: $unit_s;
+    }
   }
 
   &__social {
@@ -89,12 +90,16 @@ export default {
     width: 100%;
 
     &-item {
-      @extend .u-lm-m;
+      margin: $unit_xs;
     }
 
-    @include breakpoint_xl {
+    @include breakpoint_m {
       justify-content: flex-end;
       flex-direction: row;
+
+      &-item {
+        margin: 0 $unit_xs;
+      }
     }
   }
 
@@ -108,7 +113,7 @@ export default {
         justify-content: flex-end;
 
         &-link {
-          font-size: $txt_m;
+          font-size: $txt_xs;
         }
       }
     }

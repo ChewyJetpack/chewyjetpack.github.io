@@ -1,16 +1,16 @@
 <template>
   <div>
     <section class="homepage">
-      <HeadingStrip :heading="home.title" shape="hexagon"/>
+      <HeadingStrip :heading="home.title" shape="pentagon"/>
       <div class="wrap homepage__content">
         <nuxt-content :document="home" />
+        <span class="homepage__avatar">
+          <img preset="avatar" :src="home.avatar" :alt="home.title"/>
+        </span>
       </div>
-      <span class="homepage__avatar">
-        <img preset="avatar" :src="home.avatar" :alt="home.title"/>
-      </span>
     </section>
     <section class="wrap">
-      <h1>Latest Articles</h1>
+      <h1>Latest Posts</h1>
       <ArticleList 
         :articles="articles"
         :tags="tags"
@@ -33,7 +33,7 @@ export default {
   },
   async asyncData({ $content }) {
     const home = await $content('home').fetch();
-    const articles = await $content('articles').fetch();
+    const articles = await $content('articles/posts').fetch();
     const tags = await $content('tags').fetch();
 
     return {
@@ -63,32 +63,49 @@ export default {
   }
 
   &__avatar {
-    order: 1;
-    max-width: 60%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0 auto;
 
-    @include breakpoint_m {
-      max-width: 100%;
-      order: 2;
+    &::before {
+      content:"";
+      display: block;
+      height:50%;
+      width:150%;
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translateX(-50%) rotate(-15deg);
+      background: var(--c-accent-2);
+      z-index:-1;
+    }
+
+    img {
       position: relative;
-      top: $unit_l;
+      bottom: -9px;
+      max-width: 50%;
+      margin: 0 auto;
+
+      @include breakpoint_m {
+        bottom: -1px;
+        max-width: none;
+        margin: 0;
+      }
     }
   }
 
   &__content {
-    order: 2;
-
-    @include breakpoint_m {
-      order: 1;
-    }
+    @extend .u-tm-xxl;
+    @extend .e-grid-3-1;
   }
 }
 
-.nuxt-content-container {
-  font-size: $txt_xs;
-
-  @include breakpoint_m {
-    font-size: $txt_s;
-  }
-
+.nuxt-content {
+  display: flex;
+  align-content: center;
 }
 </style>

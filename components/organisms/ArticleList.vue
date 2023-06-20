@@ -2,23 +2,28 @@
     <div :class="['article-list', caseStudies ? 'article-list--case-studies' : '']">
         <ul>
             <li class="article-list__item" v-for="article of articles" :key="article.slug">
-                <article class="article-list__article">
+                <article :class="caseStudies ? 'article-list__case-study' : 'article-list__article'">
                     <NuxtLink class="article-list__img" :to="article.path">
-                        <span class="article-list__cs-cat" v-if="caseStudies">{{ article.category }}</span>
                         <span>
                             <img v-if="caseStudies" preset="csthumb" :src="article.hero" :alt="article.title" />
                             <img v-else preset="thumb" :src="article.hero" :alt="article.title" />
                         </span>
+                        <span class="article-list__cs-cat" v-if="caseStudies">{{ article.category }}</span>
                     </NuxtLink>
                     <div class="article-list__content">
-                        <h2 class="article-list__art-title">
-                            <NuxtLink :to="article.path">
-                                <span>{{ article.title }}</span>
-                            </NuxtLink>
-                        </h2>
-                        <p v-if="!caseStudies" class="article-list__excerpt">
-                            {{ article.description }}
-                        </p>
+                        <div>
+                            <h2 class="article-list__art-title">
+                                <NuxtLink :to="article.path">
+                                    {{ article.title }}
+                                </NuxtLink>
+                            </h2>
+                            <p v-if="!caseStudies" class="article-list__date">
+                                {{ article.date }}
+                            </p>
+                            <p v-if="!caseStudies" class="article-list__excerpt">
+                                {{ article.description }}
+                            </p>
+                        </div>
                         <TagList v-if="!caseStudies" :tags="filteredTags(article.tags, tags)" />
                     </div>
                 </article>
@@ -72,23 +77,11 @@ export default {
         margin: 0;
         padding: 0;
     }
-
-    &__item {
-        margin-bottom: $unit_xl;
-    }
-
-    &__cs-cat {
-        display: block;
-        background: var(--c-accent-1);
-        padding: $unit_xxs $unit_s;
-        color: var(--c-bg);
-        font-weight: 700;
-    }
             
     &__art-title {
         text-decoration: none;
         font-size: $txt_l;
-        margin-bottom: -#{$unit_m};
+        margin: 0 0 $unit_xxs;
 
         a {
             // Repeated on image hover below
@@ -102,14 +95,30 @@ export default {
                 }
             }
         }
+
+        @include breakpoint_l {
+            margin: $unit_m 0 $unit_xxs;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__date {
+        font-size: $txt_xs;
+        color: var(--c-main-alt);
+        margin: 0 0 $unit_s 0;
     }
 
     &__excerpt {
         margin-top: $unit_m;
-        font-size: $txt_xs;
+        font-size: $txt_s;
         @extend .u-bm-s;
 
-        @include breakpoint_m {
+        @include breakpoint_l {
             margin-top: 0;
         }
     }
@@ -127,32 +136,55 @@ export default {
 
     &__article {
         @extend .e-grid-1-2;
+        border-top: solid 2px var(--c-main-alt-2);
     }
 
-    @include breakpoint_m {
+    &__case-study {
+            .article-list__art-title {
+                padding: $unit_xs;
+                margin: 0;
+            }
+    }
+
+    &__img {
+        position: relative;
+        display: block;
+    }
+
+    &__cs-cat {
+        display: inline-block;
+        background: var(--c-bg);
+        color: var(--c-accent-2);
+        white-space: nowrap;
+        position: absolute;
+        bottom: -#{$unit_xs};
+        line-height: 1;
+        left: 0;
+        font-size: $txt_s;
+        font-weight:700;
+        padding: $unit_xs;
+    }
+
+    @include breakpoint_l {
         &--case-studies > ul {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-auto-rows: auto;
             grid-gap: $unit_m;
-
-            @include breakpoint_m {
-                grid-gap: $unit_xxl;
-            }
         }
 
         &__article {
             display: grid;
             grid-gap: $unit_m;
-            margin-bottom: $unit_xxl;
+            margin-bottom: $unit_l;
         }
         
         &__art-title {
-            top: 0;
-            width: auto;
-            z-index: 1;
-            font-size: $txt_xl;
-            margin-bottom: $unit_m;
+            font-size: $txt_l;
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 }

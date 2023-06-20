@@ -11,7 +11,7 @@ export default {
   async asyncData({ $content, params, error }) {
     let article;
     try {
-      article = await $content("articles", params.slug).fetch();
+      article = await $content("articles/posts", params.slug).fetch();
     } catch (e) {
       error({ message: "Article not found" });
     }

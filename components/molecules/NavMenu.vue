@@ -30,19 +30,29 @@ export default {
 <style lang="scss" scoped>
 .nav-list {
   width: 100%;
+  display: flex;
+
+  @include breakpoint_l {
+    justify-content: flex-end;
+    gap: $unit_m;
+    font-size: $txt_m;
+  }
 
   &__item {
-    @include font-heading;
     display: flex;
-    align-items: flex-start;
-    font-weight: 700;
-    font-size: $txt_s;
+    align-items: center;
   }
 
   &__link {
-    color: var(--c-main);
+    color: var(--c-accent-2);
     text-decoration: none;
     position: relative;
+    padding: $unit_xs;
+    line-height: 1;
+
+    @include breakpoint_l {
+      padding-bottom: $unit_s;
+    }
 
     &:focus {
       outline: none;
@@ -52,17 +62,18 @@ export default {
       content: "";
       display: block;
       position: absolute;
-      bottom: -#{$unit_xs};
+      bottom: -2px;
       left: 0;
       width: 100%;
-      height: $unit_xxs;
-      background: var(--c-accent-1);
+      height: 2px;
+      background: var(--c-main);
       transform: scaleX(0);
       transition: transform 0.3s;
     }
     &:hover,
     &:focus {
       text-decoration: none;
+      color: var(--c-main);
 
       &:after {
         transform: scaleX(1);
@@ -70,7 +81,7 @@ export default {
     }
 
     &.nuxt-link-exact-active {
-      color: var(--c-accent-1);
+      color: var(--c-main);
     }
   }
 }

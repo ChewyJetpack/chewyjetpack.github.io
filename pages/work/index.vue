@@ -1,25 +1,24 @@
 <template>
-  <div class="wrap u-tm-xxl">
+  <div>
     <section class="work">
-      <div>
-        <h1 class="work__heading">{{work.title}}</h1>
-        <div class="work__content">
-          <nuxt-content :document="work" />
-        </div>
+      <HeadingStrip :heading="work.title" shape="triangle"/>
+      <div class="wrap work__content">
+        <nuxt-content :document="work" />
       </div>
-    </section>
-    <section class="work__case-studies">
-      <h2>Case Studies</h2>
-      <ArticleList 
-        :articles="caseStudies"
-        :caseStudies="true"
-      />
+      <section class="wrap work__case-studies">
+        <h2>Case Studies</h2>
+        <ArticleList 
+          :articles="caseStudies"
+          :caseStudies="true"
+        />
+      </section>
     </section>
   </div>
 </template>
 
 <script>
 import ArticleList from '~/components/organisms/ArticleList'
+import HeadingStrip from '~/components/molecules/HeadingStrip'
 
 export default {
   name: 'caseStudiesPage',
@@ -33,27 +32,19 @@ export default {
     };
   },
   components: {
-    ArticleList
+    ArticleList,
+    HeadingStrip
   }
 }
 </script>
 
 <style lang="scss" scoped>
   .work {
-    @extend .e-grid-2-1;
     @extend .u-bm-xxl;
 
-    &__heading {
-      margin-bottom: $unit_l;
+    &__content {
+      @extend .u-tm-xxl;
+      @extend .u-bm-xxl;
     }
   }
-
-.nuxt-content-container {
-  font-size: $txt_xs;
-
-  @include breakpoint_m {
-    font-size: $txt_s;
-  }
-
-}
 </style>

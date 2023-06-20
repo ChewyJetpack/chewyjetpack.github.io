@@ -1,9 +1,5 @@
 :root {
-    font-size: 9px;
-
-    @include breakpoint_m {
-      font-size: 10px;
-    }
+    font-size: 10px;
 }
 
 body {
@@ -24,8 +20,8 @@ body {
     overflow-x: hidden;
     max-width: 100%;
 }
-  
-.wrap {
+
+@mixin wrap {  
     padding: 0 $unit_s;
     max-width: $media_xl;
     margin: 0 auto;
@@ -46,6 +42,10 @@ body {
         max-width: calc(#{$media_l} + (#{$unit_l} * 2));
         }
     }
+}
+  
+.wrap {
+    @include wrap;
 }
   
 section {

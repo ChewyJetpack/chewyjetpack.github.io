@@ -1,16 +1,19 @@
 <template>
-  <div class="wrap u-tm-xxl">
-    <h3>Articles related to:</h3>
-    <h1 class="u-bm-xxl">{{tag.title}}</h1>
-    <ArticleList 
-      :articles="filteredArticles(articles, tag.title)"
-      :tags="tags"
-    />
+  <div class="articles">
+    <HeadingStrip heading="Cultural Entropy" shape="hexagon"/>
+    <div class="wrap u-tm-xxl">
+      <h3>Articles related to:</h3>
+      <h1 class="u-bm-xxl">{{tag.title}}</h1>
+      <ArticleList 
+        :articles="filteredArticles(articles, tag.title)"
+        :tags="tags"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-
+import HeadingStrip from '~/components/molecules/HeadingStrip'
 import ArticleList from '~/components/organisms/ArticleList'
 
 export default {
@@ -25,7 +28,7 @@ export default {
       error({ message: 'Tag not found' });
     }
     // get all articles
-    const articles = await $content('articles').fetch()
+    const articles = await $content('articles/posts').fetch()
     // get all tags
     const tags = await $content('tags').fetch()
 
@@ -47,7 +50,8 @@ export default {
     }
   },
   components: {
-    ArticleList
+    ArticleList,
+    HeadingStrip
   }
 }
 </script>

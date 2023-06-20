@@ -1,11 +1,11 @@
 // e = extend this class; don't use in templates
 .e-grid-3-1, .e-grid-2-1, .e-grid-1-2 {
     display: flex;
-    grid-gap: $unit_l;
+    grid-gap: $unit_m;
     flex-direction: column;
 }
 
-@include breakpoint_m {
+@include breakpoint_l {
     .e-grid-3-1, .e-grid-2-1, .e-grid-1-2 {
         display: grid;
         grid-gap: $unit_l;
