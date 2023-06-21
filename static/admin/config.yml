@@ -11,7 +11,7 @@ collections:
   - name: 'articles'
     label: 'Articles'
     label_singular: 'Article'
-    folder: 'content/articles'
+    folder: 'content/articles/posts'
     format: 'frontmatter'
     sort: 'date:desc'
     create: true
@@ -208,33 +208,14 @@ collections:
           - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-      - label: 'CV'
-        name: 'cv'
+      - label: 'Articles'
+        name: 'articles'
         slug: '{{slug}}'
-        identifier_field: 'name'
-        file: 'content/work/cv.md'
+        file: 'content/articles/articles.md'
         fields:
-          - { label: 'Name', name: 'name', widget: 'hidden', default: 'Emil Smith' }
-          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'cv' }
-          - { label: 'Intro', name: 'intro', widget: 'markdown' }             
-          - { label: 'Phone', name: 'phone', widget: 'number' }         
-          - { label: 'Email', name: 'email', widget: 'string' }  
-          - { label: 'Skills', name: 'skills', widget: 'list', allow_multiple: true, 
-              field: { label: 'Skill', name: skill, widget: 'string'} 
-            }    
-          - { label: 'Jobs',
-              name: 'jobs',
-              label_singular: 'Job',
-              widget: 'list',
-              fields: [
-                { label: 'Title', name: 'title', widget: 'string'},
-                { label: 'Company', name: 'company', widget: 'string'},
-                { label: 'Start Year', name: 'startYear', widget: 'number', min: 2009, default: 2020},
-                { label: 'End Year', name: 'endYear', widget: 'number', required: false, min: 2009, default: 2020},
-                { label: 'Description', name: 'description', widget: 'markdown'}
-              ]
-            }
-          - { label: 'Outro', name: 'outro', widget: 'markdown' }
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'details'
     label: 'Details'
     editor:

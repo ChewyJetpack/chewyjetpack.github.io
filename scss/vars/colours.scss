@@ -7,7 +7,7 @@ $light:         #D0CFE8;
 $lighter:       #EFF1F6;
 $sunrise:       #F5AB76;
 $coral:         #FA6C8E;
-$cogent:        #6DC8EF;
+$cogent:        #7b6dff;
 $tangent:       #5AD4C0;
 $lambo:         #5F06A5;
 $nissan:        #0C1EC7;
@@ -23,8 +23,8 @@ $lightest-shade:   rgba($lighter, 0.7);
     --c-bg-2:            #{$darker};
     --c-bg-3:            #{$dark};
     --c-accent-1:        #{$coral};
-    --c-accent-2:        #{$tangent};
-    --c-accent-3:        #{$cogent};
+    --c-accent-2:        #{$cogent};
+    --c-accent-3:        #{$tangent};
     --c-accent-4:        #{$sunrise};
     --c-main:            #{$lighter};
     --c-main-alt:        #{$light};
@@ -36,6 +36,12 @@ $lightest-shade:   rgba($lighter, 0.7);
     --c-art-heading:     #{$tangent};
     --c-header-bg:       #{$lambo};
     --c-logo:            #{$coral};
+    --img-pent:          url('~/static/img/pentagon.svg');
+    --img-pent-l:        url('~/static/img/pentagon-l.svg');
+    --img-tri:           url('~/static/img/triangle.svg');
+    --img-tri-l:         url('~/static/img/triangle-l.svg');
+    --img-hex:           url('~/static/img/hexagon.svg');
+    --img-hex-l:         url('~/static/img/hexagon-l.svg');
 }
 
 @mixin light {
@@ -44,10 +50,10 @@ $lightest-shade:   rgba($lighter, 0.7);
     --c-shade-bg:        #{$lightest-shade};
     --c-bg-2:            #{$lighter};
     --c-bg-3:            #{$light};
-    --c-accent-1:        #{$lambo};
+    --c-accent-1:        #{$ford};
     --c-accent-2:        #{$nissan};
     --c-accent-3:        #{$lambo};
-    --c-accent-4:        #{$sunrise};
+    --c-accent-4:        #{$supra};
     --c-main:            #{$darker};
     --c-main-alt:        #{$medium-1};
     --c-main-alt-2:      #{$medium-2};
@@ -58,6 +64,12 @@ $lightest-shade:   rgba($lighter, 0.7);
     --c-art-heading:     #{$lambo};
     --c-header-bg:       #{$tangent};
     --c-logo:            #{$lambo};
+    --img-pent:          url('~/static/img/pentagon-light.svg');
+    --img-pent-l:        url('~/static/img/pentagon-l-light.svg');
+    --img-tri:           url('~/static/img/triangle-light.svg');
+    --img-tri-l:         url('~/static/img/triangle-l-light.svg');
+    --img-hex:           url('~/static/img/hexagon-light.svg');
+    --img-hex-l:         url('~/static/img/hexagon-l-light.svg');
 }
 
 :export {

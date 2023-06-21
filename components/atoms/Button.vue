@@ -69,12 +69,10 @@ export default {
 }
 
 %hover-state {
-    background: var(--c-accent-2);
-    color: var(--c-bg);
-    border-color: var(--c-accent-2);
+    color: var(--c-accent-2);
 
     svg {
-      color: var(--c-bg-3);
+      color: var(--c-accent-2);
     }
   }
 
@@ -95,6 +93,7 @@ export default {
   font-size: $txt_s;
   cursor: pointer;
   transition: color, background 0.3s;
+  text-decoration: none;
 
   &.pop-anim {
     @extend %hover-state;
@@ -153,7 +152,7 @@ export default {
 
       &__icon {
         order: 1;
-        margin-left: $unit_s;
+        margin-left: $unit_xs;
       }
     }
 
@@ -163,7 +162,7 @@ export default {
       text-decoration: none;
 
       svg {
-        transform: translateX($unit_xxs);
+        transform: translateX(4px);
       }
     }
   }

@@ -4,6 +4,11 @@
       <HeadingStrip :heading="work.title" shape="triangle"/>
       <div class="wrap work__content">
         <nuxt-content :document="work" />
+        <Button
+            label="Download my CV"
+            href="CV.pdf"
+            class="u-tm-l"
+        />
       </div>
       <section class="wrap work__case-studies">
         <h2>Case Studies</h2>
@@ -19,6 +24,7 @@
 <script>
 import ArticleList from '~/components/organisms/ArticleList'
 import HeadingStrip from '~/components/molecules/HeadingStrip'
+import Button from '~/components/atoms/Button'
 
 export default {
   name: 'caseStudiesPage',
@@ -33,7 +39,8 @@ export default {
   },
   components: {
     ArticleList,
-    HeadingStrip
+    HeadingStrip,
+    Button
   }
 }
 </script>

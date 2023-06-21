@@ -43,13 +43,12 @@ export default {
         }
     }
     
-    // TODO: create light-theme versions of SVGs and switch the bg image for the light theme
     &--pentagon {
-        background: url('~/static/img/pentagon.svg') right 0 / auto no-repeat;
-        border-color: var(--c-accent-1);
+        background: var(--img-pent) right 0 / auto no-repeat;
+        border-color: var(--c-accent-2);
 
         @include breakpoint_m {
-            background-image: url('~/static/img/pentagon-l.svg');
+            background: var(--img-pent-l) right 0 / auto no-repeat;
             background-position-x: 50%;
         }
 
@@ -59,11 +58,11 @@ export default {
     }
 
     &--triangle {
-        background: url('~/static/img/triangle.svg') right 0 / auto no-repeat;
+        background: var(--img-tri) right 0 / auto no-repeat;
         border-color: var(--c-accent-4);
 
         @include breakpoint_m {
-            background-image: url('~/static/img/triangle-l.svg');
+            background-image: var(--img-tri-l);
             background-position-x: 50%;
         }
 
@@ -73,11 +72,11 @@ export default {
     }
 
     &--hexagon {
-        background: url('~/static/img/hexagon.svg') right 0 / auto no-repeat;
+        background: var(--img-hex) right 0 / auto no-repeat;
         border-color: var(--c-accent-3);
 
         @include breakpoint_m {
-            background-image: url('~/static/img/hexagon-l.svg');
+            background-image: var(--img-hex-l);
             background-position-x: 50%;
         }
 
