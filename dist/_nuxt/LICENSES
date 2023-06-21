@@ -1,11 +1,4 @@
 /*!
- * Vue.js v2.7.14
- * (c) 2014-2022 Evan You
- * Released under the MIT License.
- */
-
-
-/*!
  * clipboard.js v2.0.11
  * https://clipboardjs.com/
  *
@@ -25,3 +18,10 @@
  */
 
 /*! https://mths.be/punycode v1.4.1 by @mathias */
+
+
+/*!
+ * Vue.js v2.7.14
+ * (c) 2014-2022 Evan You
+ * Released under the MIT License.
+ */
