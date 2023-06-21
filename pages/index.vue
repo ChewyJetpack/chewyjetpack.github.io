@@ -8,6 +8,12 @@
           <img :src="home.avatar" :alt="home.title"/>
         </span>
       </div>
+      <div class="wrap">
+        <Button
+          href="/work"
+          label="See my work"
+        />
+      </div>
     </section>
     <section class="wrap">
       <h1>Latest Posts</h1>
@@ -22,6 +28,7 @@
 <script>
 import ArticleList from '~/components/organisms/ArticleList'
 import HeadingStrip from '~/components/molecules/HeadingStrip'
+import Button from '~/components/atoms/Button'
 
 export default {
   name: 'IndexPage',
@@ -42,7 +49,8 @@ export default {
   },
   components: {
     ArticleList,
-    HeadingStrip
+    HeadingStrip,
+    Button
   }
 }
 </script>
@@ -102,10 +110,5 @@ export default {
     @extend .u-tm-xxl;
     @extend .e-grid-3-1;
   }
-}
-
-.nuxt-content {
-  display: flex;
-  align-content: center;
 }
 </style>
