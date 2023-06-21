@@ -1,6 +1,7 @@
 ---
 title: It's Not Overbridge for the Octatrack, but It's Close Enough
-hero: /img/elektron-octatrack-mk2-aufmacher.jpg
+hero: /img/hero-ot.jpg
+thumb: /img/thumb-ot.jpg
 date: 28th November 2020
 description: A guide on how to set up Ableton to record individual channels and
   stems from the Elektron Octatrack.

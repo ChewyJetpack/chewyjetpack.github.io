@@ -3,10 +3,17 @@
     <section class="homepage">
       <HeadingStrip :heading="home.title" shape="pentagon"/>
       <div class="wrap homepage__content">
-        <nuxt-content :document="home" />
+        <ContentDoc :document="home" />
         <span class="homepage__avatar">
           <img :src="home.avatar" :alt="home.title"/>
         </span>
+      </div>
+      <div class="wrap">
+        <Button
+            label="See my work"
+            href="/work"
+            class="u-tm-l"
+        />
       </div>
     </section>
     <section class="wrap">
@@ -22,32 +29,34 @@
 <script>
 import ArticleList from '~/components/organisms/ArticleList'
 import HeadingStrip from '~/components/molecules/HeadingStrip'
+import Button from '~/components/atoms/Button'
+const home = await useAsyncData('home', () => queryContent('/').findOne())
 
 export default {
   name: 'IndexPage',
-  layout: 'DefaultLayout',
   head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
   },
-  async asyncData({ $content }) {
-    const home = await $content('home').fetch();
-    const articles = await $content('articles/posts').fetch();
-    const tags = await $content('tags').fetch();
+  // async asyncData({ $content }) {
+  //   const home = await $content('home').fetch();
+  //   const articles = await $content('articles/posts').fetch();
+  //   const tags = await $content('tags').fetch();
 
-    return {
-      home, articles, tags
-    };
-  },
+  //   return {
+  //     home, articles, tags
+  //   };
+  // },
   components: {
     ArticleList,
-    HeadingStrip
+    HeadingStrip,
+    Button
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .homepage {
   @extend .u-bm-xxl;
   align-items: start;

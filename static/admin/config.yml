@@ -20,7 +20,8 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
+      - { label: 'Hero (1920x800)', name: 'hero', allow_multiple: false, widget: 'image' }
+      - { label: 'Thumb (640x400)', name: 'thumb', allow_multiple: false, widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'Do MMMM YYYY' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
@@ -73,7 +74,8 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Hero', name: 'hero', allow_multiple: false, widget: 'image' }
+      - { label: 'Hero (1920x800)', name: 'hero', allow_multiple: false, widget: 'image' }
+      - { label: 'Thumb (640x400)', name: 'thumb', allow_multiple: false, widget: 'image' }
       - { label: 'Category', name: 'category', widget: 'string'}
       - { label: 'Year', name: 'year', widget: 'number', default: '2022' }
       - { label: 'Description', name: 'description', widget: 'string' }

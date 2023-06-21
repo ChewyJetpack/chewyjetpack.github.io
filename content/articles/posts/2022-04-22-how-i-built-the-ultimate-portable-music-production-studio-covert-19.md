@@ -8,7 +8,8 @@ article-tags:
   - Music Technology
   - Technology
 title: "How I Built The Ultimate Portable Music Production Studio; COVERT-19 "
-hero: /img/0yy18ny.jpg
+hero: /img/hero-19.jpg
+thumb: /img/thumb-19.jpg
 description: This project was a 9-month exploration into the world of
   electronics and general makery, as I attempted to build a custom studio in a
   box

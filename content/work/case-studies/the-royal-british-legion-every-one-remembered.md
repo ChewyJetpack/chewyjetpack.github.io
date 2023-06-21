@@ -1,6 +1,7 @@
 ---
 title: "The Royal British Legion: Every One Remembered "
-hero: /img/rbleorhero.jpg
+hero: /img/hero-eor.jpg
+thumb: /img/thumb-eor.jpg
 category: Design
 year: 2018
 description: Designing an interactive digital experience to remember every

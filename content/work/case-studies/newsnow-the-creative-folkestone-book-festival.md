@@ -1,6 +1,7 @@
 ---
 title: NewsNow + The Creative Folkestone Book Festival
-hero: /img/2020_12_03_21_30_59_2_8ec75781aa.jpg
+hero: /img/hero-cf.jpg
+thumb: /img/thumb-cf.jpg
 category: Branding & Design
 year: 2019
 description: Branding, design, and video production for NewsNow as Principle

@@ -1,6 +1,7 @@
 ---
 title: NewsNow's New Format
-hero: /img/nnnewformat.jpg
+hero: /img/hero-nf.jpg
+thumb: /img/thumb-nf.jpg
 category: Design & Development
 year: 2021
 description: Building and scaling a design system, with implementation in

@@ -37,38 +37,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@aceforth/nuxt-optimized-images',
     '@nuxt/content',
     '@nuxtjs/markdownit',
     'nuxt-clipboard2',
-    '@nuxtjs/style-resources',
-    '@nuxt/image'
+    '@nuxtjs/style-resources'
   ],
 
-  optimizedImages: {
-    handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
-    optimizeImages: true,
-    optimizeImagesInDev: false,
-    defaultImageLoader: 'img-loader',
-    mozjpeg: {
-      quality: 80,
-    },
-    optipng: {
-      optimizationLevel: 3,
-    },
-    pngquant: false,
-    gifsicle: {
-      interlaced: true,
-      optimizationLevel: 3,
-    },
-    svgo: {
-      // enable/disable svgo plugins here
-    },
-    webp: {
-      preset: 'default',
-      quality: 75,
-    },
-  },
 
   styleResources: {
     scss: [
