@@ -84,15 +84,10 @@ export default {
         margin: 0 0 $unit_xxs;
 
         a {
+            text-decoration: none;
             // Repeated on image hover below
             &:hover {
-                span:first-child {
-                    color: var(--c-accent-1);
-                }
-
-                span:not(:first-child) {
-                    background: var(--c-bg-3)
-                }
+                color: var(--c-accent-2);
             }
         }
 
@@ -129,7 +124,7 @@ export default {
         & > ul {
             display: flex;
             flex-direction: column;
-            grid-gap: $unit_xxl;
+            grid-gap: $unit_s;
         }
 
     }
