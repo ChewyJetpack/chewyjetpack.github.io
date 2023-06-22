@@ -4,6 +4,11 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    script: [
+      {
+        src: 'https://identity.netlify.com/v1/netlify-identity-widget.js'
+      }
+    ],
     title: 'emilsmith',
     htmlAttrs: {
       lang: 'en'
