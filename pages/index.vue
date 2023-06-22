@@ -12,7 +12,6 @@
         <Button
           href="/work"
           label="See my work"
-          class="u-tm-s"
         />
       </div>
     </section>
@@ -78,7 +77,7 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto $unit_m;
 
     &::before {
       content:"";
