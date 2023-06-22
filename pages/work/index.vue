@@ -8,6 +8,7 @@
             label="Download my CV"
             href="CV.pdf"
             class="u-tm-l"
+            :external="true"
         />
       </div>
       <section class="wrap work__case-studies">

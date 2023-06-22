@@ -4,8 +4,8 @@
     :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }]"
     :href="href"
     ref="btn"
-    :rel="{ nofollow: external }"
-    :target="{ _blank: external }"
+    :rel="external ? 'nofollow' : ''"
+    :target="external ? '_blank' : ''"
     @click="callback ? callback($refs.btn) : null"
   >
     <span class="button__label">{{ label }}</span>
@@ -23,7 +23,8 @@ export default {
       type: String
     },
     external: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     icon: {
       type: String,
