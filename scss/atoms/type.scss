@@ -44,6 +44,7 @@ h4 {
 
 .nuxt-content, .text-block {
     max-width: $max_txt;
+    margin-bottom: $unit_m;
 
     &--indent {
         padding-left: $unit_l;
