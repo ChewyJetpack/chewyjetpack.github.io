@@ -7,7 +7,7 @@
                 sizes="sm:100vw md:100vw lg:1600px"
             />
         </div>
-        <div class="article__header wrap text-block-l">
+        <div class="article__header wrap text-block-xl">
             <div>
                 <div class="article__headline">
                     <h1>{{ content.title }}</h1>
@@ -22,7 +22,7 @@
                 </ul>
             </div>
         </div>
-        <section class="article__main wrap text-block-l">
+        <section class="article__main wrap text-block-xl">
             <aside class="article__meta">
                 <h3>Share</h3>
                 <Button
@@ -156,8 +156,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        max-height: 60vh;
+        //max-height: 60vh;
         overflow: hidden;
+        border-bottom: solid 2px var(--c-main-alt-2);
+        width: 100%;
     }
 
     &__header, &__main {

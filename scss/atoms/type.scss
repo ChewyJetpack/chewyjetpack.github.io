@@ -51,8 +51,15 @@ h4 {
     }
 }
 
-.text-block-l {
-    max-width: $max_txt_l;
+.text-block {
+    &-l {
+        max-width: $max_txt_l;
+    }
+
+    &-xl {
+        max-width: $max_txt_xl;
+
+    }
 }
 
 p:not([class]):not(:last-of-type) {
