@@ -12,6 +12,7 @@
         <Button
           href="/work"
           label="See my work"
+          class="u-tm-s"
         />
       </div>
     </section>
