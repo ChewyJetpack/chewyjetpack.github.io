@@ -1,7 +1,7 @@
 ---
 title: "NewsNow: User Research Initiative"
-hero: /img/hero-ux.jpg
-thumb: /img/thumb-ux.jpg
+hero: /img/hero-nnux.jpg
+thumb: /img/thumb-nnux.jpg
 category: UX Research
 year: 2020
 description: A long-running user research initiative, consisting of design,
@@ -97,20 +97,16 @@ method: >-
 
 
   Once all the interviews were complete, I worked with the design team to create a summary of our findings, as well as a highlights reel, containing the most interesting and useful clips of our interview recordings, grouped into categories, to offer colleagues and management a quick glimpse into the responses of our participants.
-results: "The overall results of this initiative were enlightening, challenging,
-  and extremely positive. For the first time, we were able to understand and
-  empathise with the NewsNow userbase in a personal way. We were shown which
-  parts of our new product were working well and in some cases even better than
-  expected, as well as parts of the product that needed improvement. We were
-  given a better understanding of how our product fit into the wider industry,
-  how our users interpreted the brand against competitors, and how we might
-  better serve a more diverse range of people in the future. We also found that
-  some of our initial expectations were challenged: There were certain areas of
-  the new product which we had been intending to make personalisable, or using
-  algorithms to modulate aspects of the UI based on the user segment being
-  served, but in fact we found that our users harmonised on certain aspects of
-  the design and that by executing certain aspects of the design well, we would
-  negate the need for additional complexity. We were also able to re-prioritise
-  our product roadmap, iron out some rough plans, and add more specificity to
-  design tasks in the backlog based on all the new insight we had attained."
+results: >-
+  The overall results of this initiative were enlightening, challenging, and
+  extremely positive. For the first time, we were able to understand and
+  empathise with the NewsNow userbase in a direct and immediate way. We were
+  shown which parts of our new product were working well and in some cases even
+  better than expected, as well as parts of the product that needed improvement.
+  We were given a better understanding of how our product fit into the wider
+  industry, how our users interpreted the brand against competitors, and how we
+  might better serve a more diverse range of people in the future. 
+
+
+  We also found that some of our initial expectations were challenged: There were certain areas of the new product which we had been intending to make personalisable, or using algorithms to modulate aspects of the UI based on the user segment being served, but in fact we found that our users harmonised on certain aspects of the design.  In the end, it seemed that by optimising the core areas of the product in-line with the needs of our users, we would negate the need for additional complexity. We were also able to re-prioritise our product roadmap and add more specificity to design tasks in the backlog based on these new insights.
 ---

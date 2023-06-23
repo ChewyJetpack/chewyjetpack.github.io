@@ -45,64 +45,64 @@ contentBlocks:
       Setup 9 MIDI channels, named T1-T8 and MIDI MASTER.
 
 
-      ![](https://emilsmith.pro/uploads/image19_6504fb8545.png)
+      ![](/img/image19_6504fb8545.png)
 
 
       On each MIDI channels, add an External Instrument device, and map each to the correct midi channel for its respective track. By default, the tracks are on channels 1-8. For the MIDI MASTER channel, use the same MIDI channel that the T1 channel uses. 
 
 
-      ![](https://emilsmith.pro/uploads/image17_d66a933b51.png)
+      ![](/img/image17_d66a933b51.png)
 
 
-      ![](https://emilsmith.pro/uploads/image6_a73d6dd4c6.png)
+      ![](/img/image6_a73d6dd4c6.png)
 
 
       Group all the MIDI channels. We’ll call the group CONTROL. 
 
 
-      ![](https://emilsmith.pro/uploads/image16_09d4825d29.png)
+      ![](/img/image16_09d4825d29.png)
 
 
       In the T1 channel, create a MIDI clip with a length of 1/32 note, and add an automation on MIDI CC 50, setting a value of 0. 
 
 
-      ![](https://emilsmith.pro/uploads/image14_78f5c1dd1f.png)
+      ![](/img/image14_78f5c1dd1f.png)
 
 
-      ![](https://emilsmith.pro/uploads/image22_000eb74af3.png)
+      ![](/img/image22_000eb74af3.png)
 
 
       Copy this MIDI clip into every cell on the T1-T8 channels, except for the final STOP scene. 
 
 
-      ![](https://emilsmith.pro/uploads/image21_a5cc9122ce.png)
+      ![](/img/image21_a5cc9122ce.png)
 
 
       On the T1 MIDI channel, and in the T1 scene row, change this automation to a value of >1, with a slope leading up to 127. We should be able to set this to 127 and leave it at that, but I found that sometimes due to latency it may miss this very first automation. The slope means that it’s constantly receiving new values until we hit the 127 point, so it’ll solo the track as soon as it’s able to do so.
 
 
-      ![](https://emilsmith.pro/uploads/image18_4cb0667863.png)
+      ![](/img/image18_4cb0667863.png)
 
 
       Change the clip colour, so we know this is a ‘solo’ clip.
 
 
-      ![](https://emilsmith.pro/uploads/image10_d980c4502f.png)
+      ![](/img/image10_d980c4502f.png)
 
 
       Copy the new clip to T2, T3 and so on.
 
 
-      ![](https://emilsmith.pro/uploads/image9_a231464f36.png)
+      ![](/img/image9_a231464f36.png)
 
 
       On the END scene, create a 1/32 long MIDI clip, containing nothing but a single A0 note. Let’s give this clip a new colour as well, so we know it’s our ‘stop’ clip.
 
 
-      ![](https://emilsmith.pro/uploads/image20_07aec5a911.png)
+      ![](/img/image20_07aec5a911.png)
 
 
-      ![](https://emilsmith.pro/uploads/image24_4c1703c1e0.png)
+      ![](/img/image24_4c1703c1e0.png)
 
 
        
@@ -117,13 +117,13 @@ contentBlocks:
       Outside the group, create an audio track, to record your stems into, make sure this is set to receive audio from the correct input. We’ll call this track AUDIO REC.
 
 
-      ![](https://emilsmith.pro/uploads/image2_f8bc6ca8ab.png)
+      ![](/img/image2_f8bc6ca8ab.png)
 
 
       Set up a 1 bar count-in, under the metronome settings, for when we want to record. You will need this later.
 
 
-      ![](https://emilsmith.pro/uploads/image11_bfd43b423d.png)
+      ![](/img/image11_bfd43b423d.png)
 
 
       That’s the main setup done! Next, let’s get the OT ready…
@@ -138,13 +138,13 @@ contentBlocks:
       Go to PROJ -> MIDI -> SYNC, and set TRANSP and CLOCK to RECV.
 
 
-      ![](https://emilsmith.pro/uploads/image7_10fef7c821.jpg)
+      ![](/img/image7_10fef7c821.jpg)
 
 
       Go to PROJ -> MIDI -> CHANNELS and make sure your track channels match those that are set in Ableton
 
 
-      ![](https://emilsmith.pro/uploads/image23_c8ec09ac1c.jpg)
+      ![](/img/image23_c8ec09ac1c.jpg)
 
 
       Either create a new arrangement, or open your existing arrangement. For my test, I’m just using a simple, 64 step pattern (4 bars).
@@ -153,7 +153,7 @@ contentBlocks:
       Add ‘LOOP 00/∞’ to final row.
 
 
-      ![](https://emilsmith.pro/uploads/image4_9351ea461f.jpg)
+      ![](/img/image4_9351ea461f.jpg)
 
 
       Find out the length of your arrangement. To do this, add a row before the LOOP, select the left-most column, press YES, and read the text in the header. The text consists of three numbers, representing bars, beats and sixteenths, respectively. This is the starting measure for the extra row you just added. To calculate the length of the arrangement up until this beat, simply reduce this number appropriately. For example, if the starting measure of the new row is “73 1 1”, the length of the arrangement up until that point must be 72 bars. The means the actual length of your arrangement is “72 0 0”. \
@@ -168,7 +168,7 @@ contentBlocks:
       The example in the following image would have a length of “4 0 0”.
 
 
-      ![](https://emilsmith.pro/uploads/image5_3617850115.jpg)
+      ![](/img/image5_3617850115.jpg)
 
 
       Remove the new row you just created to figure out the length.
@@ -177,7 +177,7 @@ contentBlocks:
       Make sure Arr Mode is activated:
 
 
-      ![](https://emilsmith.pro/uploads/image13_04f0272f1d.jpg)
+      ![](/img/image13_04f0272f1d.jpg)
 
 
       ### Ready to go!
@@ -189,10 +189,10 @@ contentBlocks:
        
 
 
-      ![](https://emilsmith.pro/uploads/image15_fe54285c1a.png)
+      ![](/img/image15_fe54285c1a.png)
 
 
-      ![](https://emilsmith.pro/uploads/image12_f5470b4d8b.png)
+      ![](/img/image12_f5470b4d8b.png)
 
 
       Do your thing - move the crossfader and switch scenes. When you’re done, just stop the recording in Ableton.
@@ -204,7 +204,7 @@ contentBlocks:
        
 
 
-      ![](https://emilsmith.pro/uploads/image3_a2c1b9d0c0.png)
+      ![](/img/image3_a2c1b9d0c0.png)
 
 
       Select all the cells in the CONTROL channel, except for the last one, corresponding to the STOP scene. Open the Launch Box by clicking the first of the three circles at the bottom of the Clip View. Set the Follow Action Time to the number of bars in your Octatrack arrangement (we figured this out in step 6), and set Follow Action A to ‘Next’, as illustrated below:
@@ -213,13 +213,13 @@ contentBlocks:
        
 
 
-      ![](https://emilsmith.pro/uploads/image8_03b8ffb535.png)
+      ![](/img/image8_03b8ffb535.png)
 
 
       Arm your AUDIO REC channel, hit the record button in any of the cells, and before the count-in finishes, hit the play button on the first row in your CONTROL track.
 
 
-      ![](https://emilsmith.pro/uploads/image1_8371855e27.png)
+      ![](/img/image1_8371855e27.png)
 
 
       Walk away for approximately 8 times the length of your tune. When you come back, you’ll have an audio clip in the AUDIO REC track, which contains stems for each individual track!

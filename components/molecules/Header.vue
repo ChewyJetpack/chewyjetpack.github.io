@@ -49,18 +49,18 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    grid-gap: $unit_xs;
 
     @include breakpoint_l {
       grid-template-columns: 1fr 1fr 22px;
       align-items: flex-end;
-      grid-gap: $unit_xs;
       @include wrap;
     }
   }
 
   &__title {
     display: block;
-    max-width:100px;
+    max-width:120px;
     padding: 0 0 0 $unit_xs;
 
     @include breakpoint_l {

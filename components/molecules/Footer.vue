@@ -41,11 +41,13 @@ export default {
             }
         }
     }
+    .footer-content {
+        display: flex;
+        flex-direction: column-reverse;
 
-    @include breakpoint_m {
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-        }
+        @include breakpoint_m {
+                justify-content: space-between;
+                flex-direction: row;
+            }
     }
 </style>
