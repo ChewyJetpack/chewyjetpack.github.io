@@ -1,7 +1,9 @@
 <template>
     <div :class="images.length > 2 ? 'images images--grid' : 'images'">
         <figure v-for="(image, index) in images" :key="index">
-            <img @click="lightBox(images.length > 2 ? images : image.src)" class="image" :src="image.src" :alt="image.caption" />
+            <div class="img-wrap">
+                <img @click="lightBox(images.length > 2 ? images : image.src)" class="image" :src="image.src" :alt="image.caption" />
+            </div>
             <caption class="caption">{{ image.caption }}</caption>
         </figure>
     </div>
@@ -24,6 +26,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    figure {
+
+        .img-wrap {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            background: var(--c-bg-2);
+            
+            &::after {
+                display: block;
+                content: "";
+                padding-top: 80%;
+            }
+            
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                max-height: 100%;
+                max-width: 100%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+            }
+        }
+    }
     .images {
             @extend .u-tm-l;
 
@@ -38,9 +65,5 @@ export default {
                 background: var(--c-bg-2);
                 font-size: $txt_s;
             }
-        }
-
-        .image {
-            cursor: pointer;
         }
 </style>
