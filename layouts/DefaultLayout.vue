@@ -6,9 +6,10 @@
             <Nuxt />
         </main>
 
-        <!-- <transition name="fade">
-            <div class="shade" @click="closeShade" v-if="shadeVisible" />
-        </transition> -->
+        <transition name="fade">
+          <div class="shade" @click="closeShade" v-if="shadeVisible" />
+        </transition>
+        <Lightbox :args="lightboxArgs" v-if="lightboxVisible" />
     
         <Footer />
     </div>
@@ -17,6 +18,7 @@
 <script>
 import Header from '~/components/molecules/Header'
 import Footer from '~/components/molecules/Footer'
+import Lightbox from "~/components/molecules/Lightbox";
 
 
 export default {
@@ -46,9 +48,26 @@ export default {
             this.openLightbox(args);
         });
     },
+    methods: {
+      closeLightbox() {
+        this.$nuxt.$emit("lightbox:close", false);
+        this.shadeVisible = false;
+        this.lightboxVisible = false;
+        this.lightboxArgs = {};
+      },
+      closeShade() {
+        this.closeLightbox();
+      },
+      openLightbox(args) {
+        this.shadeVisible = true;
+        this.lightboxVisible = true;
+        this.lightboxArgs = args;
+      }
+    },
     components: {
         Header,
-        Footer
+        Footer,
+        Lightbox
     },
 }
 </script>
@@ -65,7 +84,7 @@ export default {
   overflow-x: hidden;
 
   .shade {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

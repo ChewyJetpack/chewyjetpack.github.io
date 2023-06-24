@@ -11,6 +11,7 @@
         <div 
             v-if="block.youtube" 
             v-html="block.youtube"
+            class="youtube-embed u-bm-m"
         />
         <ArticleImages 
             v-if="block.images" 
@@ -38,6 +39,24 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+    .youtube-embed {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        
+        &::after {
+            display: block;
+            content: "";
+            padding-top: 56.25%;
+        }
 
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
 </style>

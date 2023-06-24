@@ -6,7 +6,9 @@ export default {
   head: {
     script: [
       {
-        src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
+        src: 'https://identity.netlify.com/v1/netlify-identity-widget.js'
+      },
+      {
         src: 'netlifyIdentity.js'
       }
     ],
@@ -31,7 +33,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/icons.js',
+    '~/plugins/icons.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +41,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -5,6 +5,13 @@
     flex-direction: column;
 }
 
+.e-grid-1-1 {
+    display: grid;
+    grid-gap: $unit_m;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr;
+}
+
 @include breakpoint_l {
     .e-grid-3-1, .e-grid-2-1, .e-grid-1-2 {
         display: grid;

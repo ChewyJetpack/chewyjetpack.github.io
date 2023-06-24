@@ -1,7 +1,7 @@
 <template>
   <component
     :is="href ? 'a' : 'button'"
-    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }]"
+    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, {'button--frameless': frameless}]"
     :href="href"
     ref="btn"
     :rel="external ? 'nofollow' : ''"
@@ -36,6 +36,10 @@ export default {
     },
     callback: {
       type: Function
+    },
+    frameless: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -95,6 +99,10 @@ export default {
   cursor: pointer;
   transition: color, background 0.3s;
   text-decoration: none;
+
+  &--frameless {
+    border: 0;
+  }
 
   &.pop-anim {
     @extend %hover-state;

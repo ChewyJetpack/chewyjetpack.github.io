@@ -13,8 +13,8 @@ $lambo:         #5F06A5;
 $nissan:        #0C1EC7;
 $ford:          #BD0D57;
 $supra:         #DE7513;
-$darkest-shade:    rgba($darkest, 0.7);
-$lightest-shade:   rgba($lighter, 0.7);
+$darkest-shade:    rgba($darkest, 0.85);
+$lightest-shade:   rgba($lighter, 0.85);
 
 @mixin dark {
     --mode:dark;
