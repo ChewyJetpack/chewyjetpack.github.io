@@ -48,7 +48,8 @@ collections:
                 required: true,
                 widget: 'image'
               },
-              { label: 'Caption', name: 'caption', type: 'String', required: true}
+              { label: 'Caption', name: 'caption', type: 'String', required: false},
+              { label: 'Alt text', name: 'alt', type: 'String', required: true}
             ]
           },
           { label: 'Content', name: 'content', widget: 'markdown', required: false, },

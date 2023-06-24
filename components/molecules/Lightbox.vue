@@ -4,11 +4,15 @@
         <div v-if="args.gallery">
           <img
             :src="args.gallery[args.index].src"
-            :alt="args.gallery[args.index].caption"
+            :alt="args.gallery[args.index].alt"
             @click="nextImg($event)"
           />
+          <p v-if="args.gallery[args.index].caption">{{ args.gallery[args.index].caption }}</p>
         </div>
-        <img v-else :src="args.src" :alt="args.alt" />
+        <div v-else>
+        <img :src="args.src" :alt="args.alt" />
+            <p v-if="args.caption">{{ args.caption }}</p>
+        </div>
       </div>
       <div v-if="args.gallery" class="lightbox__controls u-top-spacer-m">
             <Button
@@ -115,6 +119,7 @@
       max-height: 80vh;
       pointer-events: all;
       box-shadow: 0 0 $unit_l rgba($darkest, 0.2);
+      @extend .u-bm-m;
     }
   }
   </style>

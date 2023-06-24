@@ -1,10 +1,14 @@
 <template>
-    <div :class="images.length > 2 ? 'images images--grid' : 'images'">
+    <div :class="images.length > 1 ? 'images images--grid' : 'images'">
         <figure v-for="(image, index) in images" :key="index">
-            <div class="img-wrap">
-                <img @click="lightBox(images.length > 2 ? images : image.src, index, $event)" class="image" :src="image.src" :alt="image.caption"/>
+            <div v-if="images.length == 1" class="img-wrap img-wrap--single">
+                <img @click="lightBox(images, index, $event)" class="image" :src="image.src" :alt="image.alt"/>
             </div>
-            <caption class="caption">{{ image.caption }}</caption>
+            <div v-else class="img-wrap">
+                <img class="image image--hidden" :src="image.src" :alt="image.alt"/>
+                <span @click="lightBox(images, index, $event)" class="image-tile" :style="'background: url(' + image.src + ') center center / cover no-repeat;'"></span>
+            </div>
+            <caption v-if="image.caption && images.length < 2" :class="images.length > 1 ? 'caption' : 'caption caption--single'">{{ image.caption }}</caption>
         </figure>
     </div>
 </template>
@@ -18,9 +22,9 @@ export default {
         }
     },
     methods: {
-        lightBox(src, index, e) {
+        lightBox(img, index, e) {
             e.preventDefault();
-            src.length > 2 ? this.$nuxt.$emit("lightbox:open", { gallery: src, index: index }) : this.$nuxt.$emit("lightbox:open", { src: src });
+            img.length > 1 ? this.$nuxt.$emit("lightbox:open", { gallery: img, index: index }) : this.$nuxt.$emit("lightbox:open", { src: img[0].src, alt: img[0].alt });
         }
     }
 }
@@ -40,7 +44,7 @@ export default {
                 padding-top: 80%;
             }
             
-            img {
+            .image {
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -48,11 +52,40 @@ export default {
                 max-width: 100%;
                 transform: translate(-50%, -50%);
                 cursor: pointer;
+
+                &--hidden {
+                    display: none;
+                }
+            }
+
+            .image-tile {
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height: 100%;
+                display: block;
+                cursor: pointer;
+            }
+
+            &--single {     
+                display: flex;
+                justify-content: center;
+
+                &::after {
+                    display: none;
+                }
+            
+                .image {
+                    position: static;
+                    transform: translate(-0%, -0%);
+                }
             }
         }
     }
     .images {
             @extend .u-tm-l;
+            @extend .u-bm-l;
 
             &--grid {
                 @extend .e-grid-1-1;
