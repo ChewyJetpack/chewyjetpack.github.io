@@ -3,23 +3,23 @@
       <div class="lightbox__inner">
         <div v-if="args.gallery">
           <img
-            :src="args.gallery[parsedSelectedIndex].src"
-            :alt="args.gallery[parsedSelectedIndex].caption"
+            :src="args.gallery[args.index].src"
+            :alt="args.gallery[args.index].caption"
             @click="nextImg"
           />
-          <div class="lightbox__controls u-top-spacer-m">
+        </div>
+        <img v-else :src="args.src" :alt="args.alt" />
+      </div>
+      <div class="lightbox__controls u-top-spacer-m">
             <Button
               ico-left
               icon="arrow-left"
-              label="Previous"
+              label="Prev"
               :callback="prevImg"
               :frameless="true"
             />
             <Button :callback="nextImg" label="Next" :frameless="true" />
           </div>
-        </div>
-        <img v-else :src="args.src" :alt="args.alt" />
-      </div>
     </div>
   </template>
   
@@ -36,25 +36,22 @@
         type: Object
       }
     },
-    data: () => ({
-      rawSelectedIndex: 0
-    }),
-    computed: {
-      parsedSelectedIndex() {
-        // Ensure we don't go beyond the amount of images
-        return this.rawSelectedIndex % this.args.gallery.length;
-      }
-    },
+    // computed: {
+    //   parsedSelectedIndex() {
+    //     // Ensure we don't go beyond the amount of images
+    //     return this.index % this.args.gallery.length;
+    //   }
+    // },
     methods: {
       prevImg() {
-        this.rawSelectedIndex - 1 == -1
-          ? (this.rawSelectedIndex = this.args.gallery.length - 1)
-          : (this.rawSelectedIndex -= 1);
+        this.args.index - 1 == -1
+          ? (this.args.index = this.args.gallery.length - 1)
+          : (this.args.index -= 1);
       },
       nextImg() {
-        this.rawSelectedIndex + 1 > this.args.gallery.length - 1
-          ? (this.rawSelectedIndex = 0)
-          : (this.rawSelectedIndex += 1);
+        this.args.index + 1 > this.args.gallery.length - 1
+          ? (this.args.index = 0)
+          : (this.args.index += 1);
       }
     }
   };
@@ -82,13 +79,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding-bottom: $unit_xxl;
     }
   
     &__controls {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       pointer-events: all;
+      position: fixed;
+      bottom: 0;
+      background: var(--c-bg);
+      width: 100%;
+      padding: $unit_s;
     }
   
     img {

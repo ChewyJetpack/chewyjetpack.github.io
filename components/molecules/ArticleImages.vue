@@ -2,7 +2,7 @@
     <div :class="images.length > 2 ? 'images images--grid' : 'images'">
         <figure v-for="(image, index) in images" :key="index">
             <div class="img-wrap">
-                <img @click="lightBox(images.length > 2 ? images : image.src)" class="image" :src="image.src" :alt="image.caption" />
+                <img @click="lightBox(images.length > 2 ? images : image.src, index)" class="image" :src="image.src" :alt="image.caption"/>
             </div>
             <caption class="caption">{{ image.caption }}</caption>
         </figure>
@@ -18,8 +18,8 @@ export default {
         }
     },
     methods: {
-        lightBox(src) {
-            src.length > 2 ? this.$nuxt.$emit("lightbox:open", { gallery: src }) : this.$nuxt.$emit("lightbox:open", { src: src });
+        lightBox(src, index) {
+            src.length > 2 ? this.$nuxt.$emit("lightbox:open", { gallery: src, index: index }) : this.$nuxt.$emit("lightbox:open", { src: src });
         }
     }
 }
