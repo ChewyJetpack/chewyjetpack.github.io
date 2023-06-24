@@ -1,9 +1,10 @@
 <template>
   <IconBtn
     ref="mode"
-    :callback="switchMode"
+    @clicked="switchMode"
     :classes="`mode-switch mode-switch--${currentMode}`"
     icon="adjust"
+    :u-burst="burst"
   />
 </template>
 
@@ -24,14 +25,15 @@ export default {
   },
   data() {
     return {
-      modes: ["light", "dark"]
+      modes: ["light", "dark"],
+      burst: false
     };
   },
   methods: {
-    switchMode(e) {
-      e.target.setAttribute("u-burst", "");
+    switchMode() {
+      this.burst = true;
       setTimeout(() => {
-        e.target.removeAttribute("u-burst");
+        this.burst = false;
       }, 600);
       const mode = this.modes.find(mode => mode != this.currentMode);
       this.$nuxt.$emit("updatemode", mode);

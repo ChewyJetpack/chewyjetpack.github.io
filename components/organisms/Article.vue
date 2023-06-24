@@ -26,7 +26,7 @@
             <aside class="article__meta">
                 <h3>Share</h3>
                 <Button
-                    :callback="copyUrl"
+                    @clicked="copyUrl"
                     icon="link"
                     label="Copy link"
                     :icoLeft="true"

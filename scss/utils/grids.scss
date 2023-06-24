@@ -10,6 +10,10 @@
     grid-gap: $unit_m;
     grid-auto-rows: auto;
     grid-template-columns: 1fr 1fr;
+
+    @include breakpoint_l {
+        grid-template-columns: 1fr 1fr 1fr;
+    } 
 }
 
 @include breakpoint_l {

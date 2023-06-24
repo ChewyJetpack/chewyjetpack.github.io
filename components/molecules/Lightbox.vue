@@ -5,20 +5,29 @@
           <img
             :src="args.gallery[args.index].src"
             :alt="args.gallery[args.index].caption"
-            @click="nextImg"
+            @click="nextImg($event)"
           />
         </div>
         <img v-else :src="args.src" :alt="args.alt" />
       </div>
-      <div class="lightbox__controls u-top-spacer-m">
+      <div v-if="args.gallery" class="lightbox__controls u-top-spacer-m">
             <Button
               ico-left
               icon="arrow-left"
               label="Prev"
-              :callback="prevImg"
-              :frameless="true"
+              @clicked="prevImg($event)"
+              frameless
+              isLarge
             />
-            <Button :callback="nextImg" label="Next" :frameless="true" />
+            <div class="lightbox__count" v-if="args.gallery">
+                {{ (args.index + 1) }}/{{ args.gallery.length }}
+            </div>
+            <Button 
+                @clicked="nextImg($event)" 
+                label="Next" 
+                frameless 
+                isLarge
+            />
           </div>
     </div>
   </template>
@@ -43,12 +52,12 @@
     //   }
     // },
     methods: {
-      prevImg() {
+      prevImg(e) {
         this.args.index - 1 == -1
           ? (this.args.index = this.args.gallery.length - 1)
           : (this.args.index -= 1);
       },
-      nextImg() {
+      nextImg(e) {
         this.args.index + 1 > this.args.gallery.length - 1
           ? (this.args.index = 0)
           : (this.args.index += 1);
@@ -92,6 +101,13 @@
       background: var(--c-bg);
       width: 100%;
       padding: $unit_s;
+      border-top: solid 2px var(--c-main-alt-2);
+      grid-gap: $unit_m;
+    }
+
+    &__count {
+        min-width:30%;
+        text-align: center;
     }
   
     img {

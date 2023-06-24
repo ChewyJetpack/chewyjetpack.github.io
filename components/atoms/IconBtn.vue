@@ -1,8 +1,8 @@
 <template>
   <button
-    @click="callback"
     :class="[classes, 'icon-btn']"
     :style="`color: var(${cText})`"
+    @click="$emit('clicked')"
   >
     <font-awesome :icon="icon" />
   </button>
@@ -11,9 +11,6 @@
 <script>
 export default {
   props: {
-    callback: {
-      type: Function
-    },
     classes: {
       type: String
     },

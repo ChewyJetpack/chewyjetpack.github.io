@@ -1,12 +1,12 @@
 <template>
   <component
     :is="href ? 'a' : 'button'"
-    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, {'button--frameless': frameless}]"
-    :href="href"
+    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, {'button--frameless': frameless}, {'button--large': isLarge}]"
+    :href="href ? href : null"
     ref="btn"
-    :rel="external ? 'nofollow' : ''"
-    :target="external ? '_blank' : ''"
-    @click="callback ? callback($refs.btn) : null"
+    :rel="external ? 'nofollow' : null"
+    :target="external ? '_blank' : null"
+    @click="$emit('clicked')"
   >
     <span class="button__label">{{ label }}</span>
     <font-awesome class="button__icon" :icon="icon" />
@@ -34,10 +34,11 @@ export default {
       type: Boolean,
       default: false
     },
-    callback: {
-      type: Function
-    },
     frameless: {
+      type: Boolean,
+      default: false
+    },
+    isLarge: {
       type: Boolean,
       default: false
     }
@@ -102,6 +103,10 @@ export default {
 
   &--frameless {
     border: 0;
+  }
+
+  &--large {
+    font-size: $txt_m;
   }
 
   &.pop-anim {
