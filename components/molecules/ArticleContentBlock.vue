@@ -5,6 +5,7 @@
             :key="index"
         >
             <div
+                class="article-content__text-block"
                 v-if="block.content" 
                 v-html="$md.render(block.content)"
             />
@@ -40,6 +41,11 @@ export default {
 </script>
 
 <style lang="scss">
+    .article-content {
+        &__text-block {
+            @extend .u-bm-l;
+        }
+    }
     .youtube-embed {
         position: relative;
         overflow: hidden;

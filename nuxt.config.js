@@ -10,7 +10,13 @@ export default {
       },
       {
         src: 'netlifyIdentity.js'
-      }
+      },
+      {
+        src: 'https://getinsights.io/js/insights.js'
+      },
+      {
+        src: 'insights.js'
+      },
     ],
     title: 'emilsmith',
     htmlAttrs: {

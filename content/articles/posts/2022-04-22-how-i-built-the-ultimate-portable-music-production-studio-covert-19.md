@@ -48,9 +48,7 @@ contentBlocks:
 
       Follow me on Instagram: [https://instagram.com/traintracsldn](https://www.youtube.com/redirect?q=https%3A%2F%2Finstagram.com%2Ftraintracsldn&v=qp-IZxvErRg&redir_token=QUFFLUhqbndYU3VnaWdpTFJfamFqNDRCX2dzOWp6MmhUQXxBQ3Jtc0tuSFNZcTMwdnNjZW81OEtvTjBBNk00bWtCYnkzelRCa19yMDluZHFuV1ZZc1NCR01QRnlJODFTQ245V2x1NFZTcFpfS2FhMVhkSmtDQW9IWW1tc3ZHc25nME11cDVGR0dhRkJobUYyQU5BWEYyWGRPVQ%3D%3D&event=video_description)
 tags:
-  - Design
   - DIY
-  - 3D Modelling
   - Music Technology
   - Music Production
 ---

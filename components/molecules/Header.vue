@@ -10,7 +10,9 @@
             class="header__mode"
           />
         </div>
-        <NavMenu class="header__nav" />
+        <div class="header__nav-wrap">
+          <NavMenu class="header__nav" />
+        </div>
       </div>
   </header>
 </template>
@@ -85,9 +87,10 @@ export default {
     }
   }
 
-  &__nav {
+  &__nav-wrap {
     @include breakpoint_l {
       order: 2;
+      margin-right: $unit_s;
     }
   }
 }

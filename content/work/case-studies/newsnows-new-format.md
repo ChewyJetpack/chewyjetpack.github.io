@@ -3,7 +3,7 @@ title: NewsNow's New Format
 hero: /img/newformat.jpg
 thumb: /img/newsnowlogo.jpg
 category: Design & Development
-year: 2021
+year: 2020
 description: Building and scaling a design system, with implementation in
   Vue.js, for NewsNow
 meta_description: Building and scaling a design system, with implementation in
@@ -19,10 +19,22 @@ summary: >-
   My role on this project was as the sole designer (later to hire a UI designer to join me), front end developer (working as part of the development team), and to work alongside the COO and CEO on product management.
 
 
-  NewsNow's New Format was a twofold process. First, I created a straight-to-code reskin of the existing design using the in-house containerised development platform (which has since had an open source release as [Dockside](https://dockside.io/)). This meant quickly getting to grips with the codebase, which was at that stage using a Perl back end with a custom templating system.
+  NewsNow's New Format consisted of the following stages:
 
 
-  Once the initial reskin was complete, I set about the much larger job of preparing for a full redesign and rebuild, using up-to-date design and development practices. This is what we referred to as the 'New Format'.
+  1. Initial, straight-to-code reskin of the existing design using the in-house containerised development platform (which has since had an open source release as [Dockside](https://dockside.io/))
+
+  2. A round of data gathering, developing user satisfaction metrics, and [user research](/work/case-studies/newsnow-user-research-initiative)
+
+  3. Full redesign (the New Format), including the creation of a ground-up atomic design system
+
+  4. Front end rebuild in server-side rendered Vue.js with state management via VueX
+
+
+  The project was full of new challenges, from honoring the features that loyal users relied on while balancing the introduction of new functionality, to developing the brand identity of the business, to developing our entirely new front end infrastructure.
+
+
+  Overall, it was a brilliant product to work on.  I learned tons, and took great satisfaction in a quality piece of work that I devoted over two years to delivering, and that was by all measures a success.
 summaryImages:
   - src: /img/1-z_7uafpbcxd-6i5g7tl49q.webp
     caption: The original NewsNow website from 1995
@@ -66,22 +78,28 @@ goals: >-
 
   Of course throughout this process it was vitally important to ensure that our updates were beneficial to NewsNow's extremely large, loyal, and long-standing user base.
 method: >-
-  #### Research
+  ### Reskin
+
+
+  Beyond the overall implementation and refactor of the codebase, we also tested rigorously to ensure a high level of browser compatibility. The site is fully compatible with Opera Mini on feature phones, bar certain customisation features, and user accounts. Additionally, I devised a new alternative to the existing device-detection system which relied heavily on javascript and resulted in a complex matrix of site versions that required individual support. This system used a combination of media queries and support queries in CSS to accurately identify the devices needing special support, and unified site versions for other devices which previously had to be catered for individually, resulting in a much more easily maintainable system.
+
+
+  ![NewsNow's brand palette](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*GA0hYK7JtIrDuk1F1IaUkQ.png)
+
+
+  ### Research
 
 
   Embarking on a project of this scale, especially as a new member of the team, was no small feat. I took time to analyse the existing product in detail, speaking with members from all areas of the business, including development, editorial, and senior management, to get a full and comprehensive understanding of the business, the product, and the underlying technology.
 
 
-  Beyond this, I felt it important to look at the product in the wider context of the industry, to see how we might want to position ourselves relative to other news aggregators, publishers, and social platforms. NewsNow is unique in this sense; it is a news aggregator that performs similar functions to those by the likes of Google, Apple, and Yahoo, but the number of individual topics and the number of headlines on a given page is more akin to the likes of social media platforms, such as Facebook, Twitter or Reddit. 
+  I felt it important to look at the product in the wider context of the industry, to see how we might want to position ourselves relative to other news aggregators, publishers, and social platforms. NewsNow is unique in this sense; it is a news aggregator that performs similar functions to those by the likes of Google, Apple, and Yahoo, but the number of individual topics and the number of headlines on a given page is more akin to the likes of social media platforms, such as Facebook, Twitter or Reddit. 
 
 
-  Reddit, specifically, shares many parallels with NewsNow. Firstly, the Information Architecture is inherently similar: Long feeds of headlines, for a near-endless variety of topics, algorithmically sorted and able to be reordered by chronology, popularity, or relevance. In addition, Reddit had also recently embarked on a large redesign project, moving away from a dense, text-based layout that had accumulated a dedicated and loyal userbase, just like that of NewsNow. On the basis of these parallels, I embarked on a competitor analysis project of sorts, to understand the ‘what’, ‘why’ and ‘how’ of Reddit’s redesign, charting their roadmap, digging up metrics, some of which were kindly supplied to me by subreddit moderators, and drawing actionable conclusions which we were able to implement in our own redesign process. 
+  Reddit, specifically, shares many parallels with NewsNow. Firstly, the Information Architecture is inherently similar: Long feeds of headlines, for a near-endless variety of topics, algorithmically sorted and able to be reordered by chronology, popularity, or relevance. In addition, Reddit had also recently embarked on a large redesign project, moving away from a dense, text-based layout that had accumulated a dedicated and loyal userbase, just like that of NewsNow. On the basis of these parallels, I embarked on a [competitor analysis project](/articles/posts/2023-06-25-analysis-reddits-2018-redesign) of sorts, to understand the ‘what’, ‘why’ and ‘how’ of Reddit’s redesign, charting their roadmap, digging up metrics, some of which were kindly supplied to me by subreddit moderators, and drawing actionable conclusions which we were able to implement in our own redesign process. 
 
 
-  At this stage, I would have liked to conduct some user research, to build an understanding of user demographics, usage habits, motivations, and pain points, but unfortunately, this was not something that had been done on the product before, and thus a lack of time and resources made this impractical. We did, however, manage to conduct a series of user interviews prior to the initial roll-out, which helped inform some later design decisions.
-
-
-  However once the initial reskin was complete, I did embark on a proper [user research initative](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative) to inform our larger redesign as part of the New Format.
+  Once the initial reskin was complete, I embarked on a proper [user research initative](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative) to inform our larger redesign as part of the New Format. This helped to guide our product development process throughout the remainder of my time at NewsNow, and changed our position on crucial decisions, such as how to introduce imagery, whcih aspects of the existing layout were most important to our users, and what kinds of navigational tools were fundamental to the experience. In most cases, our assumptions were challenged, or outright disproved!
 
 
 
@@ -89,7 +107,7 @@ method: >-
   ### Roadmap
 
 
-  Beyond the initial reskin, and equipped with the learnings from my research phase, I was able to work collaboratively with senior management to specify the scope and deliverables for the new design, and within the development team to create a scope and task backlog for the technical requirements. We used Asana to manage the project, in which I constructed a set of timelines with clear dependencies between design and development, accounting for testing and refactoring, with a set launch date for our private, opt-in beta. We also took learnings from the Reddit case study to help inform our process, including the implementation of a system to manage user feedback, a public blog post to inform users of upcoming changes, and a staggered rollout to ensure feature-parity prior to the site-wide launch.
+  Equipped with the learnings from my research phase, I was able to work collaboratively with senior management to specify the scope and deliverables for the New Format, and within the development team to create a scope and task backlog for the technical requirements. We used Asana to manage the project, in which I constructed a set of timelines with clear dependencies between design and development, accounting for testing and refactoring, with a set launch date for our private, opt-in beta. We also took learnings from the [Reddit case study](/articles/posts/2023-06-25-analysis-reddits-2018-redesign) to help inform our process, including the implementation of a system to manage user feedback, a public blog post to inform users of upcoming changes, and a staggered rollout to ensure feature-parity prior to the site-wide launch.
 
 
   The nature of this project did not necessarily lend itself to a strict goal-setting framework, as it was not intended to drive any specific metric, though we did employ rigorous in-app feedback tools so that we could check user satisfaction metrics throughout the rollout. The success of the project would be measured in our resulting ability to scale and develop the product in the future, and the satisfaction of our dedicated core user base.
@@ -103,41 +121,16 @@ method: >-
   The design strategy for this project employed the use of atomic design principles to create a modular, component-based design system in Figma, with standardised tokens for measurements, colours, and typography, and context-agnostic, BEM-style components for all UI elements, templates, and pages. The design would be carefully tested against WCAG accessibility guidelines to ensure that colour contrast ratios, font sizes, and interactive elements were sufficiently distinguished and usable.
 
 
-  Probably the most significant visual update to the site was the introduction of imagery. NewsNow had never hosted images before in all its decades of life, and this was a huge update to the overall user experience, especially considering the perspective of users who had been devotedly scouring through lists of plain text headlines for years.
+  I opted to work extremely closely with developers on the structure of the design system, since I would also be responsible for building a large proportion of the front end. We discussed stacks, tooling, and coding practices, and used those decisions to inform the kind of functionality we could include in the design. This cohesion between design and development is something I strive for in my work, and the result of this holistic approach is always hugely beneficial.
 
 
-  Further to this, I opted to work extremely closely with developers on the structure of the design system, since I would also be responsible for building a large proportion of the front end. We discussed stacks, tooling, and coding practices, and used those decisions to inform the kind of functionality we could include in the design. This cohesion between design and development is something I strive for in my work, and the result of this holistic approach is always hugely beneficial.
-
-
-
-
-  ### Branding
+  The most significant visual update to the site was the introduction of imagery. NewsNow had never hosted images before in all its decades of life, and this was a huge update to the overall user experience, especially considering the perspective of users who had been devotedly scouring through lists of plain text headlines for years. Interestingly, the results of our user research suggested that most users would be very satisfied with an image-heavy, grid-based layout. However, there was a clear segment who absolutely preferred the old list style. This led us to introduce a layout mode toggle, enabling users to customise the experience for themselves.
 
 
   Fundamentally, the design would need to reflect NewsNow as a brand, which was a challenge in itself, since the business had not previously devoted much time to developing a formal brand identity. On this basis, I engaged with senior management over several brainstorming sessions to develop a preliminary brand guidelines document, which included the specification of brand values, identity, and ethos, as well as some visual elements such as typographic rules, a new colour palette, and logo guidelines. Of course, the visual aspects of this document were intended to be under constant evolution throughout the design process, the definition of the core brand values and identity was instrumental in subsequent design decisions.
 
 
-  ![NewsNow's brand palette](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*GA0hYK7JtIrDuk1F1IaUkQ.png)
-
-
-
-
-  ### User Interface
-
-
-  The NewsNow UI design posed a number of distinct challenges. Firstly, the site was almost entirely text-based; headlines were listed alongside publication names, with metadata such as timestamps and some interactive controls, but with no imagery. In addition, the site used relatively small font sizes and there was a high value attributed to content density. Users who had been using the site for many years had become accustomed to the deep, dense feeds of headlines, through which they could scan for new information on their areas of interest. On this basis, adjustments to headline fonts, font sizes, and overall density had to be considered carefully, and tested rigorously with users. 
-
-
-  My approach to handling the limitations of the project, the richness of the product feature-set, and the need for radical future scalability, was to put together an atomic design system, which could be mirrored within the codebase, using modular components and substituting inheritance with modifiers. After auditing the existing codebase for all font sizes, colours, and other tokens, I developed a stripped-back list of basic building blocks, and gradually worked my way up through each level of the component structure, from buttons and icons up to page templates. From this, I created various page templates using the new components, to compare directly with their existing counterparts. Careful attention was paid to font-sizes and colour contrast ratios to ensure the site was accessible and usable. 
-
-
-  After many rounds of presentation, feedback, iteration, and prototyping, I was given the green light by senior management to rally the development team and begin work on the build.
-
-
-  ![]()
-
-
-  #### Development
+  ### Development
 
 
   Implementation of the new design was a months-long process for the development team at NewsNow. I was responsible for the majority of the front-end build, working closely with a full-stack software developer on migrating from NewsNow’s bespoke, in-house, Perl-based templating system to our new stack, consisting of Perl on the back end, with server-side rendered Vue.js, complete with state management, on the front end. This was a fantastic system to work with; SSR allowed us to preserve our SEO juice, and VueX enabled us to create a seamless experience, client-side. 
@@ -146,15 +139,12 @@ method: >-
   Components were developed to mirror the structure of the design system, using BEM syntax and isolated component templates. We took time and care to evaluate and audit the existing code, selecting chunks for preservation, removal, or refactoring. Through this process we also identified features that had gone unused for months or years and were able to simplify the site functionality by pruning such features from the product. 
 
 
-  Beyond the overall implementation and refactor of the codebase, we also tested rigorously to ensure a high level of browser compatibility. The site is fully compatible with Opera Mini on feature phones, bar certain customisation features, and user accounts. Additionally, I devised a new alternative to the existing device-detection system which relied heavily on javascript and resulted in a complex matrix of site versions that required individual support. This system used a combination of media queries and support queries in CSS to accurately identify the devices needing special support, and unified site versions for other devices which previously had to be catered for individually, resulting in a much more easily maintainable system.
 
 
+  ### User Engagement
 
 
-  #### User Engagement
-
-
-  In addition to the user research project bringing human-centred design into the operational process at NewsNow, we also made sure to engage users regularly throughout the process.
+  In addition to the user research project bringing human-centred design into the operational process at NewsNow, we also made sure to engage users regularly throughout the rollout process.
 
 
   Upon completion of our initial reskin beta, I wrote up a [Medium piece, outlining our redesign](https://medium.com/newsnow/welcome-to-the-newsnow-redesign-925ccdf008f8) for our users. People who were offered the chance to take part in the beta were directed to this piece to read about the changes being made, the reasoning behind those changes, and the positive impacts those changes were designed to make. In addition, those who took part in the beta were prompted for NPS-style ratings of the new design and offered the opportunity to give in-app feedback, for which we guaranteed a response from the team. Through this feedback mechanic, we were able to assemble a research panel of loyal NewsNow users who agreed to take part in the [upcoming research project](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative) ahead of the New Format.

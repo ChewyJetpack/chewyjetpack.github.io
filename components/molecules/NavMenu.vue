@@ -14,6 +14,7 @@
     </li>
     <li
       class="nav-list__item">
+      <a href="https://soundcloud.com/nought_e" target="_blank" class="nav-list__link">Music</a>
     </li>
   </ul>
 </template>
@@ -36,6 +37,7 @@ export default {
     justify-content: flex-end;
     gap: $unit_m;
     font-size: $txt_m;
+    margin-right: $unit_m;
   }
 
   &__item {
