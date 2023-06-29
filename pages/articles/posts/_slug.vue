@@ -34,11 +34,25 @@ export default {
           name: 'description',
           content: this.article.description
         },
+        { 
+          hid: 'og-title', 
+          property: 'og:title', 
+          content: this.article.title
+        },
+        { 
+          hid: 'og-desc', 
+          property: 'og:description', 
+          content: this.article.description 
+        },
         {
           hid: this.article.title + ': img',
           name: 'og:image',
           content: 'https://emilsmith.pro' + this.article.hero
-        }
+        },
+        { hid: 'og-image', property: 'og:image',
+          content: 'https://emilsmith.pro' + this.article.hero
+        },
+        { hid: 't-type', name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
   },

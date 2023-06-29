@@ -33,11 +33,25 @@ export default {
           name: 'description',
           content: this.caseStudy.description
         },
+        { 
+          hid: 'og-title', 
+          property: 'og:title', 
+          content: this.caseStudy.title
+        },
+        { 
+          hid: 'og-desc', 
+          property: 'og:description', 
+          content: this.caseStudy.description 
+        },
         {
           hid: this.caseStudy.title + ': img',
           name: 'og:image',
           content: 'https://emilsmith.pro' + this.caseStudy.hero
-        }
+        },
+        { hid: 'og-image', property: 'og:image',
+          content: 'https://emilsmith.pro' + this.caseStudy.hero
+        },
+        { hid: 't-type', name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
   },
