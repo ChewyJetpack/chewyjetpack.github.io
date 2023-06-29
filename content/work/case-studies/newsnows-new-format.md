@@ -99,23 +99,19 @@ method: >-
   I felt it important to look at the product in the wider context of the industry, to see how we might want to position ourselves relative to other news aggregators, publishers, and social platforms. NewsNow is unique in this sense; it is a news aggregator that performs similar functions to those by the likes of Google, Apple, and Yahoo, but the number of individual topics and the number of headlines on a given page is more akin to the likes of social media platforms, such as Facebook, Twitter or Reddit. 
 
 
-  Reddit, specifically, shares many parallels with NewsNow. Firstly, the Information Architecture is inherently similar: Long feeds of headlines, for a near-endless variety of topics, algorithmically sorted and able to be reordered by chronology, popularity, or relevance. In addition, Reddit had also recently embarked on a large redesign project, moving away from a dense, text-based layout that had accumulated a dedicated and loyal userbase, just like that of NewsNow. On the basis of these parallels, I embarked on a [competitor analysis project](/articles/posts/2023-06-25-analysis-reddits-2018-redesign) of sorts, to understand the ‘what’, ‘why’ and ‘how’ of Reddit’s redesign, charting their roadmap, digging up metrics, some of which were kindly supplied to me by subreddit moderators, and drawing actionable conclusions which we were able to implement in our own redesign process. 
+  Reddit, specifically, shares many parallels with NewsNow. Firstly, the Information Architecture is inherently similar: Long feeds of headlines, for a near-endless variety of topics, algorithmically sorted and able to be reordered by chronology, popularity, or relevance. In addition, Reddit had also recently embarked on a large redesign project, moving away from a dense, text-based layout that had accumulated a dedicated and loyal userbase, just like that of NewsNow. On the basis of these parallels, I embarked on a [competitor analysis project](/articles/posts/2019-11-21-analysis-reddits-2018-redesign) of sorts, to understand the ‘what’, ‘why’ and ‘how’ of Reddit’s redesign, charting their roadmap, digging up metrics, some of which were kindly supplied to me by subreddit moderators, and drawing actionable conclusions which we were able to implement in our own redesign process. 
 
 
   Once the initial reskin was complete, I embarked on a proper [user research initative](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative) to inform our larger redesign as part of the New Format. This helped to guide our product development process throughout the remainder of my time at NewsNow, and changed our position on crucial decisions, such as how to introduce imagery, whcih aspects of the existing layout were most important to our users, and what kinds of navigational tools were fundamental to the experience. In most cases, our assumptions were challenged, or outright disproved!
 
 
-
-
   ### Roadmap
 
 
-  Equipped with the learnings from my research phase, I was able to work collaboratively with senior management to specify the scope and deliverables for the New Format, and within the development team to create a scope and task backlog for the technical requirements. We used Asana to manage the project, in which I constructed a set of timelines with clear dependencies between design and development, accounting for testing and refactoring, with a set launch date for our private, opt-in beta. We also took learnings from the [Reddit case study](/articles/posts/2023-06-25-analysis-reddits-2018-redesign) to help inform our process, including the implementation of a system to manage user feedback, a public blog post to inform users of upcoming changes, and a staggered rollout to ensure feature-parity prior to the site-wide launch.
+  Equipped with the learnings from my research phase, I was able to work collaboratively with senior management to specify the scope and deliverables for the New Format, and within the development team to create a scope and task backlog for the technical requirements. We used Asana to manage the project, in which I constructed a set of timelines with clear dependencies between design and development, accounting for testing and refactoring, with a set launch date for our private, opt-in beta. We also took learnings from the Reddit case study to help inform our process, including the implementation of a system to manage user feedback, a public blog post to inform users of upcoming changes, and a staggered rollout to ensure feature-parity prior to the site-wide launch.
 
 
   The nature of this project did not necessarily lend itself to a strict goal-setting framework, as it was not intended to drive any specific metric, though we did employ rigorous in-app feedback tools so that we could check user satisfaction metrics throughout the rollout. The success of the project would be measured in our resulting ability to scale and develop the product in the future, and the satisfaction of our dedicated core user base.
-
-
 
 
   ### Design
@@ -142,15 +138,13 @@ method: >-
   Components were developed to mirror the structure of the design system, using BEM syntax and isolated component templates. We took time and care to evaluate and audit the existing code, selecting chunks for preservation, removal, or refactoring. Through this process we also identified features that had gone unused for months or years and were able to simplify the site functionality by pruning such features from the product. 
 
 
-
-
   ### User Engagement
 
 
   In addition to the user research project bringing human-centred design into the operational process at NewsNow, we also made sure to engage users regularly throughout the rollout process.
 
 
-  Upon completion of our initial reskin beta, I wrote up a [Medium piece, outlining our redesign](https://medium.com/newsnow/welcome-to-the-newsnow-redesign-925ccdf008f8) for our users. People who were offered the chance to take part in the beta were directed to this piece to read about the changes being made, the reasoning behind those changes, and the positive impacts those changes were designed to make. In addition, those who took part in the beta were prompted for NPS-style ratings of the new design and offered the opportunity to give in-app feedback, for which we guaranteed a response from the team. Through this feedback mechanic, we were able to assemble a research panel of loyal NewsNow users who agreed to take part in the [upcoming research project](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative) ahead of the New Format.
+  Upon completion of our initial reskin beta, I wrote up a [Medium piece, outlining our redesign](https://medium.com/newsnow/welcome-to-the-newsnow-redesign-925ccdf008f8) for our users. People who were offered the chance to take part in the beta were directed to this piece to read about the changes being made, the reasoning behind those changes, and the positive impacts those changes were designed to make. In addition, those who took part in the beta were prompted for NPS-style ratings of the new design and offered the opportunity to give in-app feedback, for which we guaranteed a response from the team. Through this feedback mechanic, we were able to assemble a research panel of loyal NewsNow users who agreed to take part in the upcoming research project ahead of the New Format.
 
 
   Throughout this process, we were able to gather valuable information which we used to iterate and improve on the design prior to our full launch, and it served as a valuable precedent for future research projects. We were also able to develop a previously absent rapport with our users; we responded to each and every piece of feedback we received, engaging directly with the people who used the product, and giving them the opportunity to contribute to the development of the product.
