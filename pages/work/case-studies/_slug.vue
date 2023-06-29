@@ -6,23 +6,6 @@
 import Article from '~/components/organisms/Article';
 
 export default {
-  head() {
-    return {
-      title: 'Emil Smith | ' + this.caseStudy.title,
-      meta: [
-        {
-          hid: this.caseStudy.description,
-          name: 'description',
-          content: this.caseStudy.description
-        },
-        {
-          hid: this.caseStudy.title + ': img',
-          name: 'og:image',
-          content: this.caseStudy.hero
-        }
-      ],
-    }
-  },
   name: 'CaseStudyPage',
   layout: 'DefaultLayout',
   async asyncData({ $content, params, error }) {
@@ -40,6 +23,23 @@ export default {
   },
   components: {
     Article
-  }
+  },
+  head() {
+    return {
+      title: 'Emil Smith | ' + this.caseStudy.title,
+      meta: [
+        {
+          hid: this.caseStudy.description,
+          name: 'description',
+          content: this.caseStudy.description
+        },
+        {
+          hid: this.caseStudy.title + ': img',
+          name: 'og:image',
+          content: 'https://emilsmith.pro' + this.caseStudy.hero
+        }
+      ],
+    }
+  },
 };
 </script>

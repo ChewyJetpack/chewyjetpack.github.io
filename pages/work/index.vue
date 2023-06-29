@@ -28,18 +28,6 @@ import HeadingStrip from '~/components/molecules/HeadingStrip'
 import Button from '~/components/atoms/Button'
 
 export default {
-  head() {
-    return {
-      title: 'Emil Smith | Work',
-      meta: [
-        {
-          hid: 'workdescription',
-          name: 'description',
-          content: "I’ve spent the last fifteen years working interdisciplinarily in design, engineering, and specialist leadership, delivering projects for brands such as Google, eBay, Sony, Nokia, Virgin, and Tinder, as well as a long stint in the publishing industry. My approach is holistic; I focus on goals, systems, and processes to solve problems in ways that are efficient, sustainable, and scalable. To this end, I do my best work when I have the freedom to traverse a range of disciplines."
-        }
-      ],
-    }
-  },
   name: 'caseStudiesPage',
   layout: 'DefaultLayout',
   async asyncData({ $content, params }) {
@@ -54,6 +42,16 @@ export default {
     ArticleList,
     HeadingStrip,
     Button
+  },
+  head: {
+    title: 'Emil Smith | Work',
+    meta: [
+      {
+        hid: 'workdescription',
+        name: 'description',
+        content: "I’ve spent the last fifteen years working interdisciplinarily in design, engineering, and specialist leadership, delivering projects for brands such as Google, eBay, Sony, Nokia, Virgin, and Tinder, as well as a long stint in the publishing industry. My approach is holistic; I focus on goals, systems, and processes to solve problems in ways that are efficient, sustainable, and scalable. To this end, I do my best work when I have the freedom to traverse a range of disciplines."
+      }
+    ],
   }
 }
 </script>

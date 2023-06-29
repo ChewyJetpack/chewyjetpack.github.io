@@ -18,14 +18,12 @@ export default {
         src: 'insights.js'
       },
     ],
-    title: 'Emil Smith | Creative Technologist',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "I'm into tech and art. At the intersection of the two is design, so that's where I've spent most of my career." },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [

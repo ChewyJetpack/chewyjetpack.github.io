@@ -6,23 +6,6 @@
 import Article from '~/components/organisms/Article';
 
 export default {
-  head() {
-    return {
-      title: 'Emil Smith | ' + this.article.title,
-      meta: [
-        {
-          hid: this.article.description,
-          name: 'description',
-          content: this.article.description
-        },
-        {
-          hid: this.article.title + ': img',
-          name: 'og:image',
-          content: this.article.hero
-        }
-      ],
-    }
-  },
   name: 'ArticlePage',
   layout: 'DefaultLayout',
   async asyncData({ $content, params, error }) {
@@ -41,6 +24,23 @@ export default {
   },
   components: {
     Article
-  }
+  },
+  head() {
+    return {
+      title: 'Emil Smith | ' + this.article.title,
+      meta: [
+        {
+          hid: this.article.description,
+          name: 'description',
+          content: this.article.description
+        },
+        {
+          hid: this.article.title + ': img',
+          name: 'og:image',
+          content: 'https://emilsmith.pro' + this.article.hero
+        }
+      ],
+    }
+  },
 };
 </script>

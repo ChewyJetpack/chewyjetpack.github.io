@@ -57,7 +57,17 @@ export default {
     ArticleList,
     HeadingStrip,
     Button
-  }
+  },
+  head: {
+    title: 'Emil Smith | Creative Technologist',
+    meta: [
+      {
+        hid: 'workdescription',
+        name: 'description',
+        content: "I'm a Creative Technologist, and I'm into tech and art. At the intersection of the two is design, so that's where I've spent most of my career."
+      }
+    ],
+  },
 }
 </script>
 
