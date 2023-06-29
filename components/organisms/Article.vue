@@ -1,10 +1,11 @@
 <template>
     <article class="article">
         <div class="article__hero">
-            <img
+            <nuxt-img
+                preset="hero"
                 :src="content.hero" 
                 :alt="content.title"
-                sizes="sm:100vw md:100vw lg:1600px"
+                sizes="sm:100vw md:100vw lg:1920px"
             />
         </div>
         <div class="article__header wrap text-block-xl">

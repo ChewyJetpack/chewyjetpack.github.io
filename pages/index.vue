@@ -5,7 +5,7 @@
       <div class="wrap homepage__content">
         <nuxt-content :document="home" />
         <span class="homepage__avatar">
-          <img :src="home.avatar" :alt="home.title"/>
+          <nuxt-img preset="avatar" :src="home.avatar" :alt="home.title"/>
         </span>
       </div>
       <div class="wrap">
