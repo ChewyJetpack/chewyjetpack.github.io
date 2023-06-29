@@ -18,6 +18,11 @@ h1 {
     @include breakpoint_m {
         margin-bottom: $unit_l;
     }
+
+    font-size: $txt_xl;
+    @include breakpoint_m {
+        font-size: $txt_xxl;
+    }
 }
 
 h2 {
@@ -25,13 +30,17 @@ h2 {
     margin-bottom: $unit_m;
 
     @include breakpoint_m {
-        font-size: $txt_l;
+        font-size: $txt_xl;
     }
 }
 
 h3 {
     font-size: $txt_m;
     margin-bottom: $unit_s;
+
+    @include breakpoint_m {
+        font-size: $txt_l;
+    }
 }
 
 h4 {
@@ -129,5 +138,11 @@ ul:not([class]), ol {
         & > p {
             margin: 0;
         }
+    }
+}
+
+.article-content {
+    h1, h2, h3 {
+        margin-top: $unit_xl;
     }
 }

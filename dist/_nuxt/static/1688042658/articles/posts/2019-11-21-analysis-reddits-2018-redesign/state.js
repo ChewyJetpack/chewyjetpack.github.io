@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1688042658",layout:"DefaultLayout",error:a,serverRendered:true,routePath:"\u002Farticles\u002Fposts\u002F2019-11-21-analysis-reddits-2018-redesign",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a},content:{dbHash:"11409cb0"}}}}(null));

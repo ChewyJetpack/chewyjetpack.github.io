@@ -12,14 +12,14 @@
                 <div class="article__headline">
                     <h1>{{ content.title }}</h1>
                 </div>
-                <ul class="article__meta-list">
-                    <li v-if="caseStudy">
+                <div class="article__meta-list">
+                    <div v-if="caseStudy">
                         From {{ content.year }}
-                    </li>
-                    <li v-else>
+                    </div>
+                    <div v-else>
                         {{ content.date }}
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <section class="article__main wrap text-block-xl">
