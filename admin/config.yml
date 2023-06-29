@@ -1,0 +1,249 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+
+local_backend: true
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'articles'
+    label: 'Articles'
+    label_singular: 'Article'
+    folder: 'content/articles/posts'
+    format: 'frontmatter'
+    sort: 'date:desc'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Hero (1920x800)', name: 'hero', allow_multiple: false, widget: 'image' }
+      - { label: 'Thumb (640x400)', name: 'thumb', allow_multiple: false, widget: 'image' }
+      - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY MMM Do' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
+      - {
+        label: 'Content Blocks',
+        label_singular: 'Content Block',
+        name: 'contentBlocks',
+        widget: 'list',
+        min: 1,
+        fields: [
+          {
+            label: 'Images', 
+            label_singular: 'Image', 
+            name: 'images', 
+            allow_multiple: true, 
+            required: false,
+            widget: 'list', 
+            fields: [
+              { 
+                label: 'Image', 
+                name: 'src', 
+                required: true,
+                widget: 'image'
+              },
+              { label: 'Caption', name: 'caption', type: 'String', required: false},
+              { label: 'Alt text', name: 'alt', type: 'String', required: true}
+            ]
+          },
+          { label: 'Content', name: 'content', widget: 'markdown', required: false, },
+          { name: 'youtube', label: 'YouTube Embed Code', widget: 'text', required: false }
+        ]
+      }
+      - { label: 'Tags',
+          name: 'tags',
+          widget: 'relation',
+          collection: 'tags',
+          folder: 'content/_tags/',
+          display_fields: [title],
+          search_fields: [title],
+          value_field: 'title',
+          multiple: true
+        }
+  - name: 'caseStudies'
+    label: 'Case Studies'
+    label_singular: 'Case Study'
+    folder: 'content/work/case-studies'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Hero (1920x800)', name: 'hero', allow_multiple: false, widget: 'image' }
+      - { label: 'Thumb (640x400)', name: 'thumb', allow_multiple: false, widget: 'image' }
+      - { label: 'Category', name: 'category', widget: 'string'}
+      - { label: 'Year', name: 'year', widget: 'number', default: '2022' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Meta Description', name: 'meta_description', widget: 'string'}
+      - { label: 'Summary', name: 'summary', widget: 'markdown' }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'summaryImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Background', name: 'background', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'backgroundImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Goals', name: 'goals', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'goalsImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Method', name: 'method', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'methodImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { name: 'youtube', label: 'YouTube Embed Code', widget: 'text', required: false }
+      - { label: 'Results', name: 'results', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'resultsImages', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: false,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: false}
+        ]
+      }
+      - { label: 'Wrap Up', name: 'wrap-up', widget: 'markdown', required: false }
+  - name: 'tags'
+    label: 'Tags'
+    label_singular: 'Tag'
+    folder: 'content/tags/'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { 
+          label: 'Title', 
+          name: 'title', 
+          widget: 'string',
+          required: true,
+        }
+  - name: 'pages'
+    label: 'Pages'
+    label_singular: 'Page'
+    editor:
+      preview: false
+    files:
+      - label: 'Homepage'
+        name: 'home'
+        slug: '{{slug}}'
+        file: 'content/home.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Work'
+        name: 'work'
+        slug: '{{slug}}'
+        file: 'content/work/work.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Articles'
+        name: 'articles'
+        slug: '{{slug}}'
+        file: 'content/articles/articles.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'details'
+    label: 'Details'
+    editor:
+      preview: false
+    files: [
+      {
+        name: 'contact',
+        label: 'Contact',
+        file: 'content/contact.md',
+        fields: [
+          {label: 'Title', name: 'title', default: 'Contact Details', widget: 'string'},
+          {label: 'Email', name: 'email', widget: 'string'},
+          {label: 'Phone', name: 'phone', widget: 'number', default: 07503111160},
+          {
+            label: 'Social Links', 
+            label_singular: 'Social Link',
+            name: 'socialLinks', 
+            widget: 'list',
+            fields: [
+              {label: 'url', name: 'url', widget: 'string'}
+            ]
+          }
+        ]
+      }
+    ]
