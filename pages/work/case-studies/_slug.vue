@@ -51,6 +51,9 @@ export default {
         { hid: 'og-image', property: 'og:image',
           content: 'https://emilsmith.pro' + this.caseStudy.hero
         },
+        { hid: 'twitter-image', property: 'twitter:image',
+          content: 'https://emilsmith.pro' + this.caseStudy.hero
+        },
         { hid: 't-type', name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
