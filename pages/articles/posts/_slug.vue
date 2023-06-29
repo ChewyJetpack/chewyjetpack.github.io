@@ -27,7 +27,7 @@ export default {
   },
   head() {
     return {
-      title: 'Emil Smith | ' + this.article.title,
+      title: this.article.title = ' | Emil Smith',
       meta: [
         {
           hid: this.article.description,

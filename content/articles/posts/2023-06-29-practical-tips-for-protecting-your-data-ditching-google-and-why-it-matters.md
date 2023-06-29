@@ -58,14 +58,10 @@ contentBlocks:
       Here's a list of recommendations for alternative services that I have personally used, and can vouch for:
 
 
-
-
       ## Search
 
 
       [DuckDuckGo](https://duckduckgo.com/) and [Qwant](https://duckduckgo.com/), and [Brave](https://search.brave.com/) are all great alternatives to Google. You won't be totally free of ads, but the ads you do get will be dumber and less spooky.
-
-
 
 
       ## Email
@@ -74,11 +70,7 @@ contentBlocks:
       Gmail is almost everyone's go-to these days, but there are some great alternatives that are much more privacy conscious. [Proton Mail](https://proton.me/mail) is a popular choice due to their end-to-end encryption. I use [Mailbox.org](https://mailbox.org/) which is rock solid, and has been running since the mid-nineties!
 
 
-
-
       ## Web Browsing
-
-
 
 
       ### Alternative browsers
@@ -88,8 +80,6 @@ contentBlocks:
 
 
       At the very least, [uBlock Origin](https://ublockorigin.com/) will kill most trackers and give you an ad-free web.
-
-
 
 
       ### VPNs
@@ -104,14 +94,10 @@ contentBlocks:
       The downside to using a VPN is a lack of convenience, and sometimes limited bandwidth, or increased latency.
 
 
-
-
       ### Sandboxing
 
 
       Sandboxing is a great way to prevent cookies from tracking you around the web. Firefox now comes with [containers](https://support.mozilla.org/en-US/kb/how-use-firefox-containers) built-in, meaning that individual sites, or groups of sites, are ignorant about your other online activities. This helps to break the crumbtrail of data that follows you around the web.
-
-
 
 
       ## Cloud storage
@@ -123,20 +109,16 @@ contentBlocks:
       I ended up with a self-hosted [NextCloud](https://nextcloud.com/) installation, which is not for the faint-hearted, but it works out pretty cheap when you want to store multiple terabytes of data. If you're going down the self-hosted route, [PhotoPrism](https://www.photoprism.app/) is a fantastic Google Photos alternative.
 
 
-
-
       ## Maps
 
 
       There are plenty of alternatives to Google maps, with varying degrees of usefulness. [Here](https://wego.here.com) and [Citymapper](https://citymapper.com/) are decent options. However I do still find myself using Google Maps often, but I do so using [Hermit](https://hermit.chimbori.com/) as a sandbox, and without using a Google account.
 
 
-
-
       ## Your Phone
 
 
-      Yeah, Google owns that too, unless you're an iPhone user. In fact, if you're an iPhone user, you're already doing pretty well in this regard, as they allow you to easily block apps from tracking you. If you're on Android, \[CalyxOS] is a totally de-googled alternative that you can install on a range of off-the-shelf handsets with an automatic installer!
+      Yeah, Google owns that too, unless you're an iPhone user. In fact, if you're an iPhone user, you're already doing pretty well in this regard, as they allow you to easily block apps from tracking you. If you're on Android, [CalyxOS](https://calyxos.org/) is a totally de-googled alternative that you can install on a range of off-the-shelf handsets with an automatic installer!
 tags:
   - Technology
   - Privacy
