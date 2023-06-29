@@ -84,12 +84,15 @@ strong {
 
 blockquote {
   position: relative;
-  margin: $unit_m 0;
-  font-weight: 500;
+  margin: $unit_l 0;
   color: var(--c-main);
-  font-size: 1.4em;
+  font-size: 1.1em;
   line-height: 1.4;
   padding: $unit_xs $unit_l;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   & > p {
       margin: 0;
@@ -100,7 +103,7 @@ blockquote {
     top:0;
     left: 0;
     height: 100%;
-    width: $unit_xs;
+    width: 2px;
     background: var(--c-accent-1);
     content: "";
     display: block;

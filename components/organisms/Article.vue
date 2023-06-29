@@ -70,6 +70,9 @@
                     :images="content.methodImages" 
                 />
                 <CaseStudyContentBlock 
+                    :youtube="content.youtube" 
+                />
+                <CaseStudyContentBlock 
                     :content="content.results" 
                     heading="Results"
                     :images="content.resultsImages" 

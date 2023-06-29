@@ -5,6 +5,7 @@ $medium-1:      #605A69;
 $medium-2:      #767281;
 $light:         #b3b2ce;
 $lighter:       #EFF1F6;
+$lightest:      #f6f9ff;
 $sunrise:       #F5AB76;
 $coral:         #FA6C8E;
 $cogent:        #7b6dff;
@@ -46,7 +47,7 @@ $lightest-shade:   rgba($lighter, 0.85);
 
 @mixin light {
     --mode:light;
-    --c-bg:              #{$lighter};
+    --c-bg:              #{$lightest};
     --c-shade-bg:        #{$lightest-shade};
     --c-bg-2:            #{$lighter};
     --c-bg-3:            #{$light};

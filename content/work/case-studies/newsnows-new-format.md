@@ -1,6 +1,6 @@
 ---
 title: NewsNow's New Format
-hero: /img/newformat.jpg
+hero: /img/nnnf.png
 thumb: /img/newsnowlogo.jpg
 category: Design & Development
 year: 2020
@@ -77,6 +77,9 @@ goals: >-
 
 
   Of course throughout this process it was vitally important to ensure that our updates were beneficial to NewsNow's extremely large, loyal, and long-standing user base.
+goalsImages:
+  - src: /img/NNnewFormat.jpg
+    caption: NewsNow's New Format
 method: >-
   ### Reskin
 
@@ -151,6 +154,7 @@ method: >-
 
 
   Throughout this process, we were able to gather valuable information which we used to iterate and improve on the design prior to our full launch, and it served as a valuable precedent for future research projects. We were also able to develop a previously absent rapport with our users; we responded to each and every piece of feedback we received, engaging directly with the people who used the product, and giving them the opportunity to contribute to the development of the product.
+methodImages: []
 results: >-
   Overall it is no understatement that this project was a resounding success. It
   was well-received by both users and stakeholders and has enabled us to work on

@@ -5,7 +5,7 @@
     <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
 
     <!-- Social network links -->
-    <ul class="footer-menu__social">
+    <ul class="footer-menu__social u-pm-reset">
       <li
         v-for="(link, index) in contact.socialLinks"
         :key="index"

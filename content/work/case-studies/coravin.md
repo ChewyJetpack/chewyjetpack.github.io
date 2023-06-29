@@ -3,7 +3,7 @@ title: Coravin
 hero: /img/new-project.jpg
 thumb: /img/new-project-1-.jpg
 category: Design & Development
-year: 2017
+year: 2015
 description: Coravin is a US based start up, offering an innovative product
   which enables people to pour wine from the bottle without removing the cork,
   using a specialised needle to pierce the cork and replace the lost volume of
@@ -22,19 +22,16 @@ summary: >-
   After designing a number of campaign materials for Coravin, they enlisted BPL Marketing to design and build a number of international brochure websites to showcase their products in markets in which they don’t operate an eCommerce business. 
 
 
-  I designed the entire brochure site in way that I felt showcased the product effectively.
-
-
-  The site is based on a Wordpress back end, and uses npm to build front end assets
+  Coravin was in relatively early stages of brand development, so we had limited informaiton in the way of brand guidelines. I designed the site to reflect the brand's luxury connotations, with a focus on imagery and interactivity.
 summaryImages:
-  - src: /img/cor1.jpg
+  - src: /img/m5w94h3s.png
     caption: The Coravin product page
   - src: /img/cor2.jpg
     caption: The Coravin listing page
-  - src: /img/cor3.jpg
+  - src: /img/m5w94h3s2.png
     caption: The Coravin showcase
   - src: /img/cor4.jpg
     caption: Coravin homepage
-  - src: /img/cor5.jpg
+  - src: /img/irnf6l3q.png
     caption: Product info
 ---

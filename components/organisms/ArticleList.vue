@@ -103,7 +103,7 @@ export default {
     }
 
     &__date {
-        font-size: $txt_xs;
+        font-size: $txt_s;
         color: var(--c-main-alt);
         margin: 0 0 $unit_s 0;
     }

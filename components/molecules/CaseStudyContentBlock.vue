@@ -1,7 +1,12 @@
 <template>
-    <section class="cs-block" v-if="content || images">
+    <section class="cs-block" v-if="content || images || youtube">
         <h2 v-if="heading">{{ heading }}</h2>
-        <div v-if="content" class="cs-block__content" v-html="$md.render(content)" />
+        <div v-if="content" class="cs-block__content" v-html="$md.render(content)" />  
+        <div 
+            v-if="youtube" 
+            v-html="youtube"
+            class="youtube-embed u-bm-m"
+        />
         <ArticleImages v-if="images" :images="images" />
       </section>
 </template>
@@ -16,6 +21,9 @@ export default {
             type: String
         },
         content: {
+            type: String
+        },
+        youtube: {
             type: String
         },
         images: {

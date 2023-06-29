@@ -1,5 +1,5 @@
 <template>
-  <ul class="nav-list">
+  <ul class="nav-list u-pm-reset">
     <li
       class="nav-list__item">
       <NuxtLink class="nav-list__link" to="/">About</NuxtLink>

@@ -2,9 +2,7 @@
     <footer>
         <div class="wrap">
             <div class="footer-content">
-                <p>
                     All content &copy; Copyright Emil Smith {{new Date().getFullYear()}}
-                </p>
                 <FooterMenu /> 
             </div>
         </div>

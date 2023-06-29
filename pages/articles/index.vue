@@ -18,11 +18,23 @@ import ArticleList from '~/components/organisms/ArticleList'
 import HeadingStrip from '~/components/molecules/HeadingStrip'
 
 export default {
+  head() {
+    return {
+      title: 'Emil Smith | Articles',
+      meta: [
+        {
+          hid: 'articlesdescription',
+          name: 'description',
+          content: "As an e-musician, tech nerd, design chad, AI enthusiast/opponent, Miles Dyson fanboy, and neuro-piquant all-trades jack, there’s a lot for me to keep track of. This is a captain’s log of my adventures through various different worlds."
+        }
+      ],
+    }
+  },
   name: 'ArticlesPage',
   layout: 'DefaultLayout',
   async asyncData({ $content }) {
     const articlesPage = await $content('articles/articles').fetch()
-    const articles = await $content('articles/posts').fetch()
+    const articles = await $content('articles/posts').sortBy('slug', 'desc').fetch()
     const tags = await $content('tags').fetch()
 
     return {

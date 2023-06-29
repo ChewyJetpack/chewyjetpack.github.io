@@ -21,6 +21,12 @@
         :articles="articles"
         :tags="tags"
       />
+      <div v-if="articles.length > 4">
+        <Button
+          href="/articles"
+          label="Read more"
+        />
+      </div>
     </section>
   </div>
 </template>
@@ -40,7 +46,7 @@ export default {
   },
   async asyncData({ $content }) {
     const home = await $content('home').fetch();
-    const articles = await $content('articles/posts').fetch();
+    const articles = await $content('articles/posts').sortBy('slug', 'desc').limit(5).fetch();
     const tags = await $content('tags').fetch();
 
     return {

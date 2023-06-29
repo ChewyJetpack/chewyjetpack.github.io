@@ -17,6 +17,18 @@ import HeadingStrip from '~/components/molecules/HeadingStrip'
 import ArticleList from '~/components/organisms/ArticleList'
 
 export default {
+  head() {
+    return {
+      title: 'Emil Smith | ' + this.tag.title,
+      meta: [
+        {
+          hid: this.tag.title,
+          name: 'description',
+          content: 'Articles related to: ' + this.tag.title
+        }
+      ],
+    }
+  },
   name: 'TagPage',
   layout: 'DefaultLayout',
   async asyncData({ $content, params, error }) {

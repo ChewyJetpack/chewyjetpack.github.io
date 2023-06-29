@@ -5,15 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Remove default padding */
-*:not(.article__content) {
-  ul,
-  ol {
-    padding: 0;
-    margin: 0;
-  }
-}
-
 /* Remove default margin */
 body,
 h1,

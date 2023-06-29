@@ -43,26 +43,7 @@ export default {
 <style lang="scss">
     .article-content {
         &__text-block {
-            @extend .u-bm-l;
-        }
-    }
-    .youtube-embed {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        
-        &::after {
-            display: block;
-            content: "";
-            padding-top: 56.25%;
-        }
-
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            @extend .u-bm-xl;
         }
     }
 </style>

@@ -1,0 +1,1 @@
+window.__NUXT__={staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1688042199",layout:"default",error:{message:"Article not found",statusCode:500},serverRendered:false,routePath:"\u002Farticles\u002Fposts\u002F2023-06-25-analysis-reddits-2018-redesign",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:null},content:{dbHash:"ae5bc30a"}}};
