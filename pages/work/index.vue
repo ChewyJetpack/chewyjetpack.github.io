@@ -6,7 +6,7 @@
         <nuxt-content :document="work" />
         <Button
             label="Download my CV"
-            href="~/CV.pdf"
+            href="https://emilsmith.pro/CV.pdf"
             class="u-tm-l"
             :external="true"
         />
