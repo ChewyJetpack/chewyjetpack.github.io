@@ -1,5 +1,5 @@
 ---
-title: NewsNow + The Creative Folkestone Book Festival
+title: "NewsNow: The Creative Folkestone Book Festival"
 hero: /img/hero-cf.jpg
 thumb: /img/thumb-cf.jpg
 category: Branding & Design
@@ -35,7 +35,7 @@ goals: The overall goals for the event, aside from the overarching social
   as a brand, and its values of media plurality and supporting public-interest
   journalism. This was set to be achieved though production and deployment of
   high quality brand materials.
-goalsImages: 
+goalsImages:
   - src: /img/2020_12_03_21_30_59_2_8ec75781aa.jpg
     caption: Print advertisement design for NewsNow as Principle Partner of the 2019
       Creative Folkestone Book Festival
@@ -74,6 +74,11 @@ method: >-
 
   Beyond the film, the print advertisement I designed for the festival brochure was a highlight for me. I enjoyed the refreshing opportunity to work for print, which is something I've not had much opportunity to do in the past. Using the strapline from the video; "There's more than one way to see things", I designed a kind of visual puzzle. The core of the design is a 3D isometric shape, which would appear as a different 2D shape when viewed head-on from any one axis. This is a very literal, yet subtle, visualization of the core message, and I designed it in such a way that it would work harmoniously with the branding of the festival.
 methodImages: []
+youtube: <iframe width="560" height="315"
+  src="https://www.youtube.com/embed/aaZ6qrmYpMg" title="YouTube video player"
+  frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+  encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
 results: >-
   In the end, I turned around the entire film, sourcing footage, editing,
   writing, syncing captions, and producing the music, all within a couple of
@@ -89,10 +94,5 @@ results: >-
 
   Overall, the event was a great success. As a team, we had successfully created a set of reusable assets, skills, and processes with which to approach future events, and had developed a stronger brand identity both internally and in the eyes of event attendees.
 resultsImages: []
-youtube: <iframe width="560" height="315"
-  src="https://www.youtube.com/embed/aaZ6qrmYpMg" title="YouTube video player"
-  frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-  encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen></iframe>
 wrap-up: ""
 ---
