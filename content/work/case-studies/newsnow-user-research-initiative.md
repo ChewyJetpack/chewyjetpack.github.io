@@ -1,7 +1,7 @@
 ---
 title: "NewsNow: User Research Initiative"
-hero: /img/hero-nnux.jpg
-thumb: /img/thumb-nnux.jpg
+hero: /img/pexels-picjumbocom-196644.jpg
+thumb: /img/pexels-picjumbocom-196644.jpg
 category: UX Research
 year: 2020
 description: A long-running user research initiative, consisting of design,
