@@ -19,12 +19,13 @@ contentBlocks:
       and their use of Facebook's rich trove of user data to deliberately
       manipulate the outcome of "more than 200 elections around the world",
       [according to CA executives](https://www.bbc.co.uk/news/world-43476762).
-      This included the Brexit referrendum, and in fact [Steve Bannon migrated
-      from his spot as VP of Cambridge
+      This included the Brexit referrendum, and in fact [Steve Bannon leapt from
+      his post as VP of Cambridge
       Analytica](https://edition.cnn.com/2018/03/20/politics/steve-bannon-cambridge-analytica/index.html)
-      with parasitic elegance, to run Donald Trumps presidential campaign the
-      [exact sam
+      to run Donald Trumps presidential campaign the [exact same
       way](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal#Donald_Trump_campaign).
+      In the end, Cambridge Analytica went bust, and Facebook was fined $5bn for
+      misleading their users in regard to the privacy of their data.
 
 
       Murmurings about the potential of "Big Data" had been around for a long while, and machine learning algorithms were already commonplace in most big tech companies, as a means to interpret vast data sets and perform subsequent actions such as recommending content, completing search terms, or translation.
@@ -121,6 +122,9 @@ contentBlocks:
 
 
       Yeah, Google owns that too, unless you're an iPhone user. In fact, if you're an iPhone user, you're already doing pretty well in this regard, as they allow you to easily block apps from tracking you. If you're on Android, [CalyxOS](https://calyxos.org/) is a totally de-googled alternative that you can install on a range of off-the-shelf handsets with an automatic installer!
+
+
+      No matter what phone you have, turning off WiFi when you're out and about will help prevent retail stores from tracking your whereabouts and, needless to say, public WiFi is incredibly insecure.
 tags:
   - Technology
   - Privacy
