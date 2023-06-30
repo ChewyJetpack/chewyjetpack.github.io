@@ -19,9 +19,12 @@ contentBlocks:
       and their use of Facebook's rich trove of user data to deliberately
       manipulate the outcome of "more than 200 elections around the world",
       [according to CA executives](https://www.bbc.co.uk/news/world-43476762).
-      The subsequent investigation resulted in a [$5b fine for
-      Facebook](https://www.theguardian.com/technology/2019/jul/24/facebook-to-pay-5bn-fine-as-regulator-files-cambridge-analytica-complaint)
-      for deceiving users in regard to the privacy of their data.
+      This included the Brexit referrendum, and in fact [Steve Bannon migrated
+      from his spot as VP of Cambridge
+      Analytica](https://edition.cnn.com/2018/03/20/politics/steve-bannon-cambridge-analytica/index.html)
+      with parasitic elegance, to run Donald Trumps presidential campaign the
+      [exact sam
+      way](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal#Donald_Trump_campaign).
 
 
       Murmurings about the potential of "Big Data" had been around for a long while, and machine learning algorithms were already commonplace in most big tech companies, as a means to interpret vast data sets and perform subsequent actions such as recommending content, completing search terms, or translation.
@@ -39,7 +42,7 @@ contentBlocks:
       We joke about how creepy it is when our phones start advertising products to us that we discussed with a friend a couple of hours earlier. Are we so naïve as to write that off as a coincidence, or have we simply accepted our fate? In reality, smart devices all over our homes, in our cars, in our offices, and in our pockets, are constantly feeding minute, granular data points to each other via [data brokers](https://en.wikipedia.org/wiki/Data_broker); companies that build their business on buying, selling, and aggregating data about every single one of us. They build profiles on who we are by absorbing and concentrating data from sources that we tend to think of as isolated from one another. Your [Smart TV analyses your conversations](https://www.theguardian.com/technology/2022/jan/29/what-your-smart-tv-knows-about-you-and-how-to-stop-it-harvesting-data), while [your phone uses Google Maps to track your location](https://www.wired.co.uk/article/google-maps-alternatives-privacy), and while [Facebook reads your messages](https://crambler.com/truth-about-facebook-messenger-app-privacy/), and so on, and so on. These disparate data sources do not remain independent. Somewhere, likely in multiple places, these data is being correlated and aggregated to build an obsessive profile on you, like a creepy, infatuated stalker, potentially with a political agenda.
 
 
-      The crux of the issue was exposed so brazenly by Cambridge Analytica five years ago: Privacy is not about hiding secrets; it is about protecting ourselves from bad actors who wield the most advanced [PsyOp](https://en.wikipedia.org/wiki/Psychological_warfare) tools the world has ever known, and who can influence decisions that we believe to be our own.
+      The crux of the issue was exposed so brazenly by Cambridge Analytica scandal five years ago: Privacy is not about hiding secrets; it is about protecting ourselves from bad actors who wield the most advanced [PsyOp](https://en.wikipedia.org/wiki/Psychological_warfare) tools the world has ever known, and who can influence decisions that we believe to be our own.
 
 
       # How to protect yourself
