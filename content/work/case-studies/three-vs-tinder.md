@@ -24,7 +24,7 @@ method: >-
 
   Once we had the design nailed down, we decided to use Vue.js for the front end of the page, as it would afford a high level of interactivity and was very unopinionated compared to other JS frameworks available at the time. I built the front end, alongside a back-end developer working in Laravel to handle the data, API, and security.
 date: "2022"
-title: Three vs Tinder
+title: "Three & Tinder: Phones Are Good"
 hero: /img/hero-sr.jpg
 thumb: /img/thumb-sr.jpg
 category: SPA Design & Development
