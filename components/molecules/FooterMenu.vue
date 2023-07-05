@@ -20,6 +20,9 @@
           <font-awesome :icon="getSocialIcon(link.url)" />
         </a>
       </li>
+      <li class="footer-menu__social-item">
+        <a rel="me" href="https://mastodon.social/@ChewyJetpack" class="footer-menu__social-link"><font-awesome :icon="getSocialIcon('mastodon')" /></a>
+      </li>
     </ul>
   </div>
 </template>
@@ -54,6 +57,10 @@ export default {
         {
           name: "git",
           icon: "github"
+        },
+        {
+          name: "mastodon",
+          icon: "mastodon"
         }
       ];
       for (let i = 0; i < icons.length; i++) {
