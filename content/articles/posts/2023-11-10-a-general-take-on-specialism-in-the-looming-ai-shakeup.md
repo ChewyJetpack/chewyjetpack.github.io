@@ -1,6 +1,6 @@
 ---
 title: A General Take on Specialism in the Looming AI Shakeup
-hero: /img/tools.png
+hero: /img/tools2.png
 thumb: /img/tools-thumb.png
 date: 2023 Nov 10th
 description: ' Over many decades, the corporate world has been distilling and
