@@ -3,13 +3,13 @@ meta_description: A collaboration between Three and Tinder on a campaign concept
   where Henry VIII used Tinder to find his wives
 summary: During my role at BPL Marketing, we were approached by long-time client
   Three to produce a promotional landing page for their collaborative campaign
-  with Tinder. The concept was based on juxtaposing smartphones with historical
-  events, to explore comedic ways in which they might have turned out. In this
-  case, Three and Tinder had built a campaign around King Henry VIII using
-  Tinder to find his wives. We were briefed to build an interactive, promotional
-  landing page for their digital marketing campaign, funneling users to a
-  competition entry form where they could enter for the chance to win a Samsung
-  Galaxy S9.
+  with Tinder. The cmapaignwas titles "Phones Are Good" and the concept was
+  based on juxtaposing smartphones with historical events, to explore comedic
+  ways in which they might have turned out for the better. In this case, Three
+  and Tinder had built a campaign around King Henry VIII using Tinder to find
+  his wives. We were briefed to build an interactive, promotional landing page
+  for their digital marketing campaign, funneling users to a competition entry
+  form where they could enter for the chance to win a Samsung Galaxy S9.
 method: >-
   We set about conducting brainstorming sessions with the wider creative team,
   and settled on the concept of "The Swipe is Right"; a play on words from the
@@ -24,7 +24,7 @@ method: >-
 
   Once we had the design nailed down, we decided to use Vue.js for the front end of the page, as it would afford a high level of interactivity and was very unopinionated compared to other JS frameworks available at the time. I built the front end, alongside a back-end developer working in Laravel to handle the data, API, and security.
 date: "2022"
-title: Three vs Tinder
+title: "Three & Tinder: Phones Are Good"
 hero: /img/hero-sr.jpg
 thumb: /img/thumb-sr.jpg
 category: SPA Design & Development

@@ -5,7 +5,7 @@
                 <img @click="lightBox(images, index, $event)" class="image" :src="image.src" :alt="image.alt"/>
             </div>
             <div v-else class="img-wrap">
-                <img class="image image--hidden" :src="image.src" :alt="image.alt"/>
+                <nuxt-img preset="thumbSq" class="image image--hidden" :src="image.src" :alt="image.alt"/>
                 <span @click="lightBox(images, index, $event)" class="image-tile" :style="'background: url(' + image.src + ') center center / cover no-repeat;'"></span>
             </div>
             <caption v-if="image.caption && images.length < 2" :class="images.length > 1 ? 'caption' : 'caption caption--single'">{{ image.caption }}</caption>

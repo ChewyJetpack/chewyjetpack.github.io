@@ -1,7 +1,7 @@
 ---
 title: NewsNow's New Format
-hero: /img/nnnf.png
-thumb: /img/newsnowlogo.jpg
+hero: /img/nncover.png
+thumb: /img/untitled-4.png
 category: Design & Development
 year: 2020
 description: Building and scaling a design system, with implementation in
@@ -93,7 +93,7 @@ method: >-
   ### Research
 
 
-  Embarking on a project of this scale, especially as a new member of the team, was no small feat. I took time to analyse the existing product in detail, speaking with members from all areas of the business, including development, editorial, and senior management, to get a full and comprehensive understanding of the business, the product, and the underlying technology.
+  I took time to analyse the existing product in detail, speaking with members from all areas of the business, including development, editorial, and senior management, to get a full and comprehensive understanding of the business, the product, and the underlying technology.
 
 
   I felt it important to look at the product in the wider context of the industry, to see how we might want to position ourselves relative to other news aggregators, publishers, and social platforms. NewsNow is unique in this sense; it is a news aggregator that performs similar functions to those by the likes of Google, Apple, and Yahoo, but the number of individual topics and the number of headlines on a given page is more akin to the likes of social media platforms, such as Facebook, Twitter or Reddit. 
@@ -108,7 +108,7 @@ method: >-
   ### Roadmap
 
 
-  Equipped with the learnings from my research phase, I was able to work collaboratively with senior management to specify the scope and deliverables for the New Format, and within the development team to create a scope and task backlog for the technical requirements. We used Asana to manage the project, in which I constructed a set of timelines with clear dependencies between design and development, accounting for testing and refactoring, with a set launch date for our private, opt-in beta. We also took learnings from the Reddit case study to help inform our process, including the implementation of a system to manage user feedback, a public blog post to inform users of upcoming changes, and a staggered rollout to ensure feature-parity prior to the site-wide launch.
+  Equipped with the learnings from my research phase, I worked with senior management to specify the scope and deliverables for the New Format, and within the development team to create a scope and task backlog for the technical requirements. We used Asana to manage the project, in which I constructed a set of timelines with clear dependencies between design and development, accounting for testing and refactoring, with a set launch date for our private, opt-in beta. We also took learnings from the Reddit case study to help inform our process, including the implementation of a system to manage user feedback, a public blog post to inform users of upcoming changes, and a staggered rollout to ensure feature-parity prior to the site-wide launch.
 
 
   The nature of this project did not necessarily lend itself to a strict goal-setting framework, as it was not intended to drive any specific metric, though we did employ rigorous in-app feedback tools so that we could check user satisfaction metrics throughout the rollout. The success of the project would be measured in our resulting ability to scale and develop the product in the future, and the satisfaction of our dedicated core user base.
@@ -120,7 +120,7 @@ method: >-
   The design strategy for this project employed the use of atomic design principles to create a modular, component-based design system in Figma, with standardised tokens for measurements, colours, and typography, and context-agnostic, BEM-style components for all UI elements, templates, and pages. The design would be carefully tested against WCAG accessibility guidelines to ensure that colour contrast ratios, font sizes, and interactive elements were sufficiently distinguished and usable.
 
 
-  I opted to work extremely closely with developers on the structure of the design system, since I would also be responsible for building a large proportion of the front end. We discussed stacks, tooling, and coding practices, and used those decisions to inform the kind of functionality we could include in the design. This cohesion between design and development is something I strive for in my work, and the result of this holistic approach is always hugely beneficial.
+  I worked closely with developers on the structure of the design system, since I would also be responsible for building a large proportion of the front end. We discussed stacks, tooling, and coding practices, and used those decisions to inform the kind of functionality we could include in the design. This cohesion between design and development is something I strive for in my work, and the result of this holistic approach is always hugely beneficial.
 
 
   The most significant visual update to the site was the introduction of imagery. NewsNow had never hosted images before in all its decades of life, and this was a huge update to the overall user experience, especially considering the perspective of users who had been devotedly scouring through lists of plain text headlines for years. Interestingly, the results of our user research suggested that most users would be very satisfied with an image-heavy, grid-based layout. However, there was a clear segment who absolutely preferred the old list style. This led us to introduce a layout mode toggle, enabling users to customise the experience for themselves.

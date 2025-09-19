@@ -5,7 +5,7 @@
       <div class="wrap homepage__content">
         <nuxt-content :document="home" />
         <span class="homepage__avatar">
-          <img :src="home.avatar" :alt="home.title"/>
+          <nuxt-img preset="avatar" :src="home.avatar" :alt="home.title"/>
         </span>
       </div>
       <div class="wrap">
@@ -62,7 +62,7 @@ export default {
     title: 'Emil Smith | Creative Technologist',
     meta: [
       {
-        hid: 'workdescription',
+        hid: 'description',
         name: 'description',
         content: "I'm a Creative Technologist, and I'm into tech and art. At the intersection of the two is design, so that's where I've spent most of my career."
       }
