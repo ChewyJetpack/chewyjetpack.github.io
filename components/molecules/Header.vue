@@ -44,6 +44,8 @@ export default {
   left: 0;
   border-bottom: solid 2px var(--c-main-alt-2);
   padding-top: $unit_m;
+  z-index: 1;
+  background: var(--c-bg);
 
   &__content {
     display: grid;

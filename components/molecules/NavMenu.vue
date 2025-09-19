@@ -14,7 +14,7 @@
     </li>
     <li
       class="nav-list__item">
-      <a href="https://soundcloud.com/nought_e" target="_blank" class="nav-list__link">Music</a>
+      <NuxtLink class="nav-list__link" to="/contact">Contact</NuxtLink>
     </li>
   </ul>
 </template>

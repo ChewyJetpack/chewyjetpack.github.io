@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
-$display-font:      'DM Mono', monospace;
-$body-font:         'DM Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Epunda+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+$display-font:      'Epunda Slab', serif;
+$body-font:         'IBM Plex Sans', sans-serif;
 
 @mixin font-body {
     font-family: $body-font;
@@ -18,9 +21,8 @@ $body-font:         'DM Sans', sans-serif;
 @mixin font-heading {
     font-family: $display-font;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 600;
     font-size: $txt_l;
-    letter-spacing: -0.04em;
     color: var(--c-heading);
     text-transform: initial;
 }
@@ -29,18 +31,17 @@ $body-font:         'DM Sans', sans-serif;
     font-family: $display-font;
     line-height: 1.2;
     font-size: $txt_xl;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--c-heading);
-    letter-spacing: -0.04em;
 
     a {
         font-weight: 500;
     }
 }
 
-$txt_xs:            1.3rem;
-$txt_s:             1.6rem;
-$txt_m:             2rem;
-$txt_l:             2.5rem;
-$txt_xl:            3.1rem;
-$txt_xxl:           5.4rem;
+$txt_xs:            1.4rem;
+$txt_s:             1.9rem;
+$txt_m:             2.4rem;
+$txt_l:             3.4rem;
+$txt_xl:            4.8rem;
+$txt_xxl:           7.4rem;

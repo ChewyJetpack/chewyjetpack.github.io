@@ -48,7 +48,7 @@
                     />
                 </div>
             </aside>
-            <div v-if="caseStudy"  class="article__content">
+            <div v-if="caseStudy && !content.contentType"  class="article__content">
                 <CaseStudyContentBlock 
                     :content="content.summary" 
                     heading="Summary"
@@ -157,17 +157,21 @@ export default {
 
     &__hero {
         display: flex;
-        align-items: center;
         justify-content: center;
-        //max-height: 60vh;
-        overflow: hidden;
+        align-items: center;
+        height: 60vh;
         border-bottom: solid 2px var(--c-main-alt-2);
         width: 100%;
+        position: relative;
+        img {
+            object-fit: cover;
+        }
     }
 
     &__header, &__main {
         background: var(--c-bg);
         padding: $unit_s;
+        z-index: 1;
 
         @include breakpoint_l {
             padding: $unit_m $unit_l;
@@ -198,6 +202,8 @@ export default {
     &__main {
         @extend .e-grid-3-1;
         align-items: start;
+        background: var(--c-bg-3);
+        position: relative;
     }
 
     &__meta {
