@@ -206,6 +206,15 @@ collections:
           - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
           - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Contact'
+        name: 'contact'
+        slug: '{{slug}}'
+        file: 'content/contact/contact.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', default: 'Welcome' }
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'home' }
+          - { label: 'Avatar', name: 'avatar', allow_multiple: false, widget: 'image' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'Work'
         name: 'work'
         slug: '{{slug}}'
