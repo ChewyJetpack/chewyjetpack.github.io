@@ -203,7 +203,7 @@ export default {
     &__main {
         @extend .e-grid-3-1;
         align-items: start;
-        background: var(--c-bg-3);
+        background: var(--c-bg-2);
         position: relative;
     }
 
