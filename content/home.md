@@ -1,7 +1,9 @@
 ---
-title: Hi, I'm a Creative Technologist
+title: Senior Product Designer
 avatar: /img/portrait.png
 ---
-I think “Creative Technologist” is more descriptive than a list of frameworks and buzzwords (<a href="CV.pdf" target="_blank">check out my CV</a> if that’s what you’re into). In a nutshell, I’m into tech and art. At the intersection of the two is design, so that’s where I've spent most of my career. 
+I'm a senior product designer with 15+ years building scalable digital products. I've led design teams with 100% retention rates, established user research programs, and built design systems serving 200+ brands. My approach combines systematic design thinking with technical implementation - I can code the solutions I design when needed.
 
-Outside of work, I'm an artist/maker. I've been writing and producing original music since childhood, and I run a youth studio in Hackney once a week at [The Crib](https://thecrib.org.uk/); a young people's charity which is run by some incredible people.
+Currently available for senior product design and consulting roles with companies doing interesting, meaningful work.
+
+Outside of work, I'm a music producer with releases on established drum & bass labels and an active visual artist involved in London's creative communities. I volunteer at [The Crib](https://thecrib.org.uk/) youth charity in Hackney.
