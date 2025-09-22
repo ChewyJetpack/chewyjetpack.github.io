@@ -1,8 +1,8 @@
 ---
-title: Modus of Madness
+title: Senior Product Designer
 ---
-I’ve spent the last fifteen years working interdisciplinarily in design, engineering, and specialist leadership, delivering projects for brands such as Google, eBay, Sony, Nokia, Virgin, and Tinder, as well as a long stint in the publishing industry.
+I solve complex design problems systematically, often moving between strategy, design, and technical implementation. Recent projects include modernising a 24-year-old platform while keeping millions of users happy, building design systems that scale across 200+ brands, and establishing research programs that revealed completely wrong assumptions about international user bases.
 
-My approach is holistic; I focus on goals, systems, and processes to solve problems in ways that are efficient, sustainable, and scalable. To this end, I do my best work when I have the freedom to traverse a range of disciplines.
+My background spans both design and development - I spent my first decade building complex web applications, which means I understand how to create solutions that actually work in practice and can collaborate effectively with engineering teams.
 
-Further to my professional skill-set, I care deeply about data privacy and ethics in AI. This is an area which has been commanding my attention (and anxiety) for a number of years, and recent developments in this space are making this a crucial aspect of operations for almost any industry. I love new tools, but I care deeply about understanding how tools work, and how to use them responsibly.
+I work best on challenging projects that require figuring things out from first principles, whether that's user research, design systems, or platform rebuilds. I'm particularly interested in education, arts organisations, or mission-driven companies, though I'm open to any compelling creative and technical challenges.
