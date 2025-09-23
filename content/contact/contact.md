@@ -1,5 +1,5 @@
 ---
-title: Contact Me
+title: Get In Touch
 ---
 
 I think “Creative Technologist” is more descriptive than a list of frameworks and buzzwords (<a href="CV.pdf" target="_blank">check out my CV</a> if that’s what you’re into). In a nutshell, I’m into tech and art. At the intersection of the two is design, so that’s where I've spent most of my career. 

@@ -42,10 +42,10 @@ export default {
   position: sticky;
   top: 0;
   left: 0;
-  border-bottom: solid 2px var(--c-main-alt-2);
-  padding-top: $unit_m;
-  z-index: 1;
-  background: var(--c-bg);
+  //@includeborder-bottom: solid 2px var(--c-main-alt-2);
+  //padding-top: $unit_m;
+  z-index: 2;
+  background: var(--c-bg-2);
 
   &__content {
     display: grid;
@@ -57,7 +57,7 @@ export default {
 
     @include breakpoint_l {
       grid-template-columns: 1fr 1fr 22px;
-      align-items: flex-end;
+      //align-items: flex-end;
       @include wrap;
     }
   }
@@ -66,9 +66,10 @@ export default {
     display: block;
     max-width:120px;
     padding: 0 0 0 $unit_xs;
+    height: calc(100% - $unit_m);
 
     @include breakpoint_l {
-      max-width: 170px;
+      max-width: 480px;
       order: 1;
       padding: 0 $unit_xs $unit_s 0;
     }
@@ -85,7 +86,7 @@ export default {
 
     @include breakpoint_l {
       order: 3;
-      padding: 0 0 $unit_s 0;
+      padding: 0 0 $unit_xxs 0;
     }
   }
 
@@ -93,6 +94,7 @@ export default {
     @include breakpoint_l {
       order: 2;
       margin-right: $unit_s;
+      padding-bottom: $unit_xxs;
     }
   }
 }

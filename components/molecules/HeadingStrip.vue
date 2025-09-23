@@ -46,10 +46,12 @@ export default {
     &--pentagon {
         background: var(--img-pent) right 0 / auto no-repeat;
         border-color: var(--c-accent-2);
+        background-color:var(--c-bg-2);
 
         @include breakpoint_m {
             background: var(--img-pent-l) right 0 / auto no-repeat;
             background-position-x: 50%;
+            background-color:var(--c-bg-2);
         }
 
         @include breakpoint_xl {
@@ -60,10 +62,12 @@ export default {
     &--triangle {
         background: var(--img-tri) right 0 / auto no-repeat;
         border-color: var(--c-accent-4);
+        background-color:var(--c-bg-2);
 
         @include breakpoint_m {
             background-image: var(--img-tri-l);
             background-position-x: 50%;
+            background-color:var(--c-bg-2);
         }
 
         @include breakpoint_xl {
@@ -74,10 +78,12 @@ export default {
     &--hexagon {
         background: var(--img-hex) right 0 / auto no-repeat;
         border-color: var(--c-accent-3);
+        background-color:var(--c-bg-2);
 
         @include breakpoint_m {
             background-image: var(--img-hex-l);
             background-position-x: 50%;
+            background-color:var(--c-bg-2);
         }
 
         @include breakpoint_xl {

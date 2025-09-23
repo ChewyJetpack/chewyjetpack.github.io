@@ -46,6 +46,7 @@ export default {
 .mode-switch {
   position: relative;
   transition: transform 0.5s;
+  font-size: $unit_s;
 
   &:after {
     display: block;
@@ -53,8 +54,8 @@ export default {
     top: 50%;
     left: 50%;
     content: "";
-    width: $unit_xxl;
-    height: $unit_xxl;
+    width: $unit_xl;
+    height: $unit_xl;
     background: $sunrise;
     border-radius: 50%;
     opacity: 0;

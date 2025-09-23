@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="contact">
-      <HeadingStrip :heading="contact.title" shape="pentagon"/>
+      <HeadingStrip :heading="contact.title" shape="hexagon"/>
       <div class="wrap contact__content">
         <nuxt-content :document="contact" />
       </div>

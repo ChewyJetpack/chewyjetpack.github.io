@@ -1,5 +1,5 @@
 ---
-title: Senior Product Designer
+title: Case Studies
 ---
 I solve complex design problems systematically, often moving between strategy, design, and technical implementation. Recent projects include modernising a 24-year-old platform while keeping millions of users happy, building design systems that scale across 200+ brands, and establishing research programs that revealed completely wrong assumptions about international user bases.
 

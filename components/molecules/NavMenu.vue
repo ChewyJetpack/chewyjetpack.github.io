@@ -32,7 +32,7 @@ export default {
   @include breakpoint_l {
     justify-content: flex-end;
     gap: $unit_m;
-    font-size: $txt_m;
+    font-size: $txt_s;
     margin-right: $unit_m;
   }
 
@@ -45,11 +45,12 @@ export default {
     color: var(--c-accent-2);
     text-decoration: none;
     position: relative;
-    padding: $unit_xs;
+    padding: $unit_xxs;
     line-height: 1;
+    font-weight: 500;
 
     @include breakpoint_l {
-      padding-bottom: $unit_s;
+      padding-bottom: $unit_xxs;
     }
 
     &:focus {
