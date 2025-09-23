@@ -2,19 +2,15 @@
   <ul class="nav-list u-pm-reset">
     <li
       class="nav-list__item">
-      <NuxtLink class="nav-list__link" to="/">About</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/">About Me</NuxtLink>
     </li>
     <li
       class="nav-list__item">
-      <NuxtLink class="nav-list__link" to="/work">Work</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/work">Case Studies</NuxtLink>
     </li>
     <li
       class="nav-list__item">
-      <NuxtLink class="nav-list__link" to="/articles">Articles</NuxtLink>
-    </li>
-    <li
-      class="nav-list__item">
-      <NuxtLink class="nav-list__link" to="/contact">Contact</NuxtLink>
+      <NuxtLink class="nav-list__link" to="/contact">Get In Touch</NuxtLink>
     </li>
   </ul>
 </template>
