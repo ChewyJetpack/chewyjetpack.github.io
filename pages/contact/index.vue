@@ -7,7 +7,7 @@
       </div>
       <div class="wrap">
         <Button
-          href="/CV.pdf"
+          href="/EmilSmithCV.pdf"
           label="Download my CV"
           target="_blank"
         />

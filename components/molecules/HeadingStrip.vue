@@ -25,6 +25,7 @@ export default {
     height: 138px;
     border-top: 3px solid;
     border-bottom: 0px solid;
+    border-image: linear-gradient(to right, transparent 45%, var(--c-accent-2) 55%, var(--c-accent-2)) 1;  
 
     .outer-wrap {
         height: 100%;
@@ -65,9 +66,7 @@ export default {
     
     &--pentagon {
         background: var(--img-pent) right 0 / auto no-repeat;
-        border-color: var(--c-accent-2);
         background-color:var(--c-bg-2);
-        border-image: linear-gradient(to right, transparent 45%, var(--c-accent-2) 55%, var(--c-accent-2)) 1;  
 
         @include breakpoint_m {
             background: var(--img-pent-l) right 0 / auto no-repeat;
@@ -84,7 +83,6 @@ export default {
         background: var(--img-tri) right 0 / auto no-repeat;
         border-color: var(--c-accent-4);
         background-color:var(--c-bg-2);
-        border-image: linear-gradient(to right, transparent 45%, var(--c-accent-4) 55%, var(--c-accent-4)) 1;  
 
         @include breakpoint_m {
             background-image: var(--img-tri-l);
@@ -99,7 +97,6 @@ export default {
 
     &--hexagon {
         background: var(--img-hex) right 0 / auto no-repeat;
-        border-image: linear-gradient(to right, transparent, transparent 45%, var(--c-accent-3) 55%, var(--c-accent-3)) 1;  
         background-color:var(--c-bg-2);
 
         @include breakpoint_m {

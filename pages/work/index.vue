@@ -7,7 +7,7 @@
         <div class="work__btn">
           <Button
               label="Download my CV"
-              href="https://emilsmith.pro/CV.pdf"
+              href="/EmilSmithCV.pdf"
               :external="true"
           />
         </div>

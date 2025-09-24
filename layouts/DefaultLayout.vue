@@ -1,16 +1,17 @@
 <template>
     <div :class="`layout layout--${currentMode}`" ref="layout">
         <!-- Content anchored to top -->
-        <Header :currentMode="currentMode" />
-        <main class="layout__content u-bm-xxl">
-            <Nuxt />
-        </main>
+         <div>
+          <Header :currentMode="currentMode" />
+          <main class="layout__content u-bm-xxl">
+              <Nuxt />
+          </main>
 
-        <transition name="fade">
-          <div class="shade" @click="closeShade" v-if="shadeVisible" />
-        </transition>
-        <Lightbox :args="lightboxArgs" v-if="lightboxVisible" />
-    
+          <transition name="fade">
+            <div class="shade" @click="closeShade" v-if="shadeVisible" />
+          </transition>
+          <Lightbox :args="lightboxArgs" v-if="lightboxVisible" />
+        </div>
         <Footer />
     </div>
 </template>
@@ -82,6 +83,7 @@ export default {
   max-width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
+  justify-content: space-between;
 
   .shade {
     position: fixed;
