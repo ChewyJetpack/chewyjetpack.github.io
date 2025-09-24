@@ -135,8 +135,12 @@ export default {
 
     &__item {
         background: var(--c-bg-2);
-        border-radius: $unit_xs;
+        border-radius: $unit_xxs;
         overflow: hidden;
+        border: 4px solid var(--c-accent-2);
+        border-right: 0;
+        border-top: 0;
+        border-left: 0;
     }
 
     &__case-study {
@@ -150,6 +154,18 @@ export default {
     &__img {
         position: relative;
         display: block;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: $unit_xl;
+            display: block;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to top, $dark, transparent);
+            opacity: 0.3;
+        }
     }
 
     &__cs-cat {
@@ -159,11 +175,12 @@ export default {
         white-space: nowrap;
         position: absolute;
         bottom: -#{$unit_s};
+        z-index: 2;
         line-height: 1;
         left: 0;
         font-size: $txt_s;
         font-weight:700;
-        padding: $unit_xs $unit_s $unit_xs $unit_s;
+        padding: $unit_s $unit_m $unit_xs $unit_s;
         border-radius: 0 $unit_xxs 0 0;
     }
 

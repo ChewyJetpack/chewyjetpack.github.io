@@ -1,5 +1,5 @@
 ---
-title: Senior Product Designer
+title: Hi, I'm Emil.
 avatar: /img/selfie.png
 ---
 I'm a senior product designer with 15+ years building scalable digital products. I've led design teams with 100% retention rates, established user research programs, and built design systems serving 200+ brands. My approach combines systematic design thinking with technical implementation - I can code the solutions I design when needed.

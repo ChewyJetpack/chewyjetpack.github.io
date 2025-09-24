@@ -29,21 +29,25 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  text-align: center;
-  padding: 0 $unit_s $unit_s;
+  text-align: right;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: $unit_xs;
+  padding: $unit_s 0;
+  @include font-heading;
+  font-size: $txt_s;
 
-  @include breakpoint_l {
+  @include breakpoint_m {
     flex-direction: row;
     justify-content: flex-end;
-    gap: $unit_m;
-    font-size: $txt_s;
+    gap: $unit_l;
+    font-size: $txt_m;
     margin-right: $unit_l;
   }
 
   &__item {
     display: flex;
     align-items: center;
-    width:100%;
 
     @include breakpoint_m {
       width: auto;
@@ -54,13 +58,13 @@ export default {
     color: var(--c-accent-2);
     text-decoration: none;
     position: relative;
-    padding: $unit_xxs;
     line-height: 1;
     font-weight: 500;
     width: 100%;
+    padding: 0 $unit_xxxs;
 
     @include breakpoint_l {
-      padding-bottom: $unit_xxs;
+      padding-bottom: 0;
       width: auto;
 
       &:focus {
@@ -71,14 +75,14 @@ export default {
         content: "";
         display: block;
         position: absolute;
-        bottom: -2px;
-        left: 5%;
-        width: 90%;
-        height: 2px;
+        bottom: calc(50% - 4px);
+        left: -$unit_xs;
+        width: 8px;
+        height: 8px;
         background: var(--c-accent-2);
-        transform: scaleX(0);
+        transform: scale(0);
         transition: transform 0.3s;
-        border-radius: 2px;
+        border-radius: 8px;
       }
       &:hover,
       &:focus {
@@ -86,13 +90,17 @@ export default {
         color: var(--c-main);
 
         &:after {
-          transform: scaleX(1);
+          transform: scale(1);
         }
       }
     }
 
     &.nuxt-link-exact-active {
       color: var(--c-main);
+
+        &:after {
+          transform: scale(1);
+        }
     }
   }
 }

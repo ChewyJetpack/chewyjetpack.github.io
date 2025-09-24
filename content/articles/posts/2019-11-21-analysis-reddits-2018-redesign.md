@@ -2,7 +2,6 @@
 title: "Analysis: Reddit's 2018 Redesign"
 hero: /img/hangoutsscreen_2.webp
 thumb: /img/new-project-3-.jpg
-date: 21st November 2019
 description: A detailed look at Reddit's 2018 redesign process, outcomes, and
   pitfalls. By understanding the workings of Reddit’s redesign process, and
   looking at the outcomes, there are a number of lessons to be learned from both

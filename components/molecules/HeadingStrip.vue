@@ -54,13 +54,12 @@ export default {
 
         @include breakpoint_m {
             font-size: $txt_xxl;
-            width: calc(100% - #{$unit_l});
             text-align: left;
-            width: calc(100% - #{$unit_xxxl});
+            //width: calc(100% - #{$unit_xxxl});
         }
 
         @include breakpoint_l {
-            width: 50%;
+            //width: 50%;
         }
     }
     
@@ -75,7 +74,7 @@ export default {
         }
 
         @include breakpoint_xl {
-            background-position-x: right;
+            background-position-x: 100%;
         }
     }
 
