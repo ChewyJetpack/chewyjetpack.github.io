@@ -49,7 +49,7 @@ export default {
       {
         hid: 'workdescription',
         name: 'description',
-        content: "I’ve spent the last fifteen years working interdisciplinarily in design, engineering, and specialist leadership, delivering projects for brands such as Google, eBay, Sony, Nokia, Virgin, and Tinder, as well as a long stint in the publishing industry. My approach is holistic; I focus on goals, systems, and processes to solve problems in ways that are efficient, sustainable, and scalable. To this end, I do my best work when I have the freedom to traverse a range of disciplines."
+        content: "I enjoy complex challenges where I can employ systematic thinking and hands-on execution. Whether that's building design systems at scale, establishing research programs, or modernizing legacy platforms, I focus on scalable designs that actually work in context."
       }
     ],
   }

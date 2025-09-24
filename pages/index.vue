@@ -46,12 +46,12 @@ export default {
     Button
   },
   head: {
-    title: 'Emil Smith | Creative Technologist',
+    title: 'Emil Smith | Senior Product Designer',
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: "I'm a Creative Technologist, and I'm into tech and art. At the intersection of the two is design, so that's where I've spent most of my career."
+        content: "I'm a senior product designer with 15+ years building scalable digital products. I've led design teams with 100% retention rates, established user research programs, and built design systems serving 200+ brands. My approach combines systematic design thinking with technical implementation - I can code the solutions I design when needed."
       }
     ],
   },
