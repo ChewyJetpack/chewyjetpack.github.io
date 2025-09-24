@@ -1,13 +1,8 @@
 <template>
-  <component
-    :is="href ? 'a' : 'button'"
-    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, {'button--frameless': frameless}, {'button--large': isLarge}]"
-    :href="href ? href : null"
-    ref="btn"
-    :rel="external ? 'nofollow' : null"
-    :target="external ? '_blank' : null"
-    @click="$emit('clicked')"
-  >
+  <component :is="href ? 'a' : 'button'"
+    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, { 'button--frameless': frameless }, { 'button--large': isLarge }]"
+    :href="href ? href : null" ref="btn" :rel="external ? 'nofollow' : null" :target="external ? '_blank' : null"
+    @click="$emit('clicked')">
     <span class="button__label">{{ label }}</span>
     <font-awesome class="button__icon" :icon="icon" />
   </component>
@@ -52,22 +47,27 @@ export default {
     opacity: 0;
     transform: translate(-50%, 0);
   }
+
   15% {
     opacity: 0;
     transform: translate(-50%, -60%);
   }
+
   25% {
     opacity: 1;
     transform: translate(-50%, calc(-100% - #{$unit_s}));
   }
+
   75% {
     opacity: 1;
     transform: translate(-50%, calc(-100% - #{$unit_s}));
   }
+
   90% {
     opacity: 0;
     transform: translate(-50%, -60%);
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, 0);
@@ -75,12 +75,12 @@ export default {
 }
 
 %hover-state {
-    color: var(--c-accent-2);
+  color: var(--c-accent-2);
 
-    svg {
-      color: var(--c-accent-2);
-    }
+  svg {
+    color: var(--c-accent-2);
   }
+}
 
 .button {
   color: var(--c-main);
@@ -91,14 +91,15 @@ export default {
   position: relative;
   font-weight: 600;
   outline: none;
-  background: none;
-  border: solid 2px var(--c-accent-2);
+  background: var(--c-bg-2);
+  border: solid 3px var(--c-accent-2);
   border-right: 0;
+  border-radius: $unit_xxxs;
   border-top: 0;
   padding: $unit_xs $unit_s;
   font-size: $txt_s;
   cursor: pointer;
-  transition: color, background 0.3s;
+  transition: color 0.3s;
   text-decoration: none;
 
   &--frameless {

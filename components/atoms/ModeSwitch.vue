@@ -46,7 +46,10 @@ export default {
 .mode-switch {
   position: relative;
   transition: transform 0.5s;
-  font-size: $unit_s;
+
+  @include breakpoint_m {
+    font-size: $unit_m;
+  }
 
   &:after {
     display: block;

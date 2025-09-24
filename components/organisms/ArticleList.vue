@@ -133,11 +133,18 @@ export default {
         border-top: solid 2px var(--c-main-alt-2);
     }
 
+    &__item {
+        background: var(--c-bg-2);
+        border-radius: $unit_xs;
+        overflow: hidden;
+    }
+
     &__case-study {
-            .article-list__art-title {
-                padding: $unit_xs;
-                margin: 0;
-            }
+
+        .article-list__art-title {
+            padding: $unit_s;
+            margin: 0;
+        }
     }
 
     &__img {
@@ -146,17 +153,18 @@ export default {
     }
 
     &__cs-cat {
+        background: var(--c-bg-2);
         display: inline-block;
-        background: var(--c-bg);
         color: var(--c-accent-2);
         white-space: nowrap;
         position: absolute;
-        bottom: -#{$unit_xs};
+        bottom: -#{$unit_s};
         line-height: 1;
         left: 0;
         font-size: $txt_s;
         font-weight:700;
-        padding: $unit_xs;
+        padding: $unit_xs $unit_s $unit_xs $unit_s;
+        border-radius: 0 $unit_xxs 0 0;
     }
 
     @include breakpoint_l {

@@ -15,19 +15,6 @@
         />
       </div>
     </section>
-    <section class="wrap">
-      <h1>Latest Posts</h1>
-      <ArticleList 
-        :articles="articles"
-        :tags="tags"
-      />
-      <div v-if="articles.length > 4">
-        <Button
-          href="/articles"
-          label="Read more"
-        />
-      </div>
-    </section>
   </div>
 </template>
 
@@ -94,6 +81,11 @@ export default {
     align-items: flex-end;
     justify-content: center;
     margin: 0 auto $unit_m;
+    order:1;
+
+    @include breakpoint_m {
+      order: 2;
+    }
 
     &::before {
       content:"";
@@ -119,6 +111,14 @@ export default {
         max-width: none;
         margin: 0;
       }
+    }
+  }
+
+  .nuxt-content-container {
+    order:2;
+
+    @include breakpoint_m {
+      order: 1;
     }
   }
 

@@ -4,15 +4,15 @@
       <HeadingStrip :heading="work.title" shape="triangle"/>
       <div class="wrap work__content">
         <nuxt-content :document="work" />
-        <Button
-            label="Download my CV"
-            href="https://emilsmith.pro/CV.pdf"
-            class="u-tm-l"
-            :external="true"
-        />
+        <div class="work__btn">
+          <Button
+              label="Download my CV"
+              href="https://emilsmith.pro/CV.pdf"
+              :external="true"
+          />
+        </div>
       </div>
       <section class="wrap work__case-studies">
-        <h2>Case Studies</h2>
         <ArticleList 
           :articles="caseStudies"
           :caseStudies="true"
@@ -59,8 +59,10 @@ export default {
 <style lang="scss" scoped>
   .work {
     @extend .u-bm-xxl;
+    
 
     &__content {
+      //@extend .e-grid-2-1;
       @extend .u-tm-xxl;
       @extend .u-bm-xxl;
     }

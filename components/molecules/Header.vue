@@ -42,20 +42,23 @@ export default {
   position: sticky;
   top: 0;
   left: 0;
-  //@includeborder-bottom: solid 2px var(--c-main-alt-2);
+  //border-bottom: solid 2px var(--c-accent-2);
   //padding-top: $unit_m;
-  z-index: 2;
+  z-index: 1;
   background: var(--c-bg-2);
 
   &__content {
-    display: grid;
-    grid-template-columns: 1fr calc(22px + $unit_xs);
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     grid-gap: $unit_xs;
 
     @include breakpoint_l {
+      display: grid;
+      align-items: flex-start;
+      grid-template-columns: 1fr calc(22px + $unit_xs);
+      justify-content: space-between;
       grid-template-columns: 1fr 1fr 22px;
       //align-items: flex-end;
       @include wrap;
@@ -64,14 +67,15 @@ export default {
 
   &__title {
     display: block;
-    max-width:120px;
-    padding: 0 0 0 $unit_xs;
-    height: calc(100% - $unit_m);
+    max-width:220px;
+    padding: $unit_s 0 0 $unit_xs;
+    position: relative;
+    z-index:2;
 
     @include breakpoint_l {
-      max-width: 480px;
+      max-width:280px;
       order: 1;
-      padding: 0 $unit_xs $unit_s 0;
+      padding: $unit_xs $unit_xs $unit_s 0;
     }
 
     > svg {
@@ -82,19 +86,25 @@ export default {
   }
 
   &__mode-wrap {
-    padding-right: $unit_xs;
+    position: absolute;
+    top: $unit_m;
+    right: $unit_m;
 
     @include breakpoint_l {
+      position: static;
       order: 3;
-      padding: 0 0 $unit_xxs 0;
+      padding: $unit_m 0 $unit_xxs 0;
     }
   }
 
   &__nav-wrap {
+    padding-bottom:$unit_s;
+    width: 100%;
+
     @include breakpoint_l {
       order: 2;
       margin-right: $unit_s;
-      padding-bottom: $unit_xxs;
+      padding-top: $unit_s;
     }
   }
 }

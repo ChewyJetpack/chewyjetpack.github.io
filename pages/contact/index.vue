@@ -11,6 +11,8 @@
           label="Download my CV"
           target="_blank"
         />
+      </div>
+      <div class="wrap u-tm-m">
         <Button
           href="mailto:hi@emilsmith.pro"
           label="Send me an email"

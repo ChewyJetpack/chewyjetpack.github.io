@@ -24,7 +24,7 @@
             </div>
         </div>
         <section class="article__main wrap text-block-xl">
-            <aside class="article__meta">
+            <!-- <aside class="article__meta">
                 <h3>Share</h3>
                 <Button
                     @clicked="copyUrl"
@@ -48,7 +48,7 @@
                     onArticlePage="true"
                     />
                 </div>
-            </aside>
+            </aside> -->
             <div v-if="caseStudy && !content.contentType"  class="article__content">
                 <CaseStudyContentBlock 
                     :content="content.summary" 
@@ -161,9 +161,11 @@ export default {
         justify-content: center;
         align-items: center;
         height: 60vh;
-        border-bottom: solid 2px var(--c-main-alt-2);
         width: 100%;
         position: relative;
+        overflow: hidden;
+        background: var(--c-bg-2);
+        border-top: solid 8px var(--c-accent-2);
         img {
             object-fit: cover;
         }
@@ -203,7 +205,6 @@ export default {
     &__main {
         @extend .e-grid-3-1;
         align-items: start;
-        background: var(--c-bg-2);
         position: relative;
     }
 

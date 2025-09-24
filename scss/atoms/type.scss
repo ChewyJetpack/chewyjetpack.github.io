@@ -144,5 +144,6 @@ ul:not([class]), ol {
 .article-content {
     h1, h2, h3 {
         margin-top: $unit_xl;
+        color: var(--c-accent-4);
     }
 }

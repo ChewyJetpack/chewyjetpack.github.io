@@ -1,7 +1,9 @@
 <template>
     <div :class="['heading-strip', 'heading-strip--' + shape]">
-        <div class="wrap">
-            <h1>{{ heading }}</h1>
+        <div class="outer-wrap">
+            <div class="wrap">
+                <h1>{{ heading }}</h1>
+            </div>
         </div>
     </div>
 </template>
@@ -20,21 +22,39 @@ export default {
 .heading-strip {
     display: flex;
     align-items: center;
-    border-bottom: solid 4px;
     height: 138px;
+    border-top: 3px solid;
+    border-bottom: 0px solid;
+
+    .outer-wrap {
+        height: 100%;
+        width:100%;
+        display: flex;
+        align-items: center;
+        border-bottom: 3px solid;
+        border-color: var(--c-accent-2);
+    }
+
+    .wrap {
+    } 
 
     @include breakpoint_m {
         height: 280px;
-        border-bottom: solid 8px;
+
+        .outer-wrap {
+            border-bottom: solid 8px;
+            border-color: var(--c-accent-2);
+        }
     }
 
     h1 {
-        font-size: $txt_xl;
+        font-size: $txt_l;
         margin: 0;
-        width: calc(100% - #{$unit_l});
 
         @include breakpoint_m {
             font-size: $txt_xxl;
+            width: calc(100% - #{$unit_l});
+            text-align: left;
             width: calc(100% - #{$unit_xxxl});
         }
 
@@ -47,6 +67,7 @@ export default {
         background: var(--img-pent) right 0 / auto no-repeat;
         border-color: var(--c-accent-2);
         background-color:var(--c-bg-2);
+        border-image: linear-gradient(to right, transparent 45%, var(--c-accent-2) 55%, var(--c-accent-2)) 1;  
 
         @include breakpoint_m {
             background: var(--img-pent-l) right 0 / auto no-repeat;
@@ -63,6 +84,7 @@ export default {
         background: var(--img-tri) right 0 / auto no-repeat;
         border-color: var(--c-accent-4);
         background-color:var(--c-bg-2);
+        border-image: linear-gradient(to right, transparent 45%, var(--c-accent-4) 55%, var(--c-accent-4)) 1;  
 
         @include breakpoint_m {
             background-image: var(--img-tri-l);
@@ -77,7 +99,7 @@ export default {
 
     &--hexagon {
         background: var(--img-hex) right 0 / auto no-repeat;
-        border-color: var(--c-accent-3);
+        border-image: linear-gradient(to right, transparent, transparent 45%, var(--c-accent-3) 55%, var(--c-accent-3)) 1;  
         background-color:var(--c-bg-2);
 
         @include breakpoint_m {

@@ -22,11 +22,12 @@ export default {
 
 <style lang="scss" scoped>
     footer {
-        border-top: solid 2px var(--c-main-alt-2);
+        border-top: solid 3px;
         font-size: $txt_s;
         padding: $unit_m 0;
         color: var(--c-main-alt);
-        text-align: center;
+        text-align: center; 
+        border-image: linear-gradient(to right, var(--c-accent-2), var(--c-accent-2), transparent, transparent) 1;
 
         p {
             margin-bottom: $unit_xs;
