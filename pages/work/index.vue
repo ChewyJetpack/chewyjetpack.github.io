@@ -20,6 +20,18 @@
               <li>UI engineering (HTML/CSS/JS)</li>
             </ul>
           </aside>
+
+          <!-- CV Button - positioned in left column on desktop only -->
+          <div class="work__btn work__btn--desktop">
+            <Button
+                label="Download my CV"
+                href="/cv"
+                :external="true"
+                icon="download"
+                transition-direction="down"
+                aria-label="View Emil Smith's CV (opens in new tab)"
+            />
+          </div>
         </div>
         
         <!-- Desktop skills - positioned in sidebar -->
@@ -37,9 +49,9 @@
         </aside>
       </div>
       
-      <!-- Button moved outside content grid to appear at bottom -->
+      <!-- Button for mobile - positioned at bottom -->
       <div class="wrap">
-        <div class="work__btn">
+        <div class="work__btn work__btn--mobile">
           <Button
               label="Download my CV"
               href="/cv"
@@ -117,6 +129,25 @@ export default {
       // no overrides; exists for clarity in layout
       // using non-empty to satisfy linter
       margin: 0;
+    }
+
+    &__btn {
+      &--mobile {
+        display: block;
+        
+        @include breakpoint_l {
+          display: none; // Hide on desktop
+        }
+      }
+      
+      &--desktop {
+        display: none; // Hide on mobile
+        
+        @include breakpoint_l {
+          display: block; // Show on desktop
+          margin-top: $unit_m;
+        }
+      }
     }
 
     .work__skills {
