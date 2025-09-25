@@ -83,6 +83,77 @@ export default {
       }
     ],
   },
+  mounted() {
+    // Small delay to ensure DOM is fully rendered
+    setTimeout(() => {
+      this.calculateMarqueeWidth()
+    }, 100)
+    this.resizeTimeout = null
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize)
+    if (this.resizeTimeout) {
+      clearTimeout(this.resizeTimeout)
+    }
+  },
+  methods: {
+    handleResize() {
+      // Debounce resize events to prevent excessive recalculations
+      if (this.resizeTimeout) {
+        clearTimeout(this.resizeTimeout)
+      }
+      this.resizeTimeout = setTimeout(() => {
+        this.calculateMarqueeWidth()
+      }, 150)
+    },
+    calculateMarqueeWidth() {
+      this.$nextTick(() => {
+        const logosTrack = document.querySelector('.logos-track')
+        if (logosTrack) {
+          const trackWidth = logosTrack.scrollWidth
+          const marqueeWidth = logosTrack.parentElement.offsetWidth
+          
+          // Calculate the distance to move on the x axis
+          // Subtract the width of .logos-marquee from the total track length
+          // This ensures we move exactly the right distance to show the duplicated logos
+          const offset = trackWidth - marqueeWidth
+          
+          // Set CSS custom property for the animation
+          document.documentElement.style.setProperty('--marquee-offset', `${offset}px`)
+          
+          // Update the keyframe animation
+          this.updateKeyframeAnimation(offset)
+        }
+      })
+    },
+    updateKeyframeAnimation(offset) {
+      const style = document.createElement('style')
+      style.id = 'dynamic-marquee-animation'
+      
+      // Remove existing dynamic animation if it exists
+      const existingStyle = document.getElementById('dynamic-marquee-animation')
+      if (existingStyle) {
+        existingStyle.remove()
+      }
+      
+      style.textContent = `
+        @keyframes homepage-logos-backforth {
+          0% { 
+            transform: translate3d(0, 0, 0);
+          }
+          50% { 
+            transform: translate3d(-${offset}px, 0, 0);
+          }
+          100% { 
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      `
+      
+      document.head.appendChild(style)
+    }
+  }
 }
 </script>
 
@@ -235,28 +306,29 @@ export default {
     .logos-track {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       gap: $unit_l;
       list-style: none;
-      padding: $unit_l 0;
+      padding: $unit_l $unit_xl;
       margin: 0;
       width: max-content;
-      animation: homepage-logos-backforth 30s ease-in-out infinite;
+      animation: homepage-logos-backforth 40s ease-in-out infinite;
       will-change: transform;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       
-      // Add padding to prevent logos being obscured by gradients
-      &::before {
-        content: "";
-        flex-shrink: 0;
-        width: 50px; // Minimal padding on the left side
-      }
+      // // Add padding to prevent logos being obscured by gradients
+      // &::before {
+      //   content: "";
+      //   flex-shrink: 0;
+      //   width: 50px; // Minimal padding on the left side
+      // }
       
-      &::after {
-        content: "";
-        flex-shrink: 0;
-        width: 200px; // More padding on the right side for animation range
-      }
+      // &::after {
+      //   content: "";
+      //   flex-shrink: 0;
+      //   width: 200px; // More padding on the right side for animation range
+      // }
 
       @include breakpoint_m {
         gap: $unit_xxl;
@@ -373,7 +445,7 @@ export default {
     transform: translate3d(0, 0, 0);
   }
   50% { 
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-65%, 0, 0);
   }
   100% { 
     transform: translate3d(0, 0, 0);

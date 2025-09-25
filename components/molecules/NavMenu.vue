@@ -54,7 +54,7 @@ export default {
   @include font-ui;
   font-size: $txt_s;
 
-  @include breakpoint_m {
+  @include breakpoint_l {
     flex-direction: row;
     justify-content: flex-end;
     gap: $unit_l;
@@ -81,7 +81,7 @@ export default {
     width: 100%;
     padding: 0 $unit_xxxs;
 
-    @include breakpoint_l {
+    @include breakpoint_m {
       padding-bottom: 0;
       width: auto;
 

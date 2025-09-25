@@ -1,17 +1,19 @@
 <template>
   <header ref="header" class="header">
       <div class="header__content">
-        <!-- <NuxtLink to="/" class="header__title">
+        <NuxtLink to="/" class="header__title">
           <Logo />
-        </NuxtLink> -->
-        <div class="header__mode-wrap">
-          <ModeSwitch
-            :currentMode="currentMode"
-            class="header__mode"
-          />
-        </div>
-        <div id="main-navigation" class="header__nav-wrap">
-          <NavMenu class="header__nav" />
+        </NuxtLink>
+        <div class="header__nav-controls">
+          <div id="main-navigation" class="header__nav-wrap">
+            <NavMenu class="header__nav" />
+          </div>
+          <div class="header__mode-wrap">
+            <ModeSwitch
+              :currentMode="currentMode"
+              class="header__mode"
+            />
+          </div>
         </div>
       </div>
   </header>
@@ -49,27 +51,60 @@ export default {
 
   &__content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     grid-gap: $unit_xs;
 
     @include breakpoint_m {
       flex-direction: row;
+      justify-content: space-between;
       //align-items: flex-end;
+    }
+
+    @include breakpoint_l {
+      
       @include wrap;
+    }
+  }
+
+  &__nav-controls {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    gap: $unit_s;
+    padding-right: $unit_s;
+
+    @include breakpoint_m {
+      padding-right: $unit_m;
+    }
+
+    @include breakpoint_l {
+      flex-direction: row;
+      align-items: center;
+      width: auto;
+      gap: $unit_l;
+      padding-right: 0;
     }
   }
 
   &__title {
     display: block;
-    max-width:220px;
+    max-width:180px;
     padding: $unit_s 0 0 $unit_xs;
     position: relative;
     z-index:2;
+    order: 1;
 
     @include breakpoint_m {
-      max-width:280px;
+      max-width:120px;
+      padding-left: $unit_m;
+    }
+    @include breakpoint_l {
+      max-width:220px;
       order: 1;
       padding: $unit_xs $unit_xs $unit_s 0;
     }
@@ -81,13 +116,18 @@ export default {
     }
   }
 
-  &__mode-wrap {
-    margin-right: $unit_s;
-      order: 3;
+  &__nav-controls {
+    order: 2;
 
-    @include breakpoint_m {
-      position: static;
-      order: 3;
+    @include breakpoint_l {
+      order: 2;
+    }
+  }
+
+  &__mode-wrap {
+    order: 2;
+
+    @include breakpoint_l {
       padding: $unit_xs 0 $unit_xxs 0;
     }
   }
@@ -95,11 +135,9 @@ export default {
   &__nav-wrap {
     padding:$unit_xs 0;
     width: 100%;
-    order: 2;
+    order: 1;
 
-    @include breakpoint_m {
-      order: 2;
-      margin-right: $unit_s;
+    @include breakpoint_l {
       padding-top: $unit_s;
     }
   }
