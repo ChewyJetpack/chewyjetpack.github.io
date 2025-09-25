@@ -100,10 +100,10 @@ export default {
   @include font-ui;
   outline: none;
   background: var(--c-bg-2);
-  border: solid 3px var(--c-main);
+  border: solid 3px var(--c-main-alt);
   border-radius: $unit_xs;
   padding: $unit_xs $unit_m;
-  box-shadow: -3px 3px 6px 0px var(--c-main-alt-2);
+  //box-shadow: -3px 3px 6px 0px var(--c-main-alt-2);
   font-size: $txt_m;
   cursor: pointer;
   transition: color 0.3s;

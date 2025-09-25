@@ -84,9 +84,10 @@ export default {
 
         a {
             text-decoration: none;
+            transition: color 0.2s;
             // Repeated on image hover below
             &:hover {
-                color: var(--c-accent-2);
+                color: var(--c-accent-1);
             }
         }
 

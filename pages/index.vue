@@ -199,19 +199,15 @@ export default {
     }
 
     img {
-      height: 28px;
+      height: auto;
       width: auto;
-      opacity: 0.8;
-      filter: grayscale(1) brightness(0) invert(1);
+      max-width: 170px;
       transition: opacity 0.2s ease;
+      filter: var(--logo-filter);
 
       @include breakpoint_m {
         height: 36px;
       }
-    }
-
-    img:hover {
-      opacity: 1;
     }
 
     /* Slight size boost for more square logos to balance visual weight */
