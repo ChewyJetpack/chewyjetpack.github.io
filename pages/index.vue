@@ -2,18 +2,6 @@
   <div>
     <section class="homepage">
       <HeadingStrip :heading="home.title" shape="pentagon"/>
-      <div class="wrap homepage__content">
-        <nuxt-content :document="home" />
-        <span class="homepage__avatar">
-          <nuxt-img preset="avatar" :src="home.avatar" :alt="`Portrait photo of ${home.title}`"/>
-        </span>
-      </div>
-      <div class="wrap">
-        <Button
-          href="/work"
-          label="See my work"
-        />
-      </div>
       <div class="homepage__logos" aria-label="Trusted by">
         <div class="wrap">
           <div class="logos-marquee">
@@ -42,6 +30,18 @@
           </ul>
           </div>
         </div>
+      </div>
+      <div class="wrap homepage__content">
+        <nuxt-content :document="home" />
+        <span class="homepage__avatar">
+          <nuxt-img preset="avatar" :src="home.avatar" :alt="`Portrait photo of ${home.title}`"/>
+        </span>
+      </div>
+      <div class="wrap">
+        <Button
+          href="/work"
+          label="See my work"
+        />
       </div>
     </section>
   </div>
@@ -162,12 +162,12 @@ export default {
   }
 
   &__content {
-    @extend .u-tm-xxl;
+    @extend .u-tm-l;
     @extend .e-grid-3-1;
   }
 
   &__logos {
-    @extend .u-tm-xxl;
+    @extend .u-tm-l;
 
     .logos-marquee {
       position: relative;
