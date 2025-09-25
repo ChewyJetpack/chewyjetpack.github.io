@@ -112,7 +112,7 @@ export default {
   @include font-ui;
   outline: none;
   background: var(--c-bg-2);
-  border: solid 3px var(--c-main-alt);
+  border: solid 2px var(--c-main-alt-2);
   border-radius: $unit_xs;
   padding: $unit_xxs $unit_s;
   //box-shadow: -3px 3px 6px 0px var(--c-main-alt-2);
