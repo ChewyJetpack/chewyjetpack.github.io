@@ -31,9 +31,12 @@
           </div>
         </div>
       </div>
+      <span class="homepage__avatar">
+        <nuxt-img preset="avatar" :src="home.avatar" :alt="`Portrait photo of ${home.title}`"/>
+      </span>
       <div class="wrap homepage__content">
         <nuxt-content :document="home" />
-        <span class="homepage__avatar">
+        <span class="homepage__avatar--desktop">
           <nuxt-img preset="avatar" :src="home.avatar" :alt="`Portrait photo of ${home.title}`"/>
         </span>
       </div>
@@ -110,7 +113,7 @@ export default {
     align-items: flex-end;
     justify-content: center;
     margin: 0 auto $unit_m;
-    order:1;
+    order: 1;
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -120,6 +123,8 @@ export default {
       order: 2;
       width: 300px;
       height: 300px;
+      // On desktop, move avatar back into content grid
+      display: none;
     }
 
     &::before {
@@ -153,7 +158,7 @@ export default {
   }
 
   .nuxt-content-container {
-    order:2;
+    order: 2;
 
     @include breakpoint_m {
       order: 1;
@@ -162,7 +167,63 @@ export default {
 
   &__content {
     @extend .u-tm-l;
-    @extend .e-grid-3-1;
+    
+    @include breakpoint_m {
+      display: grid;
+      grid-gap: $unit_l;
+      grid-auto-rows: auto;
+      grid-template-columns: 2fr 1fr;
+      
+      // Ensure copy appears in first column (left), avatar in second column (right)
+      .nuxt-content-container {
+        order: 1;
+      }
+      
+      .homepage__avatar--desktop {
+        order: 2;
+      }
+    }
+  }
+
+  &__avatar--desktop {
+    display: none;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+
+    @include breakpoint_m {
+      display: flex;
+    }
+
+    &::before {
+      content:"";
+      display: block;
+      height:50%;
+      width:150%;
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translateX(-50%) rotate(-15deg);
+      background: var(--c-accent-2);
+      z-index:-1;
+    }
+
+    img {
+      position: relative;
+      bottom: -1px;
+      max-width: none;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
   }
 
   &__logos {
