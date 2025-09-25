@@ -6,27 +6,23 @@
         <div class="wrap">
           <div class="logos-marquee">
           <ul class="logos-track">
-            <li><img class="logo--tall" src="/img/ellas-kitchen-seeklogo.svg" alt="Ella's Kitchen" /></li>
-            <li><img src="/img/brothers.svg" alt="Brothers" /></li>
-            <li><img src="/img/angry-birds.svg" alt="Angry Birds" /></li>
-            <li><img src="/img/expedia.svg" alt="Expedia" /></li>
-            <li><img class="logo--tall" src="/img/3-1-logo-svg-vector.svg" alt="Three" /></li>
-            <li><img src="/img/tinder-1.svg" alt="Tinder" /></li>
+            <li><img class="logo--sony" src="/img/Sony_logo.svg" alt="Sony" /></li>
+            <li><img class="logo--ebay" src="/img/EBay_logo.svg" alt="eBay" /></li>
+            <li><img class="logo--nokia" src="/img/Nokia_2023.svg" alt="Nokia" /></li>
             <li><img class="logo--tall" src="/img/virgin-1.svg" alt="Virgin" /></li>
-            <li><img src="/img/Sony_logo.svg" alt="Sony" /></li>
-            <li><img src="/img/EBay_logo.svg" alt="eBay" /></li>
-            <li><img src="/img/Nokia_2023.svg" alt="Nokia" /></li>
-            <!-- duplicate for seamless loop -->
-            <li aria-hidden="true"><img class="logo--tall" src="/img/ellas-kitchen-seeklogo.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/brothers.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/angry-birds.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/expedia.svg" alt="" /></li>
-            <li aria-hidden="true"><img class="logo--tall" src="/img/3-1-logo-svg-vector.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/tinder-1.svg" alt="" /></li>
+            <li><img class="logo--tinder" src="/img/tinder-1.svg" alt="Tinder" /></li>
+            <li><img class="logo--expedia" src="/img/expedia.svg" alt="Expedia" /></li>
+            <li><img class="logo--tall" src="/img/3-1-logo-svg-vector.svg" alt="Three" /></li>
+            <li><img class="logo--angry-birds" src="/img/angry-birds.svg" alt="Angry Birds" /></li>
+            <!-- duplicate for seamless loop with overlap -->
+            <li aria-hidden="true" class="logo-overlap"><img class="logo--sony" src="/img/Sony_logo.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--ebay" src="/img/EBay_logo.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--nokia" src="/img/Nokia_2023.svg" alt="" /></li>
             <li aria-hidden="true"><img class="logo--tall" src="/img/virgin-1.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/Sony_logo.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/EBay_logo.svg" alt="" /></li>
-            <li aria-hidden="true"><img src="/img/Nokia_2023.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--tinder" src="/img/tinder-1.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--expedia" src="/img/expedia.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--tall" src="/img/3-1-logo-svg-vector.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--angry-birds" src="/img/angry-birds.svg" alt="" /></li>
           </ul>
           </div>
         </div>
@@ -119,7 +115,7 @@ export default {
     height: 200px;
     flex-shrink: 0;
 
-    @include breakpoint_m {
+    @include breakpoint_l {
       order: 2;
       width: 300px;
       height: 300px;
@@ -160,15 +156,16 @@ export default {
   .nuxt-content-container {
     order: 2;
 
-    @include breakpoint_m {
+    @include breakpoint_l {
       order: 1;
     }
   }
 
   &__content {
     @extend .u-tm-l;
+    display: block; // Ensure single column by default
     
-    @include breakpoint_m {
+    @include breakpoint_l {
       display: grid;
       grid-gap: $unit_l;
       grid-auto-rows: auto;
@@ -197,7 +194,7 @@ export default {
     height: 300px;
     flex-shrink: 0;
 
-    @include breakpoint_m {
+    @include breakpoint_l {
       display: flex;
     }
 
@@ -243,12 +240,37 @@ export default {
       padding: $unit_l 0;
       margin: 0;
       width: max-content;
-      animation: homepage-logos-scroll 60s linear infinite;
+      animation: homepage-logos-backforth 30s ease-in-out infinite;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      
+      // Add padding to prevent logos being obscured by gradients
+      &::before {
+        content: "";
+        flex-shrink: 0;
+        width: 50px; // Minimal padding on the left side
+      }
+      
+      &::after {
+        content: "";
+        flex-shrink: 0;
+        width: 200px; // More padding on the right side for animation range
+      }
 
       @include breakpoint_m {
         gap: $unit_xxl;
       }
     }
+
+    .logo-overlap {
+      margin-left: 0; // Remove overlap, use normal gap
+      
+      @include breakpoint_m {
+        margin-left: 0; // Remove overlap, use normal gap
+      }
+    }
+
 
     /* edge fade masks */
     .logos-marquee::before,
@@ -291,11 +313,70 @@ export default {
         height: 60px;
       }
     }
+
+    /* Logo vertical positioning adjustments */
+    .logo--expedia {
+      transform: translateY(3px);
+    }
+    
+    .logo--tinder {
+      transform: translateY(-5px);
+    }
+    
+    .logo--angry-birds {
+      transform: translateY(3px);
+    }
+    
+    .logo--sony {
+      transform: translateY(2px);
+    }
+    
+    .logo--ebay {
+      transform: translateY(-1px);
+    }
+    
+    .logo--nokia {
+      transform: translateY(-1px);
+    }
+
+    @include breakpoint_m {
+      .logo--expedia {
+        transform: translateY(6px);
+      }
+      
+      .logo--tinder {
+        transform: translateY(-11px);
+      }
+      
+      .logo--angry-birds {
+        transform: translateY(6px);
+      }
+      
+      .logo--sony {
+        transform: translateY(4px);
+      }
+      
+      .logo--ebay {
+        transform: translateY(-3px);
+      }
+      
+      .logo--nokia {
+        transform: translateY(-3px);
+      }
+      
+    }
   }
 }
 
-@keyframes homepage-logos-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes homepage-logos-backforth {
+  0% { 
+    transform: translate3d(0, 0, 0);
+  }
+  50% { 
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% { 
+    transform: translate3d(0, 0, 0);
+  }
 }
 </style>

@@ -6,18 +6,24 @@
         <div class="work__intro">
           <h3 class="u-visually-hidden">How I work</h3>
           <nuxt-content :document="work" />
-          <div class="work__btn">
-            <Button
-                label="Download my CV"
-                href="/cv"
-                :external="true"
-                icon="download"
-                transition-direction="down"
-                aria-label="View Emil Smith's CV (opens in new tab)"
-            />
-          </div>
+          
+          <!-- Mobile skills - positioned above button -->
+          <aside class="work__skills work__skills--mobile" aria-label="Skills">
+            <h3 class="u-visually-hidden">Skills</h3>
+            <ul class="skills-list">
+              <li>Product design & UX strategy</li>
+              <li>Design systems at scale</li>
+              <li>User research & testing</li>
+              <li>Interaction design & prototyping</li>
+              <li>Information architecture</li>
+              <li>Accessibility (WCAG)</li>
+              <li>UI engineering (HTML/CSS/JS)</li>
+            </ul>
+          </aside>
         </div>
-        <aside class="work__skills" aria-label="Skills">
+        
+        <!-- Desktop skills - positioned in sidebar -->
+        <aside class="work__skills work__skills--desktop" aria-label="Skills">
           <h3 class="u-visually-hidden">Skills</h3>
           <ul class="skills-list">
             <li>Product design & UX strategy</li>
@@ -29,6 +35,20 @@
             <li>UI engineering (HTML/CSS/JS)</li>
           </ul>
         </aside>
+      </div>
+      
+      <!-- Button moved outside content grid to appear at bottom -->
+      <div class="wrap">
+        <div class="work__btn">
+          <Button
+              label="Download my CV"
+              href="/cv"
+              :external="true"
+              icon="download"
+              transition-direction="down"
+              aria-label="View Emil Smith's CV (opens in new tab)"
+          />
+        </div>
       </div>
       <section class="wrap work__case-studies">
         <ArticleList 
@@ -87,7 +107,7 @@ export default {
       grid-template-columns: 1fr;
       grid-gap: $unit_xxl;
 
-      @include breakpoint_m {
+      @include breakpoint_l {
         grid-template-columns: 2fr 1fr;
         align-items: start;
       }
@@ -102,6 +122,23 @@ export default {
     .work__skills {
       @extend .u-bm-xs;
       position: relative;
+      
+      &--mobile {
+        display: block;
+        margin-bottom: $unit_m;
+        
+        @include breakpoint_m {
+          display: none; // Hide on desktop
+        }
+      }
+      
+      &--desktop {
+        display: none; // Hide on mobile
+        
+        @include breakpoint_m {
+          display: block; // Show on desktop
+        }
+      }
     }
 
     .skills-list {

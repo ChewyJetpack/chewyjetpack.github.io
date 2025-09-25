@@ -119,7 +119,12 @@ export default {
 
   // Remove focus outline for mode switch
   &:focus {
-    outline: none;
+    outline: none !important;
+  }
+  
+  // Also remove focus outline from the underlying button
+  :deep(.icon-btn:focus) {
+    outline: none !important;
   }
 }
 </style>
