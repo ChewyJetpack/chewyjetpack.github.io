@@ -138,7 +138,6 @@ export default {
     img {
       position: relative;
       bottom: -9px;
-      max-width: 50%;
       margin: 0 auto;
       width: 100%;
       height: 100%;

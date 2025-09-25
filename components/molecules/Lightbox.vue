@@ -40,7 +40,7 @@
               icon="arrow-left"
               label="Prev"
               @clicked="prevImg($event)"
-              isLarge
+              :isSmall="true"
             />
             <div class="lightbox__count" v-if="args.gallery">
                 {{ (args.index + 1) }}/{{ args.gallery.length }}
@@ -48,7 +48,7 @@
             <Button 
                 @clicked="nextImg($event)" 
                 label="Next" 
-                isLarge
+                :isSmall="true"
             />
           </div>
     </div>
@@ -127,15 +127,15 @@
       background: var(--c-bg);
       border: 2px solid var(--c-main-alt);
       border-radius: 50%;
-      width: 48px;
-      height: 48px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       pointer-events: all;
       color: var(--c-main);
-      font-size: 18px;
+      font-size: 12px;
       transition: all 0.2s ease;
 
       &:hover {
@@ -152,21 +152,34 @@
       @include breakpoint_m {
         top: $unit_l;
         right: $unit_l;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
       }
     }
   
     &__inner {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 20;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      z-index: 20;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-bottom: $unit_xxl;
+      padding: $unit_m;
+      padding-bottom: 120px; // Space for controls
+      box-sizing: border-box;
+      
+      > div {
+        max-width: 100%;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
   
     &__controls {
@@ -181,19 +194,53 @@
       padding: $unit_s;
       border-top: solid 3px var(--c-accent-2);
       grid-gap: $unit_m;
+      min-height: 80px; // Ensure consistent height
+      
+      @include breakpoint_m {
+        padding: $unit_m;
+        min-height: 100px;
+        grid-gap: $unit_l;
+      }
     }
 
     &__count {
         min-width:30%;
         text-align: center;
+        font-size: $txt_s;
+        
+        @include breakpoint_m {
+          font-size: $txt_m;
+        }
     }
   
     img {
       max-width: 100%;
-      max-height: 80vh;
+      max-height: calc(100vh - 200px); // Account for controls and padding
+      width: auto;
+      height: auto;
       pointer-events: all;
       box-shadow: 0 0 $unit_l rgba($darkest, 0.2);
-      @extend .u-bm-m;
+      border-radius: $unit_xs;
+      
+      @include breakpoint_m {
+        max-height: calc(100vh - 240px);
+      }
+    }
+
+    p {
+      margin: 0; // No top margin since it's positioned at bottom
+      padding: $unit_xs; // Reduced by 50% from $unit_s
+      background: transparent;
+      font-size: $txt_s;
+      text-align: center;
+      color: var(--c-main);
+      align-self: flex-end; // Stick to bottom of flex container
+      
+      @include breakpoint_m {
+        margin: 0; // No top margin
+        padding: $unit_s; // Reduced by 50% from $unit_m
+        font-size: $txt_m;
+      }
     }
   }
   </style>

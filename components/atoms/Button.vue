@@ -1,6 +1,6 @@
 <template>
   <component :is="href ? 'a' : 'button'"
-    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, { 'button--frameless': frameless }, { 'button--large': isLarge }, { 'button--transition-down': transitionDirection === 'down' }, { 'button--transition-up': transitionDirection === 'up' }]"
+    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, { 'button--frameless': frameless }, { 'button--large': isLarge }, { 'button--small': isSmall }, { 'button--transition-down': transitionDirection === 'down' }, { 'button--transition-up': transitionDirection === 'up' }]"
     :href="href ? href : null" 
     ref="btn" 
     :rel="external ? 'nofollow noopener noreferrer' : null" 
@@ -38,6 +38,10 @@ export default {
       default: false
     },
     isLarge: {
+      type: Boolean,
+      default: false
+    },
+    isSmall: {
       type: Boolean,
       default: false
     },
@@ -133,6 +137,16 @@ export default {
 
   &--large {
     font-size: $txt_m;
+  }
+
+  &--small {
+    font-size: $txt_xs;
+    padding: $unit_xxs $unit_xs;
+    
+    @include breakpoint_m {
+      font-size: $txt_s;
+      padding: $unit_xxs $unit_s;
+    }
   }
 
   &.pop-anim {
