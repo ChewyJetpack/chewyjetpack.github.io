@@ -4,16 +4,18 @@
 
 h2, h3, h4, h5, h6 {
     font-weight: 500;
+    color: var(--c-main);
 
     @include font-heading;
     & > a {
-        color: var(--c-heading);
+        color: var(--c-main);
     }
 }
 
 h1 {
     @include font-display;
     margin-bottom: $unit_m;
+    color: var(--c-main);
 
     @include breakpoint_m {
         margin-bottom: $unit_l;
@@ -77,10 +79,11 @@ p:not([class]):not(:last-child) {
 }
 
 a {
-    color: var(--c-accent-2);
+    color: var(--c-accent-1);
     text-decoration: underline;
     text-decoration-skip: edges;
     text-decoration-skip-ink: all;
+    font-weight: 700;
 
     &:hover, &:focus {
         color: var(--c-main-2);
@@ -144,6 +147,15 @@ ul:not([class]), ol {
 .article-content {
     h1, h2, h3 {
         margin-top: $unit_xl;
-        color: var(--c-accent-4);
+        color: var(--c-main);
+    }
+    
+    // Make h1 headings in article content behave like h2 for consistency with case studies
+    h1 {
+        font-size: $txt_l;
+        
+        @include breakpoint_m {
+            font-size: $txt_xl;
+        }
     }
 }

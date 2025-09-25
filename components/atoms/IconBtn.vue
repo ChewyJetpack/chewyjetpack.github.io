@@ -2,6 +2,7 @@
   <button
     :class="[classes, 'icon-btn']"
     :style="`color: var(${cText})`"
+    :aria-label="ariaLabel"
     @click="$emit('clicked')"
   >
     <font-awesome :icon="icon" />
@@ -19,6 +20,10 @@ export default {
     },
     cText: {
       type: String
+    },
+    ariaLabel: {
+      type: String,
+      required: true
     }
   }
 };
@@ -36,6 +41,11 @@ export default {
   align-items: center;
   position: relative;
   color: var(--c-main);
+
+  &:focus {
+    outline: 2px solid var(--c-accent-2);
+    outline-offset: 2px;
+  }
 
   &--invert {
     color: var(--c-bg);

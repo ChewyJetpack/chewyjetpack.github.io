@@ -1,5 +1,15 @@
 <template>
-    <div class="lightbox">
+    <div 
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lightbox-title"
+      @keydown.esc="closeLightbox"
+      @keydown.left="prevImg"
+      @keydown.right="nextImg"
+      tabindex="-1"
+      ref="lightbox"
+    >
       <div class="lightbox__inner">
         <div v-if="args.gallery">
           <img
@@ -7,11 +17,11 @@
             :alt="args.gallery[args.index].alt"
             @click="nextImg($event)"
           />
-          <p v-if="args.gallery[args.index].caption">{{ args.gallery[args.index].caption }}</p>
+          <p v-if="args.gallery[args.index].caption" id="lightbox-title">{{ args.gallery[args.index].caption }}</p>
         </div>
         <div v-else>
         <img :src="args.src" :alt="args.alt" />
-            <p v-if="args.caption">{{ args.caption }}</p>
+            <p v-if="args.caption" id="lightbox-title">{{ args.caption }}</p>
         </div>
       </div>
       <div v-if="args.gallery" class="lightbox__controls u-top-spacer-m">
@@ -55,16 +65,27 @@
     //     return this.index % this.args.gallery.length;
     //   }
     // },
+    mounted() {
+      // Focus the lightbox when it opens
+      this.$nextTick(() => {
+        this.$refs.lightbox.focus();
+      });
+    },
     methods: {
       prevImg(e) {
+        e.preventDefault();
         this.args.index - 1 == -1
           ? (this.args.index = this.args.gallery.length - 1)
           : (this.args.index -= 1);
       },
       nextImg(e) {
+        e.preventDefault();
         this.args.index + 1 > this.args.gallery.length - 1
           ? (this.args.index = 0)
           : (this.args.index += 1);
+      },
+      closeLightbox() {
+        this.$nuxt.$emit("lightbox:close");
       }
     }
   };

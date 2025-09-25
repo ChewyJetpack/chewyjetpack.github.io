@@ -10,7 +10,7 @@
             class="header__mode"
           />
         </div>
-        <div class="header__nav-wrap">
+        <div id="main-navigation" class="header__nav-wrap">
           <NavMenu class="header__nav" />
         </div>
       </div>

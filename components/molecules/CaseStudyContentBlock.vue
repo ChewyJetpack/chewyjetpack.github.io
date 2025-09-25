@@ -39,5 +39,9 @@ export default {
 <style lang="scss" scoped>
     .cs-block {
         @extend .u-bm-xl;
+        
+        h2 {
+            color: var(--c-main);
+        }
     }
 </style>

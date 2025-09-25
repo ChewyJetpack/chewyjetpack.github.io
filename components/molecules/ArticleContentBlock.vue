@@ -45,5 +45,9 @@ export default {
         &__text-block {
             @extend .u-bm-xl;
         }
+        
+        h1, h2, h3 {
+            color: var(--c-main);
+        }
     }
 </style>

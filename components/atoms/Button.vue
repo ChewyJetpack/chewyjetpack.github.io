@@ -1,7 +1,11 @@
 <template>
   <component :is="href ? 'a' : 'button'"
     :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, { 'button--frameless': frameless }, { 'button--large': isLarge }]"
-    :href="href ? href : null" ref="btn" :rel="external ? 'nofollow' : null" :target="external ? '_blank' : null"
+    :href="href ? href : null" 
+    ref="btn" 
+    :rel="external ? 'nofollow noopener noreferrer' : null" 
+    :target="external ? '_blank' : null"
+    :aria-label="ariaLabel || label"
     @click="$emit('clicked')">
     <span class="button__label">{{ label }}</span>
     <font-awesome class="button__icon" :icon="icon" />
@@ -36,6 +40,10 @@ export default {
     isLarge: {
       type: Boolean,
       default: false
+    },
+    ariaLabel: {
+      type: String,
+      default: null
     }
   }
 };
@@ -75,32 +83,36 @@ export default {
 }
 
 %hover-state {
-  color: var(--c-accent-2);
+  color: var(--c-accent-1);
 
   svg {
-    color: var(--c-accent-2);
+    //color: var(--c-accent-1);
   }
 }
 
 .button {
   color: var(--c-main);
-  line-height: 1;
+  line-height: 1.4;
   display: inline-flex;
   align-items: center;
   transition: all 0.3s;
   position: relative;
-  font-weight: 600;
+  @include font-ui;
   outline: none;
   background: var(--c-bg-2);
-  border: solid 3px var(--c-accent-2);
-  border-right: 0;
-  border-radius: $unit_xxxs;
-  border-top: 0;
-  padding: $unit_xs $unit_s;
-  font-size: $txt_s;
+  border: solid 3px var(--c-main);
+  border-radius: $unit_xs;
+  padding: $unit_xs $unit_m;
+  box-shadow: -3px 3px 6px 0px var(--c-main-alt-2);
+  font-size: $txt_m;
   cursor: pointer;
   transition: color 0.3s;
   text-decoration: none;
+
+  &:focus {
+    outline: 2px solid var(--c-accent-2);
+    outline-offset: 2px;
+  }
 
   &--frameless {
     border: 0;
@@ -137,7 +149,7 @@ export default {
 
   svg {
     transition: all 0.2s;
-    color: var(--c-accent-2)
+    color: var(--c-accent-1)
   }
 
   &--ico-l {

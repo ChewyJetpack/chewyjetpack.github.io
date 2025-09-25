@@ -5,6 +5,7 @@
     :classes="`mode-switch mode-switch--${currentMode}`"
     icon="adjust"
     :u-burst="burst"
+    aria-label="Toggle dark mode"
   />
 </template>
 
@@ -57,8 +58,8 @@ export default {
     top: 50%;
     left: 50%;
     content: "";
-    width: $unit_xl;
-    height: $unit_xl;
+    width: $unit_xxl;
+    height: $unit_xxl;
     background: $sunrise;
     border-radius: 50%;
     opacity: 0;
@@ -96,6 +97,11 @@ export default {
 
   &--dark {
     transform: rotate(180deg);
+  }
+
+  // Remove focus outline for mode switch
+  &:focus {
+    outline: none;
   }
 }
 </style>

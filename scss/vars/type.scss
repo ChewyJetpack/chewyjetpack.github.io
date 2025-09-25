@@ -1,20 +1,22 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Cairo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Martel:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 
-$display-font:      'Cairo', sans-serif;
-$body-font:         'Martel', serif;
+$display-font:      'Mona Sans', sans-serif;
+$body-font:         'Nunito Sans', sans-serif;
+$ui-font:           'Mona Sans', sans-serif;
 
 @mixin font-body {
     font-family: $body-font;
-    line-height: 1.6;
+    line-height: 1.4;
     font-weight: 400;
     font-size: $txt_s;
     color: var(--c-main);
 
     @include breakpoint_l {
-        font-size: $txt_s;
+        font-size: $txt_m;
     }
 }
 
@@ -37,6 +39,12 @@ $body-font:         'Martel', serif;
     a {
         font-weight: 500;
     }
+}
+
+@mixin font-ui {
+    font-family: $ui-font;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 $txt_xs:            1.4rem;

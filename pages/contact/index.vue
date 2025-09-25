@@ -9,18 +9,21 @@
         <Button
           href="/EmilSmithCV.pdf"
           label="Download my CV"
-          target="_blank"
+          :external="true"
+          aria-label="Download Emil Smith's CV (PDF)"
           class="u-rm-m"
         />
         <Button
           href="mailto:hi@emilsmith.pro"
           label="Send me an email"
+          aria-label="Send email to hi@emilsmith.pro"
           class="u-rm-m"
         />
         <Button
           href="https://www.linkedin.com/in/emil-smith/"
           label="Connect on LinkedIn"
           :external="true"
+          aria-label="Connect with Emil Smith on LinkedIn (opens in new tab)"
         />
       </div>
     </section>

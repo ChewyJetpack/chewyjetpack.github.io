@@ -1,9 +1,13 @@
 <template>
     <div :class="`layout layout--${currentMode}`" ref="layout">
+        <!-- Skip Links -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#main-navigation" class="skip-link">Skip to navigation</a>
+        
         <!-- Content anchored to top -->
          <div>
           <Header :currentMode="currentMode" />
-          <main class="layout__content u-bm-xxl">
+          <main id="main-content" class="layout__content u-bm-xxl">
               <Nuxt />
           </main>
 
@@ -110,6 +114,26 @@ export default {
 
   &__content {
     position: relative;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 6px;
+  background: var(--c-accent-2);
+  color: var(--c-bg);
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  &:focus {
+    top: 6px;
   }
 }
 </style>
