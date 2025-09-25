@@ -10,17 +10,23 @@
           href="/EmilSmithCV.pdf"
           label="Download my CV"
           :external="true"
+          icon="download"
+          transition-direction="down"
           aria-label="Download Emil Smith's CV (PDF)"
         />
         <Button
           href="mailto:hi@emilsmith.pro"
           label="Send me an email"
+          icon="envelope"
+          transition-direction="down"
           aria-label="Send email to hi@emilsmith.pro"
         />
         <Button
           href="https://www.linkedin.com/in/emil-smith/"
           label="Connect on LinkedIn"
           :external="true"
+          :icon="['fab', 'linkedin-in']"
+          transition-direction="down"
           aria-label="Connect with Emil Smith on LinkedIn (opens in new tab)"
         />
       </div>

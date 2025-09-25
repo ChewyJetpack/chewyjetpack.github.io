@@ -11,6 +11,8 @@
                 label="Download my CV"
                 href="/EmilSmithCV.pdf"
                 :external="true"
+                icon="download"
+                transition-direction="down"
             />
           </div>
         </div>

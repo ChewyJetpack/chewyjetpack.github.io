@@ -16,7 +16,8 @@ import {
   faHistory,
   faHourglassHalf,
   faLink,
-  faEnvelope
+  faEnvelope,
+  faDownload
 } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -35,7 +36,8 @@ library.add(
   faHourglassHalf,
   faLink,
   faEnvelope,
-  faMastodon
+  faMastodon,
+  faDownload
 );
 
 

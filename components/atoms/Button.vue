@@ -1,6 +1,6 @@
 <template>
   <component :is="href ? 'a' : 'button'"
-    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, { 'button--frameless': frameless }, { 'button--large': isLarge }]"
+    :class="['button', { 'button--ico-l': icoLeft, 'button--ico-r': !icoLeft }, { 'button--frameless': frameless }, { 'button--large': isLarge }, { 'button--transition-down': transitionDirection === 'down' }, { 'button--transition-up': transitionDirection === 'up' }]"
     :href="href ? href : null" 
     ref="btn" 
     :rel="external ? 'nofollow noopener noreferrer' : null" 
@@ -44,6 +44,13 @@ export default {
     ariaLabel: {
       type: String,
       default: null
+    },
+    transitionDirection: {
+      type: String,
+      default: 'right',
+      validator: function (value) {
+        return ['right', 'down', 'up'].indexOf(value) !== -1
+      }
     }
   }
 };
@@ -87,7 +94,7 @@ export default {
   border-color: var(--c-accent-2);
 
   svg {
-    //color: var(--c-accent-1);
+    color: var(--c-main);
   }
 }
 
@@ -155,7 +162,9 @@ export default {
 
   svg {
     transition: all 0.2s;
-    color: var(--c-accent-1)
+    color: var(--c-accent-1);
+    vertical-align: middle;
+    transform: translateY(1px);
   }
 
   &--ico-l {
@@ -195,7 +204,31 @@ export default {
       text-decoration: none;
 
       svg {
-        transform: translateX(4px);
+        transform: translateX(4px) translateY(1px);
+      }
+    }
+  }
+
+  &--transition-down {
+    &:hover,
+    &:active,
+    &.hovered {
+      text-decoration: none;
+
+      svg {
+        transform: translateY(3px);
+      }
+    }
+  }
+
+  &--transition-up {
+    &:hover,
+    &:active,
+    &.hovered {
+      text-decoration: none;
+
+      svg {
+        transform: translateY(-3px);
       }
     }
   }
