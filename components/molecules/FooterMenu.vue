@@ -2,12 +2,21 @@
   <div
     :class="{ 'footer-menu': true, 'footer-menu--slide': navFormat == 'slide' }"
   >
-    <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
 
     <!-- Social network links -->
     <ul class="footer-menu__social u-pm-reset">
+      <!-- Mail icon -->
+      <li class="footer-menu__social-item">
+        <a
+          :href="`mailto:${contact.email || 'hi@emilsmith.pro'}`"
+          class="footer-menu__social-link"
+        >
+          <font-awesome :icon="['fas', 'envelope']" />
+        </a>
+      </li>
+      <!-- Other social links -->
       <li
-        v-for="(link, index) in contact.socialLinks"
+        v-for="(link, index) in (contact.socialLinks || [])"
         :key="index"
         class="footer-menu__social-item"
       >
@@ -34,11 +43,30 @@ export default {
   },
   data() {
       return {
-          contact: {}
+          contact: {
+            email: 'hi@emilsmith.pro',
+            socialLinks: [
+              { url: 'https://www.linkedin.com/in/emil-smith/' }
+            ]
+          }
       };
   },
-  async fetch() {
-      this.contact = await this.$content('contact').fetch()
+  async created() {
+      try {
+        const contact = await this.$content('contact').fetch();
+        console.log('FooterMenu contact data:', contact);
+        // Check if this is the contact page content (which doesn't have social links)
+        // and fall back to our hardcoded data if so
+        if (contact && contact.socialLinks) {
+          this.contact = contact;
+        } else {
+          console.log('Contact data missing socialLinks, using fallback data');
+          // Keep the fallback data from data()
+        }
+      } catch (error) {
+        console.error('FooterMenu contact fetch error:', error);
+        // Keep the fallback data from data()
+      }
   },
   methods: {
     getSocialIcon(url) {
@@ -48,7 +76,7 @@ export default {
           icon: "instagram"
         },
         {
-          name: "linked",
+          name: "linkedin",
           icon: "linkedin-in"
         },
         {
@@ -65,6 +93,7 @@ export default {
           return ["fab", icons[i].icon];
         }
       }
+      return ["fas", "link"]; // fallback icon
     }
   }
 };
@@ -77,6 +106,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
+  font-size: $txt_s;
 
   @include breakpoint_m {
     justify-content: flex-end;

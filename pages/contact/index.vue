@@ -18,6 +18,13 @@
           label="Send me an email"
         />
       </div>
+      <div class="wrap u-tm-m">
+        <Button
+          href="https://www.linkedin.com/in/emil-smith/"
+          label="Connect on LinkedIn"
+          :external="true"
+        />
+      </div>
     </section>
   </div>
 </template>

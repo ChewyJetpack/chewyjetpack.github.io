@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
     footer {
         border-top: solid 3px;
-        font-size: $txt_s;
+        font-size: $txt_xs;
         padding: $unit_m 0;
         color: var(--c-main-alt);
         text-align: center; 
@@ -34,7 +34,7 @@ export default {
         }
 
         @include breakpoint_m {
-            font-size: $txt_s;
+            font-size: $txt_xs;
             p {
                 margin-bottom: 0;
             }
