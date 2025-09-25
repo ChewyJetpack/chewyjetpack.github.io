@@ -168,12 +168,16 @@ export default {
     .logos-track {
       display: flex;
       align-items: center;
-      gap: $unit_xxl;
+      gap: $unit_l;
       list-style: none;
-      padding: 0;
+      padding: $unit_l 0;
       margin: 0;
       width: max-content;
       animation: homepage-logos-scroll 60s linear infinite;
+
+      @include breakpoint_m {
+        gap: $unit_xxl;
+      }
     }
 
     /* edge fade masks */
@@ -201,12 +205,11 @@ export default {
     img {
       height: auto;
       width: auto;
-      max-width: 170px;
-      transition: opacity 0.2s ease;
+      max-width: 90px;
       filter: var(--logo-filter);
 
       @include breakpoint_m {
-        height: 36px;
+        max-width: 170px;
       }
     }
 

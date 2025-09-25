@@ -25,12 +25,12 @@ export default {
         border-top: solid 3px;
         font-size: $txt_xs;
         padding: $unit_m 0;
-        color: var(--c-main-alt);
+        color: var(--c-main);
         text-align: center; 
         border-image: linear-gradient(to right, var(--c-accent-2), var(--c-accent-2), transparent, transparent) 1;
 
         p {
-            margin-bottom: $unit_xs;
+            //margin-bottom: $unit_xs;
         }
 
         @include breakpoint_m {
@@ -43,6 +43,7 @@ export default {
     .footer-content {
         display: flex;
         flex-direction: column-reverse;
+        align-items: center;
 
         @include breakpoint_m {
                 justify-content: space-between;

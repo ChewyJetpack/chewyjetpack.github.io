@@ -102,12 +102,17 @@ export default {
   background: var(--c-bg-2);
   border: solid 3px var(--c-main-alt);
   border-radius: $unit_xs;
-  padding: $unit_xs $unit_m;
+  padding: $unit_xxs $unit_s;
   //box-shadow: -3px 3px 6px 0px var(--c-main-alt-2);
-  font-size: $txt_m;
+  font-size: $txt_s;
   cursor: pointer;
   transition: color 0.3s;
   text-decoration: none;
+
+  @include breakpoint_m {
+    font-size: $txt_m;
+    padding: $unit_xs $unit_m;
+  }
 
   &:focus {
     outline: 2px solid var(--c-accent-2);

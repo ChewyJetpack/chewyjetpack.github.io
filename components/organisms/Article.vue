@@ -167,6 +167,8 @@ export default {
         background: var(--c-bg-2);
         border-top: solid 3px var(--c-accent-2);
         img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }

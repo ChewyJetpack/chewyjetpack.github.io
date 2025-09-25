@@ -11,13 +11,11 @@
           label="Download my CV"
           :external="true"
           aria-label="Download Emil Smith's CV (PDF)"
-          class="u-rm-m"
         />
         <Button
           href="mailto:hi@emilsmith.pro"
           label="Send me an email"
           aria-label="Send email to hi@emilsmith.pro"
-          class="u-rm-m"
         />
         <Button
           href="https://www.linkedin.com/in/emil-smith/"
@@ -72,8 +70,16 @@ export default {
 
     &__content {
       @extend .u-tm-xxl;
-      @extend .u-bm-l;
+      @extend .u-bm-s;
       @extend .e-grid-2-1;
+    }
+
+    .button {
+      margin-bottom: $unit_s;
+
+      @include breakpoint_m {
+        margin-right: $unit_m;
+      }
     }
   }
 </style>

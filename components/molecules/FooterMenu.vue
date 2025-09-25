@@ -108,6 +108,15 @@ export default {
   text-align: center;
   font-size: $txt_s;
 
+  a {
+    color: var(--c-accent-2);
+    transition: color 0.2s;
+
+    &:hover, &:focus {
+      color: var(--c-main);
+    }
+  }
+
   @include breakpoint_m {
     justify-content: flex-end;
     flex-direction: row;

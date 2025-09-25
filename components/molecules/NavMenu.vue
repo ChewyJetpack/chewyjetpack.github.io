@@ -49,7 +49,7 @@ export default {
   text-align: right;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: $unit_xs;
+    gap: $unit_xxs;
   padding: $unit_s 0;
   @include font-ui;
   font-size: $txt_s;
