@@ -1,5 +1,18 @@
 <template>
   <div :class="`cv cv--${currentMode}`">
+    <!-- Sticky header with actions -->
+    <div class="cv__sticky-header">
+      <div class="cv__sticky-content">
+        <Button 
+          @clicked="downloadPDF" 
+          label="Download PDF"
+          icon="download"
+          transition-direction="down"
+        />
+        <ModeSwitch :currentMode="currentMode" />
+      </div>
+    </div>
+
     <div class="cv__container cv__container--bg-2">
       <div class="cv__wrapper cv__wrapper-intro">
         <header class="cv__header">
@@ -14,15 +27,6 @@
             <div class="cv__avatar">
               <nuxt-img preset="avatar" src="/img/selfie.png" alt="Portrait photo of Emil Smith"/>
             </div>
-          </div>
-          <div class="cv__actions">
-            <Button 
-              @clicked="downloadPDF" 
-              label="Download PDF"
-              icon="download"
-              transition-direction="down"
-            />
-            <ModeSwitch :currentMode="currentMode" />
           </div>
         </header>
 
@@ -181,11 +185,11 @@ export default {
       // Use browser's built-in print functionality for PDF generation
       // This preserves text selectability and works reliably
       
-      // Hide the download button before printing
-      const downloadBtn = document.querySelector('.cv__actions');
-      const originalDisplay = downloadBtn ? downloadBtn.style.display : '';
-      if (downloadBtn) {
-        downloadBtn.style.display = 'none';
+      // Hide the sticky header before printing
+      const stickyHeader = document.querySelector('.cv__sticky-header');
+      const originalDisplay = stickyHeader ? stickyHeader.style.display : '';
+      if (stickyHeader) {
+        stickyHeader.style.display = 'none';
       }
       
       // Add printing class to body
@@ -194,10 +198,10 @@ export default {
       // Trigger print dialog
       window.print();
       
-      // Restore button after printing
+      // Restore header after printing
       setTimeout(() => {
-        if (downloadBtn) {
-          downloadBtn.style.display = originalDisplay;
+        if (stickyHeader) {
+          stickyHeader.style.display = originalDisplay;
         }
         document.body.classList.remove('printing-cv');
       }, 1000);
@@ -227,6 +231,30 @@ export default {
 
   @include breakpoint_l {
     //padding: $unit_xxl;
+  }
+
+  &__sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-bg);
+    width: 100%;
+    padding: $unit_xs;
+    border-bottom: solid 3px var(--c-accent-2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  &__sticky-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .button {
+      padding: $unit_xxs $unit_s;
+      font-size: $txt_s;
+    }
   }
 
   &__container {
@@ -307,38 +335,12 @@ export default {
     }
   }
 
-  &__actions {
-    position: fixed;
-    top: $unit_m;
-    right: $unit_m;
-    z-index: 100;
-    margin-top: 0;
-    text-align: center;
-    display: flex;
-    gap: $unit_s;
-    align-items: center;
-
-    @include breakpoint_m {
-      top: $unit_l;
-      right: $unit_l;
-    }
-
-    // Loading state styling
-    .button {
-      position: relative;
-      
-      &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-    }
-  }
 
   &__intro {
-    margin-bottom: $unit_l;
+    margin-bottom: $unit_s;
 
     p {
-      margin-bottom: $unit_m;
+      margin-bottom: $unit_s;
       line-height: 1.4;
 
       &:last-child {
@@ -804,7 +806,7 @@ export default {
       }
     }
     
-    &__actions {
+    &__sticky-header {
       display: none !important;
     }
   }
@@ -812,7 +814,7 @@ export default {
 
 // Additional styles for printing state
 body.printing-cv {
-  .cv__actions {
+  .cv__sticky-header {
     display: none !important;
   }
 }
