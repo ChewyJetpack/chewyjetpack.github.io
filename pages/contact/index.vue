@@ -7,12 +7,12 @@
       </div>
       <div class="wrap">
         <Button
-          href="/EmilSmithCV.pdf"
+          href="/cv"
           label="Download my CV"
           :external="true"
           icon="download"
           transition-direction="down"
-          aria-label="Download Emil Smith's CV (PDF)"
+          aria-label="View Emil Smith's CV (opens in new tab)"
         />
         <Button
           href="mailto:hi@emilsmith.pro"

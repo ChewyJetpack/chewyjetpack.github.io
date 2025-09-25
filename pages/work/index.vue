@@ -9,10 +9,11 @@
           <div class="work__btn">
             <Button
                 label="Download my CV"
-                href="/EmilSmithCV.pdf"
+                href="/cv"
                 :external="true"
                 icon="download"
                 transition-direction="down"
+                aria-label="View Emil Smith's CV (opens in new tab)"
             />
           </div>
         </div>

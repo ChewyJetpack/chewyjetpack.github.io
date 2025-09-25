@@ -111,9 +111,15 @@ export default {
     justify-content: center;
     margin: 0 auto $unit_m;
     order:1;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
 
     @include breakpoint_m {
       order: 2;
+      width: 300px;
+      height: 300px;
     }
 
     &::before {
@@ -134,7 +140,10 @@ export default {
       bottom: -9px;
       max-width: 50%;
       margin: 0 auto;
-      filter: grayscale(1) brightness(1.4);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
 
       @include breakpoint_m {
         bottom: -1px;

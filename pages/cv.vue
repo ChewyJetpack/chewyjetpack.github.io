@@ -416,7 +416,7 @@ export default {
 
   &__skills {
     .cv__skill-category {
-      margin-bottom: $unit_m;
+      margin-bottom: $unit_s;
       
       strong {
         color: var(--c-accent-1);
@@ -766,7 +766,7 @@ export default {
     
     &__skills {
       .cv__skill-category {
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.5rem !important;
         font-size: 12pt !important;
         
         strong {
