@@ -14,6 +14,35 @@
           label="See my work"
         />
       </div>
+      <div class="homepage__logos" aria-label="Trusted by">
+        <div class="wrap">
+          <div class="logos-marquee">
+          <ul class="logos-track">
+            <li><img class="logo--tall" src="/img/ellas-kitchen-seeklogo.svg" alt="Ella's Kitchen" /></li>
+            <li><img src="/img/brothers.svg" alt="Brothers" /></li>
+            <li><img src="/img/angry-birds.svg" alt="Angry Birds" /></li>
+            <li><img src="/img/expedia.svg" alt="Expedia" /></li>
+            <li><img class="logo--tall" src="/img/3-1-logo-svg-vector.svg" alt="Three" /></li>
+            <li><img src="/img/tinder-1.svg" alt="Tinder" /></li>
+            <li><img class="logo--tall" src="/img/virgin-1.svg" alt="Virgin" /></li>
+            <li><img src="/img/Sony_logo.svg" alt="Sony" /></li>
+            <li><img src="/img/EBay_logo.svg" alt="eBay" /></li>
+            <li><img src="/img/Nokia_2023.svg" alt="Nokia" /></li>
+            <!-- duplicate for seamless loop -->
+            <li aria-hidden="true"><img class="logo--tall" src="/img/ellas-kitchen-seeklogo.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/brothers.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/angry-birds.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/expedia.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--tall" src="/img/3-1-logo-svg-vector.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/tinder-1.svg" alt="" /></li>
+            <li aria-hidden="true"><img class="logo--tall" src="/img/virgin-1.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/Sony_logo.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/EBay_logo.svg" alt="" /></li>
+            <li aria-hidden="true"><img src="/img/Nokia_2023.svg" alt="" /></li>
+          </ul>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -126,5 +155,78 @@ export default {
     @extend .u-tm-xxl;
     @extend .e-grid-3-1;
   }
+
+  &__logos {
+    @extend .u-tm-xxl;
+
+    .logos-marquee {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .logos-track {
+      display: flex;
+      align-items: center;
+      gap: $unit_xxl;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: max-content;
+      animation: homepage-logos-scroll 60s linear infinite;
+    }
+
+    /* edge fade masks */
+    .logos-marquee::before,
+    .logos-marquee::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 6rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .logos-marquee::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--c-bg) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .logos-marquee::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--c-bg) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    img {
+      height: 28px;
+      width: auto;
+      opacity: 0.8;
+      filter: grayscale(1) brightness(0) invert(1);
+      transition: opacity 0.2s ease;
+
+      @include breakpoint_m {
+        height: 36px;
+      }
+    }
+
+    img:hover {
+      opacity: 1;
+    }
+
+    /* Slight size boost for more square logos to balance visual weight */
+    .logo--tall {
+      height: 50px;
+
+      @include breakpoint_m {
+        height: 60px;
+      }
+    }
+  }
+}
+
+@keyframes homepage-logos-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 </style>

@@ -48,6 +48,7 @@ export default {
   &__item {
     display: flex;
     align-items: center;
+    padding-bottom: 0.1em;
 
     @include breakpoint_m {
       width: auto;
@@ -55,7 +56,7 @@ export default {
   }
 
   &__link {
-    color: var(--c-accent-2);
+    color: var(--c-main);
     text-decoration: none;
     position: relative;
     line-height: 1;
