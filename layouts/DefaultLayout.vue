@@ -14,7 +14,7 @@
           <transition name="fade">
             <div class="shade" @click="closeShade" v-if="shadeVisible" />
           </transition>
-          <Lightbox :args="lightboxArgs" v-if="lightboxVisible" />
+          <Lightbox :args="lightboxArgs" :closeMethod="closeLightbox" v-if="lightboxVisible" />
         </div>
         <Footer />
     </div>
@@ -55,7 +55,6 @@ export default {
     },
     methods: {
       closeLightbox() {
-        this.$nuxt.$emit("lightbox:close", false);
         this.shadeVisible = false;
         this.lightboxVisible = false;
         this.lightboxArgs = {};

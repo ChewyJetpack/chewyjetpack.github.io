@@ -23,7 +23,9 @@ export default {
     },
     methods: {
         lightBox(img, index, e) {
-            e.preventDefault();
+            if (e) {
+                e.preventDefault();
+            }
             img.length > 1 ? this.$nuxt.$emit("lightbox:open", { gallery: img, index: index }) : this.$nuxt.$emit("lightbox:open", { src: img[0].src, alt: img[0].alt });
         }
     }
@@ -37,6 +39,7 @@ export default {
             position: relative;
             overflow: hidden;
             width: 100%;
+            border-radius: $unit_xxs;
             
             &::after {
                 display: block;
@@ -66,6 +69,8 @@ export default {
                 height: 100%;
                 display: block;
                 cursor: pointer;
+                border: solid 3px var(--c-main-alt);
+                border-radius: $unit_xs;
             }
 
             &--single {     

@@ -123,6 +123,34 @@ export default {
             this.windowUrl = window.location.href;
         }
     },
+    mounted() {
+        // Handle clicks on images in markdown content
+        this.$nextTick(() => {
+            this.addImageClickHandlers();
+        });
+        
+        // Add global document click handler as backup
+        document.addEventListener('click', this.handleGlobalClick, true);
+        
+        // Listen for lightbox close to restore body styles
+        this.$nuxt.$on('lightbox:close', this.restoreBodyStyles);
+    },
+    updated() {
+        // Re-add handlers when content updates
+        this.$nextTick(() => {
+            this.addImageClickHandlers();
+        });
+    },
+    beforeDestroy() {
+        // Clean up global handler
+        document.removeEventListener('click', this.handleGlobalClick, true);
+        
+        // Clean up lightbox close listener
+        this.$nuxt.$off('lightbox:close', this.restoreBodyStyles);
+        
+        // Restore body styles
+        this.restoreBodyStyles();
+    },
     methods: {
         copyUrl: function (ref) {
             this.$copyText(this.windowUrl).then(function (e) {
@@ -144,6 +172,124 @@ export default {
                 }
             }
             return arr;
+        },
+        addImageClickHandlers() {
+            // Find all images in markdown content and add click handlers
+            const articleContent = this.$el.querySelector('.article__content');
+            if (articleContent) {
+                // Handle all links that contain images
+                const imageLinks = articleContent.querySelectorAll('a');
+                imageLinks.forEach(link => {
+                    const img = link.querySelector('img');
+                    if (img) {
+                        // Remove any existing click handlers
+                        link.removeEventListener('click', this.handleImageLinkClick);
+                        // Add click handler to the link
+                        link.addEventListener('click', this.handleImageLinkClick);
+                        // Make cursor pointer to indicate clickable
+                        link.style.cursor = 'pointer';
+                        // Remove href to prevent navigation
+                        link.removeAttribute('href');
+                    }
+                });
+
+                // Handle standalone images
+                const images = articleContent.querySelectorAll('img');
+                images.forEach(img => {
+                    // Skip if already handled by link above
+                    if (img.closest('a')) return;
+                    
+                    // Remove any existing click handlers
+                    img.removeEventListener('click', this.handleImageClick, true);
+                    img.removeEventListener('click', this.handleImageClick, false);
+                    // Add click handler with capture to run first
+                    img.addEventListener('click', this.handleImageClick, true);
+                    // Make cursor pointer to indicate clickable
+                    img.style.cursor = 'pointer';
+                });
+            }
+        },
+        handleImageLinkClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const link = event.currentTarget;
+            const img = link.querySelector('img');
+            if (img) {
+                const src = img.src;
+                const alt = img.alt || '';
+                
+                // Open image in lightbox
+                this.$nuxt.$emit("lightbox:open", { src, alt });
+            }
+        },
+        handleImageClick(event) {
+            // Prevent all default behavior
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            
+            const img = event.target;
+            const src = img.src;
+            const alt = img.alt || '';
+            
+            // Try to open lightbox
+            try {
+                this.$nuxt.$emit("lightbox:open", { src, alt });
+            } catch (error) {
+                console.error('Error opening lightbox:', error);
+            }
+            
+            return false;
+        },
+        handleGlobalClick(event) {
+            // Check if the clicked element is an image in article content
+            const articleContent = this.$el ? this.$el.querySelector('.article__content') : null;
+            if (articleContent && articleContent.contains(event.target)) {
+                const img = event.target.tagName === 'IMG' ? event.target : event.target.closest('img');
+                if (img && !img.closest('a')) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    
+                    const src = img.src;
+                    const alt = img.alt || '';
+                    
+                    // Store current scroll position
+                    const scrollY = window.scrollY;
+                    
+                    try {
+                        // Prevent any scrolling behavior
+                        document.body.style.overflow = 'hidden';
+                        document.body.style.position = 'fixed';
+                        document.body.style.top = `-${scrollY}px`;
+                        document.body.style.width = '100%';
+                        
+                        this.$nuxt.$emit("lightbox:open", { src, alt });
+                        
+                        // Check if lightbox opened and restore scroll position if needed
+                        setTimeout(() => {
+                            // Check if page scrolled despite our prevention
+                            const newScrollY = window.scrollY;
+                            if (newScrollY !== scrollY) {
+                                window.scrollTo(0, scrollY);
+                            }
+                        }, 100);
+                        
+                    } catch (error) {
+                        console.error('Error opening lightbox from global handler:', error);
+                    }
+                    
+                    return false;
+                }
+            }
+        },
+        restoreBodyStyles() {
+            // Restore body styles when lightbox closes
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
         }
     }
 }
@@ -248,6 +394,25 @@ export default {
         @include breakpoint_m {
             grid-row: 1;
             font-size: $txt_m;
+        }
+
+        // Prevent auto-linked images from causing page jumps
+        a img {
+            pointer-events: none;
+        }
+        
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        // Prevent any default image behavior
+        img {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
     }
 }

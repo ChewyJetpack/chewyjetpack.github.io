@@ -76,7 +76,6 @@ export default {
 
     &__content {
       @extend .u-tm-xxl;
-      @extend .u-bm-s;
       @extend .e-grid-2-1;
     }
 

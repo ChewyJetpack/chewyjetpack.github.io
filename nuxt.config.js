@@ -102,7 +102,12 @@ export default {
   markdownit: {
     preset: 'default',
     linkify: true,
-    breaks: true
+    breaks: true,
+    linkify: {
+      fuzzyLink: false,
+      fuzzyEmail: false,
+      fuzzyIP: false
+    }
   },
 
   content: {

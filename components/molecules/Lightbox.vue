@@ -1,4 +1,4 @@
-<template>
+  <template>
     <div 
       class="lightbox"
       role="dialog"
@@ -10,6 +10,16 @@
       tabindex="-1"
       ref="lightbox"
     >
+      <!-- Close button in top right -->
+      <button 
+        class="lightbox__close" 
+        @click="closeLightbox"
+        aria-label="Close lightbox"
+        title="Close (ESC)"
+      >
+        <font-awesome icon="times" />
+      </button>
+      
       <div class="lightbox__inner">
         <div v-if="args.gallery">
           <img
@@ -30,7 +40,6 @@
               icon="arrow-left"
               label="Prev"
               @clicked="prevImg($event)"
-              frameless
               isLarge
             />
             <div class="lightbox__count" v-if="args.gallery">
@@ -39,7 +48,6 @@
             <Button 
                 @clicked="nextImg($event)" 
                 label="Next" 
-                frameless 
                 isLarge
             />
           </div>
@@ -57,6 +65,9 @@
     props: {
       args: {
         type: Object
+      },
+      closeMethod: {
+        type: Function
       }
     },
     // computed: {
@@ -73,19 +84,25 @@
     },
     methods: {
       prevImg(e) {
-        e.preventDefault();
+        if (e) {
+          e.preventDefault();
+        }
         this.args.index - 1 == -1
           ? (this.args.index = this.args.gallery.length - 1)
           : (this.args.index -= 1);
       },
       nextImg(e) {
-        e.preventDefault();
+        if (e) {
+          e.preventDefault();
+        }
         this.args.index + 1 > this.args.gallery.length - 1
           ? (this.args.index = 0)
           : (this.args.index += 1);
       },
       closeLightbox() {
-        this.$nuxt.$emit("lightbox:close");
+        if (this.closeMethod) {
+          this.closeMethod();
+        }
       }
     }
   };
@@ -101,6 +118,42 @@
     cursor: pointer;
     pointer-events: none;
     z-index: 10;
+  
+    &__close {
+      position: fixed;
+      top: $unit_m;
+      right: $unit_m;
+      z-index: 30;
+      background: var(--c-bg);
+      border: 2px solid var(--c-main-alt);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: all;
+      color: var(--c-main);
+      font-size: 18px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: var(--c-main-alt);
+        color: var(--c-bg);
+        transform: scale(1.1);
+      }
+
+      &:focus {
+        outline: 2px solid var(--c-accent-1);
+        outline-offset: 2px;
+      }
+
+      @include breakpoint_m {
+        top: $unit_l;
+        right: $unit_l;
+      }
+    }
   
     &__inner {
       position: fixed;
@@ -126,7 +179,7 @@
       background: var(--c-bg);
       width: 100%;
       padding: $unit_s;
-      border-top: solid 2px var(--c-main-alt-2);
+      border-top: solid 3px var(--c-accent-2);
       grid-gap: $unit_m;
     }
 
