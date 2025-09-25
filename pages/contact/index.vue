@@ -4,24 +4,24 @@
       <HeadingStrip :heading="contact.title" shape="hexagon"/>
       <div class="wrap contact__content">
         <nuxt-content :document="contact" />
-        <div class="wrap">
-          <Button
-            href="/EmilSmithCV.pdf"
-            label="Download my CV"
-            target="_blank"
-          />
-          <Button
-            href="mailto:hi@emilsmith.pro"
-            label="Send me an email"
-            class="u-tm-m"
-          />
-          <Button
-            href="https://www.linkedin.com/in/emil-smith/"
-            label="Connect on LinkedIn"
-            :external="true"
-            class="u-tm-m"
-          />
-        </div>
+      </div>
+      <div class="wrap">
+        <Button
+          href="/EmilSmithCV.pdf"
+          label="Download my CV"
+          target="_blank"
+          class="u-rm-m"
+        />
+        <Button
+          href="mailto:hi@emilsmith.pro"
+          label="Send me an email"
+          class="u-rm-m"
+        />
+        <Button
+          href="https://www.linkedin.com/in/emil-smith/"
+          label="Connect on LinkedIn"
+          :external="true"
+        />
       </div>
     </section>
   </div>
@@ -69,7 +69,7 @@ export default {
 
     &__content {
       @extend .u-tm-xxl;
-      @extend .u-bm-xxl;
+      @extend .u-bm-l;
       @extend .e-grid-2-1;
     }
   }
