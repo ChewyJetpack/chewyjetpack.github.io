@@ -58,6 +58,8 @@ export default {
         this.shadeVisible = false;
         this.lightboxVisible = false;
         this.lightboxArgs = {};
+        // Emit event to notify other components that lightbox closed
+        this.$nuxt.$emit("lightbox:close");
       },
       closeShade() {
         this.closeLightbox();

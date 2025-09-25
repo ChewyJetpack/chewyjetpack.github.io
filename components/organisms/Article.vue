@@ -115,7 +115,8 @@ export default {
     },
     data() {
         return {
-        windowUrl: ''
+        windowUrl: '',
+        storedScrollY: undefined
         }
     },
     created(){
@@ -132,7 +133,8 @@ export default {
         // Add global document click handler as backup
         document.addEventListener('click', this.handleGlobalClick, true);
         
-        // Listen for lightbox close to restore body styles
+        // Listen for lightbox events to manage body styles
+        this.$nuxt.$on('lightbox:open', this.handleLightboxOpen);
         this.$nuxt.$on('lightbox:close', this.restoreBodyStyles);
     },
     updated() {
@@ -145,7 +147,8 @@ export default {
         // Clean up global handler
         document.removeEventListener('click', this.handleGlobalClick, true);
         
-        // Clean up lightbox close listener
+        // Clean up lightbox listeners
+        this.$nuxt.$off('lightbox:open', this.handleLightboxOpen);
         this.$nuxt.$off('lightbox:close', this.restoreBodyStyles);
         
         // Restore body styles
@@ -255,32 +258,40 @@ export default {
                     const src = img.src;
                     const alt = img.alt || '';
                     
-                    // Store current scroll position
-                    const scrollY = window.scrollY;
+                    // Store current scroll position globally
+                    this.storedScrollY = window.scrollY;
                     
                     try {
-                        // Prevent any scrolling behavior
+                        // Lock body immediately to prevent page jump
                         document.body.style.overflow = 'hidden';
                         document.body.style.position = 'fixed';
-                        document.body.style.top = `-${scrollY}px`;
+                        document.body.style.top = `-${this.storedScrollY}px`;
                         document.body.style.width = '100%';
                         
                         this.$nuxt.$emit("lightbox:open", { src, alt });
-                        
-                        // Check if lightbox opened and restore scroll position if needed
-                        setTimeout(() => {
-                            // Check if page scrolled despite our prevention
-                            const newScrollY = window.scrollY;
-                            if (newScrollY !== scrollY) {
-                                window.scrollTo(0, scrollY);
-                            }
-                        }, 100);
-                        
                     } catch (error) {
                         console.error('Error opening lightbox from global handler:', error);
                     }
                     
                     return false;
+                }
+            }
+        },
+        handleLightboxOpen() {
+            // Only lock body if it's not already locked (to avoid conflicts)
+            if (document.body.style.position !== 'fixed') {
+                // Store current scroll position globally
+                this.storedScrollY = window.scrollY;
+                
+                try {
+                    // Prevent any scrolling behavior
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.position = 'fixed';
+                    document.body.style.top = `-${this.storedScrollY}px`;
+                    document.body.style.width = '100%';
+                    
+                } catch (error) {
+                    console.error('Error locking body for lightbox:', error);
                 }
             }
         },
@@ -290,6 +301,12 @@ export default {
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
+            
+            // Restore scroll position if we have it stored
+            if (this.storedScrollY !== undefined) {
+                window.scrollTo(0, this.storedScrollY);
+                this.storedScrollY = undefined; // Clear the stored position
+            }
         }
     }
 }

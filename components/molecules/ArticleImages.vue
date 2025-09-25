@@ -25,8 +25,14 @@ export default {
         lightBox(img, index, e) {
             if (e) {
                 e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
             }
+            
+            // Just emit the lightbox event - let the parent Article component handle body locking
             img.length > 1 ? this.$nuxt.$emit("lightbox:open", { gallery: img, index: index }) : this.$nuxt.$emit("lightbox:open", { src: img[0].src, alt: img[0].alt });
+            
+            return false;
         }
     }
 }
