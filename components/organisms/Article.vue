@@ -210,6 +210,16 @@ export default {
                     // Make cursor pointer to indicate clickable
                     img.style.cursor = 'pointer';
                 });
+
+                // Handle external links
+                const links = articleContent.querySelectorAll('a[href^="http://"], a[href^="https://"]');
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.includes('chewyjetpack.github.io')) {
+                        link.setAttribute('target', '_blank');
+                        link.setAttribute('rel', 'noopener noreferrer');
+                    }
+                });
             }
         },
         handleImageLinkClick(event) {
@@ -430,7 +440,9 @@ export default {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
+            border-radius: $unit_xs !important;
         }
+
     }
 }
 </style>

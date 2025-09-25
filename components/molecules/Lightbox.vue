@@ -139,7 +139,7 @@
       transition: all 0.2s ease;
 
       &:hover {
-        background: var(--c-main-alt);
+        background: var(--c-accent-1);
         color: var(--c-bg);
         transform: scale(1.1);
       }

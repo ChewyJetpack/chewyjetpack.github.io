@@ -77,6 +77,11 @@ export default {
                 cursor: pointer;
                 border: solid 3px var(--c-main-alt);
                 border-radius: $unit_xs;
+                transition: border-color 0.2s ease;
+
+                &:hover {
+                    border-color: var(--c-accent-1);
+                }
             }
 
             &--single {     

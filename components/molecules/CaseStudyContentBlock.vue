@@ -43,5 +43,16 @@ export default {
         h2 {
             color: var(--c-main);
         }
+
+        // Apply border-radius to markdown images in case study content
+        &__content {
+            img {
+                border-radius: $unit_xs !important;
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+        }
     }
 </style>

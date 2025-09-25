@@ -5,6 +5,12 @@
 @import './atoms/type.scss';
 @import './utils/themes.scss';
 
+/* Global markdown image styling */
+.cs-block__content img,
+.article__content img {
+  border-radius: $unit_xs !important;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
