@@ -15,6 +15,11 @@
 
     <div class="cv__container cv__container--bg-2">
       <div class="cv__wrapper cv__wrapper-intro">
+        <!-- Mobile avatar - positioned above header -->
+        <div class="cv__avatar cv__avatar--mobile">
+          <nuxt-img preset="avatar" src="/img/selfie.png" alt="Portrait photo of Emil Smith"/>
+        </div>
+        
         <header class="cv__header">
           <div class="cv__header-content">
             <div class="cv__header-text">
@@ -24,7 +29,8 @@
                 <p><font-awesome :icon="['fab', 'linkedin-in']" /><a href="https://linkedin.com/in/emil-smith/" target="_blank" rel="noopener noreferrer">linkedin.com/in/emil-smith/</a></p>
               </div>
             </div>
-            <div class="cv__avatar">
+            <!-- Desktop avatar - positioned within header -->
+            <div class="cv__avatar cv__avatar--desktop">
               <nuxt-img preset="avatar" src="/img/selfie.png" alt="Portrait photo of Emil Smith"/>
             </div>
           </div>
@@ -247,6 +253,7 @@ export default {
   &__sticky-content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 $unit_m;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -274,10 +281,10 @@ export default {
   &__wrapper {
     max-width: 800px;
     margin: 0 auto;
-    padding: $unit_m 0;
+    padding: $unit_m $unit_m;
 
     @include breakpoint_m {
-      padding: $unit_l 0;
+      padding: $unit_l $unit_m;
     }
     
     &:nth-child(2) {
@@ -332,6 +339,26 @@ export default {
       max-width: 100%;
       height: auto;
       border-radius: 50%;
+    }
+
+    // Mobile avatar - positioned above header, left-aligned
+    &--mobile {
+      display: flex;
+      margin-bottom: $unit_m;
+      max-width: 120px;
+      
+      @include breakpoint_m {
+        display: none; // Hide on desktop
+      }
+    }
+
+    // Desktop avatar - positioned within header
+    &--desktop {
+      display: none;
+      
+      @include breakpoint_m {
+        display: flex;
+      }
     }
   }
 
@@ -657,6 +684,14 @@ export default {
       height: 100px !important;
       float: right !important;
       margin-bottom: 1rem !important;
+      
+      &--mobile {
+        display: none !important; // Hide mobile avatar in print
+      }
+      
+      &--desktop {
+        display: block !important; // Show desktop avatar in print
+      }
       
       img {
         width: 100% !important;
