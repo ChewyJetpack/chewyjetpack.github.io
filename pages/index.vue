@@ -134,6 +134,7 @@ export default {
       bottom: -9px;
       max-width: 50%;
       margin: 0 auto;
+      filter: grayscale(1) brightness(1.4);
 
       @include breakpoint_m {
         bottom: -1px;

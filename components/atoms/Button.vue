@@ -84,6 +84,7 @@ export default {
 
 %hover-state {
   color: var(--c-accent-1);
+  border-color: var(--c-accent-2);
 
   svg {
     //color: var(--c-accent-1);
@@ -106,7 +107,7 @@ export default {
   //box-shadow: -3px 3px 6px 0px var(--c-main-alt-2);
   font-size: $txt_s;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.3s, border-color 0.3s;
   text-decoration: none;
 
   @include breakpoint_m {
