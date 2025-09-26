@@ -4,19 +4,13 @@ hero: /img/new-project.jpg
 thumb: /img/new-project-1-.jpg
 category: Design & Development
 year: 2015
-description: Coravin is a US based start up, offering an innovative product
-  which enables people to pour wine from the bottle without removing the cork,
-  using a specialised needle to pierce the cork and replace the lost volume of
-  wine with compressed argon gas.
-meta_description: Coravin is a US based start up, offering an innovative product
-  which enables people to pour wine from the bottle without removing the cork,
-  using a specialised needle to pierce the cork and replace the lost volume of
-  wine with compressed argon gas.
-summary: Coravin needed international brochure websites for markets where they
-  didn't operate e-commerce. As a startup with limited brand guidelines, the
-  brief was to represent their technical wine preservation innovation within a
-  luxury lifestyle context while helping refine their digital brand identity as
-  they expanded internationally.
+description: How do you represent technical wine innovation within luxury lifestyle marketing?
+meta_description: Creating international brochure websites for Coravin's wine preservation technology across multiple markets
+summary: >-
+  Coravin had developed ingenious wine preservation technology—a needle system that lets you pour wine without removing the cork, using argon gas to replace the volume. Cool tech, but they needed international websites that positioned this as luxury lifestyle, not laboratory equipment.
+
+  
+  Working with minimal brand guidelines for a startup still finding its visual identity, I created sophisticated web experiences that balanced technical credibility with premium wine culture.
 summaryImages:
   - src: /img/m5w94h3s.png
     caption: The Coravin product page
@@ -29,25 +23,21 @@ summaryImages:
   - src: /img/irnf6l3q.png
     caption: Product info
 method: >-
-  Working as the sole designer, I was responsible for translating their minimal
-  brand materials into cohesive web experiences that would work across multiple
-  international markets.
+  The challenge was translating minimal brand materials into cohesive web experiences for markets where Coravin didn't operate e-commerce—places where the websites needed to build brand credibility and drive retail partnerships rather than direct sales.
 
+  
+  My approach focused on clean, sophisticated layouts that let product photography tell the technical story whilst lifestyle imagery positioned wine preservation as part of an elevated drinking ritual. The design had to explain complex technology without feeling clinical.
 
-  With limited brand guidelines to work from, I focused on clean, sophisticated layouts that emphasized product photography and the premium wine experience. The design approach balanced explaining the technical innovation with lifestyle imagery that positioned wine preservation as part of an elevated drinking ritual.
+  
+  I created modular page templates that could accommodate different languages and regional requirements whilst maintaining visual consistency. This scalability was crucial for a startup planning rapid international expansion.
+results: >-
+  Successfully launched cohesive brand presence across multiple international markets. The visual design approach I established became reference points for Coravin's continued brand development and provided efficient templates for expansion into additional markets.
 
-
-  I created modular page templates that could accommodate different languages and regional requirements while maintaining visual consistency across markets.
-results: Successfully launched cohesive brand presence across multiple
-  international markets. The visual design approach I developed became reference
-  points for Coravin's continued brand development and provided templates for
-  efficient expansion into additional markets.
+  
+  The design patterns helped define Coravin's digital brand identity during a crucial growth phase when they were still establishing their market position.
 wrap-up: >-
-  This project was a good exercise in luxury brand design with minimal
-  constraints. Working with a startup meant having creative freedom to establish
-  digital brand patterns, while the international scope required thinking about
-  scalability from the start.
+  This project was a valuable exercise in luxury brand design with creative freedom. Working with a startup meant establishing digital brand patterns rather than following rigid guidelines, whilst the international scope required thinking about scalability from day one.
 
-
-  *The design templates continued to be used as Coravin expanded into additional markets.*
+  
+  *The design templates continued to be used as Coravin expanded into additional markets throughout their growth phase.*
 ---

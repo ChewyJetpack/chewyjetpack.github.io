@@ -130,5 +130,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // Basic performance optimizations
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
+    }
   },
 }

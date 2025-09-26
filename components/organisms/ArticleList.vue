@@ -198,7 +198,7 @@ export default {
         left: 0;
         font-size: $txt_s;
         font-weight:700;
-        padding: $unit_s $unit_m $unit_xs $unit_s;
+        padding: $unit_s $unit_m $unit_m $unit_s;
         border-radius: 0 $unit_xxs 0 0;
     }
 

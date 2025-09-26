@@ -357,7 +357,7 @@ export default {
     }
 
     &__header {
-        @extend .e-grid-3-1;
+        display: flex;
         margin-top: -#{$unit_xxl};
     }
 
