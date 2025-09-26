@@ -150,11 +150,28 @@ export default {
             padding: $unit_s;
             margin: 0;
         }
+
+        &:hover {
+
+            img {
+                transform: scale(1.05);
+            }
+
+            h2 a {
+                color: var(--c-accent-1);
+            }
+        }
+
     }
 
     &__img {
         position: relative;
         display: block;
+        overflow:hidden;
+
+        img {
+            transition: transform 0.3s;
+        }
 
         &:after {
             content: "";
