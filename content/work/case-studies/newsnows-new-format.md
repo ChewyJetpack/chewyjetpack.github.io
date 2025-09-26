@@ -10,7 +10,7 @@ summary: >-
   I inherited a 24-year-old news platform that looked like it was built in 1997. Because it was. The challenge both to make it look contemporary, as well as to ensure it was doing so without breaking workflows that millions of users relied on daily.
 
   
-  My role: sole designer initially, front-end developer building the Vue.js implementation, user researcher (detailed in [separate case study](/work/case-studies/newsnow-user-research-initiative)), and product strategist working directly with CEO/COO.
+  My role: sole designer initially, front-end developer building the Vue.js implementation, [user researcher](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative), and product strategist working directly with CEO/COO.
 summaryImages:
   - src: /img/1-z_7uafpbcxd-6i5g7tl49q.webp
     caption: The original NewsNow website from 1995
@@ -37,7 +37,7 @@ goalsImages:
 method: >-
   ### Initial Reskin and Research
   
-  I started with a straight-to-code reskin of the existing design using the in-house containerised development platform. This gave us a foundation whilst I conducted the company's first user research in 25 years ([detailed separately]((/work/case-studies/newsnow-user-research-initiative))).
+  I started with a straight-to-code reskin of the existing design using the in-house containerised development platform. This gave us a foundation whilst I conducted the company's first user research in 25 years which I have detailed in [another post](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative).
   
   The research revealed key insights about our three distinct user communities and their different motivations, which fundamentally informed the full redesign approach.
 
