@@ -93,20 +93,20 @@ export default {
 
   &__title {
     display: block;
-    max-width:180px;
-    padding: $unit_s 0 0 $unit_xs;
+    max-width:200px;
+    padding: $unit_xs 0 0 $unit_xs;
     position: relative;
     z-index:2;
     order: 1;
 
     @include breakpoint_m {
-      max-width:120px;
+      max-width:160px;
       padding-left: $unit_m;
     }
     @include breakpoint_l {
       max-width:220px;
       order: 1;
-      padding: $unit_xs $unit_xs $unit_s 0;
+      padding: $unit_m $unit_xs $unit_m 0;
     }
 
     > svg {
