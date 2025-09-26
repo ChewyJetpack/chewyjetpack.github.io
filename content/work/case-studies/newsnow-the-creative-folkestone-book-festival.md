@@ -19,7 +19,7 @@ goalsImages:
     caption: Print advertisement design for NewsNow as Principle Partner of the 2019
       Creative Folkestone Book Festival
 method: >-
-  ## The Technical Challenge
+  ### The Technical Challenge
 
   
   I designed and built a bespoke Vue.js web app displaying live headlines and imagery across multiple topics, pulling directly from NewsNow's API. The challenge: making this work reliably in a public venue with questionable internet.
@@ -28,7 +28,7 @@ method: >-
   Solution: Raspberry Pi units with offline fallbacks and robust error handling. I handled everything from display specifications to physical installation.
 
   
-  ## The Creative Challenge
+  ### The Creative Challenge
 
   
   For the promotional film, I presented a concept that leaned into the divisive political climate of 2019. My approach: illustrate extreme polarisation, then present NewsNow as an antidote to binary thinking.
@@ -37,23 +37,27 @@ method: >-
   The resulting slogan: "There's more than one way to see things."
 
   
-  ## The Production Challenge
+  ### The Production Challenge
 
   
   With an extremely tight timeline, I took on the entire production myself:
+
   - Writing and storyboarding  
+
   - Sourcing stock footage that didn't look obviously like stock footage
+
   - Creating the musical score (15+ years of music production finally paid off)
+
   - Editing and colour correction
 
   
   All whilst managing the Vue.js development and technical setup.
 
   
-  ## The Design Challenge
+  ### The Design Challenge
 
   
-  For the print advertisement, I created a 3D isometric shape that appeared as different 2D shapes when viewed from each axis—a literal visualisation of "there's more than one way to see things."
+  For the print advertisement, I created a 3D isometric shape that appeared as different 2D shapes when viewed from each axis - a literal visualisation of "there's more than one way to see things."
 methodImages: []
 youtube: <iframe width="560" height="315"
   src="https://www.youtube.com/embed/aaZ6qrmYpMg" title="YouTube video player"
@@ -61,17 +65,14 @@ youtube: <iframe width="560" height="315"
   encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen></iframe>
 results: >-
-  The film was well-received by organisers and attendees—classes of school children applauded in the auditorium. It became a reference point for subsequent discussions about NewsNow's brand identity.
-
+  The film was well-received by organisers and attendees. In the viewing I went to, a class of school children applauded in the auditorium! It became a reference point for subsequent discussions about NewsNow's brand identity.
   
   We'd created reusable assets and processes for future events. The technical infrastructure worked flawlessly, and the creative approach established templates for brand communications.
-
   
   The project demonstrated that NewsNow could engage meaningfully with cultural events whilst staying true to our mission of promoting informed discourse.
 resultsImages: []
 wrap-up: >-
   Two weeks to write, produce, score, and deliver a complete brand campaign whilst building the technical infrastructure to support it.
 
-  
   Sometimes constraints force the best creative solutions.
 ---

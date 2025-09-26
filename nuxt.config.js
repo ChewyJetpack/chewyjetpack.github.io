@@ -59,33 +59,51 @@ export default {
   ],
 
   image: {
+    // Performance optimizations for image processing
+    quality: 80,
+    format: 'webp',
+    // Disable image optimization in development for speed
+    provider: process.env.NODE_ENV === 'development' ? 'static' : 'ipx',
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '4k': 1920
+    },
     presets: {
       thumb: {
         modifiers: {
-          format: 'jpg',
+          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
           width: 640,
-          height: 400
+          height: 400,
+          quality: process.env.NODE_ENV === 'development' ? 60 : 80
         }
       },
       thumbSq: {
         modifiers: {
-          format: 'jpg',
+          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
           width: 500,
-          height: 500
+          height: 500,
+          quality: process.env.NODE_ENV === 'development' ? 60 : 80
         }
       },
       avatar: {
         modifiers: {
-          format: 'png',
+          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
           width: 360,
-          height: 360
+          height: 360,
+          quality: process.env.NODE_ENV === 'development' ? 60 : 80
         }
       },
       hero: {
         modifiers: {
-          format: 'jpg',
+          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
           width: 1920,
-          height: 800
+          height: 800,
+          quality: process.env.NODE_ENV === 'development' ? 60 : 85
         }
       }
     }
@@ -130,12 +148,33 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    // Basic performance optimizations
-    extractCSS: true,
+    // CSS handling for development
+    extractCSS: false, // Disable CSS extraction in development
     optimization: {
       splitChunks: {
         chunks: 'all'
       }
-    }
+    },
+    // Faster builds
+    cache: true,
+    // Reduce memory usage
+    parallel: true,
+    // Optimize for development
+    analyze: false,
+    // Disable source maps in development for speed
+    devtool: false
+  },
+  
+  // Development server optimizations
+  dev: process.env.NODE_ENV === 'development',
+  
+  // Performance optimizations
+  performance: {
+    hints: false
+  },
+  
+  // Router optimizations
+  router: {
+    prefetchLinks: false
   },
 }
