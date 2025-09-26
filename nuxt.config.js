@@ -62,8 +62,12 @@ export default {
     // Performance optimizations for image processing
     quality: 80,
     format: 'webp',
-    // Disable image optimization in development for speed
-    provider: process.env.NODE_ENV === 'development' ? 'static' : 'ipx',
+    // Ensure images work in production
+    domains: [],
+    // Add fallback for broken images
+    fallback: {
+      quality: 80
+    },
     screens: {
       xs: 320,
       sm: 640,
@@ -76,34 +80,34 @@ export default {
     presets: {
       thumb: {
         modifiers: {
-          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
+          format: 'webp',
           width: 640,
           height: 400,
-          quality: process.env.NODE_ENV === 'development' ? 60 : 80
+          quality: 80
         }
       },
       thumbSq: {
         modifiers: {
-          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
+          format: 'webp',
           width: 500,
           height: 500,
-          quality: process.env.NODE_ENV === 'development' ? 60 : 80
+          quality: 80
         }
       },
       avatar: {
         modifiers: {
-          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
+          format: 'webp',
           width: 360,
           height: 360,
-          quality: process.env.NODE_ENV === 'development' ? 60 : 80
+          quality: 80
         }
       },
       hero: {
         modifiers: {
-          format: process.env.NODE_ENV === 'development' ? 'jpg' : 'webp',
+          format: 'webp',
           width: 1920,
           height: 800,
-          quality: process.env.NODE_ENV === 'development' ? 60 : 85
+          quality: 85
         }
       }
     }
@@ -176,5 +180,10 @@ export default {
   // Router optimizations
   router: {
     prefetchLinks: false
+  },
+  
+  // Static file serving
+  static: {
+    prefix: false
   },
 }
