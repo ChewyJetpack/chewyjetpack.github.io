@@ -104,9 +104,9 @@ export default {
       padding-left: $unit_m;
     }
     @include breakpoint_l {
-      max-width:220px;
+      max-width:180px;
       order: 1;
-      padding: $unit_m $unit_xs $unit_m 0;
+      padding: $unit_s $unit_xs $unit_s 0;
     }
 
     > svg {

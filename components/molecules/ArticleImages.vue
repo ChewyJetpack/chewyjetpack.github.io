@@ -43,7 +43,7 @@ export default {
 
         .img-wrap {
             position: relative;
-            overflow: hidden;
+            //overflow: hidden;
             width: 100%;
             border-radius: $unit_xxs;
             
@@ -95,6 +95,7 @@ export default {
                 .image {
                     position: static;
                     transform: translate(-0%, -0%);
+                    box-shadow: 0 0 $unit_s 0 rgba(0, 0, 0, 0.1);
                 }
             }
         }

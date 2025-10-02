@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .cs-block {
         @extend .u-bm-xl;
         
@@ -59,11 +59,29 @@ export default {
         // Apply border-radius to markdown images in case study content
         &__content {
             img {
-                border-radius: $unit_xs !important;
+                border-radius: $unit_xs;
                 user-select: none;
                 -webkit-user-select: none;
                 -moz-user-select: none;
                 -ms-user-select: none;
+                box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            h3 {
+                color: var(--c-main);
+                position: relative;
+                display: inline-block;
+                font-weight: 500;
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--c-accent-2);
+                }
             }
         }
     }
