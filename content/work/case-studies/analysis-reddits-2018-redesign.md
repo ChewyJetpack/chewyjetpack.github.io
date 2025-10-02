@@ -10,9 +10,11 @@ description: A detailed look at Reddit's 2018 redesign process, outcomes, and
   looking at the outcomes, there are a number of lessons to be learned from both
   their successes and their failures.
 meta_description: A detailed look at Reddit's 2018 redesign process, outcomes,
-  and pitfalls. By understanding the workings of Reddit’s redesign process, and
+  and pitfalls. By understanding the workings of Reddit's redesign process, and
   looking at the outcomes, there are a number of lessons to be learned from both
   their successes and their failures.
+impact: >-
+  Provided critical insights that directly informed NewsNow's redesign strategy, helping avoid Reddit's mistakes and implement a user-centric approach that preserved functionality while modernizing the platform.
 contentBlocks:
   - content: >-
       > This analysis was originally undertaken as part of my role as Creative

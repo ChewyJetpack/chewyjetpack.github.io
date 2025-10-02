@@ -25,7 +25,7 @@
           href="https://www.linkedin.com/in/emil-smith/"
           label="Connect on LinkedIn"
           :external="true"
-          icon="linkedin"
+          icon="linkedin-in"
           transition-direction="down"
           aria-label="Connect with Emil Smith on LinkedIn (opens in new tab)"
         />

@@ -234,7 +234,6 @@
       font-size: $txt_s;
       text-align: center;
       color: var(--c-main);
-      align-self: flex-end; // Stick to bottom of flex container
       
       @include breakpoint_m {
         margin: 0; // No top margin

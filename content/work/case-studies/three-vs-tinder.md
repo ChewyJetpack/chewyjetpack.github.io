@@ -3,6 +3,8 @@ category: SPA Design & Development
 year: 2017
 description: King Henry VIII meets Tinder - how to make brand collaboration work through clever interaction design
 meta_description: Interactive campaign where Henry VIII used Tinder to find his wives, driving Samsung Galaxy S9 competition entries
+impact: >-
+  Successfully delivered an engaging brand collaboration that drove competition entries whilst maintaining authentic representation of both Three and Tinder brands through innovative interaction design.
 summary: >-
   Three and Tinder had developed a collaborative campaign concept: King Henry VIII using Tinder to find his wives. The brief was to create an interactive experience that would drive Samsung Galaxy S9 competition entries whilst representing both brands effectively.
 

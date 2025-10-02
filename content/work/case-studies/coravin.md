@@ -6,6 +6,8 @@ category: Design & Development
 year: 2015
 description: How do you represent technical wine innovation within luxury lifestyle marketing?
 meta_description: Creating international brochure websites for Coravin's wine preservation technology across multiple markets
+impact: >-
+  Established Coravin's digital brand identity during a crucial growth phase, creating scalable design patterns that supported rapid international expansion and became reference points for continued brand development.
 summary: >-
   Coravin had developed ingenious wine preservation technology in the form of a needle system that lets you pour wine without removing the cork, using argon gas to replace the volume. 
   

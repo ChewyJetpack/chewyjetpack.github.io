@@ -56,6 +56,10 @@
                     :images="content.summaryImages" 
                 />
                 <CaseStudyContentBlock 
+                    :content="content.impact" 
+                    heading="Impact"
+                />
+                <CaseStudyContentBlock 
                     :content="content.background" 
                     heading="Background"
                     :images="content.backgroundImages" 
@@ -444,5 +448,6 @@ export default {
         }
 
     }
+
 }
 </style>

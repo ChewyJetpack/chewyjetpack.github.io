@@ -42,6 +42,18 @@ export default {
         
         h2 {
             color: var(--c-main);
+            position: relative;
+            display: inline-block;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--c-accent-2);
+            }
         }
 
         // Apply border-radius to markdown images in case study content
