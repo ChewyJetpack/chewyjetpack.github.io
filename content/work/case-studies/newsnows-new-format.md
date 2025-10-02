@@ -14,8 +14,6 @@ summary: >-
   
   **My role:** Sole designer initially (later hired and managed a UI designer), front-end developer building the Vue.js implementation, [user researcher](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative), and product strategist working directly with CEO/COO.
 
-
-  **The impact:** I transformed NewsNow from engineering-led decisions to user-informed design, from assumptions to evidence, from reactive changes to strategic planning.
 summaryImages:
   - src: /img/www-screenshots.staging.newsnow.co-1.png
     caption: NewsNow's website when I inherited it - functional but dated
@@ -31,10 +29,15 @@ goals: >-
 
 
   - Give the product an aesthetic lift, bringing it in line with contemporary standards
+
   - Adhere to WCAG AA accessibility standards where possible
+
   - Be modular, flexible, and scalable to accommodate complex future features
+
   - Retain high browser compatibility for diverse users in developing countries
+
   - Work on feature phones using Opera Mini with extreme data saving enabled
+
   - Most critically: improve the experience without alienating millions of loyal, long-standing users
 goalsImages: []
 method: >-
@@ -46,11 +49,13 @@ methodImages:
     caption: My initial straight-to-code reskin - modernising whilst preserving familiarity
 
 method2: >-
-  The research was more revealing than expected. Over 6000+ survey responses across the UK, US, and Nigeria, plus moderated interviews, uncovered something crucial: **NewsNow wasn't one global platform—it was three distinct regional products.**
+  The research was more revealing than expected. Over 6000+ survey responses across the UK, US, and Nigeria, plus moderated interviews, uncovered something crucial: **NewsNow wasn't one global platform - it was three distinct regional products.**
 
 
   - **UK users:** Predominantly older, obsessed with football, wanted dense headline lists for granular coverage
+
   - **US users:** Mixed demographics, broader interests across politics, business, and entertainment  
+
   - **Nigerian users:** Younger, mobile-only on feature phones via Opera Mini, following Premier League football and Nigerian politics
 
 
@@ -62,10 +67,10 @@ method2: >-
   NewsNow shared many parallels with Reddit: long feeds of headlines across endless topics, algorithmically sorted, with a dedicated userbase attached to specific workflows. Reddit had recently undergone a major redesign that generated massive backlash, so I conducted a thorough analysis of their process, outcomes, and user reactions.
 
   
-  > **The key lesson: users weren't resistant to change—they were terrified of losing functionality.**
+  > **The key lesson: users weren't resistant to change - they were terrified of losing functionality.**
 
   
-  Reddit had forced a single new design on everyone. I took a different approach: instead of choosing between modern and classic designs, I built both—plus a third option.
+  Reddit had forced a single new design on everyone. I took a different approach: instead of choosing between modern and classic designs, I built both - plus a third option.
 
 
   **Three layout modes:**
@@ -77,7 +82,7 @@ method2: >-
   - **Compact View:** Ultra-high density for users who wanted to scan maximum headlines quickly
 
   
-  This was NewsNow's first time hosting images after decades of text-only headlines. The research showed most users would embrace this—as long as we preserved access to their preferred workflows.
+  This was NewsNow's first time hosting images after decades of text-only headlines. The research showed most users would embrace this - as long as we preserved access to their preferred workflows.
 method2Images:
   - src: /img/screenshot-2023-06-23-at-22-02-28-world-news-latest-world-news-newsnow.png
     caption: Latest news view on desktop - maintaining information density for power users
@@ -97,7 +102,7 @@ method3: >-
   ### Technical Implementation: Vue.js on Legacy Infrastructure
 
   
-  I rebuilt the entire front-end in server-side rendered Vue.js with VueX state management whilst maintaining the existing Perl backend. This wasn't a simple framework conversion—the technical constraints were significant:
+  I rebuilt the entire front-end in server-side rendered Vue.js with VueX state management whilst maintaining the existing Perl backend. This wasn't a simple framework conversion - the technical constraints were significant:
 
 
   - Maintain SEO performance for millions of indexed pages
@@ -148,7 +153,7 @@ results: >-
   Most importantly, I transformed NewsNow from engineering-led decisions to user-informed design, from assumptions to evidence, from reactive changes to strategic planning. Design became a strategic function rather than an afterthought.
 
   
-  **Looking back:** I'd have conducted user research even earlier to challenge more legacy assumptions from the start. But given the constraints—redesigning a 24-year-old platform serving millions whilst maintaining backwards compatibility with feature phones—this was the largest, most complex, and highest quality piece of work I'd delivered at that point in my career.
+  **Looking back:** I'd have conducted user research even earlier to challenge more legacy assumptions from the start. But given the constraints - redesigning a 24-year-old platform serving millions whilst maintaining backwards compatibility with feature phones - this was the largest, most complex, and highest quality piece of work I'd delivered at that point in my career.
 resultsImages:
   - src: /img/screenshot-2023-06-23-at-22-01-38-newsnow-the-independent-news-discovery-platform.png
     caption: The final result - modern, accessible, and user-informed

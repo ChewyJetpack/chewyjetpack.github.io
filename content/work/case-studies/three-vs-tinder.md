@@ -8,6 +8,7 @@ impact: >-
 summary: >-
   Three and Tinder had developed a collaborative campaign concept: King Henry VIII using Tinder to find his wives. The brief was to create an interactive experience that would drive Samsung Galaxy S9 competition entries whilst representing both brands effectively.
 
+
   My challenge was translating this concept into an engaging digital experience that felt natural for both brand audiences.
 summaryImages:
   - src: /img/three1_97da9f069a.jpg
@@ -23,11 +24,14 @@ summaryImages:
 method: >-
   I developed "The Swipe is Right" - a mini-game where users operated a Henry VIII-themed version of Tinder, swiping through his six wives and guessing their fates by swiping left or right.
   
+
   The interaction design was crucial: swipe right for "survived," left for "divorced," down for "beheaded." Users had to correctly predict the outcome for all six wives to access the competition entry.
   
+
   The visual design bridged Three's bold brand identity with Tinder's familiar interface patterns, unified through Tudor-era imagery and custom illustrations. I built the experience in Vue.js with smooth gesture animations, working alongside a Laravel developer handling the backend and competition mechanics.
   
-  To maximise conversion rates, the game allowed unlimited retries—frustration wouldn't help anyone's marketing metrics.
+
+  To maximise conversion rates, the game allowed unlimited retries - frustration wouldn't help anyone's marketing metrics.
 date: "2022"
 title: 'Three & Tinder: "The Swipe is Right"'
 hero: /img/hero-sr.jpg
@@ -35,13 +39,17 @@ thumb: /img/thumb-sr.jpg
 results: >-
   The campaign achieved strong engagement across millions of users:
   
-  **76% of page visitors** engaged with the interactive game  
 
-  **54% overall conversion rate** to competition entry  
+  - **76% of page visitors** engaged with the interactive game  
 
-  **High social sharing** due to the memorable concept
+
+  - **54% overall conversion rate** to competition entry  
+
+
+  - **High social sharing** due to the memorable concept
   
-  The success came from aligning the user experience directly with both brands' core values—Tinder's swipe mechanic and Three's "phones make life better" message.
+
+  The success came from aligning the user experience directly with both brands' core values - Tinder's swipe mechanic and Three's "phones make life better" message.
 wrap-up: >-
   This was an effective example of brand collaboration where the interaction design made the partnership feel natural rather than forced. When user experience flows logically from the concept, business metrics follow.
   

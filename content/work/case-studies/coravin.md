@@ -11,6 +11,7 @@ impact: >-
 summary: >-
   Coravin had developed ingenious wine preservation technology in the form of a needle system that lets you pour wine without removing the cork, using argon gas to replace the volume. 
   
+
   Working with minimal brand guidelines for a startup still finding its visual identity, I created sophisticated web experiences that balanced technical credibility with premium wine culture.
 summaryImages:
   - src: /img/m5w94h3s.png
@@ -24,13 +25,16 @@ summaryImages:
   - src: /img/irnf6l3q.png
     caption: Product info
 method: >-
-  The challenge was translating minimal brand materials into cohesive web experiences for markets where Coravin didn't operate e-commerce—places where the websites needed to build brand credibility and drive retail partnerships rather than direct sales.
+  The challenge was translating minimal brand materials into cohesive web experiences for markets where Coravin didn't operate e-commerce - places where the websites needed to build brand credibility and drive retail partnerships rather than direct sales.
   
+
   My approach focused on clean, sophisticated layouts that let product photography tell the technical story whilst lifestyle imagery positioned the product in a cultural context. The design had to explain complex technology without feeling clinical.
   
+
   I created modular page templates that could accommodate different languages and regional requirements whilst maintaining visual consistency. This scalability was crucial for a startup planning rapid international expansion.
 results: >-
   Successfully launched cohesive brand presence across multiple international markets. The visual design approach I established became reference points for Coravin's continued brand development and provided efficient templates for expansion into additional markets.
+  
   
   The design patterns helped define Coravin's digital brand identity during a crucial growth phase when they were still establishing their market position.
 wrap-up: >-

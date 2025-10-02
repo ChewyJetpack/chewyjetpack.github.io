@@ -75,6 +75,18 @@
                     :images="content.methodImages" 
                 />
                 <CaseStudyContentBlock 
+                    :content="content.method2" 
+                    :images="content.method2Images" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.method3" 
+                    :images="content.method3Images" 
+                />
+                <CaseStudyContentBlock 
+                    :content="content.method4" 
+                    :images="content.method4Images" 
+                />
+                <CaseStudyContentBlock 
                     :youtube="content.youtube" 
                 />
                 <CaseStudyContentBlock 

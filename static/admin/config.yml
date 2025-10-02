@@ -157,6 +157,60 @@ collections:
         ]
       }
       - { name: 'youtube', label: 'YouTube Embed Code', widget: 'text', required: false }
+      - { label: 'Method 2', name: 'method2', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'method2Images', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Method 3', name: 'method3', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'method3Images', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
+      - { label: 'Method 4', name: 'method4', widget: 'markdown', required: false }
+      - {
+        label: 'Images', 
+        label_singular: 'Image', 
+        name: 'method4Images', 
+        allow_multiple: true, 
+        required: false,
+        widget: 'list', 
+        fields: [
+          { 
+            label: 'Image', 
+            name: 'src', 
+            required: true,
+            widget: 'image'
+          },
+          { label: 'Caption', name: 'caption', type: 'String', required: true}
+        ]
+      }
       - { label: 'Results', name: 'results', widget: 'markdown', required: false }
       - {
         label: 'Images', 

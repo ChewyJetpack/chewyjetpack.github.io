@@ -29,7 +29,7 @@ contentBlocks:
       Various articles, whitepapers, and studies have attempted to state the importance of "T-shaped" skill sets for decades, representing both breadth and depth. Even back in 2008, [David Ing observed](https://coevolving.com/blogs/index.php/archive/t-shaped-professionals-t-shaped-skills-hybrid-managers/):
 
 
-      >In most organizations, T-shaped skills are not created as a deliberate policy but emerge because individuals have been willing to risk a somewhat marginal career. Most formal organizational incentives encourage I-shaped skills — the deep functional experience represented by the T’s stem.
+      >In most organizations, T-shaped skills are not created as a deliberate policy but emerge because individuals have been willing to risk a somewhat marginal career. Most formal organizational incentives encourage I-shaped skills  -  the deep functional experience represented by the T’s stem.
 
 
       And while I agree with this observation, and can anecdotally support it with my own experiences, the "T-shaped" skill paradigm still implies a single area of specialty, with a breadth of superficial skills. These rigid measures of skill depth are self-fulfilling, in that the development of skills is often fundamentally limited by organisational structures that offer little opportunity for broader learning and development. People are actively incentivised to stay put and hone in on just one thing.
