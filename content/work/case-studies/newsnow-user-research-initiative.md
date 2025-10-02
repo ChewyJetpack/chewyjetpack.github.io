@@ -7,23 +7,17 @@ year: 2020
 description: Uncovering who actually used a 25-year-old platform - and what they really wanted
 meta_description: How I conducted NewsNow's first user research in 25 years, surveying 6000+ users across three continents
 impact: >-
-  Fundamentally changed how NewsNow made product decisions, shifting from 25 years of assumptions to evidence-based design. Established ongoing research as core capability, directly informing the redesign strategy and all subsequent product development.
+  Through the course of this project, I helped NewsNow to make product decisions based on real data from their global user base and to use this data to inform qualitative design decisions. I also established ongoing research as core capability, directly informing the redesign strategy and all subsequent product development.
 summary: >-
-  > **After 25 years, NewsNow was flying blind.**
-
-
-  They had millions of users but were making fundamental assumptions about who these people actually were. That's a problem when you're planning major product changes.
+  After 25 years, NewsNow had millions of users, but they knew they had been leaning on assumptions about who these people actually were. Since we were planning a major product overhaul, it was about time we really got to know the people who use our product.
 
   
   **My role:** I built the company's first user research programme from scratch - designing and deploying a site-wide survey, analysing 6000+ responses, conducting moderated interviews across three continents, and establishing research operations as an ongoing capability.
 
 
-  **The scale:** Survey responses across the UK, US, and Nigeria. Interviews with users ranging from corporate executives to teenagers on 3G connections. First systematic user understanding in the company's history.
+  **The scale:** Survey responses across the UK, US, and Nigeria. Interviews with users ranging from corporate executives to teenagers on 3G connections.
 background: >-
-  Twenty-five years of product decisions had been based on A/B test results, voluntary feedback, and educated guesses from the engineering team. This had served as a valuable starting point, but was far from concrete.
-
-
-  We were planning the largest redesign in the company's history, so it was time to really understand the people we served. There was strong appetite within the team - including senior management, editorial, and development - to better understand our users. I put together a plan and advocated for human-centred design principles as part of a more efficient and effective product lifecycle.
+  Twenty-five years of product decisions had been based on A/B test results, voluntary feedback, and educated guesses from the engineering team. This was a valuable starting point. However, we were planning the largest redesign in the company's history, so it was time to really understand the people we served. There was strong appetite within the team - including senior management, editorial, and development - to better understand our users. I put together a plan and advocated for human-centred design principles as part of a more efficient and effective product lifecycle.
 goals: >-
   I had three clear objectives:
 
@@ -49,7 +43,7 @@ method: >-
   I was also able to gather additional metadata for each submission - which pages users submitted from, device information, and responses from users who didn't complete the full survey (useful for checking selection/response bias).
 
   
-  **The response was overwhelming:** over 6000 completed surveys within weeks.
+  Within a few weeks, we accumulated over 6000 surveys.
 
   
   I also used Hotjar to generate heatmaps across different topic categories to understand how users on different topics might behave differently from one another, and gathered quantitative data from Google Analytics to understand device/browser/OS distribution, usage habits, and behaviour.
@@ -70,22 +64,22 @@ method: >-
   To validate this, I referenced publicly available data regarding online news readership from Ofcom, Pew Research, Statista, and SimilarWeb. By checking our data against these broader demographic insights, I confirmed the boundaries of our users' segmentation and identified prominent demographics in the wider population (both UK and US) that were underrepresented in the NewsNow userbase.
 
 
-  **UK users:** Older demographic, predominantly mobile but higher desktop usage than other segments. Absolutely obsessed with football. They used NewsNow to scan dense lists of headlines covering everything from FA Cup finals to granular local team updates. Politics and business were supplementary to football.
-
-  **US users:** Mixed age groups, mobile-heavy, broader interests. General news consumers interested in politics, business, entertainment, and American sports coverage. They wanted balanced news consumption across multiple topics.
-
-  **Nigerian users:** Younger, mobile-only on feature phones via Opera Mini with extreme data saving enabled. Obsessed with British football (they found better Premier League coverage through our aggregation than local sites), plus Nigerian politics and entertainment news. They needed lightweight experiences that worked on limited data plans.
-  
-  > **The breakthrough wasn't the geography - it was understanding the motivations and use cases.**
+  **UK users:** Our UK users skewed towards an older demographic, and whilst they were predominantly mobile users, they had higher desktop usage than other segments. They were obsessed with football, using NewsNow to scan dense lists of headlines covering everything from FA Cup finals to granular local team updates. Politics and business were important to them, but supplementary to football.
 
 
-  UK users wanted to obsessively analyse every football development through compact, dense layouts. Nigerian users needed lightweight experiences for following Premier League drama on Opera Mini. US users wanted balanced consumption across multiple topics.
+  **US users:** Our US users were of all different ages. They tended towards mobile usage and had broader interests. These were general news consumers interested in politics, business, entertainment, and American sports coverage. They wanted balanced news consumption across multiple topics.
+
+
+  **Nigerian users:** Our Nigerian users were younger and exclusively mobile, accessing the site on feature phones via Opera Mini with extreme data saving enabled. They were obsessed with British football - they found better Premier League coverage through our aggregation than local sites - and also followed Nigerian politics and entertainment news closely. They needed lightweight experiences that worked on limited data plans for following both their own national news and football.
+
+
+  UK users wanted to obsessively analyse every football development through compact, dense layouts. Nigerian users needed lightweight experiences for Opera Mini, so they could get their national news, as well as football. US users wanted balanced consumption across multiple topics.
 
 
   Based on my analysis of survey results, analytics data, and third-party data, I crafted personas representative of our core users. In addition, based on demographics I'd found to be under-represented, I created additional personas for our target demographics - with the goal of better serving these groups and subsequently growing and diversifying the NewsNow userbase.
 
 
-  I created a full write-up of my findings, including methodology, data and charts, sources, and a summary of results, which I presented to the wider team.
+  I created a full write-up of the findings, including methodology, data and charts, sources, and a summary of results, which I presented to the wider team.
 
   
   ### The Interviews
@@ -126,13 +120,13 @@ results: >-
   * Power users had sophisticated workflows we'd never documented - and many of these "edge cases" actually represented entire segments of communities
 
   
-  > **The insights directly informed our redesign strategy.** Instead of choosing between modern and classic designs, we built both - plus a third ultra-compact option. We established ongoing research as core capability, moving from assumptions to evidence-based design.
+  The insights directly informed our redesign strategy. We established ongoing research as core capability, moving from assumptions to evidence-based design.
 
 
   For the first time, we were able to understand and empathise with the NewsNow userbase in a direct and immediate way. We learnt which parts of our new product were working well (in some cases even better than expected), and which parts needed improvement. We gained better understanding of how our product fit into the wider industry, how users interpreted the brand against competitors, and how we might better serve a more diverse range of people in the future.
 
 
-  Some of our initial expectations were challenged: certain areas we'd intended to make personalisable or algorithmically modulated based on user segment actually showed user consensus. By optimising the core areas in line with user needs, we negated the need for additional complexity. We were able to re-prioritise our product roadmap and add specificity to design tasks based on these insights.
+  Some of our initial expectations were challenged. For example, we had originally intended to modulate the density layout mode to tailor it to the topic, but it actually turned out that it was really the user segments that had consensus in terms of what they would prefer, even when segments of users had overlapping topics.
 
 
   **Looking back:** The overall results were enlightening, challenging, and extremely positive. I successfully introduced complementary, strength-based research and testing processes that laid the foundation for human-centred design principles. This initiative gave our users a seat at the table for the first time in 25 years, and established a more effective product lifecycle going forward.
