@@ -7,9 +7,9 @@ year: 2020
 description: Redesigning a 24-year-old news platform serving millions whilst keeping loyal users happy
 meta_description: Redesigning a 24-year-old news platform serving millions whilst keeping loyal users happy
 impact: >-
-  Transformed a 24-year-old platform from "dystopian Craigslist" into a modern, accessible news aggregator whilst improving user satisfaction. Established design as a strategic function, shifting NewsNow from engineering-led assumptions to evidence-based, user-informed decisions.
+  Transformed a 24-year-old platform into a modern, accessible news aggregator whilst improving user satisfaction. Established design as a strategic function, shifting NewsNow from engineering-led assumptions to evidence-based, user-informed decisions.
 summary: >-
-  I inherited a 24-year-old news platform that looked like it was built in 1997. Because it was. The challenge: make it contemporary without breaking workflows that millions of users relied on daily.
+  I inherited a 24-year-old news platform that had been running since 1997. The challenge: make it contemporary without breaking workflows that millions of users relied on daily.
 
   
   **My role:** Sole designer initially (later hired and managed a UI designer), front-end developer building the Vue.js implementation, [user researcher](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative), and product strategist working directly with CEO/COO.
@@ -49,7 +49,7 @@ methodImages:
     caption: My initial straight-to-code reskin - modernising whilst preserving familiarity
 
 method2: >-
-  The research was more revealing than expected. Over 6000+ survey responses across the UK, US, and Nigeria, plus moderated interviews, uncovered something crucial: **NewsNow wasn't one global platform - it was three distinct regional products.**
+  The research was more revealing than expected. Over 6000+ survey responses across the UK, US, and Nigeria, plus moderated interviews, uncovered three distinct regional use cases:
 
 
   - **UK users:** Predominantly older, obsessed with football, wanted dense headline lists for granular coverage
@@ -58,19 +58,16 @@ method2: >-
 
   - **Nigerian users:** Younger, mobile-only on feature phones via Opera Mini, following Premier League football and Nigerian politics
 
-
-  This fundamentally informed every design decision that followed.
-
   
   ### Competitor Analysis: Learning from Reddit's Mistakes
   
-  NewsNow shared many parallels with Reddit: long feeds of headlines across endless topics, algorithmically sorted, with a dedicated userbase attached to specific workflows. Reddit had recently undergone a major redesign that generated massive backlash, so I conducted a thorough analysis of their process, outcomes, and user reactions.
+  NewsNow shared parallels with Reddit: long feeds of headlines across endless topics, algorithmically sorted, with a dedicated userbase attached to specific workflows. Reddit had recently undergone a major redesign that generated massive backlash, so I conducted a thorough analysis of their process, outcomes, and user reactions.
 
   
-  > **The key lesson: users weren't resistant to change - they were terrified of losing functionality.**
+  > **The key lesson was that users weren't resistant to change - they were terrified of losing functionality.**
 
   
-  Reddit had forced a single new design on everyone. I took a different approach: instead of choosing between modern and classic designs, I built both - plus a third option.
+  Reddit had attempted to solve this problem by offering a 'compact' mode, but even old reddit was far less dense than our headlines. I decided that instead of choosing between modern and classic designs, we should just have both - plus a third option.
 
 
   **Three layout modes:**
@@ -96,13 +93,13 @@ method3: >-
   I employed atomic design principles to create a modular, component-based system in Figma with standardised tokens for measurements, colours, and typography. Components used BEM-style naming conventions for all UI elements, templates, and pages. The design was carefully tested against WCAG accessibility guidelines to ensure sufficient colour contrast ratios, font sizes, and interactive element distinction.
 
 
-  Working closely with the senior front-end developer on the system structure was crucial since I'd also be building much of the implementation. We collaborated as equals on discussions around stacks, tooling, and coding practices, using those decisions to inform the functionality we could include in the design.
+  Working closely with the senior front-end developer on the front-end infrastructure, we collaborated on stacks, tooling, and coding practices that spanned design and development, so we had parity in the way that our respective components were structured, named, and implemented.
 
   
   ### Technical Implementation: Vue.js on Legacy Infrastructure
 
   
-  I rebuilt the entire front-end in server-side rendered Vue.js with VueX state management whilst maintaining the existing Perl backend. This wasn't a simple framework conversion - the technical constraints were significant:
+  We rebuilt the entire front-end in server-side rendered Vue.js with VueX state management whilst maintaining the existing Perl backend. The technical constraints were significant:
 
 
   - Maintain SEO performance for millions of indexed pages
@@ -114,7 +111,8 @@ method3: >-
   - Support browsers and devices from a decade ago
 
   
-  **My solution:** Progressive enhancement with CSS feature queries to serve appropriate experiences without breaking anything. I also devised a new device-detection system using media queries and support queries in CSS, replacing the complex JavaScript-heavy matrix that previously required individual support for each device type. This dramatically simplified maintenance.
+  **The solution:** Progressive enhancement with CSS feature queries to serve appropriate experiences without breaking anything. I devised a new device-detection system using media queries and support queries in CSS, replacing the complex JavaScript-heavy matrix that previously required individual support for each device type. This was important because we needed to support Opera Mini running on Nigerian feature phones, so support queries gave us a much more efficient way to do that.
+
 method3Images:
   - src: /img/screenshot-2023-06-23-at-22-02-54-world-news-latest-world-news-newsnow.jpg
     caption: Mobile experience - NewsNow's first proper mobile design in 24 years
@@ -147,10 +145,7 @@ results: >-
   The redesign succeeded by every measure we could track. User satisfaction metrics improved steadily throughout rollout via our in-app feedback mechanisms. We received positive feedback from both new users (who found it more approachable) and power users (who retained access to their preferred workflows).
 
   
-  > **We'd built a foundation that could evolve.** The design system enabled rapid iteration on new features. The Vue.js architecture made development faster and more predictable. The research programme became an ongoing capability informing all subsequent product decisions.
-
-  
-  Most importantly, I transformed NewsNow from engineering-led decisions to user-informed design, from assumptions to evidence, from reactive changes to strategic planning. Design became a strategic function rather than an afterthought.
+  The design system enabled rapid iteration on new features. The Vue.js architecture made development faster and more predictable. The research programme became an ongoing capability informing all subsequent product decisions.
 
   
   **Looking back:** I'd have conducted user research even earlier to challenge more legacy assumptions from the start. But given the constraints - redesigning a 24-year-old platform serving millions whilst maintaining backwards compatibility with feature phones - this was the largest, most complex, and highest quality piece of work I'd delivered at that point in my career.
