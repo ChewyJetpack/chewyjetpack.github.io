@@ -14,26 +14,18 @@ summary: >-
   
   **My role:** Sole designer initially (later hired and managed a UI designer), front-end developer building the Vue.js implementation, [user researcher](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative), and product strategist working directly with CEO/COO.
 
+
+  **The impact:** I transformed NewsNow from engineering-led decisions to user-informed design, from assumptions to evidence, from reactive changes to strategic planning.
 summaryImages:
-  - src: /img/1-z_7uafpbcxd-6i5g7tl49q.webp
-    caption: The original NewsNow website from 1995
   - src: /img/www-screenshots.staging.newsnow.co-1.png
-    caption: NewsNow's website when I inherited it
-  - src: /img/reskin.png
-    caption: My initial straight-to-code reskin
+    caption: NewsNow's website when I inherited it - functional but dated
   - src: /img/screenshot-2023-06-23-at-22-01-38-newsnow-the-independent-news-discovery-platform.png
     caption: The New Format - final result on desktop
-  - src: /img/screenshot-2023-06-23-at-22-02-28-world-news-latest-world-news-newsnow.png
-    caption: Latest news view - maintaining information density
-  - src: /img/screenshot-2023-06-23-at-22-02-54-world-news-latest-world-news-newsnow.jpg
-    caption: Mobile experience - first time ever
-  - src: /img/screenshot-2023-06-23-at-22-03-07-world-news-latest-world-news-newsnow.jpg
-    caption: Compact view for power users
 background: >-
   Over 20+ years of constant iteration, NewsNow had accumulated technical debt and design decisions that made sense in 1997 but not in 2019. The existing design wasn't flexible enough to accommodate planned improvements to functionality. We needed both a fresh coat of paint and a rethink of the foundations underneath.
-
-
-  Beyond the visual lift, there was scope for a complete redesign using an initial reskin as the foundation. The New Format would be a large undertaking with multiple stages of iteration and research.
+backgroundImages:
+  - src: /img/1-z_7uafpbcxd-6i5g7tl49q.webp
+    caption: The original NewsNow website from 1995 - where it all began
 goals: >-
   The new design needed to:
 
@@ -44,15 +36,16 @@ goals: >-
   - Retain high browser compatibility for diverse users in developing countries
   - Work on feature phones using Opera Mini with extreme data saving enabled
   - Most critically: improve the experience without alienating millions of loyal, long-standing users
-goalsImages:
-  - src: /img/NNnewFormat.jpg
-    caption: NewsNow's New Format
+goalsImages: []
 method: >-
   ### Initial Reskin and Research Foundation
   
   I started with a straight-to-code reskin of the existing design using NewsNow's in-house containerised development platform. This gave us a stable foundation whilst I conducted the company's [first user research initiative in 25 years](https://emilsmith.pro/work/case-studies/newsnow-user-research-initiative).
+methodImages:
+  - src: /img/reskin.png
+    caption: My initial straight-to-code reskin - modernising whilst preserving familiarity
 
-  
+method2: >-
   The research was more revealing than expected. Over 6000+ survey responses across the UK, US, and Nigeria, plus moderated interviews, uncovered something crucial: **NewsNow wasn't one global platform—it was three distinct regional products.**
 
 
@@ -85,8 +78,13 @@ method: >-
 
   
   This was NewsNow's first time hosting images after decades of text-only headlines. The research showed most users would embrace this—as long as we preserved access to their preferred workflows.
+method2Images:
+  - src: /img/screenshot-2023-06-23-at-22-02-28-world-news-latest-world-news-newsnow.png
+    caption: Latest news view on desktop - maintaining information density for power users
+  - src: /img/screenshot-2023-06-23-at-22-03-07-world-news-latest-world-news-newsnow.jpg
+    caption: Compact view on mobile - ultra-high density for headline scanning
 
-  
+method3: >-
   ### Design System: Atomic Principles
 
   
@@ -112,8 +110,11 @@ method: >-
 
   
   **My solution:** Progressive enhancement with CSS feature queries to serve appropriate experiences without breaking anything. I also devised a new device-detection system using media queries and support queries in CSS, replacing the complex JavaScript-heavy matrix that previously required individual support for each device type. This dramatically simplified maintenance.
+method3Images:
+  - src: /img/screenshot-2023-06-23-at-22-02-54-world-news-latest-world-news-newsnow.jpg
+    caption: Mobile experience - NewsNow's first proper mobile design in 24 years
 
-  
+method4: >-
   ### Brand Development
 
   
@@ -136,7 +137,7 @@ method: >-
 
 
   The feedback inbox was shared between myself and editorial, since much of what we received concerned content rather than design. This collaborative approach helped us respond quickly and appropriately to user concerns.
-methodImages: []
+method4Images: []
 results: >-
   The redesign succeeded by every measure we could track. User satisfaction metrics improved steadily throughout rollout via our in-app feedback mechanisms. We received positive feedback from both new users (who found it more approachable) and power users (who retained access to their preferred workflows).
 
@@ -148,4 +149,13 @@ results: >-
 
   
   **Looking back:** I'd have conducted user research even earlier to challenge more legacy assumptions from the start. But given the constraints—redesigning a 24-year-old platform serving millions whilst maintaining backwards compatibility with feature phones—this was the largest, most complex, and highest quality piece of work I'd delivered at that point in my career.
+resultsImages:
+  - src: /img/screenshot-2023-06-23-at-22-01-38-newsnow-the-independent-news-discovery-platform.png
+    caption: The final result - modern, accessible, and user-informed
+  - src: /img/screenshot-2023-06-23-at-22-02-28-world-news-latest-world-news-newsnow.png
+    caption: Latest news view maintaining the information density users relied on
+  - src: /img/screenshot-2023-06-23-at-22-02-54-world-news-latest-world-news-newsnow.jpg
+    caption: Mobile experience working on feature phones and modern devices alike
+  - src: /img/screenshot-2023-06-23-at-22-03-07-world-news-latest-world-news-newsnow.jpg
+    caption: Compact view for users who wanted maximum headline density
 ---
