@@ -8,7 +8,7 @@
     :aria-label="ariaLabel || label"
     @click="$emit('clicked')">
     <span class="button__label">{{ label }}</span>
-    <font-awesome class="button__icon" :icon="icon" />
+    <font-awesome class="button__icon" :icon="getIcon(icon)" />
   </component>
 </template>
 
@@ -55,6 +55,16 @@ export default {
       validator: function (value) {
         return ['right', 'down', 'up'].indexOf(value) !== -1
       }
+    }
+  },
+  methods: {
+    getIcon(iconName) {
+      // Handle special cases for brand icons that need the 'fab' prefix
+      if (iconName === 'linkedin-in') {
+        return ['fab', 'linkedin-in'];
+      }
+      // Default to 'fas' prefix for solid icons
+      return ['fas', iconName];
     }
   }
 };
