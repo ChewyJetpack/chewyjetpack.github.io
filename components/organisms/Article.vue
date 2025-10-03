@@ -57,7 +57,8 @@
                 />
                 <CaseStudyContentBlock 
                     :content="content.impact" 
-                    heading="Impact"
+                    heading="Outcome"
+                    headingLevel="h3"
                 />
                 <CaseStudyContentBlock 
                     :content="content.background" 

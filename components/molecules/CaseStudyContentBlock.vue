@@ -1,6 +1,6 @@
 <template>
     <section class="cs-block" v-if="content || images || youtube">
-        <h2 v-if="heading">{{ heading }}</h2>
+        <component :is="headingLevel || 'h2'" v-if="heading">{{ heading }}</component>
         <div v-if="content" class="cs-block__content" v-html="$md.render(content)" />  
         <div 
             v-if="youtube" 
@@ -19,6 +19,10 @@ export default {
     props: {
         heading: {
             type: String
+        },
+        headingLevel: {
+            type: String,
+            default: 'h2'
         },
         content: {
             type: String
@@ -44,6 +48,23 @@ export default {
             color: var(--c-main);
             position: relative;
             display: inline-block;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--c-accent-2);
+            }
+        }
+
+        h3 {
+            color: var(--c-main);
+            position: relative;
+            display: inline-block;
+            font-weight: 500;
             
             &::after {
                 content: '';

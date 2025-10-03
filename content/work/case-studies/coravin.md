@@ -9,10 +9,10 @@ meta_description: Creating international brochure websites for Coravin's wine pr
 impact: >-
   Established Coravin's digital brand identity during a crucial growth phase, creating scalable design patterns that supported rapid international expansion and became reference points for continued brand development.
 summary: >-
-  Coravin had developed ingenious wine preservation technology in the form of a needle system that lets you pour wine without removing the cork, using argon gas to replace the volume. 
+  Coravin is an ingenious wine preservation technology in the form of a needle system that lets you pour wine without removing the cork, using argon gas to replace the volume. 
   
 
-  Working with minimal brand guidelines for a startup still finding its visual identity, I created sophisticated web experiences that balanced technical credibility with premium wine culture.
+  Working with minimal brand guidelines for a relatively new business that was still finding its visual identity, I designed an internationalised product showcase website for each of their future markets as they expanded internationally.
 summaryImages:
   - src: /img/m5w94h3s.png
     caption: The Coravin product page
@@ -35,8 +35,8 @@ method: >-
 results: >-
   Successfully launched cohesive brand presence across multiple international markets. The visual design approach I established became reference points for Coravin's continued brand development and provided efficient templates for expansion into additional markets.
   
-  
-  The design patterns helped define Coravin's digital brand identity during a crucial growth phase when they were still establishing their market position.
+
+  The design patterns helped define Coravin's digital brand identity during a growth phase when they were still establishing their market position.
 wrap-up: >-
   This project was a valuable exercise in luxury brand design with creative freedom. Working with a startup meant establishing digital brand patterns rather than following rigid guidelines, whilst the international scope required thinking about scalability from day one.
   
