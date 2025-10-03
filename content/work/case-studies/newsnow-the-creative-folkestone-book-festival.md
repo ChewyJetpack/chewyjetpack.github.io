@@ -9,18 +9,15 @@ meta_description: Creating Vue.js kiosks, promotional films, and brand materials
 impact: >-
   Created a complete brand campaign, from technical infrastructure to promotional film, that established NewsNow's cultural presence and became a reference point for the company's brand identity and values.
 summary: >-
-  NewsNow was the principal partner of the 2019 Folkestone Book Festival. The challenge: represent a news aggregator at a literary festival without being boring.
-
-  
-  **My solution:** Custom Vue.js kiosks running on Raspberry Pis displaying live news feeds, alongside a promotional film I wrote, produced, edited, and scored myself - all delivered in two weeks whilst managing the technical implementation.
+  NewsNow was the principal partner of the 2019 Folkestone Book Festival. We had the opportunity to display whatever we wanted on the projector in the main theatre, to run multimedia kiosks in the foyer and lobby, and to create our own merchandise.
 
 
-  **The approach:** Used the theme "There's more than one way to see things" as both a visual puzzle in the print design and a statement about media plurality in the film.
+  The concept is "There's more than one way to see things" - this was intended as a statement about media plurality in the film, but appropriately represented differently in the print ad.
 background: >-
   The festival theme was "The Shape of Things to Come" - fitting for 2019, with Brexit uncertainty, climate protests, and divisive political shifts dominating the news cycle. This aligned perfectly with NewsNow's mission to encourage wide reading and informed perspectives on complex issues.
 
 
-  NewsNow's partnership with the festival was implemented via digital kiosks placed around the venue, displaying latest news headlines and imagery across various topics directly from our API, running on Raspberry Pis. We were also offered the opportunity to display a short promotional film both in the main auditorium before each event and intermittently on our kiosks.
+  We decided on custom Vue.js kiosks running on Raspberry Pis displaying live news feeds directly from our constantly updating aggregation product via an API. The kiosks would periodically run the promotional film I created - it was essentially just constructed from stock footage on a very tight deadline, but I did actually develop an overall narrative script. I also sourced, colour-corrected, and edited the footage, and even scored part of the music myself. The film was also shown in the main auditorium both before and after each event, and during intermissions.
 goals: >-
   Beyond supporting Folkestone's creative industry, our goals were to:
 
@@ -28,8 +25,6 @@ goals: >-
   - Elevate NewsNow's brand identity and demonstrate our values of media plurality
 
   - Show that public-interest journalism matters through high-quality brand materials
-
-  - Create engaging festival experiences that wouldn't feel like corporate sponsorship
 
   - Establish reusable assets and processes for future cultural partnerships
 goalsImages:
@@ -52,34 +47,25 @@ method: >-
   - Managing the entire project timeline and delivery
 
 
-  ### The Technical Challenge
+  ### The NewsNow Kiosks
 
   
-  I designed and built a bespoke Vue.js web app displaying live headlines and imagery across multiple topics, pulling directly from NewsNow's API. The challenge: making this work reliably in a public venue with questionable internet, running on inexpensive hardware.
+  I designed a bespoke Vue.js web app displaying live headlines and imagery across multiple topics, pulling directly from NewsNow's API, with fallbacks in case of poor network connectivity, running on Raspberry Pis. I worked on spec'ing out the display panel/hardware required and testing our various mini-PCs to prototype setups, and eventually the physical installation on location.
 
   
-  **Solution:** Raspberry Pi units with offline fallbacks and robust error handling. I handled everything from display panel specifications to prototype setups, to testing various mini-PC devices, to the physical installation on location.
-
-  
-  ### The Creative Challenge
+  ### The Film
 
   
   For the promotional film, I presented a concept that leant into the divisive political climate of 2019. Given that NewsNow's brand identity is based in rationality and impartialism, it can be difficult to position the brand in a way that makes a strong statement.
 
 
-  **My approach:** Illustrate extreme polarisation across inflammatory political issues, then present NewsNow as an antidote to binary thinking. The concept behind the piece is unity in the face of adversity - recognising each other as human beings, being understanding, and appreciating nuance, complexity, and even chaos.
+  I thought it could be fun to play with duality a bit - illustrate all the extreme polarisation across inflammatory political issues, then present NewsNow as a means to challenge to binary thinking. The concept behind the piece is unity in the face of adversity - recognising each other as human beings, being understanding, and appreciating nuance, complexity, and even chaos.
 
   
-  > **The resulting slogan: "There's more than one way to see things."**
+  > **"There's more than one way to see things."**
 
   
-  The team decided to run with my script by unanimous vote. Initially, we'd planned to outsource production to a video agency, but after reviewing early storyboards, we weren't satisfied with their direction. Given the tight timeline, I put myself forward to produce the film entirely.
-
-  
-  ### The Production Challenge
-
-  
-  With an extremely tight timeframe - two weeks whilst also managing Vue.js development and technical setup - I had to work efficiently:
+  The team decided to run with my script by vote. Initially, we'd planned to outsource production to a video agency, but after reviewing early storyboards, we weren't satisfied with their direction. Given the tight timeline, I put myself forward to produce the film entirely:
 
 
   - **Writing and storyboarding:** Trimmed the script for captioned viewing (kiosks had no audio)
@@ -91,7 +77,7 @@ method: >-
   - **Editing and post-production:** Synced captions, colour correction, and frame timing
 
   
-  ### The Design Challenge
+  ### The Print Advertisement
 
   
   For the print advertisement in the festival brochure, I created a 3D isometric shape that appeared as different 2D shapes when viewed from each axis - a literal visualisation of "there's more than one way to see things." I designed it to work harmoniously with the festival's branding whilst maintaining NewsNow's identity.
@@ -105,10 +91,7 @@ youtube: <iframe width="560" height="315"
   encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen></iframe>
 results: >-
-  The film was well-received by organisers and attendees alike. It became a reference point for subsequent discussions about NewsNow's brand identity and ethos - exactly what we'd hoped for.
-
-  
-  I'd created reusable design assets (kiosk designs, video template, print designs, and vector branding). Others in the business worked on technical processes like kiosk setup procedures and hardware specifications. Together, we'd established templates and workflows for future cultural partnerships.
+  The film was well-received by organisers and attendees alike, and even helped stimulate some new copy for the company's brand pages.
 
   
   The technical infrastructure worked flawlessly throughout the festival. The creative approach established a tone for brand communications that NewsNow could use meaningfully with cultural events whilst staying true to our mission of promoting informed discourse.
@@ -117,10 +100,8 @@ results: >-
   > **Sometimes constraints force the best creative solutions.**
 
   
-  **Looking back:** The time constraints meant I couldn't spend as long on post-production as I'd have liked - more time for colour correction, frame interpolation, and potentially adding narration would have yielded a more polished end product. I also worked closely with senior management during production to accommodate feedback, which would have been smoother with more breathing room in the timeline.
+  Looking back, the time constraints meant I couldn't spend as long on post-production as I'd have liked - more time for colour correction, frame interpolation, and potentially adding narration would have yielded a more polished end product.
 
-
-  But delivering a complete brand campaign - from technical infrastructure to emotional storytelling - in two weeks, whilst maintaining quality standards? That's the kind of work I'm built for.
 resultsImages: []
 wrap-up: ""
 ---
